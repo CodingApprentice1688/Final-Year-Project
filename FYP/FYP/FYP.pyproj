@@ -27,6 +27,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="FYP\hello.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="runserver.py" />
     <Compile Include="FYP\__init__.py" />
     <Compile Include="FYP\views.py" />
@@ -40,6 +43,12 @@
     <Folder Include="FYP\templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FYP\templates\helloPage.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="FYP\templates\testIndex.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="requirements.txt" />
     <Content Include="FYP\static\content\bootstrap.css" />
     <Content Include="FYP\static\content\bootstrap.min.css" />
