@@ -27,7 +27,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="FYP\hello.py">
+    <Compile Include="FYP\testing.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="runserver.py" />

@@ -6,7 +6,6 @@ from flask import render_template
 from FYP import app
 
 @app.route('/')
-@app.route('/testIndex')
 def testIndex():  
      return render_template('testIndex.html')  
  
