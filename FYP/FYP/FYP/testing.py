@@ -2,19 +2,20 @@
 Routes and views for the flask application.
 """
 
-from flask import render_template
+from datetime import datetime
+from flask import render_template, request, Flask
 from FYP import app
 
 @app.route('/')
-def testIndex():  
+@app.route('/test')
+def test():  
      return render_template('testIndex.html')  
  
  
   
-@app.route('/hello', methods=['POST'])  
+@app.route('/helloPage', methods=['POST'])  
 def hello():  
     first_name = request.form['first_name']  
     last_name = request.form['last_name']  
     data=' %s %s ' % (first_name, last_name)  
     return render_template('helloPage.html',value=data)  
-     
