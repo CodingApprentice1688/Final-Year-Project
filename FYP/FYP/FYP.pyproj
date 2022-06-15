@@ -27,6 +27,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="FYP\camera.py" />
     <Compile Include="FYP\testing.py">
       <SubType>Code</SubType>
     </Compile>
@@ -46,6 +47,7 @@
     <Content Include="FYP\templates\helloPage.html">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="FYP\templates\login.html" />
     <Content Include="FYP\templates\testIndex.html">
       <SubType>Code</SubType>
     </Content>
