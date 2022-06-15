@@ -6,6 +6,18 @@ from datetime import datetime
 from flask import render_template
 from FYP import app
 
+
+from flask import Flask,render_template, request, redirect, url_for
+from flask_mysqldb import MySQL
+ 
+ 
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_DB'] = 'restaurantapp' #change into your own database
+ 
+mysql = MySQL(app)
+
 @app.route('/')
 @app.route('/home')
 def home():
@@ -54,3 +66,15 @@ def hello():
         year=datetime.now().year,
         message='Under testing'
     )
+
+
+@app.route('/formPage', methods =['POST', 'GET'])
+def submitForm():
+   if request.method == 'POST':
+        role = request.form['roleName']
+        cursor = mysql.connection.cursor()
+        cursor.execute(""" INSERT INTO ROLE (roleName) VALUES(%s)""" , [role])
+        mysql.connection.commit()
+        cursor.close()
+        return redirect(url_for('test'))
+    

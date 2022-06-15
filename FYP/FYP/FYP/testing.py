@@ -6,7 +6,6 @@ from datetime import datetime
 from flask import render_template, request, Flask
 from FYP import app
 
-@app.route('/')
 @app.route('/testHello')
 def testHello():
     """Renders the home page."""
