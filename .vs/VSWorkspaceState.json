@@ -1,6 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\FYP",
+    "\\FYP\\FYP",
+    "\\FYP\\FYP\\FYP",
+    "\\FYP\\FYP\\FYP\\static\\content",
+    "\\FYP\\FYP\\FYP\\templates"
   ],
+  "SelectedNode": "\\FYP\\FYP\\FYP\\templates\\login.html",
   "PreviewInSolutionExplorer": false
 }

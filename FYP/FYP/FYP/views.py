@@ -5,9 +5,9 @@ Routes and views for the flask application.
 from datetime import datetime
 from flask import render_template
 from FYP import app
+from .camera import VideoCamera
 
-
-from flask import Flask,render_template, request, redirect, url_for
+from flask import Flask,render_template, request, redirect, url_for, Response
 from flask_mysqldb import MySQL
  
  
@@ -27,6 +27,33 @@ def home():
         title='Home Page',
         year=datetime.now().year,
     )
+
+@app.route('/login')
+def login():
+    """Renders the home page."""
+    return render_template(
+        'login.html',
+        title='Login Page',
+        year=datetime.now().year,
+    )
+def gen(camera):
+    while True:
+        frame = camera.get_frame()
+        yield (b'--frame\r\n'
+                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+
+@app.route('/LoginController', methods = ['POST'])
+def LoginController():
+    VideoCamera().stop_camera()
+    return redirect(url_for('home'))
+
+
+
+@app.route('/video_feed')
+def video_feed():
+    return Response(gen(VideoCamera()),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
+
 
 @app.route('/contact')
 def contact():

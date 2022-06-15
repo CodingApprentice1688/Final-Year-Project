@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="/images/favicon.png" type="">
+
+  <title> Healthcare </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="../static/content/bootstrap.css" />
+
+
+
+  <!-- Custom styles for this template -->
+  <link href="../static/content/style.css?1422585377" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="../static/content/responsive.css" rel="stylesheet" />
+
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="../static/images/hero-bg.jpg" alt="">
+    </div>
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="/">
+            <span>
+              Healthcare
+            </span>
+          </a>
+
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  mx-auto" style="padding-left:700px">
+              
+              
+            </ul>
+            
+          </div>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+
+  <section class="login_section layout_padding2">
+    <div class="container  ">
+
+      <div class="row">
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="{{ url_for('video_feed') }}"/>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h1>
+                Scan Your Face!
+              </h1>
+              <h4>
+                First, position your face towards the camera. Then, press the capture button to log in to the system. 
+              </h4>
+            </div>
+            <form method="post" action="{{ url_for('LoginController') }}" >
+              
+              <button class="yellow-button" type="submit">
+                
+                  Capture
+          
+              </button>
+            </form>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- jQuery -->
+  <!-- <script src="js/jquery-3.4.1.min.js"></script> -->
+  <!-- bootstrap js -->
+  <script src="../static/scripts/js/bootstrap.js"></script>
+  <!-- isotope js -->
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <!-- custom js -->
+  <!-- <script src="js/custom.js"></script> -->
+  
+
+</body>
+
+</html>
