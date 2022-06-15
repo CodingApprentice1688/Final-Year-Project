@@ -14,7 +14,7 @@ from flask_mysqldb import MySQL
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'restaurantapp' #change into your own database
+app.config['MYSQL_DB'] = 'healthcare_db' #change into your own database
  
 mysql = MySQL(app)
 
