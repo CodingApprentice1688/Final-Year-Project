@@ -32,7 +32,7 @@ class VideoCamera(object):
         # video stream.
 
        
-        cv2.imwrite('Frame.jpg', image)
+        
         ret, jpeg = cv2.imencode('.jpg', image)
         return jpeg.tobytes()
 
