@@ -7,15 +7,14 @@ from flask import render_template, request, Flask
 from FYP import app
 
 @app.route('/')
-@app.route('/test')
-def test():  
-     return render_template('testIndex.html')  
- 
+@app.route('/testHello')
+def testHello():
+    """Renders the home page."""
+    return render_template(
+        'helloPage.html',
+        title='hello Page',
+        year=datetime.now().year,
+        message='This is a Hello page.'
+    )
  
   
-@app.route('/helloPage', methods=['POST'])  
-def hello():  
-    first_name = request.form['first_name']  
-    last_name = request.form['last_name']  
-    data=' %s %s ' % (first_name, last_name)  
-    return render_template('helloPage.html',value=data)  

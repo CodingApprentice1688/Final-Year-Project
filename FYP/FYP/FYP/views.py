@@ -38,7 +38,7 @@ def about():
 @app.route('/test')
 def test():  
       return render_template(
-        'testIndex.html',
+        'helloPage.html',
         title='test',
         year=datetime.now().year,
         message='Under testing'
