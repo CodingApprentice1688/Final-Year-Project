@@ -138,3 +138,11 @@ def submitForm():
         mysql.connection.commit()
         cursor.close()
         return redirect(url_for('test'))
+
+@app.route('/StaffCreateMedicalRecord')
+def StaffCreateMedicalRecord():
+    """Renders the about page."""
+    return render_template(
+        'StaffCreateMedicalRecord.html',
+        title='Staff Create Record',
+        year=datetime.now().year)
