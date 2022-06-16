@@ -7,14 +7,15 @@ from flask import render_template
 from FYP import app
 from .camera import VideoCamera
 
-from flask import Flask,render_template, request, redirect, url_for, Response
+from flask import Flask,render_template, request, redirect, url_for, Response, session
 from flask_mysqldb import MySQL
- 
- 
+import MySQLdb.cursors 
+
+app.secret_key = 'facial_recognition'
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'test' #change into your own database
+app.config['MYSQL_DB'] = 'healthcare_db' #change into your own database
  
 mysql = MySQL(app)
 
@@ -27,15 +28,44 @@ def home():
         title='Home Page',
         year=datetime.now().year,
     )
-
-@app.route('/login')
-def login():
+@app.route('/main')
+def main():
     """Renders the home page."""
     return render_template(
-        'login.html',
-        title='Login Page',
+        'index_Main.html',
+        title='Home Page',
         year=datetime.now().year,
     )
+
+
+""" login manually """
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    error = None
+    msg = ''
+    if request.method == 'POST':        
+        username = request.form['username']
+        password = request.form['password']
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM user WHERE username = % s AND password = % s', (username, password, ))
+        userL = cursor.fetchone()
+        if userL:
+            session['logged_in'] = True
+            session['username'] = userL['username']
+            msg = 'Logged in successfully !'
+            #return render_template('index_Main.html', msg = msg)
+            return redirect(url_for('main'))
+
+        else:
+            error = 'Invalid Credentials. Please try again.'
+    return render_template('login.html', error = error)
+
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    session.pop('username', None)
+    return redirect(url_for('login'))
+
 def gen(camera):
     while True:
         frame = camera.get_frame()
@@ -46,6 +76,7 @@ def gen(camera):
 def LoginController():
     VideoCamera().stop_camera()
     return redirect(url_for('home'))
+
 
 
 
@@ -95,6 +126,9 @@ def hello():
     )
 
 
+
+
+
 @app.route('/formPage', methods =['POST', 'GET'])
 def submitForm():
    if request.method == 'POST':
@@ -104,4 +138,3 @@ def submitForm():
         mysql.connection.commit()
         cursor.close()
         return redirect(url_for('test'))
-    

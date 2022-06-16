@@ -47,8 +47,14 @@
     <Content Include="FYP\templates\helloPage.html">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="FYP\templates\index_Main.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="FYP\templates\layout_Main.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="FYP\templates\login.html" />
-    <Content Include="FYP\templates\testIndex.html">
+    <Content Include="FYP\templates\logout.html">
       <SubType>Code</SubType>
     </Content>
     <Content Include="requirements.txt" />
