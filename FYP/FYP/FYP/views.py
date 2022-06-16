@@ -146,3 +146,7 @@ def StaffCreateMedicalRecord():
         'StaffCreateMedicalRecord.html',
         title='Staff Create Record',
         year=datetime.now().year)
+
+
+
+        #hello
