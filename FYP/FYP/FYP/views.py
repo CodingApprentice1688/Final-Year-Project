@@ -36,7 +36,33 @@ def main():
         title='Home Page',
         year=datetime.now().year,
     )
-
+@app.route('/Appointments')
+def viewAppointment():
+    """Renders a sample page."""
+    return render_template(
+        'Patient_ViewAppointment.html',
+        title='hello',
+        year=datetime.now().year,
+        message='All appointments'
+    )
+@app.route('/HealthcareStaff_Main')
+def HealthcareStaff_Main():
+    """Renders a sample page."""
+    return render_template(
+        'testHealthCareStaff.html',
+        title='hello',
+        year=datetime.now().year,
+        message='This page is for healthcare staff'
+    )
+@app.route('/ITAdmin_Main')
+def ITAdmin_Main():
+    """Renders a sample page."""
+    return render_template(
+        'testITAdmin.html',
+        title='hello',
+        year=datetime.now().year,
+        message='This page is for IT Admin '
+    )
 
 """ login manually """
 @app.route('/login', methods=['GET', 'POST'])
@@ -52,9 +78,16 @@ def login():
         if userL:
             session['logged_in'] = True
             session['username'] = userL['username']
+            session['role_type'] = userL['role']
             msg = 'Logged in successfully !'
             #return render_template('index_Main.html', msg = msg)
-            return redirect(url_for('main'))
+            if userL['role'] == 'healthcare staff':
+                return redirect(url_for('HealthcareStaff_Main'))
+            if userL['role'] == 'patient':
+                return redirect(url_for('main'))
+            if userL['role'] == 'IT admin':
+                return redirect(url_for('ITAdmin_Main'))    
+            #return redirect(url_for('main'))
 
         else:
             error = 'Invalid Credentials. Please try again.'
@@ -124,6 +157,7 @@ def hello():
         year=datetime.now().year,
         message='Under testing'
     )
+
 
 
 

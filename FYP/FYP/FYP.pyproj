@@ -57,6 +57,15 @@
     <Content Include="FYP\templates\logout.html">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="FYP\templates\Patient_ViewAppointment.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="FYP\templates\testHealthCareStaff.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="FYP\templates\testITAdmin.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="requirements.txt" />
     <Content Include="FYP\static\content\bootstrap.css" />
     <Content Include="FYP\static\content\bootstrap.min.css" />
