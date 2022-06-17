@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title> Hospital </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="../static/content/bootstrap.css" />
+
+
+  <!-- Custom styles for this template -->
+  <link href="../static/content/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href=".../static/content/responsive.css" rel="stylesheet" />
+
+</head>
+
+<body class="sub_page">
+
+    <div class="hero_area">
+      <div class="bg-box">
+        <img src="../static/images/hero-bg.jpg" alt="">
+      </div>
+      <header class="header_section">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="/UserAdmin">
+              <span>
+                 Hospital
+              </span>
+            </a>
+  
+  
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav  mx-auto" style="padding-left:700px">
+                
+                <li class="nav-item">
+                  <a class="nav-link" onclick="window.location.href='/LogoutController'">Log Out</a>
+                
+              </li>
+              </ul>
+              
+            </div>
+          </nav>
+        </div>
+      </header>
+    </div>
+    <section class="form_section layout_padding">
+        <div class="container">
+          <div class="heading_container">
+            <h2>
+              Create Appointment
+            </h2>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form_container">
+                <form method="post" action="/UserAdminCreateAccountController">
+                  <div>
+                    
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Name" />
+                  </div>
+                  <div>
+                    <input type="text" class="form-control" name="Date Of Birth" id="dob" placeholder="Date Of Birth" />
+                  </div>
+                  <div>
+                    <input type="text" class="form-control" name="Gender" id="gender" placeholder="Gender" />
+                  </div>
+                  <div>
+                    <input type="date" class="form-control" name="Appointment" id="appointment" placeholder="Appointment" />
+                  </div>
+                  <div>
+                    <input type="text" class="form-control" name="Doctor" id="doctor" placeholder="Doctor" />
+                  </div>
+                  <div>
+                    <input type="text" class="form-control" name="Reason for Visit" id="reason" placeholder="Reason for Visit" />
+                  </div>
+                  
+                  <div class="btn_box">
+                    <button class="yellow-button" type="submit">
+                      Create Appointment
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+  
+
+</body>
+
+</html>
