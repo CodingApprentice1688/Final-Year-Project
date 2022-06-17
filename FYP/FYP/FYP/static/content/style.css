@@ -521,8 +521,14 @@ a:focus {
 }
 
 .login_section {
-  background: black;
-  color: #ffffff;
+  position: relative;
+  min-height: 100vh;
+	width: 100%;
+	background-image: 
+	linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/hospital.jpg);
+	background-position: center;
+	background-size: cover;
+
 }
 
 .login_section .row {
@@ -591,6 +597,7 @@ a:focus {
 
 .form_section {
   position: relative;
+		
 }
 
 .form_section .heading_container {
@@ -723,5 +730,14 @@ label > input:checked + img{ /* (RADIO CHECKED) style gambar */
 }
 
 
-
+.form_section {
+  position: relative;
+  min-height: 100vh;
+	width: 100%;
+	background-image: 
+	linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../images/hospital.jpg);
+	background-position: center;
+	background-size: cover;
+		
+}
 
