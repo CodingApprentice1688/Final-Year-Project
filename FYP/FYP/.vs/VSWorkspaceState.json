@@ -4,9 +4,9 @@
     "\\FYP",
     "\\FYP\\static",
     "\\FYP\\static\\content",
-    "\\FYP\\static\\fonts",
+    "\\FYP\\static\\images",
     "\\FYP\\templates"
   ],
-  "SelectedNode": "\\FYP\\static\\content\\style.css",
+  "SelectedNode": "\\FYP\\templates\\login.html",
   "PreviewInSolutionExplorer": false
 }
