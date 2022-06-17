@@ -32,7 +32,7 @@ def home():
 def main():
     """Renders the home page."""
     return render_template(
-        'index_Main.html',
+        'index_Patient.html',
         title='Home Page',
         year=datetime.now().year,
     )
@@ -63,6 +63,16 @@ def ITAdmin_Main():
         year=datetime.now().year,
         message='This page is for IT Admin '
     )
+@app.route('/Manage_Credentials')
+def Manage_Credentials():
+    """Renders a sample page."""
+    return render_template(
+        'testITAdmin.html',
+        title='hello',
+        year=datetime.now().year,
+        message='IT Admin to manage credentials '
+    )
+
 
 """ login manually """
 @app.route('/login', methods=['GET', 'POST'])
@@ -162,7 +172,7 @@ def hello():
 
 
 
-
+# test insert in sql
 @app.route('/formPage', methods =['POST', 'GET'])
 def submitForm():
    if request.method == 'POST':
@@ -173,6 +183,7 @@ def submitForm():
         cursor.close()
         return redirect(url_for('test'))
 
+#healthcare staff to create medical records
 @app.route('/StaffCreateMedicalRecord')
 def StaffCreateMedicalRecord():
     """Renders the about page."""

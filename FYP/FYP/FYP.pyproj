@@ -42,15 +42,30 @@
     <Folder Include="FYP\static\fonts\" />
     <Folder Include="FYP\static\scripts\" />
     <Folder Include="FYP\templates\" />
+    <Folder Include="FYP\templates\IT Admin\" />
+    <Folder Include="FYP\templates\Healthcare Staff\" />
+    <Folder Include="FYP\templates\Patient\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="FYP\templates\helloPage.html">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="FYP\templates\index_Main.html">
+    <Content Include="FYP\templates\index_HealthCareStaff.html">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="FYP\templates\layout_Main.html">
+    <Content Include="FYP\templates\index_ITAdmin.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="FYP\templates\index_Patient.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="FYP\templates\layout_HealthCareStaff.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="FYP\templates\layout_ITAdmin.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="FYP\templates\layout_Patient.html">
       <SubType>Code</SubType>
     </Content>
     <Content Include="FYP\templates\login.html" />
@@ -60,6 +75,7 @@
     <Content Include="FYP\templates\Patient_ViewAppointment.html">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="FYP\templates\StaffCreateMedicalRecord.html" />
     <Content Include="FYP\templates\testHealthCareStaff.html">
       <SubType>Code</SubType>
     </Content>
