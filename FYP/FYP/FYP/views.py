@@ -120,6 +120,19 @@ def viewAppointment():
         if userA:
           return render_template('Patient_ViewAppointment.html', userA = userA)
     return render_template('Patient_ViewAppointment.html', message = message)
+
+
+#patient update personal details
+
+@app.route('/PatientUpdatePersonalDetail', methods=['GET', 'POST'])
+def PatientUpdatePersonalDetail():
+    """Renders the contact page."""
+    return render_template(
+        'PatientUpdatePersonalDetail.html',
+        title='PatientUpdatePersonalDetail',
+        year=datetime.now().year,
+        message='Your contact page.'
+    )
     
 
 def gen(camera):
