@@ -1,11 +1,28 @@
 {% extends "layout_Patient.html" %}
-
 {% block content %}
 
 <h2>{{ title }}.</h2>
 <h3>{{ message }}</h3>
+<h3>{{ msg }}</h3>
 
 
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="appointment">
+            <p>Select date to view appointment: <input type="date"></p>
+            <p>Patient: {{ userA['username'] }}</p>
+            <p>NRIC: {{ userA.nric }}</p>
+            <p>Date of visit : {{ userA.date }}</p>
+            <p>Reason of visit : {{ userA.reason }}</p>
+            <p>Department: {{ userA.department }} </p>
+            <p>Attending Doctor: {{ userA.attending }}</p>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 {% endblock %}
