@@ -11,6 +11,8 @@ from flask import Flask,render_template, request, redirect, url_for, Response, s
 from flask_mysqldb import MySQL
 import MySQLdb.cursors 
 
+
+
 app.secret_key = 'facial_recognition'
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
@@ -18,6 +20,10 @@ app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'healthcare_db' #change into your own database
  
 mysql = MySQL(app)
+
+
+
+
 
 @app.route('/')
 @app.route('/home')
@@ -36,15 +42,7 @@ def main():
         title='Home Page',
         year=datetime.now().year,
     )
-@app.route('/Appointments')
-def viewAppointment():
-    """Renders a sample page."""
-    return render_template(
-        'Patient_ViewAppointment.html',
-        title='hello',
-        year=datetime.now().year,
-        message='All appointments'
-    )
+
 @app.route('/HealthcareStaff_Main')
 def HealthcareStaff_Main():
     """Renders a sample page."""
@@ -88,6 +86,7 @@ def login():
         if userL:
             session['logged_in'] = True
             session['username'] = userL['username']
+            session['nric'] = userL['nric']
             session['role_type'] = userL['role']
             msg = 'Logged in successfully !'
             #return render_template('index_Main.html', msg = msg)
@@ -108,6 +107,20 @@ def logout():
     session.pop('logged_in', None)
     session.pop('username', None)
     return redirect(url_for('login'))
+
+#patient view all appointments
+@app.route('/Appointments', methods=['GET', 'POST'])
+def viewAppointment():
+    message = ''
+    msg = ''
+    if 'logged_in' in session:
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM appointments WHERE username = % s AND nric = % s',  (session['username'], session['nric'], ))
+        userA = cursor.fetchone()
+        if userA:
+          return render_template('Patient_ViewAppointment.html', userA = userA)
+    return render_template('Patient_ViewAppointment.html', message = message)
+    
 
 def gen(camera):
     while True:
