@@ -229,12 +229,3 @@ def StaffCreateAppointment():
         'StaffCreateAppointment.html',
         title='Staff Create Appointment',
         year=datetime.now().year)
-
-#Patients to update personal detail
-@app.route('/PatientUpdatePersonalDetail')
-def PatientUpdatePersonalDetail():
-    """Renders the patient update personal detail page."""
-    return render_template(
-        'PatientUpdatePersonalDetail.html',
-        title='Patient Update Personal Detail',
-        year=datetime.now().year)
