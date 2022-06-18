@@ -23,6 +23,29 @@
   <!-- responsive style -->
   <link href="../static/content/responsive.css" rel="stylesheet" />
 
+  <style>
+    main {
+        max-width: max-content;
+        margin: auto;
+        font-family: Calibri;
+      }
+
+    table, th, td {
+      border-collapse: collapse;
+      color: white;
+      background-color: black;
+    }
+    
+    tr {
+  border-bottom: 1px solid #ddd;
+}
+    
+    table.center {
+      margin-left: auto; 
+      margin-right: auto;
+    }
+    </style>
+
 </head>
 
 <body class="sub_page">
@@ -31,7 +54,7 @@
     <div class="bg-box">
       <img src="../static/images/hero-bg.jpg" alt="">
     </div>
-    <!-- header section strats -->
+
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
@@ -56,268 +79,65 @@
     
   </div>
 
+  <div class="heading_container heading_center">
+    <h1>
+      View Appointments
+    </h1>
+  </div>
 
-  <section class="image_section layout_padding">
-    <div class="container">
-      <div class="heading_container heading_center">
-        <h1>
-          View Appointments
-        </h1>
-      </div>
+  
+  <br/>
 
-      
-      <br/>
-      <div id="menu" class="heading_container heading_center">
-      <h4 style="padding-top: 10px;">
-        Please enter a patient's NRIC:
-        
-      </h4>
-      
-        <form action="/CustomerSearchMenuItemController" method="post">
-          <div>
-            <input type="text" class="form-control" name="menuName" id="menuName" placeholder="Patient's NRIC" />
-            
-          </div>
-          <div>
-            <button class="yellow-button" type="submit">
-              Search
-            </button>
-          </div>
-          
-          
-         </form>
-        </div>
-       
-        <br/>
-          <br/>
-        
-      
+  <main>
+  <form class="form" action="/AddToCartCustomer" method="post">
+      <div class="menubox">
+        <div class="detail-box">
+            <h3 style="text-align: center;">
+              David Genius
+            </h3>
+            <img src ="../static/images/portrait.png" style="width: 100px; length: 200px; display: block;
+            margin-left: auto;
+            margin-right: auto;">
+            </br>
+            <p style="text-align: center;">
+              NRIC: T1234567P
+            </p>
+            <p style="text-align: center;">
+              Date of Birth: 2021-12-24
+            </p>
+            <table class="center">
+              <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Doctor</th>
+                <th>Reason for Visit</th>
+              </tr>
+              <tr>
+                <td>2022-06-30</td>
+                <td>10:00 AM</td>
+                <td>Dr. Hanson Greg</td>
+                <td>Ear infection</td>
+              </tr>
+              <tr>
+                <td>2022-07-14</td>
+                <td>03:00 PM</td>
+                <td>Dr. Hanson Greg</td>
+                <td>Ear infection</td>
+              </tr>
+            </table>
 
-          <div class="filters-content">
-            <div class="row grid">
+            <div class="options">
               
-                  <form action="/AddToCartCustomer" method="post">
-                    <div class="col-sm-6 col-lg-4 all <%= menuitem.type %>">
-                      <div class="menubox">
-                          <div class="detail-box">
-                            <h3 style="text-align: center;">
-                              David Genius
-                            </h3>
-                            <img src ="../static/images/portrait.png" style="width: 100px; length: 200px; display: block;
-                            margin-left: auto;
-                            margin-right: auto;">
-                            </br>
-                            <p>
-                              NRIC: T1234567P
-                            </p>
-                            <p>
-                              Date of Birth: 2021-12-24
-                            </p>
-                            <p>
-                              Appointments:
-                            <ul>
-                              <li>Date/Time 2022-06-30 / 10:00 AM<br>Doctor: Dr. Hanson Greg<br>Reason for Visit: Ear infection</li>
-                              <li>Date/Time: 2022-07-14 / 03:00 PM<br>Doctor: Dr. Hanson Greg<br>Reason for Visit: Ear infection</li>
-                            </ul>
-                            </p>
-                            <div class="options">
-                              
-                              
-                              <button class="yellow-button-small" type="submit">
-                                Create Appointment
-                              </button>
-    
-                            </div>
-                        </div>
-                        
-                      </div>
-                    </div>
-                  </form>
-                  <form action="/AddToCartCustomer" method="post">
-                    <div class="col-sm-6 col-lg-4 all <%= menuitem.type %>">
-                      <div class="menubox">
-                          <div class="detail-box">
-                            <h3 style="text-align: center;">
-                              Rebecca Betty
-                            </h3>
-                            <img src ="../static/images/portrait2.png" style="width: 100px; length: 200px; display: block;
-                            margin-left: auto;
-                            margin-right: auto;">
-                            </br>
-                            <p>
-                              NRIC: G1234567P
-                            </p>
-                            <p>
-                                Date of Birth: 1992-12-24
-                            </p>
-                            <p>
-                                Appointments:
-                            <ul>
-                                <li>Date/Time 2022-06-30 / 10:00 AM<br>Doctor: Dr. Hannibal Lector<br>Reason for Visit: Sore throat</li>
-                            </ul>
-                            </p>
-                            <div class="options">
-                              
-                              
-                            <button class="yellow-button-small" type="submit">
-                                Create Appointment
-                              </button>
-    
-                            </div>
-                        </div>
-                        
-                      </div>
-                    </div>
-                  </form> <form action="/AddToCartCustomer" method="post">
-                    <div class="col-sm-6 col-lg-4 all <%= menuitem.type %>">
-                      <div class="menubox">
-                          <div class="detail-box">
-                            <h3 style="text-align: center;">
-                              Jonathan Doe
-                            </h3>
-                            <img src ="../static/images/portrait3.png" style="width: 100px; length: 200px; display: block;
-                            margin-left: auto;
-                            margin-right: auto;">
-                            </br>
-                            <p>
-                              NRIC: Q1234567P
-                            </p>
-                            <p>
-                                Date of Birth: 2001-12-24
-                            </p>
-                            <p>
-                                Appointments:
-                            <ul>
-                            <li>Date/Time 2022-06-30 / 10:30 AM<br>Doctor: Dr. Hanson Greg<br>Reason for Visit: Ear infection</li>
-                            </ul>
-                            </p>
-                            <div class="options">
-                              
-                              
-                            <button class="yellow-button-small" type="submit">
-                                Create Appointment
-                            </button>
-    
-                            </div>
-                        </div>
-                        
-                      </div>
-                    </div>
-                  </form> <form action="/AddToCartCustomer" method="post">
-                    <div class="col-sm-6 col-lg-4 all <%= menuitem.type %>">
-                      <div class="menubox">
-                          <div class="detail-box">
-                            <h3 style="text-align: center;">
-                              John Benedict
-                            </h3>
-                            <img src ="../static/images/portrait4.png" style="width: 100px; length: 200px; display: block;
-                            margin-left: auto;
-                            margin-right: auto;">
-                            </br>
-                            <p>
-                              NRIC: J1234567P
-                            </p>
-                            <p>
-                                Date of Birth: 1998-12-24
-                            </p>
-                            <p>
-                                Appointments:
-                            <ul>
-                            <li>Date/Time 2022-06-30 / 11:00 AM<br>Doctor: Dr. Hanson Greg<br>Reason for Visit: Sore throat</li>
-                            <li>Date/Time 2022-06-30 / 11:00 AM<br>Doctor: Dr. Hanson Greg<br>Reason for Visit: Sore throat</li>
-                            </ul>
-                            </p>
-                            <div class="options">
-                              
-                            <button class="yellow-button-small" type="submit">
-                                Create Appointment
-                            </button>
-    
-                            </div>
-                        </div>
-                        
-                      </div>
-                    </div>
-                  </form> <form action="/AddToCartCustomer" method="post">
-                    <div class="col-sm-6 col-lg-4 all <%= menuitem.type %>">
-                      <div class="menubox">
-                          <div class="detail-box">
-                            <h3 style="text-align: center;">
-                              Robert Wilson
-                            </h3>
-                            <img src ="../static/images/portrait5.png" style="width: 100px; length: 200px; display: block;
-                            margin-left: auto;
-                            margin-right: auto;">
-                            </br>
-                            <p>
-                              NRIC: A1234567P
-                            </p>
-                            <p>
-                                Date of Birth: 1967-12-24
-                            </p>
-                            <p>
-                                Appointments:
-                            <ul>
-                                <li>Date/Time 2022-06-30 / 02:00 PM<br>Doctor: Dr. Hannibal Lector<br>Reason for Visit: Sore throat</li>
-                                <li>Date/Time 2022-08-30 / 08:00 AM<br>Doctor: Dr. Hannibal Lector<br>Reason for Visit: Sore throat</li>
-                            </ul>
-                            </p>
-                            <div class="options">
-                              
-                              
-                            <button class="yellow-button-small" type="submit">
-                                Create Appointment
-                            </button>
-    
-                            </div>
-                        </div>
-                        
-                      </div>
-                    </div>
-                  </form> <form action="/AddToCartCustomer" method="post">
-                    <div class="col-sm-6 col-lg-4 all <%= menuitem.type %>">
-                      <div class="menubox">
-                          <div class="detail-box">
-                            <h3 style="text-align: center;">
-                              Hugo Tan
-                            </h3>
-                            <img src ="../static/images/portrait6.png" style="width: 100px; length: 200px; display: block;
-                            margin-left: auto;
-                            margin-right: auto;">
-                            </br>
-                            <p>
-                              NRIC: L1234567P
-                            </p>
-                            <p>
-                                Date of Birth: 1985-12-24
-                            </p>
-                            <p>
-                                Appointments:
-                            <ul>
-                                <li>Date/Time 2022-06-30 / 02:00 PM<br>Doctor: Dr. Hannibal Lector<br>Reason for Visit: Sore throat</li>
-                                <li>Date/Time 2022-08-30 / 08:00 AM<br>Doctor: Dr. Hannibal Lector<br>Reason for Visit: Sore throat</li>
-                            </ul>
-                            </p>
-                            <div class="options">
-                              
-                              
-                            <button class="yellow-button-small" type="submit">
-                                Create Appointment
-                            </button>
-    
-                            </div>
-                        </div>
-                        
-                      </div>
-                    </div>
-                  </form>
-                  
-                  
+              <button class="yellow-button-small" type="submit">
+                Create Appointment
+              </button>
+
             </div>
-          </div>
         </div>
-        
-      </section>
+      </div>
+  </form>
+  </main>
+
       <span id="displayYear"></span>
     
       
