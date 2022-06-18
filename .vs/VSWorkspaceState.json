@@ -4,10 +4,8 @@
     "\\FYP",
     "\\FYP\\FYP",
     "\\FYP\\FYP\\FYP",
-    "\\FYP\\FYP\\FYP\\static",
-    "\\FYP\\FYP\\FYP\\static\\content",
     "\\FYP\\FYP\\FYP\\templates"
   ],
-  "SelectedNode": "\\FYP\\FYP\\FYP\\camera.py",
+  "SelectedNode": "\\FYP\\FYP\\FYP\\templates\\index_HealthCareStaff.html",
   "PreviewInSolutionExplorer": false
 }

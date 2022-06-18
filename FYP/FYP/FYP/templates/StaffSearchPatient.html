@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="../images/favicon.png" type="">
+
+  <title> Hospital </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="../static/content/bootstrap.css" />
+
+  <!-- Custom styles for this template -->
+  <link href="../static/content/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="../static/content/responsive.css" rel="stylesheet" />
+
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="../static/images/hero-bg.jpg" alt="">
+    </div>
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="/Customer">
+            <span>
+              Hospital
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  mx-auto" style="padding-left:700px">
+              
+              <li class="nav-item">
+                <a class="nav-link" onclick="window.location.href='/LogoutController'">Log Out</a>
+              
+            </li>
+            </ul>
+            
+          </div>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+
+  <section class="image_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h1>
+          Search Patient
+        </h1>
+      </div>
+
+      
+      <br/>
+      <div id="menu" class="heading_container heading_center">
+      <h4 style="padding-top: 10px;">
+        Please enter a patient's name:
+        
+      </h4>
+      
+        <form action="/CustomerSearchMenuItemController" method="post">
+          <div>
+            <input type="text" class="form-control" name="menuName" id="menuName" placeholder="Menu Name" />
+            
+          </div>
+          <div>
+            <button class="yellow-button" type="submit">
+              Search
+            </button>
+          </div>
+          
+          
+         </form>
+        </div>
+       
+        <br/>
+          <br/>
+        
+      
+
+      <div class="filters-content">
+        <div class="row grid">
+          
+              <form action="/AddToCartCustomer" method="post">
+                <div class="col-sm-6 col-lg-4 all <%= menuitem.type %>">
+                  <div class="menubox">
+                      <div class="detail-box">
+                        <h3 style="text-align: center;">
+                          David Genius
+                        </h3>
+                        <img src ="../static/images/portrait.png" style="width: 100px; length: 200px; display: block;
+                        margin-left: auto;
+                        margin-right: auto;">
+                        </br>
+                        <p>
+                          NRIC: T1234567P
+                        </p>
+                        <p>
+                          Gender: Male
+                        </p>
+                        <p>
+                          Age: 21
+                        </p>
+                        <div class="options">
+                          
+                          
+                          <button class="yellow-button-small" type="submit">
+                            Appointment
+                          </button>
+
+                          <button class="yellow-button-small" type="submit">
+                            Med Record
+                          </button>
+
+                        </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </form>
+              <form action="/AddToCartCustomer" method="post">
+                <div class="col-sm-6 col-lg-4 all <%= menuitem.type %>">
+                  <div class="menubox">
+                      <div class="detail-box">
+                        <h3 style="text-align: center;">
+                          Rebecca Betty
+                        </h3>
+                        <img src ="../static/images/portrait2.png" style="width: 100px; length: 200px; display: block;
+                        margin-left: auto;
+                        margin-right: auto;">
+                        </br>
+                        <p>
+                          NRIC: G1234567P
+                        </p>
+                        <p>
+                          Gender: Female
+                        </p>
+                        <p>
+                          Age: 30
+                        </p>
+                        <div class="options">
+                          
+                          
+                          <button class="yellow-button-small" type="submit">
+                            Appointment
+                          </button>
+
+                          <button class="yellow-button-small" type="submit">
+                            Med Record
+                          </button>
+
+                        </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </form> <form action="/AddToCartCustomer" method="post">
+                <div class="col-sm-6 col-lg-4 all <%= menuitem.type %>">
+                  <div class="menubox">
+                      <div class="detail-box">
+                        <h3 style="text-align: center;">
+                          Jonathan Doe
+                        </h3>
+                        <img src ="../static/images/portrait3.png" style="width: 100px; length: 200px; display: block;
+                        margin-left: auto;
+                        margin-right: auto;">
+                        </br>
+                        <p>
+                          NRIC: Q1234567P
+                        </p>
+                        <p>
+                          Gender: Male
+                        </p>
+                        <p>
+                          Age: 21
+                        </p>
+                        <div class="options">
+                          
+                          
+                          <button class="yellow-button-small" type="submit">
+                            Appointment
+                          </button>
+
+                          <button class="yellow-button-small" type="submit">
+                            Med Record
+                          </button>
+
+                        </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </form> <form action="/AddToCartCustomer" method="post">
+                <div class="col-sm-6 col-lg-4 all <%= menuitem.type %>">
+                  <div class="menubox">
+                      <div class="detail-box">
+                        <h3 style="text-align: center;">
+                          John Benedict
+                        </h3>
+                        <img src ="../static/images/portrait4.png" style="width: 100px; length: 200px; display: block;
+                        margin-left: auto;
+                        margin-right: auto;">
+                        </br>
+                        <p>
+                          NRIC: J1234567P
+                        </p>
+                        <p>
+                          Gender: Male
+                        </p>
+                        <p>
+                          Age: 24
+                        </p>
+                        <div class="options">
+                          
+                          
+                          <button class="yellow-button-small" type="submit">
+                            Appointment
+                          </button>
+
+                          <button class="yellow-button-small" type="submit">
+                            Med Record
+                          </button>
+
+                        </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </form> <form action="/AddToCartCustomer" method="post">
+                <div class="col-sm-6 col-lg-4 all <%= menuitem.type %>">
+                  <div class="menubox">
+                      <div class="detail-box">
+                        <h3 style="text-align: center;">
+                          Robert Wilson
+                        </h3>
+                        <img src ="../static/images/portrait5.png" style="width: 100px; length: 200px; display: block;
+                        margin-left: auto;
+                        margin-right: auto;">
+                        </br>
+                        <p>
+                          NRIC: A1234567P
+                        </p>
+                        <p>
+                          Gender: Male
+                        </p>
+                        <p>
+                          Age: 55
+                        </p>
+                        <div class="options">
+                          
+                          
+                          <button class="yellow-button-small" type="submit">
+                            Appointment
+                          </button>
+
+                          <button class="yellow-button-small" type="submit">
+                            Med Record
+                          </button>
+
+                        </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </form> <form action="/AddToCartCustomer" method="post">
+                <div class="col-sm-6 col-lg-4 all <%= menuitem.type %>">
+                  <div class="menubox">
+                      <div class="detail-box">
+                        <h3 style="text-align: center;">
+                          Hugo Tan
+                        </h3>
+                        <img src ="../static/images/portrait6.png" style="width: 100px; length: 200px; display: block;
+                        margin-left: auto;
+                        margin-right: auto;">
+                        </br>
+                        <p>
+                          NRIC: L1234567P
+                        </p>
+                        <p>
+                          Gender: Male
+                        </p>
+                        <p>
+                          Age: 21
+                        </p>
+                        <div class="options">
+                          
+                          
+                          <button class="yellow-button-small" type="submit">
+                            Appointment
+                          </button>
+
+                          <button class="yellow-button-small" type="submit">
+                            Med Record
+                          </button>
+
+                        </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </form>
+              
+              
+        </div>
+      </div>
+    </div>
+    
+  </section>
+  <span id="displayYear"></span>
+
+  
+
+  <!-- jQuery -->
+  <script src="../js/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="../js/bootstrap.js"></script>
+  <!-- isotope js -->
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <!-- custom js -->
+  <script src="../js/custom.js"></script>
+  
+
+</body>
+
+</html>

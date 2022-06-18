@@ -196,6 +196,14 @@ def submitForm():
         cursor.close()
         return redirect(url_for('test'))
 
+@app.route('/StaffSearchPatient')
+def StaffSearchPatient():
+    """Renders the about page."""
+    return render_template(
+        'StaffSearchPatient.html',
+        title='Staff Search Patient',
+        year=datetime.now().year)
+
 #healthcare staff to create medical records
 @app.route('/StaffCreateMedicalRecord')
 def StaffCreateMedicalRecord():
@@ -205,6 +213,19 @@ def StaffCreateMedicalRecord():
         title='Staff Create Record',
         year=datetime.now().year)
 
+@app.route('/StaffUpdateMedicalRecord')
+def StaffUpdateMedicalRecord():
+    """Renders the about page."""
+    return render_template(
+        'StaffUpdateMedicalRecord.html',
+        title='Staff Update Record',
+        year=datetime.now().year)
 
-
-        #hello
+       
+@app.route('/StaffCreateAppointment')
+def StaffCreateAppointment():
+    """Renders the about page."""
+    return render_template(
+        'StaffCreateAppointment.html',
+        title='Staff Create Appointment',
+        year=datetime.now().year)
