@@ -216,3 +216,11 @@ def StaffCreateAppointment():
         'StaffCreateAppointment.html',
         title='Staff Create Appointment',
         year=datetime.now().year)
+
+@app.route('/StaffViewAppointment')
+def StaffViewAppointment():
+    """Renders the about page."""
+    return render_template(
+        'StaffViewAppointment.html',
+        title='Staff View Appointment',
+        year=datetime.now().year)
