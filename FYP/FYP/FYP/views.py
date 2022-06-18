@@ -230,18 +230,11 @@ def StaffCreateAppointment():
         title='Staff Create Appointment',
         year=datetime.now().year)
 
-@app.route('/StaffViewAppointment')
-def StaffViewAppointment():
-    """Renders the about page."""
+#Patients to update personal detail
+@app.route('/PatientUpdatePersonalDetail')
+def PatientUpdatePersonalDetail():
+    """Renders the patient update personal detail page."""
     return render_template(
-        'StaffViewAppointment.html',
-        title='Staff View Appointment',
-        year=datetime.now().year)
-
-@app.route('/testing')
-def PatientViewwAppointment():
-    """Renders the about page."""
-    return render_template(
-        'testingPatientViewAppoint.html',
-        title='A View Appointment',
+        'PatientUpdatePersonalDetail.html',
+        title='Patient Update Personal Detail',
         year=datetime.now().year)

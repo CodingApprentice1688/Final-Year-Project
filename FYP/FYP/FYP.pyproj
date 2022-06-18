@@ -47,6 +47,7 @@
     <Folder Include="FYP\templates\Patient\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FYP\templates\PatientUpdatePersonalDetail.html" />
     <Content Include="FYP\templates\helloPage.html">
       <SubType>Code</SubType>
     </Content>
@@ -75,7 +76,11 @@
     <Content Include="FYP\templates\Patient_ViewAppointment.html">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="FYP\templates\StaffCreateAppointment.html" />
     <Content Include="FYP\templates\StaffCreateMedicalRecord.html" />
+    <Content Include="FYP\templates\StaffSearchPatient.html" />
+    <Content Include="FYP\templates\StaffUpdateMedicalRecord.html" />
+    <Content Include="FYP\templates\StaffViewAppointment.html" />
     <Content Include="FYP\templates\testHealthCareStaff.html">
       <SubType>Code</SubType>
     </Content>
