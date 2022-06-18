@@ -26,6 +26,13 @@ mysql = MySQL(app)
 
 
 @app.route('/')
+@app.route('/LoginPage')
+def LoginPage():
+    """Renders a sample page."""
+    return render_template(
+        'login.html'
+    )
+
 @app.route('/home')
 def home():
     """Renders the home page."""
@@ -34,13 +41,11 @@ def home():
         title='Home Page',
         year=datetime.now().year,
     )
-@app.route('/main')
-def main():
+@app.route('/Patient_Main')
+def Patient_Main():
     """Renders the home page."""
     return render_template(
-        'index_Patient.html',
-        title='Home Page',
-        year=datetime.now().year,
+        'PatientMain.html',
     )
 
 @app.route('/HealthcareStaff_Main')
@@ -72,6 +77,8 @@ def Manage_Credentials():
     )
 
 
+
+
 """ login manually """
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -93,7 +100,7 @@ def login():
             if userL['role'] == 'healthcare staff':
                 return redirect(url_for('HealthcareStaff_Main'))
             if userL['role'] == 'patient':
-                return redirect(url_for('main'))
+                return redirect(url_for('Patient_Main'))
             if userL['role'] == 'IT admin':
                 return redirect(url_for('ITAdmin_Main'))    
             #return redirect(url_for('main'))
@@ -109,8 +116,8 @@ def logout():
     return redirect(url_for('login'))
 
 #patient view all appointments
-@app.route('/Appointments', methods=['GET', 'POST'])
-def viewAppointment():
+@app.route('/PatientViewAppointment', methods=['GET', 'POST'])
+def PatientViewAppointment():
     message = ''
     msg = ''
     if 'logged_in' in session:
