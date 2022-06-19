@@ -129,7 +129,7 @@ def PatientViewAppointment():
     msg = ''
     if 'logged_in' in session:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        current=date.today()
+        #current=date.today()
         cursor.execute('SELECT * FROM appointments WHERE username = % s AND nric = % s AND date < 2022-06-18',  (session['username'], session['nric'], ))
         userA = cursor.fetchall()
         userB = cursor.fetchone()
