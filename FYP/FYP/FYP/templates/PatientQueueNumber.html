@@ -27,6 +27,12 @@
         function Previous() {
             window.history.back()
         }
+
+        var seq = 0;
+        function getQueueNumber() {
+            seq = seq + 1;
+            document.getElementById("queueNumber").value = seq;
+        }
     </script>
 
 </head>
@@ -94,7 +100,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form_container">
-                        <form method="post" action="/PatientUpdatePersonalDetail">
+                        <form method="post" action="/PatientQueueNumber">
                             <div>
                                 <label>Upload Image: </label>
                                 <input type="file" class="form-control" name="uploadImage" id="uploadImage" placeholder="Upload Image" />
@@ -104,7 +110,7 @@
                                 <input type="text" class="form-control" name="queueNumber" id="queueNumber" placeholder="A001" disabled />
                             </div>
                             <div class="btn_box">
-                                <button class="yellow-button" type="submit">
+                                <button class="yellow-button" onclick="getQueueNumber()">
                                     Get Queue Number Now
                                 </button>
                             </div>
