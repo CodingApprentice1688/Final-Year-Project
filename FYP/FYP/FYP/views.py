@@ -136,7 +136,7 @@ def PatientViewAppointment():
         
 
         return render_template('Patient_ViewAppointment.html', userA = userA, userB = userB)
-    return render_template('Patient_ViewAppointment.html', userA = userA)
+    return render_template('Patient_ViewAppointment.html', userA = userA, userB = userB)
 
 
 #patient get queue number
