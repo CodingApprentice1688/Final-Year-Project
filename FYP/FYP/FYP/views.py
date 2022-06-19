@@ -98,7 +98,7 @@ def login():
             msg = 'Logged in successfully !'
             #return render_template('index_Main.html', msg = msg)
             if userL['role'] == 'healthcare staff':
-                return redirect(url_for('HealthcareStaff_Main'))
+                return redirect(url_for('StaffSearchPatient'))
             if userL['role'] == 'patient':
                 return redirect(url_for('Patient_Main'))
             if userL['role'] == 'IT admin':
@@ -268,3 +268,13 @@ def StaffCreateAppointment():
         'StaffCreateAppointment.html',
         title='Staff Create Appointment',
         year=datetime.now().year)
+
+
+
+@app.route('/StaffViewMedicalRecord')
+def StaffViewMedicalRecord():
+    """Renders the about page."""
+    return render_template(
+        'StaffViewMedicalRecord.html',
+        title='Staff View Medical Record',
+        year=datetime.now().year)       
