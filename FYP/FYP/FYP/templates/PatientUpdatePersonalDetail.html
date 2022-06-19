@@ -92,6 +92,42 @@
                                 <label>Password: </label>
                                 <input type="text" class="form-control" name="password" id="password" placeholder="Password" />
                             </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <section class="queueNumber_section layout_padding2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <div class="img-box">
+                                <img src="{{ url_for('video_feed') }}" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="detail-box">
+                                <div class="heading_container">
+                                    <h1>
+                                        Scan Your Face!
+                                    </h1>
+                                    <h4>
+                                        First, position your face towards the camera. Then, press the capture button to log in to the system.
+                                    </h4>
+                                </div>
+                                <form method="post" action="{{ url_for('LoginController') }}">
+                                    <button class="yellow-button" type="submit">
+                                        Capture
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form_container">
+                        <form method="post" action="/PatientUpdateDetailController">
                             <div>
                                 <label>Upload Image: </label>
                                 <input type="file" class="form-control" name="uploadImage" id="uploadImage" placeholder="Upload Image" />
@@ -101,7 +137,6 @@
                                     Save Changes
                                 </button>
                             </div>
-
                             <div class="btn_box">
                                 <button class="yellow-button" type="submit">
                                     Discard Changes
