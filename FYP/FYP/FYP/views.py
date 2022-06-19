@@ -250,11 +250,14 @@ def submitForm():
 
 @app.route('/StaffSearchPatient')
 def StaffSearchPatient():
-    """Renders the about page."""
-    return render_template(
-        'StaffSearchPatient.html',
-        title='Staff Search Patient',
-        year=datetime.now().year)
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    patient = 'patient'
+    cursor.execute('SELECT * FROM user where role = % s', (patient, ))
+    patient = cursor.fetchall()
+    return render_template('StaffSearchPatient.html', patient = patient)
+
+
+
 
 #healthcare staff to create medical records
 @app.route('/StaffCreateMedicalRecord')

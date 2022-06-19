@@ -54,9 +54,15 @@
       </div>
     </header>
   </div>
+  <div class="container">
+  <div class-"heading_container heading_center" style="text-align:center; padding-top:50px;">
+    <h1 style="font-size:50px;">
+        Welcome to Hospital
+    </h1>
+  </div>
+  </div>
 
-
-  <section class="login_section layout_padding2">
+  <section class="login_section layout_padding2" style=" padding-top:90px;">
     <div class="container  ">
 
       <div class="row">
@@ -76,21 +82,7 @@
                     </h4>
                 </div>
                 <!----enter login credentials manually-->
-                <div class="container">
-                    <h1>Please login</h1>
-                    <br>
-                    <form action="{{ url_for('login') }}" method="post">
-                        <input type="text" placeholder="Username" name="username" value="{{
-          request.form.username }}">
-                        <input type="password" placeholder="Password" name="password" value="{{
-          request.form.password }}">
-                        <input class="btn btn-default" type="submit" value="Login">
-                    </form>
-                    {% if error %}
-                    <p class="error">
-                        <strong>Error:</strong> {{ error }}
-                        {% endif %}
-                </div>
+                
                 <form method="post" action="{{ url_for('LoginController') }}">
 
                     <button class="yellow-button" type="submit">
@@ -99,6 +91,34 @@
 
                     </button>
                 </form>
+                <br/>
+                <div id="manualLogin" style="display:none;">
+                    <h2>Enter your Username and Password</h2>
+                    <br>
+
+                    <form action="{{ url_for('login') }}" method="post">
+                            <div>
+                                <label>Username: </label>
+                                <input type="text" class="form-control" placeholder="Username" name="username" value="{{request.form.username }}">
+                            </div>
+                            <br/>
+                            <div>
+                                <label>Password: </label>
+                                <input type="password" class="form-control" placeholder="Password" name="password" value="{{request.form.password }}">
+                            </div>
+                            <br/>
+                            <div>
+                                <button class="yellow-button" type="submit" value="Login">Submit</button>
+                            </div>
+                    </form>
+                    {% if error %}
+                    <p class="error">
+                        <strong>Error:</strong> {{ error }}
+                        {% endif %}
+                </div>
+                <div>
+                    <h5 id="loginNotice" style="cursor: pointer; display:block;" onclick="showDiv()">Click here to use your username and password</h5> 
+                </div>
 
             </div>
         </div>
@@ -116,6 +136,12 @@
   <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
   <!-- custom js -->
   <!-- <script src="js/custom.js"></script> -->
+  <script>
+    function showDiv() {
+        document.getElementById('manualLogin').style.display = "block";
+        document.getElementById('loginNotice').style.display = "none";
+    }
+  </script>
   
 
 </body>

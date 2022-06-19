@@ -96,26 +96,26 @@
 
       <div class="filters-content">
         <div class="row grid">
-          
+            {% for pati in patient %}
               <form action="/AddToCartCustomer" method="post">
                 <div class="col-sm-6 col-lg-4 all <%= menuitem.type %>">
                   <div class="menubox">
                       <div class="detail-box">
                         <h3 style="text-align: center;">
-                          David Genius
+                          {{ pati['name'] }}
                         </h3>
-                        <img src ="../static/images/portrait.jpg" style="width: 150px; length: 150px; display: block;
+                        <img src ="../static/images/{{ pati['name'] }}.jpg" style="width: 150px; length: 150px; display: block;
                         margin-left: auto;
                         margin-right: auto;">
                         </br>
                         <p>
-                          NRIC: T1234567P
+                          NRIC: {{ pati['nric'] }}
                         </p>
                         <p>
-                          Gender: Male
+                          Gender: {{ pati['gender'] }}
                         </p>
                         <p>
-                          Age: 21
+                          Age: {{ pati['age'] }}
                         </p>
                         <div class="options">
                           
@@ -134,187 +134,7 @@
                   </div>
                 </div>
               </form>
-              <form action="/AddToCartCustomer" method="post">
-                <div class="col-sm-6 col-lg-4 all <%= menuitem.type %>">
-                  <div class="menubox">
-                      <div class="detail-box">
-                        <h3 style="text-align: center;">
-                          Rebecca Betty
-                        </h3>
-                        <img src ="../static/images/portrait2.jpg" style="width: 150px; length: 150px; display: block;
-                        margin-left: auto;
-                        margin-right: auto;">
-                        </br>
-                        <p>
-                          NRIC: G1234567P
-                        </p>
-                        <p>
-                          Gender: Female
-                        </p>
-                        <p>
-                          Age: 30
-                        </p>
-                        <div class="options">
-                          
-                          
-                          <button class="yellow-button-small" type="submit">
-                            Appointment
-                          </button>
-
-                          <button class="yellow-button-small" type="submit">
-                            Med Record
-                          </button>
-
-                        </div>
-                    </div>
-                    
-                  </div>
-                </div>
-              </form> <form action="/AddToCartCustomer" method="post">
-                <div class="col-sm-6 col-lg-4 all <%= menuitem.type %>">
-                  <div class="menubox">
-                      <div class="detail-box">
-                        <h3 style="text-align: center;">
-                          Jonathan Doe
-                        </h3>
-                        <img src ="../static/images/portrait3.jpg" style="width: 150px; length: 150px; display: block;
-                        margin-left: auto;
-                        margin-right: auto;">
-                        </br>
-                        <p>
-                          NRIC: Q1234567P
-                        </p>
-                        <p>
-                          Gender: Male
-                        </p>
-                        <p>
-                          Age: 21
-                        </p>
-                        <div class="options">
-                          
-                          
-                          <button class="yellow-button-small" type="submit">
-                            Appointment
-                          </button>
-
-                          <button class="yellow-button-small" type="submit">
-                            Med Record
-                          </button>
-
-                        </div>
-                    </div>
-                    
-                  </div>
-                </div>
-              </form> <form action="/AddToCartCustomer" method="post">
-                <div class="col-sm-6 col-lg-4 all <%= menuitem.type %>">
-                  <div class="menubox">
-                      <div class="detail-box">
-                        <h3 style="text-align: center;">
-                          John Benedict
-                        </h3>
-                        <img src ="../static/images/portrait4.jpg" style="width: 150px; length: 150px; display: block;
-                        margin-left: auto;
-                        margin-right: auto;">
-                        </br>
-                        <p>
-                          NRIC: J1234567P
-                        </p>
-                        <p>
-                          Gender: Male
-                        </p>
-                        <p>
-                          Age: 24
-                        </p>
-                        <div class="options">
-                          
-                          
-                          <button class="yellow-button-small" type="submit">
-                            Appointment
-                          </button>
-
-                          <button class="yellow-button-small" type="submit">
-                            Med Record
-                          </button>
-
-                        </div>
-                    </div>
-                    
-                  </div>
-                </div>
-              </form> <form action="/AddToCartCustomer" method="post">
-                <div class="col-sm-6 col-lg-4 all <%= menuitem.type %>">
-                  <div class="menubox">
-                      <div class="detail-box">
-                        <h3 style="text-align: center;">
-                          Robert Wilson
-                        </h3>
-                        <img src ="../static/images/portrait5.jpg" style="width: 150px; length: 150px; display: block;
-                        margin-left: auto;
-                        margin-right: auto;">
-                        </br>
-                        <p>
-                          NRIC: A1234567P
-                        </p>
-                        <p>
-                          Gender: Male
-                        </p>
-                        <p>
-                          Age: 55
-                        </p>
-                        <div class="options">
-                          
-                          
-                          <button class="yellow-button-small" type="submit">
-                            Appointment
-                          </button>
-
-                          <button class="yellow-button-small" type="submit">
-                            Med Record
-                          </button>
-
-                        </div>
-                    </div>
-                    
-                  </div>
-                </div>
-              </form> <form action="/AddToCartCustomer" method="post">
-                <div class="col-sm-6 col-lg-4 all <%= menuitem.type %>">
-                  <div class="menubox">
-                      <div class="detail-box">
-                        <h3 style="text-align: center;">
-                          Hugo Tan
-                        </h3>
-                        <img src ="../static/images/portrait6.jpg" style="width: 150px; length: 150px; display: block;
-                        margin-left: auto;
-                        margin-right: auto;">
-                        </br>
-                        <p>
-                          NRIC: L1234567P
-                        </p>
-                        <p>
-                          Gender: Male
-                        </p>
-                        <p>
-                          Age: 21
-                        </p>
-                        <div class="options">
-                          
-                          
-                          <button class="yellow-button-small" type="submit">
-                            Appointment
-                          </button>
-
-                          <button class="yellow-button-small" type="submit">
-                            Med Record
-                          </button>
-
-                        </div>
-                    </div>
-                    
-                  </div>
-                </div>
-              </form>
+            {% endfor %}
               
               
         </div>
