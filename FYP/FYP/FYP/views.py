@@ -2,7 +2,7 @@
 Routes and views for the flask application.
 """
 
-from datetime import datetime
+from datetime import datetime, date
 from flask import render_template
 from FYP import app
 from .camera import VideoCamera
@@ -44,9 +44,17 @@ def home():
 @app.route('/Patient_Main')
 def Patient_Main():
     """Renders the home page."""
-    return render_template(
-        'PatientMain.html',
-    )
+    year = datetime.now().date()
+    message = ''
+    msg = ''
+    if 'logged_in' in session:
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM appointments WHERE username = % s AND nric = % s',  (session['username'], session['nric'], ))
+        userA = cursor.fetchone()
+        if userA:
+          return render_template('PatientMain.html', userA = userA,  message = message, year = year)
+    return render_template('PatientMain.html', message = message, year = year)
+    
 
 @app.route('/HealthcareStaff_Main')
 def HealthcareStaff_Main():
@@ -98,7 +106,7 @@ def login():
             msg = 'Logged in successfully !'
             #return render_template('index_Main.html', msg = msg)
             if userL['role'] == 'healthcare staff':
-                return redirect(url_for('HealthcareStaff_Main'))
+                return redirect(url_for('StaffSearchPatient'))
             if userL['role'] == 'patient':
                 return redirect(url_for('Patient_Main'))
             if userL['role'] == 'IT admin':
@@ -122,15 +130,34 @@ def PatientViewAppointment():
     msg = ''
     if 'logged_in' in session:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM appointments WHERE username = % s AND nric = % s',  (session['username'], session['nric'], ))
-        userA = cursor.fetchone()
-        if userA:
-          return render_template('Patient_ViewAppointment.html', userA = userA)
-    return render_template('Patient_ViewAppointment.html', message = message)
+        current = datetime.now().date()
+        cursor.execute('SELECT * FROM appointments WHERE username = % s AND nric = % s AND date_slot >= CURDATE()',  (session['username'], session['nric'], ))
+        userA = cursor.fetchall()
+        cursor.execute("SELECT * FROM appointments WHERE username = % s AND nric = % s AND date_slot < CURDATE()" ,  (session['username'], session['nric'], ))
+        userB = cursor.fetchall()
+        
 
+        return render_template('Patient_ViewAppointment.html', userA = userA, userB = userB)
+    return render_template('Patient_ViewAppointment.html', userA = userA, userB = userB)
+
+
+#patient get queue number
+@app.route('/PatientQueueNumber', methods=['GET', 'POST'])
+def PatientQueueNumber():
+    """Renders the contact page."""
+    return render_template(
+        'PatientQueueNumber.html',
+        title='PatientQueueNumber',
+        year=datetime.now().year,
+        #message='Your contact page.'
+    )
+
+@app.route('/QueueNumberController', methods = ['POST'])
+def QueueNumberController():
+    VideoCamera().stop_camera()
+    return redirect(url_for('home'))
 
 #patient update personal details
-
 @app.route('/PatientUpdatePersonalDetail', methods=['GET', 'POST'])
 def PatientUpdatePersonalDetail():
     """Renders the contact page."""
@@ -138,8 +165,13 @@ def PatientUpdatePersonalDetail():
         'PatientUpdatePersonalDetail.html',
         title='PatientUpdatePersonalDetail',
         year=datetime.now().year,
-        message='Your contact page.'
+        #message='Your contact page.'
     )
+
+@app.route('/UpdatePersonalDetailController', methods = ['POST'])
+def UpdatePersonalDetailController():
+    VideoCamera().stop_camera()
+    return redirect(url_for('home'))
     
 
 def gen(camera):
@@ -249,3 +281,13 @@ def StaffCreateAppointment():
         'StaffCreateAppointment.html',
         title='Staff Create Appointment',
         year=datetime.now().year)
+
+
+
+@app.route('/StaffViewMedicalRecord')
+def StaffViewMedicalRecord():
+    """Renders the about page."""
+    return render_template(
+        'StaffViewMedicalRecord.html',
+        title='Staff View Medical Record',
+        year=datetime.now().year)       

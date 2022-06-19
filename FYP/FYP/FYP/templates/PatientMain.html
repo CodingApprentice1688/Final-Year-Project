@@ -2,27 +2,26 @@
 <html>
 
 <head>
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-  <link rel="shortcut icon" href="../static/images/favicon.png" type="">
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="../static/images/favicon.png" type="">
 
-  <title> Hospital </title>
+    <title> Hospital </title>
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="../static/content/bootstrap.css" />
 
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="../static/content/bootstrap.css" />
 
-
-  <!-- Custom styles for this template -->
-  <link href="../static/content/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="../static/content/responsive.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="../static/content/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="../static/content/responsive.css" rel="stylesheet" />
 
 </head>
 
@@ -35,7 +34,7 @@
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="/UserAdmin">
+          <a class="navbar-brand" href="/Patient_Main">
             <span>
               Hospital
             </span>
@@ -46,7 +45,7 @@
             <ul class="navbar-nav  mx-auto" style="padding-left:700px">
               
               <li class="nav-item">
-                  <a class="nav-link" onclick="window.location.href='/LogoutController'">Log Out</a>
+                  <a class="nav-link" onclick="window.location.href='/logout'">Log Out</a>
                 
               </li>
             </ul>
@@ -60,9 +59,9 @@
   <section class="image_section layout_padding">
     <div class="container">
       <div class="heading_container heading_center">
-        <h1>
-          Welcome, Patient!
-        </h1>
+          <h1>
+              Welcome, {{ userA['username'] }}!
+          </h1>
       </div>
       <div class="heading_container heading_center">
         <h3>
@@ -89,7 +88,7 @@
             </div>
           </a>
           
-          <a href="">
+          <a href="{{ url_for('PatientQueueNumber') }}">
             <div class="col-sm-6 col-lg-4 all">
               <div class="box">
                 <div>
