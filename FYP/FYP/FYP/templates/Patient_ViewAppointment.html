@@ -64,40 +64,51 @@
                     <h2 style="text-align:center;">
                         Upcoming Appointments
                     </h2>
-                  <div class="menubox">
-                      <div class="detail-box">
-                        <p>Patient: {{ userA['username'] }}</p>
-                        <p>NRIC: {{ userA.nric }}</p>
-                        <p>Date of visit : {{ userA.date }}</p>
-                        <p>Reason of visit : {{ userA.reason }}</p>
-                        <p>Department: {{ userA.department }} </p>
-                        <p>Attending Doctor: {{ userA.attending }}</p>
+                    <div class="menubox">
+                        <div class="detail-box">
+                            <p>Patient: {{ userA['username'] }}</p>
+                            <p>NRIC: {{ userA.nric }}</p>
+                            <p>Date of visit : {{ userA.date }}</p>
+                            <p>Reason of visit : {{ userA.reason }}</p>
+                            <p>Department: {{ userA.department }} </p>
+                            <p>Attending Doctor: {{ userA.attending }}</p>
+                        </div>
+                        <div class="menubox">
+                            <div class="detail-box">
+                                {% for appointment in userA %}
+                                <p>Patient: {{ appointment['username'] }}</p>
+                                <p>NRIC: {{ appointment.nric }}</p>
+                                <p>Date of visit : {{ appointment.date }}</p>
+                                <p>Reason of visit : {{ appointment.reason }}</p>
+                                <p>Department: {{ appointment.department }} </p>
+                                <p>Attending Doctor: {{ appointment.attending }}</p>
+                                {% endfor %}
+                            </div>
+                           
+                        </div>
+                        <div class="menubox">
+                            <div class="detail-box">
+                                <p>Patient: {{ userA['username'] }}</p>
+                                <p>NRIC: {{ userA.nric }}</p>
+                                <p>Date of visit : {{ userA.date }}</p>
+                                <p>Reason of visit : {{ userA.reason }}</p>
+                                <p>Department: {{ userA.department }} </p>
+                                <p>Attending Doctor: {{ userA.attending }}</p>
+                            </div>
+
+                        </div>
+                        <div class="menubox">
+                            <div class="detail-box">
+                                <p>Patient: {{ userA['username'] }}</p>
+                                <p>NRIC: {{ userA.nric }}</p>
+                                <p>Date of visit : {{ userA.date }}</p>
+                                <p>Reason of visit : {{ userA.reason }}</p>
+                                <p>Department: {{ userA.department }} </p>
+                                <p>Attending Doctor: {{ userA.attending }}</p>
+                            </div>
+
+                        </div>
                     </div>
-                    
-                  </div>
-                  <div class="menubox">
-                      <div class="detail-box">
-                        <p>Patient: {{ userA['username'] }}</p>
-                        <p>NRIC: {{ userA.nric }}</p>
-                        <p>Date of visit : {{ userA.date }}</p>
-                        <p>Reason of visit : {{ userA.reason }}</p>
-                        <p>Department: {{ userA.department }} </p>
-                        <p>Attending Doctor: {{ userA.attending }}</p>
-                    </div>
-                    
-                  </div>
-                 <div class="menubox">
-                      <div class="detail-box">
-                        <p>Patient: {{ userA['username'] }}</p>
-                        <p>NRIC: {{ userA.nric }}</p>
-                        <p>Date of visit : {{ userA.date }}</p>
-                        <p>Reason of visit : {{ userA.reason }}</p>
-                        <p>Department: {{ userA.department }} </p>
-                        <p>Attending Doctor: {{ userA.attending }}</p>
-                    </div>
-                    
-                  </div>
-                </div>
                 <div class="col-sm-6">
                     <h2 style="text-align:center;">
                         Past Appointments

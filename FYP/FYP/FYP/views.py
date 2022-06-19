@@ -44,9 +44,16 @@ def home():
 @app.route('/Patient_Main')
 def Patient_Main():
     """Renders the home page."""
-    return render_template(
-        'PatientMain.html',
-    )
+    message = ''
+    msg = ''
+    if 'logged_in' in session:
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM appointments WHERE username = % s AND nric = % s',  (session['username'], session['nric'], ))
+        userA = cursor.fetchone()
+        if userA:
+          return render_template('PatientMain.html', userA = userA)
+    return render_template('PatientMain.html', message = message)
+    
 
 @app.route('/HealthcareStaff_Main')
 def HealthcareStaff_Main():
@@ -123,10 +130,10 @@ def PatientViewAppointment():
     if 'logged_in' in session:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM appointments WHERE username = % s AND nric = % s',  (session['username'], session['nric'], ))
-        userA = cursor.fetchone()
-        if userA:
-          return render_template('Patient_ViewAppointment.html', userA = userA)
-    return render_template('Patient_ViewAppointment.html', message = message)
+        userA = cursor.fetchall()
+        return render_template('Patient_ViewAppointment.html', userA = userA)
+    return render_template('Patient_ViewAppointment.html', userA = userA)
+
 
 #patient get queue number
 @app.route('/PatientQueueNumber', methods=['GET', 'POST'])
