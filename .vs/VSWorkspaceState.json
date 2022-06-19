@@ -4,8 +4,12 @@
     "\\FYP",
     "\\FYP\\FYP",
     "\\FYP\\FYP\\FYP",
-    "\\FYP\\FYP\\FYP\\static"
+    "\\FYP\\FYP\\FYP\\static",
+    "\\FYP\\FYP\\FYP\\static\\content",
+    "\\FYP\\FYP\\FYP\\static\\images",
+    "\\FYP\\FYP\\FYP\\static\\scripts",
+    "\\FYP\\FYP\\FYP\\templates"
   ],
-  "SelectedNode": "\\FYP\\FYP.sln",
+  "SelectedNode": "\\FYP\\FYP\\runserver.py",
   "PreviewInSolutionExplorer": false
 }
