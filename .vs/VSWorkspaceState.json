@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\FYP",
+    "\\FYP\\FYP",
+    "\\FYP\\FYP\\FYP",
+    "\\FYP\\FYP\\FYP\\static"
   ],
-  "SelectedNode": "\\FYP.sln",
+  "SelectedNode": "\\FYP\\FYP.sln",
   "PreviewInSolutionExplorer": false
 }
