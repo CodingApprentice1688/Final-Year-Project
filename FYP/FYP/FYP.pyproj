@@ -47,6 +47,7 @@
     <Folder Include="FYP\templates\Patient\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FYP\templates\PatientQueueNumber.html" />
     <Content Include="FYP\templates\PatientUpdatePersonalDetail.html" />
     <Content Include="FYP\templates\helloPage.html">
       <SubType>Code</SubType>

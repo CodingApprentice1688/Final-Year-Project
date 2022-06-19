@@ -26,6 +26,13 @@ mysql = MySQL(app)
 
 
 @app.route('/')
+@app.route('/LoginPage')
+def LoginPage():
+    """Renders a sample page."""
+    return render_template(
+        'login.html'
+    )
+
 @app.route('/home')
 def home():
     """Renders the home page."""
@@ -34,13 +41,11 @@ def home():
         title='Home Page',
         year=datetime.now().year,
     )
-@app.route('/main')
-def main():
+@app.route('/Patient_Main')
+def Patient_Main():
     """Renders the home page."""
     return render_template(
-        'index_Patient.html',
-        title='Home Page',
-        year=datetime.now().year,
+        'PatientMain.html',
     )
 
 @app.route('/HealthcareStaff_Main')
@@ -72,6 +77,8 @@ def Manage_Credentials():
     )
 
 
+
+
 """ login manually """
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -93,7 +100,7 @@ def login():
             if userL['role'] == 'healthcare staff':
                 return redirect(url_for('HealthcareStaff_Main'))
             if userL['role'] == 'patient':
-                return redirect(url_for('main'))
+                return redirect(url_for('Patient_Main'))
             if userL['role'] == 'IT admin':
                 return redirect(url_for('ITAdmin_Main'))    
             #return redirect(url_for('main'))
@@ -109,8 +116,8 @@ def logout():
     return redirect(url_for('login'))
 
 #patient view all appointments
-@app.route('/Appointments', methods=['GET', 'POST'])
-def viewAppointment():
+@app.route('/PatientViewAppointment', methods=['GET', 'POST'])
+def PatientViewAppointment():
     message = ''
     msg = ''
     if 'logged_in' in session:
@@ -120,6 +127,38 @@ def viewAppointment():
         if userA:
           return render_template('Patient_ViewAppointment.html', userA = userA)
     return render_template('Patient_ViewAppointment.html', message = message)
+
+#patient get queue number
+@app.route('/PatientQueueNumber', methods=['GET', 'POST'])
+def PatientQueueNumber():
+    """Renders the contact page."""
+    return render_template(
+        'PatientQueueNumber.html',
+        title='PatientQueueNumber',
+        year=datetime.now().year,
+        #message='Your contact page.'
+    )
+
+@app.route('/QueueNumberController', methods = ['POST'])
+def QueueNumberController():
+    VideoCamera().stop_camera()
+    return redirect(url_for('home'))
+
+#patient update personal details
+@app.route('/PatientUpdatePersonalDetail', methods=['GET', 'POST'])
+def PatientUpdatePersonalDetail():
+    """Renders the contact page."""
+    return render_template(
+        'PatientUpdatePersonalDetail.html',
+        title='PatientUpdatePersonalDetail',
+        year=datetime.now().year,
+        #message='Your contact page.'
+    )
+
+@app.route('/UpdatePersonalDetailController', methods = ['POST'])
+def UpdatePersonalDetailController():
+    VideoCamera().stop_camera()
+    return redirect(url_for('home'))
     
 
 def gen(camera):
@@ -228,13 +267,4 @@ def StaffCreateAppointment():
     return render_template(
         'StaffCreateAppointment.html',
         title='Staff Create Appointment',
-        year=datetime.now().year)
-
-#Patients to update personal detail
-@app.route('/PatientUpdatePersonalDetail')
-def PatientUpdatePersonalDetail():
-    """Renders the patient update personal detail page."""
-    return render_template(
-        'PatientUpdatePersonalDetail.html',
-        title='Patient Update Personal Detail',
         year=datetime.now().year)

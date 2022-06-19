@@ -1,28 +1,163 @@
-{% extends "layout_Patient.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html>
 
-<h2>{{ title }}.</h2>
-<h3>{{ message }}</h3>
-<h3>{{ msg }}</h3>
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="/images/favicon.png" type="">
+
+  <title> Hospital </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="../static/content/bootstrap.css" />
 
 
 
-<div class="row">
-    <div class="col-md-4">
-        <div class="appointment">
-            <p>Select date to view appointment: <input type="date"></p>
-            <p>Patient: {{ userA['username'] }}</p>
-            <p>NRIC: {{ userA.nric }}</p>
-            <p>Date of visit : {{ userA.date }}</p>
-            <p>Reason of visit : {{ userA.reason }}</p>
-            <p>Department: {{ userA.department }} </p>
-            <p>Attending Doctor: {{ userA.attending }}</p>
+  <!-- Custom styles for this template -->
+  <link href="../static/content/style.css?1422585377" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="../static/content/responsive.css" rel="stylesheet" />
 
-        </div>
+</head>
 
+<body class="sub_page">
+
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="../static/images/hero-bg.jpg" alt="">
     </div>
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="/Patient_Main">
+            <span>
+              Hospital
+            </span>
+          </a>
 
-</div>
 
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  mx-auto" style="padding-left:700px">
+              
+              
+            </ul>
+            
+          </div>
+        </nav>
+      </div>
+    </header>
+  </div>
 
-{% endblock %}
+   <section class="image_section layout_padding">
+    <div class="container">
+            <div class="filters-content">
+                <div class="row grid">
+
+                <div class="col-sm-6">
+                    <h2 style="text-align:center;">
+                        Upcoming Appointments
+                    </h2>
+                  <div class="menubox">
+                      <div class="detail-box">
+                        <p>Patient: {{ userA['username'] }}</p>
+                        <p>NRIC: {{ userA.nric }}</p>
+                        <p>Date of visit : {{ userA.date }}</p>
+                        <p>Reason of visit : {{ userA.reason }}</p>
+                        <p>Department: {{ userA.department }} </p>
+                        <p>Attending Doctor: {{ userA.attending }}</p>
+                    </div>
+                    
+                  </div>
+                  <div class="menubox">
+                      <div class="detail-box">
+                        <p>Patient: {{ userA['username'] }}</p>
+                        <p>NRIC: {{ userA.nric }}</p>
+                        <p>Date of visit : {{ userA.date }}</p>
+                        <p>Reason of visit : {{ userA.reason }}</p>
+                        <p>Department: {{ userA.department }} </p>
+                        <p>Attending Doctor: {{ userA.attending }}</p>
+                    </div>
+                    
+                  </div>
+                 <div class="menubox">
+                      <div class="detail-box">
+                        <p>Patient: {{ userA['username'] }}</p>
+                        <p>NRIC: {{ userA.nric }}</p>
+                        <p>Date of visit : {{ userA.date }}</p>
+                        <p>Reason of visit : {{ userA.reason }}</p>
+                        <p>Department: {{ userA.department }} </p>
+                        <p>Attending Doctor: {{ userA.attending }}</p>
+                    </div>
+                    
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                    <h2 style="text-align:center;">
+                        Past Appointments
+                    </h2>
+                  <div class="menubox">
+                      <div class="detail-box">
+                        <p>Patient: {{ userA['username'] }}</p>
+                        <p>NRIC: {{ userA.nric }}</p>
+                        <p>Date of visit : {{ userA.date }}</p>
+                        <p>Reason of visit : {{ userA.reason }}</p>
+                        <p>Department: {{ userA.department }} </p>
+                        <p>Attending Doctor: {{ userA.attending }}</p>
+                    </div>
+                    
+                  </div>
+                  <div class="menubox">
+                      <div class="detail-box">
+                        <p>Patient: {{ userA['username'] }}</p>
+                        <p>NRIC: {{ userA.nric }}</p>
+                        <p>Date of visit : {{ userA.date }}</p>
+                        <p>Reason of visit : {{ userA.reason }}</p>
+                        <p>Department: {{ userA.department }} </p>
+                        <p>Attending Doctor: {{ userA.attending }}</p>
+                    </div>
+                    
+                  </div>
+                  <div class="menubox">
+                      <div class="detail-box">
+                        <p>Patient: {{ userA['username'] }}</p>
+                        <p>NRIC: {{ userA.nric }}</p>
+                        <p>Date of visit : {{ userA.date }}</p>
+                        <p>Reason of visit : {{ userA.reason }}</p>
+                        <p>Department: {{ userA.department }} </p>
+                        <p>Attending Doctor: {{ userA.attending }}</p>
+                    </div>
+                    
+                  </div>
+
+                  <!-- col below -->
+                </div>
+               
+                
+                <!-- sdsd -->
+            </div>
+            </div>
+        </div>
+    </section>
+
+  
+
+  <!-- jQuery -->
+  <!-- <script src="js/jquery-3.4.1.min.js"></script> -->
+  <!-- bootstrap js -->
+  <script src="../static/scripts/js/bootstrap.js"></script>
+  <!-- isotope js -->
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <!-- custom js -->
+  <!-- <script src="js/custom.js"></script> -->
+  
+
+</body>
+
+</html>
