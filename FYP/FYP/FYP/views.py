@@ -2,7 +2,7 @@
 Routes and views for the flask application.
 """
 
-from datetime import datetime
+from datetime import datetime, date
 from flask import render_template
 from FYP import app
 from .camera import VideoCamera
@@ -44,6 +44,7 @@ def home():
 @app.route('/Patient_Main')
 def Patient_Main():
     """Renders the home page."""
+    year = datetime.now().date()
     message = ''
     msg = ''
     if 'logged_in' in session:
@@ -51,8 +52,8 @@ def Patient_Main():
         cursor.execute('SELECT * FROM appointments WHERE username = % s AND nric = % s',  (session['username'], session['nric'], ))
         userA = cursor.fetchone()
         if userA:
-          return render_template('PatientMain.html', userA = userA)
-    return render_template('PatientMain.html', message = message)
+          return render_template('PatientMain.html', userA = userA,  message = message, year = year)
+    return render_template('PatientMain.html', message = message, year = year)
     
 
 @app.route('/HealthcareStaff_Main')
@@ -129,10 +130,11 @@ def PatientViewAppointment():
     msg = ''
     if 'logged_in' in session:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        current=date.today()
-        cursor.execute('SELECT * FROM appointments WHERE username = % s AND nric = % s AND date < current',  (session['username'], session['nric'], ))
+        current = datetime.now().date()
+        cursor.execute('SELECT * FROM appointments WHERE username = % s AND nric = % s AND date_slot >= CURDATE()',  (session['username'], session['nric'], ))
         userA = cursor.fetchall()
-        userB = cursor.fetchone()
+        cursor.execute("SELECT * FROM appointments WHERE username = % s AND nric = % s AND date_slot < CURDATE()" ,  (session['username'], session['nric'], ))
+        userB = cursor.fetchall()
         
 
         return render_template('Patient_ViewAppointment.html', userA = userA, userB = userB)

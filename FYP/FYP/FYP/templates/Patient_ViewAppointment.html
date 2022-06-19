@@ -70,7 +70,7 @@
                                 
                                 <p>Patient: {{ appointment['username'] }}</p>
                                 <p>NRIC: {{ appointment.nric }}</p>
-                                <p>Date of visit : {{ appointment.date }}</p>
+                                <p>Date of visit : {{ appointment.date_slot }}</p>
                                 <p>Reason of visit : {{ appointment.reason }}</p>
                                 <p>Department: {{ appointment.department }} </p>
                                 <p>Attending Doctor: {{ appointment.attending }}</p>
@@ -85,41 +85,23 @@
                     <h2 style="text-align:center;">
                         Past Appointments
                     </h2>
-                  <div class="menubox">
-                      <div class="detail-box">
-                        <p>Patient: {{ userA['username'] }}</p>
-                        <p>NRIC: {{ userA.nric }}</p>
-                        <p>Date of visit : {{ userA.date }}</p>
-                        <p>Reason of visit : {{ userA.reason }}</p>
-                        <p>Department: {{ userA.department }} </p>
-                        <p>Attending Doctor: {{ userA.attending }}</p>
-                    </div>
-                    
-                  </div>
-                  <div class="menubox">
-                      <div class="detail-box">
-                        <p>Patient: {{ userA['username'] }}</p>
-                        <p>NRIC: {{ userA.nric }}</p>
-                        <p>Date of visit : {{ userA.date }}</p>
-                        <p>Reason of visit : {{ userA.reason }}</p>
-                        <p>Department: {{ userA.department }} </p>
-                        <p>Attending Doctor: {{ userA.attending }}</p>
-                    </div>
-                    
-                  </div>
-                  <div class="menubox">
-                      <div class="detail-box">
-                        <p>Patient: {{ userA['username'] }}</p>
-                        <p>NRIC: {{ userA.nric }}</p>
-                        <p>Date of visit : {{ userA.date }}</p>
-                        <p>Reason of visit : {{ userA.reason }}</p>
-                        <p>Department: {{ userA.department }} </p>
-                        <p>Attending Doctor: {{ userA.attending }}</p>
-                    </div>
-                    
-                  </div>
+                    {% for pastAppointment in userB %}
+                    <div class="menubox">
+                        <div class="detail-box">
 
-                  <!-- col below -->
+                            <p>Patient: {{ pastAppointment['username'] }}</p>
+                            <p>NRIC: {{ pastAppointment.nric }}</p>
+                            <p>Date of visit : {{ pastAppointment.date_slot }}</p>
+                            <p>Reason of visit : {{ pastAppointment.reason }}</p>
+                            <p>Department: {{ pastAppointment.department }} </p>
+                            <p>Attending Doctor: {{ pastAppointment.attending }}</p>
+
+                        </div>
+
+                    </div>
+                    {% endfor %}
+                    
+                    <!-- col below -->
                 </div>
                
                 
