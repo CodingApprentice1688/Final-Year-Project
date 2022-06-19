@@ -129,9 +129,13 @@ def PatientViewAppointment():
     msg = ''
     if 'logged_in' in session:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM appointments WHERE username = % s AND nric = % s',  (session['username'], session['nric'], ))
+        current=date.today()
+        cursor.execute('SELECT * FROM appointments WHERE username = % s AND nric = % s AND date < 2022-06-18',  (session['username'], session['nric'], ))
         userA = cursor.fetchall()
-        return render_template('Patient_ViewAppointment.html', userA = userA)
+        userB = cursor.fetchone()
+        
+
+        return render_template('Patient_ViewAppointment.html', userA = userA, userB = userB)
     return render_template('Patient_ViewAppointment.html', userA = userA)
 
 
