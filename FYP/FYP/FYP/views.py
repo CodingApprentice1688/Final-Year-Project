@@ -128,9 +128,23 @@ def PatientViewAppointment():
           return render_template('Patient_ViewAppointment.html', userA = userA)
     return render_template('Patient_ViewAppointment.html', message = message)
 
+#patient get queue number
+@app.route('/PatientQueueNumber', methods=['GET', 'POST'])
+def PatientQueueNumber():
+    """Renders the contact page."""
+    return render_template(
+        'PatientQueueNumber.html',
+        title='PatientQueueNumber',
+        year=datetime.now().year,
+        #message='Your contact page.'
+    )
+
+@app.route('/QueueNumberController', methods = ['POST'])
+def QueueNumberController():
+    VideoCamera().stop_camera()
+    return redirect(url_for('home'))
 
 #patient update personal details
-
 @app.route('/PatientUpdatePersonalDetail', methods=['GET', 'POST'])
 def PatientUpdatePersonalDetail():
     """Renders the contact page."""
@@ -138,8 +152,13 @@ def PatientUpdatePersonalDetail():
         'PatientUpdatePersonalDetail.html',
         title='PatientUpdatePersonalDetail',
         year=datetime.now().year,
-        message='Your contact page.'
+        #message='Your contact page.'
     )
+
+@app.route('/UpdatePersonalDetailController', methods = ['POST'])
+def UpdatePersonalDetailController():
+    VideoCamera().stop_camera()
+    return redirect(url_for('home'))
     
 
 def gen(camera):

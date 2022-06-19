@@ -64,39 +64,13 @@
     <section class="form_section layout_padding">
         <div class="container">
             <div class="heading_container">
-                <h2>
-                    Update Personal Detail
-                </h2>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form_container">
-                        <form method="post" action="/PatientUpdateDetailController">
-                            <div>
-                                <label>Name: </label>
-                                <input type="text" class="form-control" name="name" id="name" placeholder="Name" />
-                            </div>
-                            <div>
-                                <label>Identification Number: </label>
-                                <input type="text" class="form-control" name="identificationNumber" id="identificationNumber" placeholder="Identification Number" />
-                            </div>
-                            <div>
-                                <label>Phone Number: </label>
-                                <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" />
-                            </div>
-                            <div>
-                                <label>Username: </label>
-                                <input type="text" class="form-control" name="username" id="username" placeholder="Username" />
-                            </div>
-                            <div>
-                                <label>Password: </label>
-                                <input type="text" class="form-control" name="password" id="password" placeholder="Password" />
-                            </div>
-                        </form>
-                    </div>
+                <div class="heading_container heading_center">
+                    <h1>
+                        Welcome, Patient!
+                    </h1>
                 </div>
             </div>
-            <section class="updatePersonalDetail_section layout_padding2">
+            <section class="queueNumber_section layout_padding2">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 ">
@@ -114,7 +88,7 @@
                                         First, position your face towards the camera. Then, press the capture button to log in to the system.
                                     </h4>
                                 </div>
-                                <form method="post" action="{{ url_for('UpdatePersonalDetailController') }}">
+                                <form method="post" action="{{ url_for('QueueNumberController') }}">
                                     <button class="yellow-button" type="submit">
                                         Capture
                                     </button>
@@ -132,14 +106,13 @@
                                 <label>Upload Image: </label>
                                 <input type="file" class="form-control" name="uploadImage" id="uploadImage" placeholder="Upload Image" />
                             </div>
-                            <div class="btn_box">
-                                <button class="yellow-button" type="submit">
-                                    Save Changes
-                                </button>
+                            <div>
+                                <label>Your Queue Number: </label>
+                                <input type="text" class="form-control" name="queueNumber" id="queueNumber" placeholder="A001" disabled />
                             </div>
                             <div class="btn_box">
                                 <button class="yellow-button" type="submit">
-                                    Discard Changes
+                                    Print
                                 </button>
                             </div>
                         </form>
@@ -147,8 +120,8 @@
                 </div>
             </div>
             <div class="btn_box">
-                <button class="yellow-button" onclick="Previous()">
-                    Back
+                <button class="yellow-button" onclick="window.location.href='/logout'">
+                    Log Out
                 </button>
             </div>
         </div>
