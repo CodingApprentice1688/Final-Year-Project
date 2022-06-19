@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\FYP",
+    "\\FYP\\FYP",
+    "\\FYP\\FYP\\FYP",
+    "\\FYP\\FYP\\FYP\\static"
   ],
-  "SelectedNode": "\\C:\\Users\\morgan\\Source\\Repos\\csci321_fyp",
+  "SelectedNode": "\\FYP\\FYP.sln",
   "PreviewInSolutionExplorer": false
 }
