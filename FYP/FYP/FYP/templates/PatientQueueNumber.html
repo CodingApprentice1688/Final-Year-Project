@@ -70,9 +70,8 @@
                     </h1>
                 </div>
             </div>
-            <section class="login_section layout_padding2">
-                <div class="container  ">
-
+            <section class="queueNumber_section layout_padding2">
+                <div class="container">
                     <div class="row">
                         <div class="col-md-6 ">
                             <div class="img-box">
@@ -89,15 +88,11 @@
                                         First, position your face towards the camera. Then, press the capture button to log in to the system.
                                     </h4>
                                 </div>
-                                <form method="post" action="{{ url_for('LoginController') }}">
-
+                                <form method="post" action="{{ url_for('QueueNumberController') }}">
                                     <button class="yellow-button" type="submit">
-
                                         Capture
-
                                     </button>
                                 </form>
-
                             </div>
                         </div>
                     </div>
@@ -107,6 +102,10 @@
                 <div class="col-md-6">
                     <div class="form_container">
                         <form method="post" action="/PatientUpdateDetailController">
+                            <div>
+                                <label>Upload Image: </label>
+                                <input type="file" class="form-control" name="uploadImage" id="uploadImage" placeholder="Upload Image" />
+                            </div>
                             <div>
                                 <label>Your Queue Number: </label>
                                 <input type="text" class="form-control" name="queueNumber" id="queueNumber" placeholder="A001" disabled />
