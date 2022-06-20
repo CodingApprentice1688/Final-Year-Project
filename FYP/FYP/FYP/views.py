@@ -141,8 +141,7 @@ def PatientQueueNumber():
     return render_template(
         'PatientQueueNumber.html',
         title='PatientQueueNumber',
-        year=datetime.now().year,
-        #message='Your contact page.'
+        year=datetime.now().year
     )
 
 @app.route('/QueueNumberController', methods = ['POST'])
@@ -151,14 +150,13 @@ def QueueNumberController():
     return redirect(url_for('Patient_Main'))
 
 #patient update personal details
-@app.route('/PatientUpdatePersonalDetail', methods=['GET', 'POST'])
-def PatientUpdatePersonalDetail():
+@app.route('/PatientUpdatePersonalDetailController', methods=['GET', 'POST'])
+def PatientUpdatePersonalDetailController():
     """Renders the contact page."""
     return render_template(
-        'PatientUpdatePersonalDetail.html',
-        title='PatientUpdatePersonalDetail',
-        year=datetime.now().year,
-        #message='Your contact page.'
+        'PatientUpdatePersonalDetailController.html',
+        title='PatientUpdatePersonalDetailController',
+        year=datetime.now().year
     )
     
 

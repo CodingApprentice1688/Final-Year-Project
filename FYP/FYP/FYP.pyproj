@@ -53,7 +53,7 @@
     <Content Include="FYP\templates\admin_RegisterPT.html" />
     <Content Include="FYP\templates\admin_updatePTimg.html" />
     <Content Include="FYP\templates\PatientQueueNumber.html" />
-    <Content Include="FYP\templates\PatientUpdatePersonalDetail.html" />
+    <Content Include="FYP\templates\PatientUpdatePersonalDetailController.html" />
     <Content Include="FYP\templates\helloPage.html">
       <SubType>Code</SubType>
     </Content>
