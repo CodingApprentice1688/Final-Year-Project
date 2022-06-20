@@ -719,3 +719,7 @@ label > input:checked + img{ /* (RADIO CHECKED) style gambar */
   position: relative;
   background-color: black;
 }
+
+.no-bullets {
+    list-style: none;
+}
