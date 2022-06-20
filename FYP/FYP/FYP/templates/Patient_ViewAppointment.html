@@ -62,54 +62,55 @@
     <div class="container">
             <div class="filters-content">
                 <div class="row grid">
+                        <div class="col-sm-6">
+                            <h2 style="text-align:center;">
+                                Upcoming Appointments
+                            </h2>
+                            {% for appointment in userA %}
+                            <div class="menubox">
 
-                <div class="col-sm-6">
-                    <h2 style="text-align:center;">
-                        Upcoming Appointments
-                    </h2>
-                        {% for appointment in userA %}
-                        <div class="menubox">
-                            <div class="detail-box">
-                                
-                                <p>Patient: {{ appointment['name'] }}</p>
-                                <p>NRIC: {{ appointment.nric }}</p>
-                                <p>Date of visit : {{ appointment.date_slot }}</p>
-                                <p>Reason of visit : {{ appointment.reason }}</p>
-                                <p>Department: {{ appointment.department }} </p>
-                                <p>Attending Doctor: {{ appointment.attending }}</p>
-                                
+                                <div class="detail-box">
+                                    <p>Patient: {{ appointment['name'] }}</p>
+                                    <p>NRIC: {{ appointment.nric }}</p>
+                                    <p>Date of visit : {{ appointment.date_slot }}</p>
+                                    <p>Reason of visit : {{ appointment.reason }}</p>
+                                    <p>Department: {{ appointment.department }} </p>
+                                    <p>Attending Doctor: {{ appointment.attending }}</p>
+
+                                </div>
+                                <form action="{{ url_for('PatientCancelAppointment') }}" method="post">
+                                    <input type="hidden" name="appointment_id" value="{{appointment.appointment_id}}" />
+                                    <button type="submit"> Cancel Appointment</button>
+                                </form>
                             </div>
-                           
+                            {% endfor %}
                         </div>
-                        {% endfor %}
-                    </div>
-                        
-                <div class="col-sm-6">
-                    <h2 style="text-align:center;">
-                        Past Appointments
-                    </h2>
-                    {% for pastAppointment in userB %}
-                    <div class="menubox">
-                        <div class="detail-box">
+                        <div class="col-sm-6">
+                            <h2 style="text-align:center;">
+                                Past Appointments
+                            </h2>
+                            {% for pastAppointment in userB %}
+                            <div class="menubox">
+                                <div class="detail-box">
 
-                            <p>Patient: {{ pastAppointment['name'] }}</p>
-                            <p>NRIC: {{ pastAppointment.nric }}</p>
-                            <p>Date of visit : {{ pastAppointment.date_slot }}</p>
-                            <p>Reason of visit : {{ pastAppointment.reason }}</p>
-                            <p>Department: {{ pastAppointment.department }} </p>
-                            <p>Attending Doctor: {{ pastAppointment.attending }}</p>
+                                    <p>Patient: {{ pastAppointment['name'] }}</p>
+                                    <p>NRIC: {{ pastAppointment.nric }}</p>
+                                    <p>Date of visit : {{ pastAppointment.date_slot }}</p>
+                                    <p>Reason of visit : {{ pastAppointment.reason }}</p>
+                                    <p>Department: {{ pastAppointment.department }} </p>
+                                    <p>Attending Doctor: {{ pastAppointment.attending }}</p>
 
+                                </div>
+
+                            </div>
+                            {% endfor %}
+
+                            <!-- col below -->
                         </div>
 
-                    </div>
-                    {% endfor %}
-                    
-                    <!-- col below -->
-                </div>
-               
-                
-                <!-- sdsd -->
-            </div>
+
+                        <!-- sdsd -->
+</div>
             </div>
         </div>
     </section>
