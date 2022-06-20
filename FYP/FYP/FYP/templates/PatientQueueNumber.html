@@ -27,6 +27,12 @@
         function Previous() {
             window.history.back()
         }
+
+        var seq = 0;
+        function getQueueNumber() {
+            seq = seq + 1;
+            document.getElementById("queueNumber").value = seq;
+        }
     </script>
 
 </head>
@@ -63,13 +69,6 @@
     </div>
     <section class="form_section layout_padding">
         <div class="container">
-            <div class="heading_container">
-                <div class="heading_container heading_center">
-                    <h1>
-                        Welcome, Patient!
-                    </h1>
-                </div>
-            </div>
             <section class="queueNumber_section layout_padding2">
                 <div class="container">
                     <div class="row">
@@ -101,7 +100,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form_container">
-                        <form method="post" action="/PatientUpdateDetailController">
+                        <form method="post" action="/PatientQueueNumber">
                             <div>
                                 <label>Upload Image: </label>
                                 <input type="file" class="form-control" name="uploadImage" id="uploadImage" placeholder="Upload Image" />
@@ -111,8 +110,8 @@
                                 <input type="text" class="form-control" name="queueNumber" id="queueNumber" placeholder="A001" disabled />
                             </div>
                             <div class="btn_box">
-                                <button class="yellow-button" type="submit">
-                                    Print
+                                <button class="yellow-button" onclick="getQueueNumber()">
+                                    Get Queue Number Now
                                 </button>
                             </div>
                         </form>
@@ -120,8 +119,8 @@
                 </div>
             </div>
             <div class="btn_box">
-                <button class="yellow-button" onclick="window.location.href='/logout'">
-                    Log Out
+                <button class="yellow-button" onclick="Previous()">
+                    Back
                 </button>
             </div>
         </div>
