@@ -163,7 +163,7 @@ def PatientQueueNumber():
 @app.route('/QueueNumberController', methods = ['POST'])
 def QueueNumberController():
     VideoCamera().stop_camera()
-    return redirect(url_for('home'))
+    return redirect(url_for('Patient_Main'))
 
 #patient update personal details
 @app.route('/PatientUpdatePersonalDetail', methods=['GET', 'POST'])
@@ -175,11 +175,6 @@ def PatientUpdatePersonalDetail():
         year=datetime.now().year,
         #message='Your contact page.'
     )
-
-@app.route('/UpdatePersonalDetailController', methods = ['POST'])
-def UpdatePersonalDetailController():
-    VideoCamera().stop_camera()
-    return redirect(url_for('home'))
     
 
 def gen(camera):
