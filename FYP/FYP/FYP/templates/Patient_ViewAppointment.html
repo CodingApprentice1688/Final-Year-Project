@@ -68,7 +68,7 @@
                         <div class="menubox">
                             <div class="detail-box">
                                 
-                                <p>Patient: {{ appointment['username'] }}</p>
+                                <p>Patient: {{ appointment['name'] }}</p>
                                 <p>NRIC: {{ appointment.nric }}</p>
                                 <p>Date of visit : {{ appointment.date_slot }}</p>
                                 <p>Reason of visit : {{ appointment.reason }}</p>
@@ -89,7 +89,7 @@
                     <div class="menubox">
                         <div class="detail-box">
 
-                            <p>Patient: {{ pastAppointment['username'] }}</p>
+                            <p>Patient: {{ pastAppointment['name'] }}</p>
                             <p>NRIC: {{ pastAppointment.nric }}</p>
                             <p>Date of visit : {{ pastAppointment.date_slot }}</p>
                             <p>Reason of visit : {{ pastAppointment.reason }}</p>
