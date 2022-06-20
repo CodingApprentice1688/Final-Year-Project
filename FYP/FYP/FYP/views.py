@@ -33,14 +33,7 @@ def LoginPage():
         'login.html'
     )
 
-@app.route('/home')
-def home():
-    """Renders the home page."""
-    return render_template(
-        'index.html',
-        title='Home Page',
-        year=datetime.now().year,
-    )
+
 @app.route('/Patient_Main')
 def Patient_Main():
     """Renders the home page."""
@@ -76,20 +69,12 @@ def HealthcareStaff_Main():
 def ITAdmin_Main():
     """Renders a sample page."""
     return render_template(
-        'testITAdmin.html',
+        'ITAdminMain.html',
         title='hello',
         year=datetime.now().year,
         message='This page is for IT Admin '
     )
-@app.route('/Manage_Credentials')
-def Manage_Credentials():
-    """Renders a sample page."""
-    return render_template(
-        'testITAdmin.html',
-        title='hello',
-        year=datetime.now().year,
-        message='IT Admin to manage credentials '
-    )
+
 
 
 
@@ -173,30 +158,23 @@ def PatientQueueNumber():
     return render_template(
         'PatientQueueNumber.html',
         title='PatientQueueNumber',
-        year=datetime.now().year,
-        #message='Your contact page.'
+        year=datetime.now().year
     )
 
 @app.route('/QueueNumberController', methods = ['POST'])
 def QueueNumberController():
     VideoCamera().stop_camera()
-    return redirect(url_for('home'))
+    return redirect(url_for('Patient_Main'))
 
 #patient update personal details
-@app.route('/PatientUpdatePersonalDetail', methods=['GET', 'POST'])
-def PatientUpdatePersonalDetail():
+@app.route('/PatientUpdatePersonalDetailController', methods=['GET', 'POST'])
+def PatientUpdatePersonalDetailController():
     """Renders the contact page."""
     return render_template(
-        'PatientUpdatePersonalDetail.html',
-        title='PatientUpdatePersonalDetail',
-        year=datetime.now().year,
-        #message='Your contact page.'
+        'PatientUpdatePersonalDetailController.html',
+        title='PatientUpdatePersonalDetailController',
+        year=datetime.now().year
     )
-
-@app.route('/UpdatePersonalDetailController', methods = ['POST'])
-def UpdatePersonalDetailController():
-    VideoCamera().stop_camera()
-    return redirect(url_for('home'))
     
 
 def gen(camera):
@@ -204,11 +182,6 @@ def gen(camera):
         frame = camera.get_frame()
         yield (b'--frame\r\n'
                 b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
-
-@app.route('/LoginController', methods = ['POST'])
-def LoginController():
-    VideoCamera().stop_camera()
-    return redirect(url_for('home'))
 
 
 
@@ -219,59 +192,9 @@ def video_feed():
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
-@app.route('/contact')
-def contact():
-    """Renders the contact page."""
-    return render_template(
-        'contact.html',
-        title='Contact',
-        year=datetime.now().year,
-        message='Your contact page.'
-    )
-
-@app.route('/about')
-def about():
-    """Renders the about page."""
-    return render_template(
-        'about.html',
-        title='About',
-        year=datetime.now().year,
-        message='Your application description page.'
-    )
-@app.route('/test')
-def test():  
-      return render_template(
-        'helloPage.html',
-        title='test',
-        year=datetime.now().year,
-        message='Under testing'
-    )
- 
- 
-@app.route('/hello')
-def hello():
-    """Renders a sample page."""
-    return render_template(
-        'helloPage.html',
-        title='hello',
-        year=datetime.now().year,
-        message='Under testing'
-    )
 
 
 
-
-
-# test insert in sql
-@app.route('/formPage', methods =['POST', 'GET'])
-def submitForm():
-   if request.method == 'POST':
-        role = request.form['roleName']
-        cursor = mysql.connection.cursor()
-        cursor.execute(""" INSERT INTO ROLE (roleName) VALUES(%s)""" , [role])
-        mysql.connection.commit()
-        cursor.close()
-        return redirect(url_for('test'))
 
 @app.route('/StaffSearchPatient')
 def StaffSearchPatient():
