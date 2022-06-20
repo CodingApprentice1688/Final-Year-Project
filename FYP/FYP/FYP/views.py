@@ -295,7 +295,7 @@ def StaffCreateAppointment():
 
 
 
-@app.route('/StaffViewMedicalRecord')
+@app.route('/StaffViewMedicalRecord', methods=['GET', 'POST'])
 def StaffViewMedicalRecord():
     """Renders the about page."""
     return render_template(
