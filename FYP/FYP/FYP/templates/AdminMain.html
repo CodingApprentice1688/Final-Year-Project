@@ -55,8 +55,8 @@
       </div>
     </header>
   </div>
-  <div class="container" style="margin:auto; width:60%;">
-  <section class="image_section layout_padding" >
+
+  <section class="image_section layout_padding">
     <div class="container">
       <div class="heading_container heading_center">
           <h1>
@@ -65,16 +65,14 @@
       </div>
       <div class="heading_container heading_center">
         <h3>
-          Press the button below to search for patients:
+          Please select one of the following to perform a task:
         </h3>
       </div>
       <br/>
       <br/>
         <div class="row grid">
-        <div class="col-sm-8 col-lg-4 all">
-        </div>
-          <a href="{{ url_for('StaffSearchPatient') }}">
-            <div class="col-sm-8 col-lg-4 all">
+          <a href="{{ url_for('AdminSearchPatient') }}">
+            <div class="col-sm-6">
               <div class="box">
                 <div>
                   <div class="img-box">
@@ -90,13 +88,27 @@
             </div>
           </a>
           
-        
+          <a href="{{ url_for('AdminRegisterPatient') }}">
+            <div class="col-sm-6">
+              <div class="box">
+                <div>
+                  <div class="img-box">
+                    <img src="../static/images/queue.png" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <h4 style="padding-top:0px;">
+                      Register Patient
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
 
 
         </div>
     </div>
   </section>
-  </div>
   <span id="displayYear"></span>
 
   

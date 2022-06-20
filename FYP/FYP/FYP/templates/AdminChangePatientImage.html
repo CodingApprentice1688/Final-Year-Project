@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <meta http-equiv="Pragma" content="no-cache">
+  <link rel="shortcut icon" href="/images/favicon.png" type="">
+
+  <title> Hospital </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="../static/content/bootstrap.css" />
+
+
+
+  <!-- Custom styles for this template -->
+  <link href="../static/content/style.css?1422585377" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="../static/content/responsive.css" rel="stylesheet" />
+
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="../static/images/hero-bg.jpg" alt="">
+    </div>
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="/">
+            <span>
+              Hospital
+            </span>
+          </a>
+
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  mx-auto" style="padding-left:700px">
+              
+              
+            </ul>
+            
+          </div>
+        </nav>
+      </div>
+    </header>
+  </div>
+  <div class="container">
+  <div class-"heading_container heading_center" style="text-align:center; padding-top:50px;">
+    <h1 style="padding-bottom:15px;">
+        Change Patient's' Images
+    </h1>
+    <div>
+        <img src="{{ url_for('video_feed') }}"/>
+    </div>
+    <form action="{{ url_for('capture_10_pics_change') }}">
+        <div style="padding-bottom:15px;">
+            <button class="yellow-button" type="submit" onclick"showwDiv()">Capture</button>
+        </div>
+    </form>
+      <div style="padding-bottom:30px">
+        {% for i in range(ten) %}
+            <img src="../static/images/opencv{{i}}.jpg" style="width: 150px; length: 150px;">
+        {%endfor%}
+      </div>
+      <div id="submitButton" style="display:none;">
+        <button class="yellow-button" type="submit">Submit</button>
+      </div>
+  </div>
+  </div>
+  
+
+  
+
+  
+
+  <!-- jQuery -->
+  <!-- <script src="js/jquery-3.4.1.min.js"></script> -->
+  <!-- bootstrap js -->
+  <script src="../static/scripts/js/bootstrap.js"></script>
+  <!-- isotope js -->
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <!-- custom js -->
+  <!-- <script src="js/custom.js"></script> -->
+  <script>
+    function showwDiv() {
+        alert('hei');
+        document.getElementById('submitButton').style.display = "block";
+    }
+  </script>
+  
+
+</body>
+
+</html>

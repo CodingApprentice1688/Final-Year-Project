@@ -33,8 +33,17 @@ class VideoCamera(object):
 
        
         #oswaldo's comment
-        ret, jpeg = cv2.imencode('.jpg', image)
-        return jpeg.tobytes()
+        if success == True:
+            ret, jpeg = cv2.imencode('.jpg', image)
+            if ret == True:
+                return jpeg.tobytes()
+
+    def capture_10_pics(self):
+        for i in range(10):
+            return_value, image = self.video.read()
+            cv2.imwrite('FYP/FYP/FYP/static/images/opencv'+str(i)+'.jpg', image)
+           
+        self.video.release()
 
     def stop_camera(self):
         self.video.release()

@@ -1,7 +1,14 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\FYP",
+    "\\FYP\\FYP",
+    "\\FYP\\FYP\\FYP",
+    "\\FYP\\FYP\\FYP\\static",
+    "\\FYP\\FYP\\FYP\\static\\content",
+    "\\FYP\\FYP\\FYP\\static\\images",
+    "\\FYP\\FYP\\FYP\\templates"
   ],
-  "SelectedNode": "\\FYP.sln",
+  "SelectedNode": "\\FYP\\FYP\\FYP\\templates\\AdminChangePatientCredentials.html",
   "PreviewInSolutionExplorer": false
 }

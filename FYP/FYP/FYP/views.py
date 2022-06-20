@@ -18,6 +18,7 @@ app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'healthcare_db' #change into your own database
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = -1
  
 mysql = MySQL(app)
 
@@ -65,15 +66,19 @@ def HealthcareStaff_Main():
     
 
 
-@app.route('/ITAdmin_Main')
-def ITAdmin_Main():
-    """Renders a sample page."""
-    return render_template(
-        'ITAdminMain.html',
-        title='hello',
-        year=datetime.now().year,
-        message='This page is for IT Admin '
-    )
+@app.route('/Admin_Main')
+def Admin_Main():
+    """Renders the home page."""
+    year = datetime.now().date()
+    message = ''
+    msg = ''
+    if 'logged_in' in session:
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM user WHERE username = % s AND nric = % s',  (session['username'], session['nric'], ))
+        userA = cursor.fetchone()
+        if userA:
+          return render_template('AdminMain.html', userA = userA,  message = message, year = year)
+    return render_template('AdminMain.html', message = message, year = year)
 
 
 
@@ -103,7 +108,7 @@ def login():
             if userL['role'] == 'patient':
                 return redirect(url_for('Patient_Main'))
             if userL['role'] == 'IT admin':
-                return redirect(url_for('ITAdmin_Main'))    
+                return redirect(url_for('Admin_Main'))    
             #return redirect(url_for('main'))
 
         else:
@@ -180,8 +185,9 @@ def PatientUpdatePersonalDetailController():
 def gen(camera):
     while True:
         frame = camera.get_frame()
-        yield (b'--frame\r\n'
-                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+        if frame is not None:
+            yield (b'--frame\r\n'
+                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
 
 
 
@@ -192,6 +198,17 @@ def video_feed():
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
+@app.route('/capture_10_pics')
+def capture_10_pics():
+    VideoCamera().capture_10_pics();
+    ten = 10
+    return render_template('AdminRegisterPatient.html', ten = ten)
+
+@app.route('/capture_10_pics_change')
+def capture_10_pics_change():
+    VideoCamera().capture_10_pics();
+    ten = 10
+    return render_template('AdminChangePatientImage.html', ten = ten)
 
 
 
@@ -257,3 +274,36 @@ def StaffViewPatientAppointment():
         
 
     return render_template('Patient_ViewAppointment.html', userA = userA, userB = userB)
+
+
+
+@app.route('/AdminChangePatientCredentials',  methods=['GET', 'POST'])
+def AdminChangePatientCredentials():
+    """Renders the about page."""
+    return render_template(
+        'AdminChangePatientCredentials.html')
+
+@app.route('/AdminSearchPatient')
+def AdminSearchPatient():
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    patient = 'patient'
+    cursor.execute('SELECT * FROM user where role = % s', (patient, ))
+    patient = cursor.fetchall()
+    """Renders the about page."""
+    return render_template(
+        'AdminSearchPatient.html', patient = patient)
+
+@app.route('/AdminRegisterPatient')
+def AdminRegisterPatient():
+    """Renders the about page."""
+    ten = 0
+    return render_template(
+        'AdminRegisterPatient.html', ten = ten)
+
+
+@app.route('/AdminChangePatientImage',  methods=['GET', 'POST'])
+def AdminChangePatientImage():
+    """Renders the about page."""
+    ten = 0
+    return render_template(
+        'AdminChangePatientImage.html', ten = ten)
