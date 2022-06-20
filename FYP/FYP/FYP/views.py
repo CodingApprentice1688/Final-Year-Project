@@ -49,22 +49,29 @@ def Patient_Main():
     msg = ''
     if 'logged_in' in session:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM appointments WHERE username = % s AND nric = % s',  (session['username'], session['nric'], ))
+        cursor.execute('SELECT * FROM user WHERE username = % s AND nric = % s',  (session['username'], session['nric'], ))
         userA = cursor.fetchone()
         if userA:
           return render_template('PatientMain.html', userA = userA,  message = message, year = year)
     return render_template('PatientMain.html', message = message, year = year)
-    
+
 
 @app.route('/HealthcareStaff_Main')
 def HealthcareStaff_Main():
-    """Renders a sample page."""
-    return render_template(
-        'testHealthCareStaff.html',
-        title='hello',
-        year=datetime.now().year,
-        message='This page is for healthcare staff'
-    )
+    """Renders the home page."""
+    year = datetime.now().date()
+    message = ''
+    msg = ''
+    if 'logged_in' in session:
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM user WHERE username = % s AND nric = % s',  (session['username'], session['nric'], ))
+        userA = cursor.fetchone()
+        if userA:
+          return render_template('StaffMain.html', userA = userA,  message = message, year = year)
+    return render_template('StaffMain.html', message = message, year = year)
+    
+
+
 @app.route('/ITAdmin_Main')
 def ITAdmin_Main():
     """Renders a sample page."""
@@ -101,12 +108,13 @@ def login():
         if userL:
             session['logged_in'] = True
             session['username'] = userL['username']
+            session['name'] = userL['name']
             session['nric'] = userL['nric']
             session['role_type'] = userL['role']
             msg = 'Logged in successfully !'
             #return render_template('index_Main.html', msg = msg)
             if userL['role'] == 'healthcare staff':
-                return redirect(url_for('StaffSearchPatient'))
+                return redirect(url_for('HealthcareStaff_Main'))
             if userL['role'] == 'patient':
                 return redirect(url_for('Patient_Main'))
             if userL['role'] == 'IT admin':
@@ -131,9 +139,9 @@ def PatientViewAppointment():
     if 'logged_in' in session:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         current = datetime.now().date()
-        cursor.execute('SELECT * FROM appointments WHERE username = % s AND nric = % s AND date_slot >= CURDATE()',  (session['username'], session['nric'], ))
+        cursor.execute('SELECT * FROM appointments WHERE name = % s AND nric = % s AND date_slot >= CURDATE()',  (session['name'], session['nric'], ))
         userA = cursor.fetchall()
-        cursor.execute("SELECT * FROM appointments WHERE username = % s AND nric = % s AND date_slot < CURDATE()" ,  (session['username'], session['nric'], ))
+        cursor.execute("SELECT * FROM appointments WHERE name = % s AND nric = % s AND date_slot < CURDATE()" ,  (session['name'], session['nric'], ))
         userB = cursor.fetchall()
         
 
@@ -294,3 +302,18 @@ def StaffViewMedicalRecord():
         'StaffViewMedicalRecord.html',
         title='Staff View Medical Record',
         year=datetime.now().year)       
+
+
+@app.route('/StaffViewPatientAppointment', methods=['GET', 'POST'])
+def StaffViewPatientAppointment():
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    username = request.form['username']
+    nric = request.form['nric']
+    current = datetime.now().date()
+    cursor.execute('SELECT * FROM appointments WHERE username = % s AND nric = % s AND date_slot >= CURDATE()',  (username, nric, ))
+    userA = cursor.fetchall()
+    cursor.execute("SELECT * FROM appointments WHERE username = % s AND nric = % s AND date_slot < CURDATE()" ,  (username, nric, ))
+    userB = cursor.fetchall()
+        
+
+    return render_template('Patient_ViewAppointment.html', userA = userA, userB = userB)
