@@ -108,6 +108,7 @@ def login():
         if userL:
             session['logged_in'] = True
             session['username'] = userL['username']
+            session['name'] = userL['name']
             session['nric'] = userL['nric']
             session['role_type'] = userL['role']
             msg = 'Logged in successfully !'
@@ -138,9 +139,9 @@ def PatientViewAppointment():
     if 'logged_in' in session:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         current = datetime.now().date()
-        cursor.execute('SELECT * FROM appointments WHERE username = % s AND nric = % s AND date_slot >= CURDATE()',  (session['username'], session['nric'], ))
+        cursor.execute('SELECT * FROM appointments WHERE name = % s AND nric = % s AND date_slot >= CURDATE()',  (session['name'], session['nric'], ))
         userA = cursor.fetchall()
-        cursor.execute("SELECT * FROM appointments WHERE username = % s AND nric = % s AND date_slot < CURDATE()" ,  (session['username'], session['nric'], ))
+        cursor.execute("SELECT * FROM appointments WHERE name = % s AND nric = % s AND date_slot < CURDATE()" ,  (session['name'], session['nric'], ))
         userB = cursor.fetchall()
         
 
