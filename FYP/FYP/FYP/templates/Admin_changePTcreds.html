@@ -73,13 +73,13 @@
             <br />
             <div id="menu" class="heading_container heading_center">
                 <h5 style="padding-top: 10px;">
-                    Please select the patient to change:
+                    Please select the patient name:
 
                 </h5>
 
                 <form action="/CustomerSearchMenuItemController" method="post">
                     <div>
-                        <input type="text" class="form-control" name="menuName" id="menuName" placeholder="Menu Name" />
+                        <input type="text" class="form-control" placeholder="Search Patient" />
 
                     </div>
                     <div>
@@ -91,9 +91,7 @@
 
                 </form>
             </div>
-            <div class="heading_container heading_center">
-                <a href="#cart"><button class="yellow-button">Save all the changes</button></a>
-            </div>
+
             <br />
             <br />
 
@@ -113,12 +111,28 @@
             </div>
 
 
-            <div class="filters-content">
-                <div class="row grid">
-
-
-
+            <div class="container">
+                <div class="patients">
+                    Patient A
+                    <h5> S123123A </h5>
+                    <button class="yellow-button">Select</button>
                 </div>
+                <div class="patients">
+                    Patient B
+                    <h5> S123123B </h5>
+                    <button class="yellow-button">Select</button>
+                </div>
+                <div class="patients">
+                    Patient C
+                    <h5> S123123C  </h5>
+                    <button class="yellow-button">Select</button>
+                </div>
+                <div class="patients">
+                    Patient D
+                    <h5> S123123D  </h5>
+                    <button class="yellow-button">Select</button>
+                </div>
+
             </div>
 
             <br />
@@ -130,35 +144,41 @@
                             Patient's Personal information
                         </h3>
                         <br />
-                        <div>
+                        <label>
+                            Name:
                             <input type="text" style="width:300px" class="form-control" name="patientname" placeholder="Changing current patient's name ">
                             <br />
-                        </div>
-                        <div>
+                        </label>
+                        <label>
+                            Identification Number:
                             <input type="text" style="width:300px" class="form-control" name="patientID" placeholder="Changing current patient's ID number">
                             <br />
                             <br />
-                        </div>
-                        <div>
+                        </label>
+                        <label>
+                            Phone Number:
                             <input type="text" style="width:300px" class="form-control" name="patientPhone" placeholder="Changing current patient's Phone numbers">
                             <br />
                             <br />
-                        </div>
-                        <div>
+                        </label>
+                        <label>
+                            Address:
                             <input type="text" style="width:300px" class="form-control" name="patientAdr" placeholder="Changing current patient's address">
                             <br />
                             <br />
-                        </div>
-                        <div>
+                        </label>
+                        <label>
+                            User Name:
                             <input type="text" style="width:300px" class="form-control" name="patientsUsername" placeholder="enter the new username">
                             <br />
                             <br />
-                        </div>
-                        <div>
+                        </label>
+                        <label>
+                            Password:
                             <input type="text" style="width:300px" class="form-control" name="patientPW" placeholder="enter the new password">
                             <br />
                             <br />
-                        </div>
+                        </label>
                         <div>
                             <h3>Would you like to save all the changes??</h3>
                             <br />
@@ -189,7 +209,19 @@
     <!-- custom js -->
     <script src="../js/custom.js"></script>
 
+    <script>
 
+
+            .container {
+                display: flex;
+                flex - wrap: wrap;
+            }
+.container.patients {
+                flex: 1 0 33 %;
+                height: 50px;
+                border: 1px solid black;
+            }
+    </script>
 </body>
 
 </html>
