@@ -273,7 +273,7 @@ def StaffViewPatientAppointment():
     userB = cursor.fetchall()
         
 
-    return render_template('Patient_ViewAppointment.html', userA = userA, userB = userB)
+    return render_template('StaffViewPatientAppointment.html', userA = userA, userB = userB)
 
 
 
