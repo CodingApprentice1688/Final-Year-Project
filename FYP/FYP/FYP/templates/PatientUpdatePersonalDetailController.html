@@ -27,6 +27,14 @@
         function Previous() {
             window.history.back()
         }
+        function ClearFields() {
+            document.getElementById("name").value = "";
+            document.getElementById("nric").value = "";
+            document.getElementById("age").value = "";
+            document.getElementById("gender").value = "";
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+        }
     </script>
 
 </head>
@@ -79,23 +87,23 @@
                             </div>
                             <div>
                                 <label>NRIC: </label>
-                                <input type="text" class="form-control" name="nric" id="nric" value= {{ personalDetail.nric }} />
+                                <input type="text" class="form-control" name="nric" id="nric" value={{ personalDetail.nric }} />
                             </div>
                             <div>
                                 <label>Age: </label>
-                                <input type="text" class="form-control" name="age" id="age" value= {{ personalDetail.age }} disabled />
+                                <input type="text" class="form-control" name="age" id="age" value={{ personalDetail.age }} disabled />
                             </div>
                             <div>
                                 <label>Gender: </label>
-                                <input type="text" class="form-control" name="gender" id="gender" value= {{ personalDetail.gender }} disabled />
+                                <input type="text" class="form-control" name="gender" id="gender" value={{ personalDetail.gender }} disabled />
                             </div>
                             <div>
                                 <label>Username: </label>
-                                <input type="text" class="form-control" name="username" id="username" value= {{ personalDetail.username }} />
+                                <input type="text" class="form-control" name="username" id="username" value={{ personalDetail.username }} />
                             </div>
                             <div>
                                 <label>Password: </label>
-                                <input type="password" class="form-control" name="password" value= {{ personalDetail.password }} />
+                                <input type="password" class="form-control" name="password" id="password" value={{ personalDetail.password }} />
                             </div>
                             <div>
                                 <label>Upload Image: </label>
@@ -106,15 +114,15 @@
                                     Save Changes
                                 </button>
                             </div>
-                            <div class="btn_box">
-                                <button class="yellow-button" onclick="window.location.href='/PatientUpdatePersonalDetailController'">
-                                    Discard Changes
-                                </button>
-                            </div>
                         </form>
                     </div>
                     {% endfor %}
                 </div>
+            </div>
+            <div class="btn_box">
+                <button class="yellow-button" onclick="ClearFields()">
+                    Discard Changes
+                </button>
             </div>
             <div class="btn_box">
                 <button class="yellow-button" onclick="Previous()">
