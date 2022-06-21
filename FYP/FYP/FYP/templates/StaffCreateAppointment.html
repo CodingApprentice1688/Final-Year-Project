@@ -34,7 +34,7 @@
       <header class="header_section">
         <div class="container">
           <nav class="navbar navbar-expand-lg custom_nav-container ">
-            <a class="navbar-brand" href="/UserAdmin">
+            <a class="navbar-brand" href="/HealthcareStaff_Main">
               <span>
                  Hospital
               </span>
@@ -65,16 +65,19 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form_container">
-                <form method="post" action="/UserAdminCreateAccountController">
+                <form>
                   <div>
                     
                     <input type="text" class="form-control" name="name" id="name" placeholder="Name" />
                   </div>
                   <div>
-                    <input type="text" onfocus="(this.type='date')" class="form-control" name="Date Of Birth" id="dob" placeholder="Date Of Birth" />
-                  </div>
-                  <div>
-                    <input type="text" class="form-control" name="Gender" id="gender" placeholder="Gender" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="nric"
+                    id="nric"
+                    placeholder="NRIC"
+                  />
                   </div>
                   <div>
                     <input type="date" class="form-control" name="Appointment" id="appointment" placeholder="Appointment" />

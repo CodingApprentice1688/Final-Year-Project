@@ -159,7 +159,6 @@ def PatientCancelAppointment():
 #patient get queue number
 @app.route('/PatientQueueNumber', methods=['GET', 'POST'])
 def PatientQueueNumber():
-    """Renders the contact page."""
     return render_template(
         'PatientQueueNumber.html',
         title='PatientQueueNumber',
@@ -174,12 +173,11 @@ def QueueNumberController():
 #patient update personal details
 @app.route('/PatientUpdatePersonalDetailController', methods=['GET', 'POST'])
 def PatientUpdatePersonalDetailController():
-    """Renders the contact page."""
-    return render_template(
-        'PatientUpdatePersonalDetailController.html',
-        title='PatientUpdatePersonalDetailController',
-        year=datetime.now().year
-    )
+    if 'logged_in' in session: 
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute("SELECT * FROM user WHERE name = % s AND nric = % s" , (session['name'], session['nric'], ))
+        userA = cursor.fetchall()
+    return render_template('PatientUpdatePersonalDetailController.html', userA = userA)
     
 
 def gen(camera):
@@ -273,7 +271,7 @@ def StaffViewPatientAppointment():
     userB = cursor.fetchall()
         
 
-    return render_template('Patient_ViewAppointment.html', userA = userA, userB = userB)
+    return render_template('StaffViewPatientAppointment.html', userA = userA, userB = userB)
 
 
 
