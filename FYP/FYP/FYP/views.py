@@ -175,7 +175,7 @@ def QueueNumberController():
 def PatientUpdatePersonalDetailController():
     if 'logged_in' in session: 
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute("SELECT * FROM user WHERE name = % s AND nric = % s" , (session['name'], session['nric'], ))
+        cursor.execute('SELECT * FROM user WHERE name = % s AND nric = % s' , (session['name'], session['nric'], ))
         userA = cursor.fetchall()
     return render_template('PatientUpdatePersonalDetailController.html', userA = userA)
     
