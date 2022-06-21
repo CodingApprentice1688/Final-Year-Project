@@ -70,31 +70,32 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
+                    {% for personalDetail in userA %}
                     <div class="form_container">
                         <form method="post" action="/PatientUpdatePersonalDetailController">
                             <div>
                                 <label>Name: </label>
-                                <input type="text" class="form-control" name="name" id="name" placeholder="Name" />
+                                <input type="text" class="form-control" name="name" id="name" value={{ personalDetail.name }} />
                             </div>
                             <div>
                                 <label>NRIC: </label>
-                                <input type="text" class="form-control" name="nric" id="nric" placeholder="NRIC" />
+                                <input type="text" class="form-control" name="nric" id="nric" value= {{ personalDetail.nric }} />
                             </div>
                             <div>
                                 <label>Age: </label>
-                                <input type="text" class="form-control" name="age" id="age" placeholder="Age" disabled/>
+                                <input type="text" class="form-control" name="age" id="age" value= {{ personalDetail.age }} disabled />
                             </div>
                             <div>
                                 <label>Gender: </label>
-                                <input type="text" class="form-control" name="gender" id="gender" placeholder="Gender" disabled/>
+                                <input type="text" class="form-control" name="gender" id="gender" value= {{ personalDetail.gender }} disabled />
                             </div>
                             <div>
                                 <label>Username: </label>
-                                <input type="text" class="form-control" name="username" id="username" placeholder="Username" />
+                                <input type="text" class="form-control" name="username" id="username" value= {{ personalDetail.username }} />
                             </div>
                             <div>
                                 <label>Password: </label>
-                                <input type="text" class="form-control" name="password" id="password" placeholder="Password" />
+                                <input type="password" class="form-control" name="password" value= {{ personalDetail.password }} />
                             </div>
                             <div>
                                 <label>Upload Image: </label>
@@ -112,6 +113,7 @@
                             </div>
                         </form>
                     </div>
+                    {% endfor %}
                 </div>
             </div>
             <div class="btn_box">
