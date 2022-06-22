@@ -211,11 +211,22 @@ def capture_10_pics_change():
 
 
 
-@app.route('/StaffSearchPatient')
+@app.route('/StaffSearchPatient', methods=['GET', 'POST'])
 def StaffSearchPatient():
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     patient = 'patient'
     cursor.execute('SELECT * FROM user where role = % s', (patient, ))
+    patient = cursor.fetchall()
+    return render_template('StaffSearchPatient.html', patient = patient)
+
+
+@app.route('/StaffSearchPatientController', methods=['GET', 'POST'])
+def StaffSearchPatientController():
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    name = request.form['name']
+    pat = 'patient'
+   # ('SELECT * FROM user where name LIKE %%s% AND role = % s', (name, pat, ))
+    cursor.execute ("SELECT * FROM user WHERE name LIKE %s AND role = %s", ('%' + name + '%', pat, ))
     patient = cursor.fetchall()
     return render_template('StaffSearchPatient.html', patient = patient)
 
@@ -281,7 +292,7 @@ def AdminChangePatientCredentials():
     return render_template(
         'AdminChangePatientCredentials.html')
 
-@app.route('/AdminSearchPatient')
+@app.route('/AdminSearchPatient', methods=['GET', 'POST'])
 def AdminSearchPatient():
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     patient = 'patient'
@@ -290,6 +301,16 @@ def AdminSearchPatient():
     """Renders the about page."""
     return render_template(
         'AdminSearchPatient.html', patient = patient)
+
+@app.route('/AdminSearchPatientController', methods=['GET', 'POST'])
+def AdminSearchPatientController():
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    name = request.form['name']
+    pat = 'patient'
+   # ('SELECT * FROM user where name LIKE %%s% AND role = % s', (name, pat, ))
+    cursor.execute ("SELECT * FROM user WHERE name LIKE %s AND role = %s", ('%' + name + '%', pat, ))
+    patient = cursor.fetchall()
+    return render_template('AdminSearchPatient.html', patient = patient)
 
 @app.route('/AdminRegisterPatient')
 def AdminRegisterPatient():
