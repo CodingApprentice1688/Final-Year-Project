@@ -243,7 +243,7 @@ def StaffCreateMedicalRecord():
         title='Staff Create Record',
         year=datetime.now().year)
 
-@app.route('/StaffUpdateMedicalRecord')
+@app.route('/StaffUpdateMedicalRecord', methods=['GET', 'POST'])
 def StaffUpdateMedicalRecord():
     """Renders the about page."""
     return render_template(

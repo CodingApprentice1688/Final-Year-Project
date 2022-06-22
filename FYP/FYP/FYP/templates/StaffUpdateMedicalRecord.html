@@ -65,42 +65,41 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form_container">
-                <form method="post" action="/UserAdminCreateAccountController">
+                <form method="post">
                   <div>
-                    
-                    <input type="text" class="form-control" name="username" id="username" placeholder="Username" />
+                      <label>Name: </label>
+                      <input type="text" class="form-control" name="name" id="name"/>
                   </div>
                   <div>
-                    <input type="text" class="form-control" name="Date Of Birth" id="dob" placeholder="Date Of Birth" />
+                      <label>NRIC: </label>
+                      <input type="text" class="form-control" name="nric" id="nric"/>
                   </div>
                   <div>
-                    <input type="text" class="form-control" name="NRIC" id="nric" placeholder="NRIC" />
+                      <label>Age: </label>
+                      <input type="text" class="form-control" name="age" id="age"/>
                   </div>
                   <div>
-                    <input type="text" class="form-control" name="Address" id="address" placeholder="Address" />
+                      <label>Gender: </label>
+                      <input type="text" class="form-control" name="gender" id="gender"/>
                   </div>
                   <div>
-                    <input type="text" class="form-control" name="Blood Type" id="bloodtype" placeholder="Blood Type" />
+                      <label>Username: </label>
+                      <input type="text" class="form-control" name="username" id="username"/>
                   </div>
                   <div>
-                    <input type="text" class="form-control" name="Vaccination Status" id="vaccinationstatus" placeholder="Vaccination Status" />
+                      <label>Password: </label>
+                      <input type="password" class="form-control" name="password" id="password"/>
                   </div>
                   <div>
-                    <input type="text" class="form-control" name="Measles" id="measles" placeholder="Measles" />
+                      <label>Upload Image: </label>
+                      <input type="file" class="form-control" name="uploadImage" id="uploadImage"/>
                   </div>
-                  <div>
-                    <input type="text" class="form-control" name="Covid-19" id="covid" placeholder="Covid-19" />
-                  </div>
-                  <div>
-                    <input type="text" class="form-control" name="Hepatitis-B" id="hepa" placeholder="Hepatitis-B" />
-                  </div>
-                  
                   <div class="btn_box">
-                    <button class="yellow-button" type="submit">
-                      Update Record
-                    </button>
+                      <button class="yellow-button">
+                          Save Changes
+                      </button>
                   </div>
-                </form>
+              </form>
               </div>
             </div>
           </div>
