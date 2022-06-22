@@ -63,9 +63,11 @@
         <h1>
             Patient's Medical Record
         </h1>
+        <a href="{{ url_for('StaffCreateMedicalRecord') }}">
         <button class="yellow-button" type="submit">
             Create Record
           </button>
+          </a>
       </div>
 
       
@@ -79,7 +81,7 @@
       <div class="filters-content">
         <div class="row grid">
           
-              <form>
+              <form action="{{ url_for('StaffUpdateMedicalRecord') }}" method="post">
                 <div>
                   <div class="menubox">
                       <div class="detail-box">
@@ -173,10 +175,11 @@
                           
                           
                           
-
+                          
                           <button class="yellow-button" type="submit">
                             Update Record
                           </button>
+                          
 
                         </div>
                     </div>
