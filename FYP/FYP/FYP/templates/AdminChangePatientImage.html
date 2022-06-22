@@ -25,6 +25,7 @@
   <link href="../static/content/style.css?1422585377" rel="stylesheet" />
   <!-- responsive style -->
   <link href="../static/content/responsive.css" rel="stylesheet" />
+  
 
 </head>
 
@@ -65,15 +66,16 @@
     </div>
     <form action="{{ url_for('capture_10_pics_change') }}">
         <div style="padding-bottom:15px;">
-            <button class="yellow-button" type="submit" onclick"showwDiv()">Capture</button>
+            <button class="yellow-button" type="submit">Capture</button>
         </div>
+        
     </form>
       <div style="padding-bottom:30px">
         {% for i in range(ten) %}
-            <img src="../static/images/opencv{{i}}.jpg" style="width: 150px; length: 150px;">
+            <img src="../static/images/opencv{{i}}.jpg" style="width: 150px; height: 150px;">
         {%endfor%}
       </div>
-      <div id="submitButton" style="display:none;">
+      <div id="jklm" style="display:{{allow}};">
         <button class="yellow-button" type="submit">Submit</button>
       </div>
   </div>
@@ -95,7 +97,7 @@
   <script>
     function showwDiv() {
         alert('hei');
-        document.getElementById('submitButton').style.display = "block";
+        document.getElementById('jklm').style.display = "block";
     }
   </script>
   
