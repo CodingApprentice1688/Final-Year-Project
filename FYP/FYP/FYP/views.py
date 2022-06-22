@@ -206,7 +206,8 @@ def capture_10_pics():
 def capture_10_pics_change():
     VideoCamera().capture_10_pics();
     ten = 10
-    return render_template('AdminChangePatientImage.html', ten = ten)
+    allow = 'block'
+    return render_template('AdminChangePatientImage.html', ten = ten, allow = allow)
 
 
 
@@ -298,6 +299,7 @@ def AdminSearchPatient():
     patient = 'patient'
     cursor.execute('SELECT * FROM user where role = % s', (patient, ))
     patient = cursor.fetchall()
+    
     """Renders the about page."""
     return render_template(
         'AdminSearchPatient.html', patient = patient)
@@ -324,5 +326,6 @@ def AdminRegisterPatient():
 def AdminChangePatientImage():
     """Renders the about page."""
     ten = 0
+    allow = 'none'
     return render_template(
-        'AdminChangePatientImage.html', ten = ten)
+        'AdminChangePatientImage.html', ten = ten, allow = allow)
