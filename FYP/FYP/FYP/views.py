@@ -135,7 +135,7 @@ def PatientViewAppointment():
         userB = cursor.fetchall()
         
 
-        return render_template('Patient_ViewAppointment.html', userA = userA, userB = userB)
+        return render_template('PatientViewAppointment.html', userA = userA, userB = userB)
 #patient view all appointments
 @app.route('/PatientCancelAppointment', methods=['GET', 'POST'])
 def PatientCancelAppointment():
@@ -150,7 +150,7 @@ def PatientCancelAppointment():
     userA = cursor.fetchall()
     cursor.execute('SELECT * FROM appointments WHERE name = % s AND nric = % s AND date_slot < CURDATE()',  (session['name'], session['nric'], ))
     userB = cursor.fetchall()
-    return render_template('Patient_ViewAppointment.html', userA = userA, userB = userB)
+    return render_template('PatientViewAppointment.html', userA = userA, userB = userB)
     #return render_template('Patient_ViewAppointment.html', userA = userA, userB = userB)
 
 
