@@ -37,7 +37,7 @@
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="/">
+          <a class="navbar-brand" href="/Admin_Main">
             <span>
               Hospital
             </span>
@@ -85,7 +85,7 @@
         <div class="container">
         <div class="col-md-6">
         <div class="form_container">
-            <form method="post" action="/PatientUpdatePersonalDetailController">
+            <form method="post" action="/AdminRegisterPatientController">
                 <div>
                     <label>Name: </label>
                     <input type="text" class="form-control" name="name" id="name" placeholder="Name" />
@@ -96,11 +96,11 @@
                 </div>
                 <div>
                     <label>Age: </label>
-                    <input type="text" class="form-control" name="age" id="age" placeholder="Age" disabled/>
+                    <input type="text" class="form-control" name="age" id="age" placeholder="Age" />
                 </div>
                 <div>
                     <label>Gender: </label>
-                    <input type="text" class="form-control" name="gender" id="gender" placeholder="Gender" disabled/>
+                    <input type="text" class="form-control" name="gender" id="gender" placeholder="Gender" />
                 </div>
                 <div>
                     <label>Username: </label>
@@ -111,12 +111,12 @@
                     <input type="text" class="form-control" name="password" id="password" placeholder="Password" />
                 </div>
                 <div class="btn_box">
-                    <button class="yellow-button" onclick="window.location.href='/PatientUpdatePersonalDetailController'">
+                    <button class="yellow-button" type="submit">
                         Save Changes
                     </button>
                 </div>
                 <div class="btn_box">
-                    <button class="yellow-button" onclick="window.location.href='/PatientUpdatePersonalDetailController'">
+                    <button class="yellow-button" onclick="">
                         Discard Changes
                     </button>
                 </div>
