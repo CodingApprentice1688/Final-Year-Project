@@ -43,7 +43,7 @@ def Patient_Main():
     msg = ''
     if 'logged_in' in session:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM user WHERE username = % s AND nric = % s',  (session['username'], session['nric'], ))
+        cursor.execute('SELECT * FROM user WHERE nric = % s',  (session['nric'], ))
         userA = cursor.fetchone()
         if userA:
           return render_template('PatientMain.html', userA = userA,  message = message, year = year)
@@ -129,13 +129,13 @@ def PatientViewAppointment():
     if 'logged_in' in session: 
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         current = datetime.now().date()
-        cursor.execute('SELECT * FROM appointments WHERE name = % s AND nric = % s AND date_slot >= CURDATE()',  (session['name'], session['nric'], ))
+        cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot >= CURDATE()',  (session['nric'], ))
         userA = cursor.fetchall()
-        cursor.execute("SELECT * FROM appointments WHERE name = % s AND nric = % s AND date_slot < CURDATE()" ,  (session['name'], session['nric'], ))
+        cursor.execute("SELECT * FROM appointments WHERE nric = % s AND date_slot < CURDATE()" ,  (session['nric'], ))
         userB = cursor.fetchall()
         
 
-        return render_template('Patient_ViewAppointment.html', userA = userA, userB = userB)
+        return render_template('PatientViewAppointment.html', userA = userA, userB = userB)
 #patient view all appointments
 @app.route('/PatientCancelAppointment', methods=['GET', 'POST'])
 def PatientCancelAppointment():
@@ -146,11 +146,11 @@ def PatientCancelAppointment():
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute('DELETE FROM appointments WHERE appointment_id = % s' ,  (app_id, ))
     mysql.connection.commit()
-    cursor.execute('SELECT * FROM appointments WHERE name = % s AND nric = % s AND date_slot >= CURDATE()',  (session['name'], session['nric'], ))
+    cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot >= CURDATE()',  (session['nric'], ))
     userA = cursor.fetchall()
-    cursor.execute('SELECT * FROM appointments WHERE name = % s AND nric = % s AND date_slot < CURDATE()',  (session['name'], session['nric'], ))
+    cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot < CURDATE()',  (session['nric'], ))
     userB = cursor.fetchall()
-    return render_template('Patient_ViewAppointment.html', userA = userA, userB = userB)
+    return render_template('PatientViewAppointment.html', userA = userA, userB = userB)
     #return render_template('Patient_ViewAppointment.html', userA = userA, userB = userB)
 
 
@@ -171,13 +171,31 @@ def QueueNumberController():
     return redirect(url_for('Patient_Main'))
 
 #patient update personal details
-@app.route('/PatientUpdatePersonalDetailController', methods=['GET', 'POST'])
-def PatientUpdatePersonalDetailController():
+@app.route('/PatientUpdatePersonalDetail', methods=['GET', 'POST'])
+def PatientUpdatePersonalDetail():
     if 'logged_in' in session: 
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM user WHERE name = % s AND nric = % s' , (session['name'], session['nric'], ))
+        cursor.execute('SELECT * FROM user WHERE nric = % s' , (session['nric'], ))
         userA = cursor.fetchall()
-    return render_template('PatientUpdatePersonalDetailController.html', userA = userA)
+    return render_template('PatientUpdatePersonalDetail.html', userA = userA)
+
+@app.route('/PatientUpdatePersonalDetailController', methods=['GET', 'POST'])
+def PatientUpdatePersonalDetailController():
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    name = request.form['name']
+    nric = request.form['nric']
+    age = request.form['age']
+    gender = request.form['gender']
+    username = request.form['username']
+    password = request.form['password']
+
+    if 'logged_in' in session: 
+        cursor.execute('UPDATE user SET name = % s, nric = % s, age = % s, gender = % s, username = % s, password = % s WHERE nric = % s' , (name, nric, age, gender, username, password, session['nric'], ))
+        mysql.connection.commit()
+        cursor.execute('SELECT * FROM user WHERE nric = % s', (nric,))
+        userA = cursor.fetchall()
+    return render_template('PatientUpdatePersonalDetail.html', userA = userA)
+
     
 
 def gen(camera):
@@ -206,7 +224,8 @@ def capture_10_pics():
 def capture_10_pics_change():
     VideoCamera().capture_10_pics();
     ten = 10
-    return render_template('AdminChangePatientImage.html', ten = ten)
+    allow = 'block'
+    return render_template('AdminChangePatientImage.html', ten = ten, allow = allow)
 
 
 
@@ -242,7 +261,7 @@ def StaffCreateMedicalRecord():
         title='Staff Create Record',
         year=datetime.now().year)
 
-@app.route('/StaffUpdateMedicalRecord')
+@app.route('/StaffUpdateMedicalRecord', methods=['GET', 'POST'])
 def StaffUpdateMedicalRecord():
     """Renders the about page."""
     return render_template(
@@ -298,6 +317,7 @@ def AdminSearchPatient():
     patient = 'patient'
     cursor.execute('SELECT * FROM user where role = % s', (patient, ))
     patient = cursor.fetchall()
+    
     """Renders the about page."""
     return render_template(
         'AdminSearchPatient.html', patient = patient)
@@ -319,10 +339,28 @@ def AdminRegisterPatient():
     return render_template(
         'AdminRegisterPatient.html', ten = ten)
 
+@app.route('/AdminRegisterPatientController', methods=['GET', 'POST'])
+def AdminRegisterPatientController():
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    name = request.form['name']
+    nric = request.form['nric']
+    age = request.form['age']
+    gender = request.form['gender']
+    username = request.form['username']
+    password = request.form['password']
+    role = 'patient'
+    ten = 0
+
+   # ('SELECT * FROM user where name LIKE %%s% AND role = % s', (name, pat, ))
+    cursor.execute ("INSERT INTO user (name, nric, age, gender, username, password, role) VALUES (% s, % s, % s, % s, % s, % s, % s)", (name, nric, age, gender, username, password, role, ))
+    mysql.connection.commit()
+    return render_template('AdminRegisterPatient.html', ten = ten)
+
 
 @app.route('/AdminChangePatientImage',  methods=['GET', 'POST'])
 def AdminChangePatientImage():
     """Renders the about page."""
     ten = 0
+    allow = 'none'
     return render_template(
-        'AdminChangePatientImage.html', ten = ten)
+        'AdminChangePatientImage.html', ten = ten, allow = allow)

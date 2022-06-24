@@ -83,23 +83,26 @@
                         <form method="post" action="/PatientUpdatePersonalDetailController">
                             <div>
                                 <label>Name: </label>
-                                <input type="text" class="form-control" name="name" id="name" value = "{{ personalDetail.name }}" />
+                                <input type="text" class="form-control" name="namedisabled" id="namedisabled" value = "{{ personalDetail.name }}" disabled/>
+                                <input type="hidden" class="form-control" name="name" id="name" value="{{ personalDetail.name }}" />
                             </div>
                             <div>
                                 <label>NRIC: </label>
-                                <input type="text" class="form-control" name="nric" id="nric" value={{ personalDetail.nric }} />
+                                <input type="text" class="form-control" name="nricdisabled" id="nricdisabled" value={{ personalDetail.nric }} disabled/>
+                                <input type="hidden" class="form-control" name="nric" id="nric" value={{ personalDetail.nric }} />
                             </div>
                             <div>
                                 <label>Age: </label>
-                                <input type="text" class="form-control" name="age" id="age" value={{ personalDetail.age }} disabled />
+                                <input type="text" class="form-control" name="age" id="age" value={{ personalDetail.age }} />
                             </div>
                             <div>
                                 <label>Gender: </label>
-                                <input type="text" class="form-control" name="gender" id="gender" value={{ personalDetail.gender }} disabled />
+                                <input type="text" class="form-control" name="gender" id="gender" value={{ personalDetail.gender }} />
                             </div>
                             <div>
                                 <label>Username: </label>
                                 <input type="text" class="form-control" name="username" id="username" value={{ personalDetail.username }} />
+                            
                             </div>
                             <div>
                                 <label>Password: </label>
@@ -110,7 +113,7 @@
                                 <input type="file" class="form-control" name="uploadImage" id="uploadImage" placeholder="Upload Image" />
                             </div>
                             <div class="btn_box">
-                                <button class="yellow-button" onclick="window.location.href='/PatientUpdatePersonalDetailController'">
+                                <button class="yellow-button" type="submit">
                                     Save Changes
                                 </button>
                             </div>

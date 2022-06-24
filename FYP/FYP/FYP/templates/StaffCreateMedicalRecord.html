@@ -34,7 +34,7 @@
       <header class="header_section">
         <div class="container">
           <nav class="navbar navbar-expand-lg custom_nav-container ">
-            <a class="navbar-brand" href="/UserAdmin">
+            <a class="navbar-brand" href="/HealthcareStaff_Main">
               <span>
                  Hospital
               </span>
@@ -59,47 +59,51 @@
         <div class="container">
           <div class="heading_container">
             <h2>
-              Medical Record
+              Create Medical Record
             </h2>
           </div>
           <div class="row">
             <div class="col-md-6">
               <div class="form_container">
-                <form method="post" action="/UserAdminCreateAccountController">
+                <form method="post">
                   <div>
-                    
-                    <input type="text" class="form-control" name="username" id="username" placeholder="Username" />
+                      <label>Username: </label>
+                      <input type="text" class="form-control" name="username" id="username"/>
                   </div>
                   <div>
-                    <input type="text" class="form-control" name="Date Of Birth" id="dob" placeholder="Date Of Birth" />
+                      <label>Vaccination Status: </label>
+                      <input type="text" class="form-control" name="vaccinationstat" id="vaccinationstat"/>
                   </div>
                   <div>
-                    <input type="text" class="form-control" name="NRIC" id="nric" placeholder="NRIC" />
+                      <label>Blood Pressure: </label>
+                      <input type="text" class="form-control" name="bloodpressure" id="bloodpressure"/>
                   </div>
                   <div>
-                    <input type="text" class="form-control" name="Address" id="address" placeholder="Address" />
+                      <label>Temperature: </label>
+                      <input type="text" class="form-control" name="temperature" id="temperature"/>
                   </div>
                   <div>
-                    <input type="text" class="form-control" name="Blood Type" id="bloodtype" placeholder="Blood Type" />
+                      <label>Allergies: </label>
+                      <input type="text" class="form-control" name="allergies" id="allergies"/>
                   </div>
                   <div>
-                    <input type="text" class="form-control" name="Vaccination Status" id="vaccinationstatus" placeholder="Vaccination Status" />
+                      <label>Heart Rate: </label>
+                      <input type="text" class="form-control" name="heartrate" id="heartrate"/>
                   </div>
                   <div>
-                    <input type="text" class="form-control" name="Measles" id="measles" placeholder="Measles" />
+                    <label>Medicine: </label>
+                    <input type="text" class="form-control" name="medicine" id="medicine"/>
                   </div>
                   <div>
-                    <input type="text" class="form-control" name="Covid-19" id="covid" placeholder="Covid-19" />
-                  </div>
-                  <div>
-                    <input type="text" class="form-control" name="Hepatitis-B" id="hepa" placeholder="Hepatitis-B" />
+                    <label>Diagnosis: </label>
+                    <input type="textarea" class="form-control" name="diagnosis" id="diagnosis"/>
                   </div>
                   <div class="btn_box">
-                    <button class="yellow-button" type="submit">
-                      Create Account
-                    </button>
+                      <button class="yellow-button">
+                          Save Changes
+                      </button>
                   </div>
-                </form>
+              </form>
               </div>
             </div>
           </div>
