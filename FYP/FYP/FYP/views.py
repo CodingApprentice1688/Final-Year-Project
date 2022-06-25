@@ -58,7 +58,7 @@ def HealthcareStaff_Main():
     msg = ''
     if 'logged_in' in session:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM user WHERE username = % s AND nric = % s',  (session['username'], session['nric'], ))
+        cursor.execute('SELECT * FROM user WHERE nric = % s',  (session['nric'], ))
         userA = cursor.fetchone()
         if userA:
           return render_template('StaffMain.html', userA = userA,  message = message, year = year)
@@ -74,7 +74,7 @@ def Admin_Main():
     msg = ''
     if 'logged_in' in session:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM user WHERE username = % s AND nric = % s',  (session['username'], session['nric'], ))
+        cursor.execute('SELECT * FROM user WHERE nric = % s',  (session['nric'], ))
         userA = cursor.fetchone()
         if userA:
           return render_template('AdminMain.html', userA = userA,  message = message, year = year)
