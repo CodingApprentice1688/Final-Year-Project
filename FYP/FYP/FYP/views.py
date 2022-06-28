@@ -247,6 +247,7 @@ def StaffSearchPatientController():
    # ('SELECT * FROM user where name LIKE %%s% AND role = % s', (name, pat, ))
     cursor.execute ("SELECT * FROM user WHERE name LIKE %s AND role = %s", ('%' + name + '%', pat, ))
     patient = cursor.fetchall()
+
     return render_template('StaffSearchPatient.html', patient = patient)
 
 
@@ -269,24 +270,6 @@ def StaffUpdateMedicalRecord():
         title='Staff Update Record',
         year=datetime.now().year)
 
-       
-@app.route('/StaffCreateAppointment')
-def StaffCreateAppointment():
-    """Renders the about page."""
-    return render_template(
-        'StaffCreateAppointment.html',
-        title='Staff Create Appointment',
-        year=datetime.now().year)
-
-
-
-@app.route('/StaffViewMedicalRecord', methods=['GET', 'POST'])
-def StaffViewMedicalRecord():
-    """Renders the about page."""
-    return render_template(
-        'StaffViewMedicalRecord.html',
-        title='Staff View Medical Record',
-        year=datetime.now().year)       
 
 
 @app.route('/StaffViewPatientAppointment', methods=['GET', 'POST'])
@@ -299,9 +282,58 @@ def StaffViewPatientAppointment():
     userA = cursor.fetchall()
     cursor.execute("SELECT * FROM appointments WHERE username = % s AND nric = % s AND date_slot < CURDATE()" ,  (username, nric, ))
     userB = cursor.fetchall()
-        
+    
+    cursor.execute('SELECT * FROM user WHERE username = % s AND nric = % s',  (username, nric, ))  ######
+    patientX = cursor.fetchall()  ##
+    session['patientX'] = patientX  ##
 
     return render_template('StaffViewPatientAppointment.html', userA = userA, userB = userB)
+
+
+
+@app.route('/StaffCreateAppointment', methods=["POST", "GET"])
+def StaffCreateAppointment():
+    """Renders the about page."""
+
+    patientX = session["patientX"]  ##
+
+    return render_template(
+        'StaffCreateAppointment.html',
+        title='Staff Create Appointment',
+        year=datetime.now().year,
+        patientX = patientX)  ##
+
+
+
+@app.route('/StaffCreateAppointmentController', methods=['GET', 'POST'])
+def StaffCreateAppointmentController():
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    params = {
+        'username' : request.form['username'],
+        'name' : request.form['name'],
+        'nric' : request.form['nric'],
+        'date_slot' : request.form['date_slot'],
+        'department' : request.form['department'],
+        'doctor' : request.form['doctor'],
+        'reason' : request.form['reason']
+    }
+    query = """INSERT INTO appointments (username, name, nric, date_slot, department, attending, reason) 
+               VALUES (%(username)s, %(name)s, %(nric)s, %(date_slot)s, %(department)s, %(doctor)s, %(reason)s)"""
+    cursor.execute(query, params)
+    mysql.connection.commit()
+    
+    return redirect(url_for("HealthcareStaff_Main"))
+
+
+
+@app.route('/StaffViewMedicalRecord', methods=['GET', 'POST'])
+def StaffViewMedicalRecord():
+    """Renders the about page."""
+    return render_template(
+        'StaffViewMedicalRecord.html',
+        title='Staff View Medical Record',
+        year=datetime.now().year)       
+
 
 
 
