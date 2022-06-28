@@ -329,10 +329,20 @@ def StaffCreateAppointmentController():
 @app.route('/StaffViewMedicalRecord', methods=['GET', 'POST'])
 def StaffViewMedicalRecord():
     """Renders the about page."""
+
+    username = request.form['username']  ##
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    #cursor.execute('SELECT * FROM medicalrecords WHERE username = % s', (username))
+    params = {'username' : request.form['username']}
+    query = """SELECT * FROM medicalrecords WHERE username = %(username)s"""
+    cursor.execute(query, params)
+    patientX = cursor.fetchall()
+
     return render_template(
         'StaffViewMedicalRecord.html',
         title='Staff View Medical Record',
-        year=datetime.now().year)       
+        year=datetime.now().year,
+        patientX = patientX)  ##       
 
 
 

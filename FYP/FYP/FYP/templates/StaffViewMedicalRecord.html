@@ -83,6 +83,7 @@
           
               <form action="{{ url_for('StaffUpdateMedicalRecord') }}" method="post">
                 <div>
+                {% for info in patientX %}
                   <div class="menubox">
                       <div class="detail-box">
                         <h2 style="text-align: left;">
@@ -91,10 +92,10 @@
                         <hr>
                         <div>
                             <h3 style="display:inline-block; width:50%;">
-                               Record ID: 987654321
+                               Record ID: {{ info.record_id }}
                             </h3>
                             <h3 style="display:inline-block;">
-                              Appointment ID: 1
+                              Appointment ID: {{ info.appointment_id }}
                             </h3>
                         </div>
                        
@@ -107,10 +108,10 @@
                       <hr>
                         <div>
                             <h3 style="display:inline-block; width:50%;">
-                              username: DavidGenius
+                              username: {{ info.username }}
                             </h3>
                             <h3 style="display:inline-block;">
-                              Vaccination Status: vaccinated
+                              Vaccination Status: {{ info.vaccination_status }}
                             </h3>
                         </div>
                         
@@ -125,37 +126,35 @@
                         
                         <div>
                             <h3 style="display:inline-block; width:50%;">
-                              Blood Pressure: 98 mm Hg
+                              Blood Pressure: {{ blood_pressure }}
                              </h3>
-                             <h3 style="display:inline-block;">
-                                 Vaccination Status: Vaccinated
-                             </h3>
+                             
                         </div>
                       
                       
                       <div>
                           <h3 style="display:inline-block; width:50%;">
-                            Temperature: 37.0 
+                            Temperature: {{ info.temperature }} 
                           </h3>
                           <h3 style="display:inline-block;">
-                            Allergies: Pollens, Peanuts
+                            Allergies: {{ info.allergies }}
                           </h3>
                      </div>
                     
                      <div>
                       <h3 style="display:inline-block; width:50%;">
-                        Heart Rate: 170 bpm
+                        Heart Rate: {{ heart_rate }}
                       </h3>
                       <h3 style="display:inline-block;">
-                       Medicine: Insulin
+                       Medicine: {{ info.medicine }}
                       </h3>
-                 </div>
+                     </div>
                  <div>
                   <h3 style="display:inline-block; width:50%;">
-                    Diagnosis: elevated blood sugar levels and dehydration. Diagnosed with type II diabetes.
+                    Diagnosis: {{ info.diagnosis }}
                   </h3>
                   
-             </div>
+                 </div>
 
                     </br>
                     </br>
@@ -174,6 +173,7 @@
                     </div>
                     
                   </div>
+                  {% endfor %}
                 </div>
               </form>
             
