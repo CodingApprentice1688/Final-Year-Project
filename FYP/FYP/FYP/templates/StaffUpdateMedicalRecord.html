@@ -23,6 +23,12 @@
   <!-- responsive style -->
   <link href=".../static/content/responsive.css" rel="stylesheet" />
 
+  <script>
+    function feedback() {
+        alert("Medical record is updated successfully!");
+    }
+  </script>
+
 </head>
 
 <body class="sub_page">
@@ -64,12 +70,25 @@
           </div>
           <div class="row">
             <div class="col-md-6">
+              {% for info in patientX %}
               <div class="form_container">
-                <form method="post">
+                <form action="/StaffUpdateMedicalRecordController" method="post" onsubmit="feedback()">
+                  <div>
+                      <label>Record ID: </label>
+                      <input type="text" class="form-control" name="record_id" id="record_id" value="{{ info.record_id }}" disabled />
+                      <input type="hidden" class="form-control" name="record_id" id="record_id" value="{{ info.record_id }}" />
+                  </div>
+                  <div>
+                      <label>Appointment ID: </label>
+                      <input type="text" class="form-control" name="appointment_id" id="appointment_id" value="{{ info.appointment_id }}" disabled />
+                      <input type="hidden" class="form-control" name="appointment_id" id="appointment_id" value="{{ info.appointment_id }}" />
+                  </div>
                   <div>
                       <label>Username: </label>
-                      <input type="text" class="form-control" name="username" id="username"/>
+                      <input type="text" class="form-control" name="username" id="username" value="{{ info.username }}" disabled />
+                      <input type="hidden" class="form-control" name="username" id="username" value="{{ info.username }}" />
                   </div>
+                  
                   <div>
                       <label>Vaccination Status: </label>
                       <input type="text" class="form-control" name="vaccinationstat" id="vaccinationstat"/>
@@ -105,6 +124,7 @@
                   </div>
               </form>
               </div>
+              {% endfor %}
             </div>
           </div>
         </div>
