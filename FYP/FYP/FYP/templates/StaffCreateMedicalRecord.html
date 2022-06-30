@@ -23,6 +23,12 @@
   <!-- responsive style -->
   <link href=".../static/content/responsive.css" rel="stylesheet" />
 
+  <script>
+    function feedback() {
+        alert("New medical record is created!");
+    }
+  </script>
+
 </head>
 
 <body class="sub_page">
@@ -64,47 +70,57 @@
           </div>
           <div class="row">
             <div class="col-md-6">
+            {% for info in patientX[:1] %}
               <div class="form_container">
-                <form method="post">
+                <form  action="/StaffCreateMedicalRecordController" method="post" onsubmit="feedback()">
+                  <div>
+                      <label>Appointment ID: </label>
+                      <input type="text" class="form-control" name="appointment_id" id="appointment_id"/>
+                  </div>
+
                   <div>
                       <label>Username: </label>
-                      <input type="text" class="form-control" name="username" id="username"/>
+                      <input type="text" class="form-control" name="username" id="username" value="{{ info.username }}" disabled />
+                      <input type="hidden" class="form-control" name="username" id="username" value="{{ info.username }}" />
                   </div>
                   <div>
                       <label>Vaccination Status: </label>
-                      <input type="text" class="form-control" name="vaccinationstat" id="vaccinationstat"/>
+                      <input type="text" class="form-control" name="vaccination_status" id="vaccination_status" value="{{ info.vaccination_status }}" disabled />
+                      <input type="hidden" class="form-control" name="vaccination_status" id="vaccination_status" value="{{ info.vaccination_status }}" />
                   </div>
+
                   <div>
                       <label>Blood Pressure: </label>
-                      <input type="text" class="form-control" name="bloodpressure" id="bloodpressure"/>
+                      <input type="text" class="form-control" name="blood_pressure" id="blood_pressure" />
                   </div>
                   <div>
                       <label>Temperature: </label>
-                      <input type="text" class="form-control" name="temperature" id="temperature"/>
+                      <input type="text" class="form-control" name="temperature" id="temperature" />
+                  </div>
+                  <div>
+                      <label>Heart Rate: : </label>
+                      <input type="text" class="form-control" name="heart_rate" id="heart_rate" />
                   </div>
                   <div>
                       <label>Allergies: </label>
-                      <input type="text" class="form-control" name="allergies" id="allergies"/>
-                  </div>
-                  <div>
-                      <label>Heart Rate: </label>
-                      <input type="text" class="form-control" name="heartrate" id="heartrate"/>
+                      <input type="text" class="form-control" name="allergies" id="allergies" />
                   </div>
                   <div>
                     <label>Medicine: </label>
-                    <input type="text" class="form-control" name="medicine" id="medicine"/>
+                    <input type="text" class="form-control" name="medicine" id="medicine" />
                   </div>
                   <div>
                     <label>Diagnosis: </label>
-                    <input type="textarea" class="form-control" name="diagnosis" id="diagnosis"/>
+                    <input type="textarea" class="form-control" name="diagnosis" id="diagnosis" />
                   </div>
                   <div class="btn_box">
                       <button class="yellow-button">
-                          Save Changes
+                          Create Record
                       </button>
                   </div>
               </form>
               </div>
+            {% endfor %}
             </div>
           </div>
         </div>
