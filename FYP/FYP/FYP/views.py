@@ -375,6 +375,24 @@ def StaffCreateMedicalRecordController():
 
 @app.route('/StaffUpdateMedicalRecord', methods=['GET', 'POST'])
 def StaffUpdateMedicalRecord():
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    params = {
+        'appointment_id' : request.form['appointment_id'],
+        'username' : request.form['username'],
+        'vaccination_status' : request.form['vaccination_status'],
+        'blood_pressure' : request.form['blood_pressure'],
+        'temperature' : request.form['temperature'],
+        'heart_rate' : request.form['heart_rate'],
+        'allergies' : request.form['allergies'],
+        'medicine' : request.form['medicine'],
+        'diagnosis' : request.form['diagnosis']
+    }
+    query = """UPDATE medicalrecords
+    SET (%(appointment_id)s, %(username)s, %(vaccination_status)s, %(blood_pressure)s, %(temperature)s, %(heart_rate)s, %(allergies)s, %(medicine)s, %(diagnosis)s)
+    WHERE record_id = 1;"""
+    
+    cursor.execute(query, params)
+    mysql.connection.commit()
     
     patientX = session["patientX"]  ##
 
