@@ -70,7 +70,7 @@
           </div>
           <div class="row">
             <div class="col-md-6">
-              {% for info in patientX %}
+              {% for info in recordX %}
               <div class="form_container">
                 <form action="/StaffUpdateMedicalRecordController" method="post" onsubmit="feedback()">
                   <div>
@@ -91,31 +91,31 @@
                   
                   <div>
                       <label>Vaccination Status: </label>
-                      <input type="text" class="form-control" name="vaccinationstat" id="vaccinationstat"/>
+                      <input type="text" class="form-control" name="vaccination_status" id="vaccination_status" value="{{ info.vaccination_status }}" />
                   </div>
                   <div>
                       <label>Blood Pressure: </label>
-                      <input type="text" class="form-control" name="bloodpressure" id="bloodpressure"/>
+                      <input type="text" class="form-control" name="blood_pressure" id="blood_pressure" value="{{ info.blood_pressure }}" />
                   </div>
                   <div>
                       <label>Temperature: </label>
-                      <input type="text" class="form-control" name="temperature" id="temperature"/>
+                      <input type="text" class="form-control" name="temperature" id="temperature" value="{{ info.temperature }}" />
                   </div>
                   <div>
                       <label>Allergies: </label>
-                      <input type="text" class="form-control" name="allergies" id="allergies"/>
+                      <input type="text" class="form-control" name="allergies" id="allergies" value="{{ info.allergies }}" />
                   </div>
                   <div>
                       <label>Heart Rate: </label>
-                      <input type="text" class="form-control" name="heartrate" id="heartrate"/>
+                      <input type="text" class="form-control" name="heart_rate" id="heart_rate" value="{{ info.heart_rate }}" />
                   </div>
                   <div>
                     <label>Medicine: </label>
-                    <input type="text" class="form-control" name="medicine" id="medicine"/>
+                    <input type="text" class="form-control" name="medicine" id="medicine" value="{{ info.medicine }}" />
                   </div>
                   <div>
                     <label>Diagnosis: </label>
-                    <input type="textarea" class="form-control" name="diagnosis" id="diagnosis"/>
+                    <input type="textarea" class="form-control" name="diagnosis" id="diagnosis" value="{{ info.diagnosis }}" />
                   </div>
                   <div class="btn_box">
                       <button class="yellow-button">

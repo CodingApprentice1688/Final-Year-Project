@@ -1,13 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\FYP",
-    "\\FYP\\FYP",
-    "\\FYP\\FYP\\FYP",
-    "\\FYP\\FYP\\FYP\\controller",
-    "\\FYP\\FYP\\FYP\\entity",
-    "\\FYP\\FYP\\FYP\\templates"
+    ""
   ],
-  "SelectedNode": "\\FYP\\FYP\\FYP\\controller\\AdminRegisterPatientController.py",
+  "SelectedNode": "\\TestProject.sln",
   "PreviewInSolutionExplorer": false
 }

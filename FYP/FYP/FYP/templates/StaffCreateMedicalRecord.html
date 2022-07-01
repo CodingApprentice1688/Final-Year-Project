@@ -70,7 +70,7 @@
           </div>
           <div class="row">
             <div class="col-md-6">
-            {% for info in patientX[:1] %}
+            {% for info in patientY[:1] %}
               <div class="form_container">
                 <form  action="/StaffCreateMedicalRecordController" method="post" onsubmit="feedback()">
                   <div>
@@ -85,8 +85,7 @@
                   </div>
                   <div>
                       <label>Vaccination Status: </label>
-                      <input type="text" class="form-control" name="vaccination_status" id="vaccination_status" value="{{ info.vaccination_status }}" disabled />
-                      <input type="hidden" class="form-control" name="vaccination_status" id="vaccination_status" value="{{ info.vaccination_status }}" />
+                      <input type="text" class="form-control" name="vaccination_status" id="vaccination_status"  />
                   </div>
 
                   <div>
