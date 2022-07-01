@@ -48,9 +48,9 @@ class User:
         userB = cursor.fetchall()
         return (userA, userB)
 
-    def cancelAppointment(app_id):
+    def cancelAppointment(appointment_id):
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('DELETE FROM appointments WHERE appointment_id = % s' ,  (app_id, ))
+        cursor.execute('DELETE FROM appointments WHERE appointment_id = % s' ,  (appointment_id, ))
         mysql.connection.commit()
         cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot >= CURDATE()',  (session['nric'], ))
         userA = cursor.fetchall()

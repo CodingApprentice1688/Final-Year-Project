@@ -13,7 +13,7 @@ def cancelAppointment():
     message = ''
     msg = ''
     if 'logged_in' in session: 
-        app_id = request.form['appointment_id']
-        userA, userB = User.cancelAppointment(app_id)
+        appointment_id = request.form['appointment_id']
+        userA, userB = User.cancelAppointment(appointment_id)
         return render_template('PatientViewAppointment.html', userA = userA, userB = userB)
 
