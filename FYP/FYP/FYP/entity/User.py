@@ -40,7 +40,7 @@ class User:
         else:
            error = 'Invalid Credentials. Please try again.'
 
-    def PatientViewAppointmentController():
+    def viewAppointment():
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot >= CURDATE()' ,  (session['nric'], ))
         userA = cursor.fetchall()
