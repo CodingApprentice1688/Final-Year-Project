@@ -9,13 +9,12 @@ from flask_mysqldb import MySQL
 import MySQLdb.cursors 
 
 @app.route('/PatientViewAppointmentController', methods=['GET', 'POST'])
-def viewAppointment():
+def PatientViewAppointmentController():
     message = ''
     msg = ''
-    userA = ""
-    userB = ""
+    #userA = ""
+    #userB = ""
     if 'logged_in' in session: 
-        User.viewAppointment()
-        
-
+        User.PatientViewAppointmentController()
+        userA, userB = User.PatientViewAppointmentController()
         return render_template('PatientViewAppointment.html', userA = userA, userB = userB)

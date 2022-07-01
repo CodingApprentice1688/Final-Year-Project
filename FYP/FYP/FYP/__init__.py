@@ -18,4 +18,5 @@ mysql = MySQL(app)
 import FYP.views
 import FYP.controller.AdminRegisterPatientController
 import FYP.controller.PatientViewAppointmentController
+#import FYP.controller.LoginController
 

@@ -137,21 +137,20 @@ def PatientViewAppointment():
 
 #        return render_template('PatientViewAppointment.html', userA = userA, userB = userB)
 #patient view all appointments
-#@app.route('/PatientCancelAppointment', methods=['GET', 'POST'])
-#def PatientCancelAppointment():
-#    message = ''
-#    msg = ''
-    #if 'logged_in' in session: 
-#    app_id = request.form['appointment_id']
-#    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-#   cursor.execute('DELETE FROM appointments WHERE appointment_id = % s' ,  (app_id, ))
-#    mysql.connection.commit()
-#    cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot >= CURDATE()',  (session['nric'], ))
-#    userA = cursor.fetchall()
-#    cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot < CURDATE()',  (session['nric'], ))
-#    userB = cursor.fetchall()
-#    return render_template('PatientViewAppointment.html', userA = userA, userB = userB)
-    #return render_template('Patient_ViewAppointment.html', userA = userA, userB = userB)
+@app.route('/PatientCancelAppointment', methods=['GET', 'POST'])
+def PatientCancelAppointment():
+    message = ''
+    msg = ''
+    if 'logged_in' in session: 
+        app_id = request.form['appointment_id']
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('DELETE FROM appointments WHERE appointment_id = % s' ,  (app_id, ))
+        mysql.connection.commit()
+        cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot >= CURDATE()',  (session['nric'], ))
+        userA = cursor.fetchall()
+        cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot < CURDATE()',  (session['nric'], ))
+        userB = cursor.fetchall()
+        return render_template('Patient_ViewAppointment.html', userA = userA, userB = userB)
 
 
 
