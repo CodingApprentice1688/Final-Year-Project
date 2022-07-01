@@ -48,7 +48,7 @@ class User:
         userB = cursor.fetchall()
         return (userA, userB)
 
-    def PatientCancelAppointmentController(app_id):
+    def cancelAppointment(app_id):
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('DELETE FROM appointments WHERE appointment_id = % s' ,  (app_id, ))
         mysql.connection.commit()
