@@ -11,7 +11,7 @@ import MySQLdb.cursors
 
 
 class User:
-    def AdminRegisterPatient(name, nric, age, gender, username, password, role):
+    def registerPatient(name, nric, age, gender, username, password, role):
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     
         ten = 0

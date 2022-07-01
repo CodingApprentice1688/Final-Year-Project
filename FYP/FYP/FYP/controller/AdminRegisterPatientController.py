@@ -14,7 +14,7 @@ import MySQLdb.cursors
 
 
 @app.route('/AdminRegisterPatientController', methods=['GET', 'POST'])
-def AdminRegisterPatientController():
+def registerPatient():
     
     name = request.form['name']
     nric = request.form['nric']
@@ -25,7 +25,7 @@ def AdminRegisterPatientController():
     role = 'patient'
     ten = 0
     
-    User.AdminRegisterPatient(name, nric, age, gender, username, password, role)
+    User.registerPatient(name, nric, age, gender, username, password, role)
     return render_template('AdminRegisterPatient.html', ten = ten)
 
 
