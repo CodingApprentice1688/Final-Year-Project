@@ -34,12 +34,16 @@
     <Compile Include="FYP\testing.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FYP\Test\Patient_Test.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="runserver.py" />
     <Compile Include="FYP\__init__.py" />
     <Compile Include="FYP\views.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="FYP\" />
+    <Folder Include="FYP\Test\" />
     <Folder Include="FYP\static\" />
     <Folder Include="FYP\static\content\" />
     <Folder Include="FYP\static\fonts\" />

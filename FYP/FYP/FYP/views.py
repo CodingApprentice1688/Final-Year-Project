@@ -129,9 +129,9 @@ def PatientViewAppointment():
     if 'logged_in' in session: 
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         current = datetime.now().date()
-        cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot >= CURDATE()',  (session['nric'], ))
+        cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot >= CURDATE()' ,  (session['nric'], ))
         userA = cursor.fetchall()
-        cursor.execute("SELECT * FROM appointments WHERE nric = % s AND date_slot < CURDATE()" ,  (session['nric'], ))
+        cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot < CURDATE()' ,  (session['nric'], ))
         userB = cursor.fetchall()
         
 
