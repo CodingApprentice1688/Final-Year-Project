@@ -5,6 +5,7 @@ Routes and views for the flask application.
 from datetime import datetime, date
 from flask import render_template
 from FYP import app
+from FYP import mysql
 from .camera import VideoCamera
 
 from flask import Flask,render_template, request, redirect, url_for, Response, session
@@ -13,14 +14,7 @@ import MySQLdb.cursors
 
 
 
-app.secret_key = 'facial_recognition'
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'healthcare_db' #change into your own database
-app.config['SEND_FILE_MAX_AGE_DEFAULT'] = -1
- 
-mysql = MySQL(app)
+
 
 
 
@@ -324,9 +318,11 @@ def StaffViewMedicalRecord():
     cursor.execute(query, params)
     patientX = cursor.fetchall()
 
-    # --------- --------- --------- --------- --------- --------- 
-    
-    session['patientX'] = patientX  ##
+    param = {'username' : request.form['username']}
+    query = """SELECT * FROM user WHERE username = %(username)s"""
+    cursor.execute(query, param)
+    patientY = cursor.fetchall()
+    session['patientY'] = patientY
 
     return render_template('StaffViewMedicalRecord.html', patientX = patientX)
 
@@ -335,12 +331,12 @@ def StaffViewMedicalRecord():
 @app.route('/StaffCreateMedicalRecord')
 def StaffCreateMedicalRecord():
     
-    patientX = session["patientX"]  ##
+    patientY = session["patientY"]  ##
 
     return render_template(
         'StaffCreateMedicalRecord.html',
         title='Staff Create Record',
-        patientX = patientX)
+        patientY = patientY)
 
 
 
@@ -364,31 +360,61 @@ def StaffCreateMedicalRecordController():
     cursor.execute(query, params)
     mysql.connection.commit()
 
-    params = {'username' : request.form['username']}
+    param = {'username' : request.form['username']}
     query = """SELECT * FROM medicalrecords WHERE username = %(username)s"""
-    cursor.execute(query, params)
-    patientX = cursor.fetchall() 
+    cursor.execute(query, param)
+    patientY = cursor.fetchall()  ##
     
-    return render_template('StaffCreateMedicalRecord.html', patientX = patientX)
+    return render_template('StaffCreateMedicalRecord.html', patientY = patientY)
 
 
 
 @app.route('/StaffUpdateMedicalRecord', methods=['GET', 'POST'])
 def StaffUpdateMedicalRecord():
-    
-    patientX = session["patientX"]  ##
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    param = {'record_id' : request.form['record_id']}
+    query = """SELECT * FROM medicalrecords WHERE record_id = %(record_id)s"""
+    cursor.execute(query, param)
+    recordX = cursor.fetchall()
 
-    return render_template(
-        'StaffUpdateMedicalRecord.html',
-        title='Staff Update Record',
-        patientX = patientX
-        )
+    return render_template('StaffUpdateMedicalRecord.html', title='Staff Update Record', recordX = recordX)
 
 
 
 @app.route('/StaffUpdateMedicalRecordController', methods=['GET', 'POST'])
 def StaffUpdateMedicalRecordController():
-    pass
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+
+    params = {
+        'record_id' : request.form['record_id'],
+        'appointment_id' : request.form['appointment_id'],
+        'username' : request.form['username'],
+        'vaccination_status' : request.form['vaccination_status'],
+        'blood_pressure' : request.form['blood_pressure'],
+        'temperature' : request.form['temperature'],
+        'heart_rate' : request.form['heart_rate'],
+        'allergies' : request.form['allergies'],
+        'medicine' : request.form['medicine'],
+        'diagnosis' : request.form['diagnosis']
+    }
+    query = """UPDATE medicalrecords 
+                SET vaccination_status = %(vaccination_status)s, 
+                    blood_pressure = %(blood_pressure)s, 
+                    temperature = %(temperature)s, 
+                    heart_rate = %(heart_rate)s, 
+                    allergies = %(allergies)s, 
+                    medicine = %(medicine)s, 
+                    diagnosis = %(diagnosis)s
+                WHERE record_id = %(record_id)s"""
+    cursor.execute(query, params)
+    mysql.connection.commit()
+
+    param = {'record_id' : request.form['record_id']}
+    query = """SELECT * FROM medicalrecords WHERE record_id = %(record_id)s"""
+    cursor.execute(query, param)
+    recordX = cursor.fetchall()
+
+    return render_template('StaffUpdateMedicalRecord.html', recordX = recordX)
 
 
 
@@ -426,22 +452,22 @@ def AdminRegisterPatient():
     return render_template(
         'AdminRegisterPatient.html', ten = ten)
 
-@app.route('/AdminRegisterPatientController', methods=['GET', 'POST'])
-def AdminRegisterPatientController():
-    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    name = request.form['name']
-    nric = request.form['nric']
-    age = request.form['age']
-    gender = request.form['gender']
-    username = request.form['username']
-    password = request.form['password']
-    role = 'patient'
-    ten = 0
+#@app.route('/AdminRegisterPatientController', methods=['GET', 'POST'])
+#def AdminRegisterPatientController():
+#    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+#    name = request.form['name']
+#    nric = request.form['nric']
+#    age = request.form['age']
+#    gender = request.form['gender']
+#    username = request.form['username']
+#    password = request.form['password']
+#    role = 'patient'
+#    ten = 0
 
-   # ('SELECT * FROM user where name LIKE %%s% AND role = % s', (name, pat, ))
-    cursor.execute ("INSERT INTO user (name, nric, age, gender, username, password, role) VALUES (% s, % s, % s, % s, % s, % s, % s)", (name, nric, age, gender, username, password, role, ))
-    mysql.connection.commit()
-    return render_template('AdminRegisterPatient.html', ten = ten)
+#   # ('SELECT * FROM user where name LIKE %%s% AND role = % s', (name, pat, ))
+#    cursor.execute ("INSERT INTO user (name, nric, age, gender, username, password, role) VALUES (% s, % s, % s, % s, % s, % s, % s)", (name, nric, age, gender, username, password, role, ))
+#    mysql.connection.commit()
+#    return render_template('AdminRegisterPatient.html', ten = ten)
 
 
 @app.route('/AdminChangePatientImage',  methods=['GET', 'POST'])
