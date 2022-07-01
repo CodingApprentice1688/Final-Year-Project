@@ -69,21 +69,21 @@
                     </h2>
                         {% for appointment in userA %}
                     <div class="menubox">
-                        <form action="{{ url_for('PatientCancelAppointmentController') }}" method="post">
-                            <div class="detail-box">
+                        <form action="/PatientCancelAppointmentController" method="post">
+                                <div class="detail-box">
 
-                                <p>Patient: {{ appointment.name }}</p>
-                                <p>NRIC: {{ appointment.nric }}</p>
-                                <p>Date of visit : {{ appointment.date_slot }}</p>
-                                <p>Time of visit : {{ appointment.app_time }}</p>
-                                <p>Reason of visit : {{ appointment.reason }}</p>
-                                <p>Department: {{ appointment.department }} </p>
-                                <p>Attending Doctor: {{ appointment.attending }}</p>
-                                <input type="hidden" name="appointment_id" value="{{ appointment.appointment_id }}">
-                                <button type="submit" class="white-button">Cancel</button>
-                            </div>
-                        </form>
-                    </div>
+                                    <p>Patient: {{ appointment.name }}</p>
+                                    <p>NRIC: {{ appointment.nric }}</p>
+                                    <p>Date of visit : {{ appointment.date_slot }}</p>
+                                    <p>Time of visit : {{ appointment.app_time }}</p>
+                                    <p>Reason of visit : {{ appointment.reason }}</p>
+                                    <p>Department: {{ appointment.department }} </p>
+                                    <p>Attending Doctor: {{ appointment.attending }}</p>
+                                    <input type="hidden" name="appointment_id" value="{{ appointment.appointment_id }}">
+                                    <button type="submit" class="white-button">Cancel</button>
+                                </div>
+                            </form>
+</div>
                         {% endfor %}
                     </div>
                         
