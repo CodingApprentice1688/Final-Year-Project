@@ -4,11 +4,10 @@
     "\\FYP",
     "\\FYP\\FYP",
     "\\FYP\\FYP\\FYP",
-    "\\FYP\\FYP\\FYP\\static",
-    "\\FYP\\FYP\\FYP\\static\\content",
-    "\\FYP\\FYP\\FYP\\static\\images",
+    "\\FYP\\FYP\\FYP\\controller",
+    "\\FYP\\FYP\\FYP\\entity",
     "\\FYP\\FYP\\FYP\\templates"
   ],
-  "SelectedNode": "\\FYP\\FYP\\runserver.py",
+  "SelectedNode": "\\FYP\\FYP\\FYP\\controller\\AdminRegisterPatientController.py",
   "PreviewInSolutionExplorer": false
 }
