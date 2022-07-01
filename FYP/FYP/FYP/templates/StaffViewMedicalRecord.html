@@ -80,10 +80,10 @@
 
       <div class="filters-content">
         <div class="row grid">
-          
+          {% for info in patientX %}
               <form action="{{ url_for('StaffUpdateMedicalRecord') }}" method="post">
                 <div>
-                {% for info in patientX %}
+                
                   <div class="menubox">
                       <div class="detail-box">
                         <h2 style="text-align: left;">
@@ -163,7 +163,7 @@
                           
                           
                           
-                          
+                          <input type="hidden" name="record_id" value="{{ info.record_id }}">
                           <button class="yellow-button" type="submit">
                             Update Record
                           </button>
@@ -174,10 +174,10 @@
                     </div>
                     
                   </div>
-                  {% endfor %}
+                  
                 </div>
               </form>
-            
+            {% endfor %}
               
               
         </div>
