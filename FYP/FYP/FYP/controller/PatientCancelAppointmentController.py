@@ -15,5 +15,5 @@ def PatientCancelAppointmentController():
     if 'logged_in' in session: 
         app_id = request.form['appointment_id']
         userA, userB = User.PatientCancelAppointmentController(app_id)
-        return render_template('Patient_ViewAppointment.html', userA = userA, userB = userB)
+        return render_template('PatientViewAppointment.html', userA = userA, userB = userB)
 
