@@ -115,11 +115,11 @@ def logout():
     session.pop('username', None)
     return redirect(url_for('login'))
 
-@app.route('/PatientViewAppointment')
-def PatientViewAppointment():
-    userA = ""
-    userB = ""
-    return render_template('PatientViewAppointment.html', userA = userA, userB = userB)
+#@app.route('/PatientViewAppointment')
+#def PatientViewAppointment():
+#    userA = ""
+#    userB = ""
+#    return render_template('PatientViewAppointment.html', userA = userA, userB = userB)
 
 #patient view all appointments
 #@app.route('/PatientViewAppointment', methods=['GET', 'POST'])
