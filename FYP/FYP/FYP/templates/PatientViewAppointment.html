@@ -69,7 +69,7 @@
                     </h2>
                         {% for appointment in userA %}
                     <div class="menubox">
-                        <form action="{{ url_for('PatientCancelAppointment') }}" method="post">
+                        <form action="{{ url_for('PatientCancelAppointmentController') }}" method="post">
                             <div class="detail-box">
 
                                 <p>Patient: {{ appointment.name }}</p>
