@@ -292,12 +292,13 @@ def StaffCreateAppointmentController():
         'name' : request.form['name'],
         'nric' : request.form['nric'],
         'date_slot' : request.form['date_slot'],
+        'app_time' : request.form['app_time'],
         'department' : request.form['department'],
         'doctor' : request.form['doctor'],
         'reason' : request.form['reason']
     }
-    query = """INSERT INTO appointments (username, name, nric, date_slot, department, attending, reason) 
-               VALUES (%(username)s, %(name)s, %(nric)s, %(date_slot)s, %(department)s, %(doctor)s, %(reason)s)"""
+    query = """INSERT INTO appointments (username, name, nric, date_slot, app_time, department, attending, reason) 
+               VALUES (%(username)s, %(name)s, %(nric)s, %(date_slot)s, %(app_time)s, %(department)s, %(doctor)s, %(reason)s)"""
     cursor.execute(query, params)
     mysql.connection.commit()
 
