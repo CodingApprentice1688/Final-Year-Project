@@ -30,16 +30,11 @@ class User:
             session['nric'] = userL['nric']
             session['role_type'] = userL['role']
             msg = 'Logged in successfully !'
-            if userL['role'] == 'healthcare staff':
-                return redirect("/HealthcareStaff_Main")
-            if userL['role'] == 'patient':
-                return redirect("/Patient_Main")
-            if userL['role'] == 'IT admin':
-                 return redirect("/Admin_Main")    
+            return True, userL 
 
         else:
            error = 'Invalid Credentials. Please try again.'
-           return (error)
+           return False, userL
 
     def viewAppointment():
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)

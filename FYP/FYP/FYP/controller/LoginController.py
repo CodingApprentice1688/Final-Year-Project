@@ -15,8 +15,17 @@ def validateLogin():
     error = 'Invalid Credentials. Please try again.'
     username = request.form['username']
     password = request.form['password']
-    error = User.validateLogin(username, password)
+    result, userL = User.validateLogin(username, password)
 
-    return render_template('login.html', error = error)
+    if result:
+        if userL['role'] == 'healthcare staff':
+            return redirect("/HealthcareStaff_Main")
+        if userL['role'] == 'patient':
+            return redirect("/Patient_Main")
+        if userL['role'] == 'IT admin':
+            return redirect("/Admin_Main")   
+
+    else:
+        return render_template('login.html', error = error)
 
 

@@ -113,7 +113,7 @@ def Admin_Main():
 def logout():
     session.pop('logged_in', None)
     session.pop('username', None)
-    return redirect(url_for('login'))
+    return render_template('login.html')
 
 #@app.route('/PatientViewAppointment')
 #def PatientViewAppointment():
