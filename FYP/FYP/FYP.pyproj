@@ -31,6 +31,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="FYP\camera.py" />
+    <Compile Include="FYP\controller\LoginController.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="FYP\controller\PatientCancelAppointmentController.py">
       <SubType>Code</SubType>
     </Compile>
