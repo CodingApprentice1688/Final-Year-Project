@@ -1,7 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\FYP",
+    "\\FYP\\FYP",
+    "\\FYP\\FYP\\FYP",
+    "\\FYP\\FYP\\FYP\\controller",
+    "\\FYP\\FYP\\FYP\\entity",
+    "\\FYP\\FYP\\FYP\\templates"
   ],
-  "SelectedNode": "\\TestProject.sln",
+  "SelectedNode": "\\FYP\\FYP\\FYP\\entity\\User.py",
   "PreviewInSolutionExplorer": false
 }
