@@ -39,6 +39,7 @@ class User:
 
         else:
            error = 'Invalid Credentials. Please try again.'
+           return (error)
 
     def viewAppointment():
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)

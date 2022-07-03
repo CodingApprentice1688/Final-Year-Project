@@ -96,7 +96,7 @@
                     <h2>Enter your Username and Password</h2>
                     <br>
 
-                    <form action="{{ url_for('login') }}" method="post">
+                    <form action="/LoginController" method="post">
                             <div>
                                 <label>Username: </label>
                                 <input type="text" class="form-control" placeholder="Username" name="username" value="{{request.form.username }}">
