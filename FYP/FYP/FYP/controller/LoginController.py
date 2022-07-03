@@ -10,7 +10,7 @@ import MySQLdb.cursors
 
 @app.route('/LoginController', methods=['GET', 'POST'])
 def validateLogin():
-    #error = None
+    error = None
     msg = 'Logged in successfully !'   
     error = 'Invalid Credentials. Please try again.'
     username = request.form['username']
