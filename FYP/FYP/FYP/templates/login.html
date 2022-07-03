@@ -95,26 +95,25 @@
                 <div id="manualLogin" style="display:none;">
                     <h2>Enter your Username and Password</h2>
                     <br>
-
-                    <form action="/LoginController" method="post">
+                        <form action="/LoginController" method="post">
                             <div>
                                 <label>Username: </label>
                                 <input type="text" class="form-control" placeholder="Username" name="username" value="{{request.form.username }}">
                             </div>
-                            <br/>
+                            <br />
                             <div>
                                 <label>Password: </label>
                                 <input type="password" class="form-control" placeholder="Password" name="password" value="{{request.form.password }}">
                             </div>
-                            <br/>
+                            <br />
                             <div>
                                 <button class="yellow-button" type="submit" value="Login">Submit</button>
                             </div>
-                    </form>
-                    {% if error %}
-                    <p class="error">
-                        <strong>Error:</strong> {{ error }}
-                        {% endif %}
+                        </form>
+                        {% if error %}
+                        <p class="error">
+                            <strong>Error:</strong> {{ error }}
+                            {% endif %}
                 </div>
                 <div>
                     <h5 id="loginNotice" style="cursor: pointer; display:block;" onclick="showDiv()">Click here to use your username and password</h5> 
