@@ -31,11 +31,11 @@ class User:
             session['role_type'] = userL['role']
             msg = 'Logged in successfully !'
             if userL['role'] == 'healthcare staff':
-                return redirect(url_for('HealthcareStaff_Main'))
+                return redirect("/HealthcareStaff_Main")
             if userL['role'] == 'patient':
-                return redirect(url_for('Patient_Main'))
+                return redirect("/Patient_Main")
             if userL['role'] == 'IT admin':
-                 return redirect(url_for('Admin_Main'))    
+                 return redirect("/Admin_Main")    
 
         else:
            error = 'Invalid Credentials. Please try again.'
