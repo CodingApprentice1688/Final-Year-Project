@@ -76,36 +76,44 @@
             <div class="form_container">
                 <form action="/StaffCreateAppointmentController" method="post" onsubmit="feedback()">
                   <div>
+                    <label>Username: </label>
                     <input type="text" class="form-control" name="username" id="username" value="{{ info.username }}" disabled />
                     <input type="hidden" class="form-control" name="username" id="username" value="{{ info.username }}" />
                   </div>
                 
                   <div>
+                    <label>Name: </label>
                     <input type="text" class="form-control" name="name" id="name" value="{{ info.name }}" disabled />
                     <input type="hidden" class="form-control" name="name" id="name" value="{{ info.name }}" />
                   </div>
                   <div>
+                    <label>NRIC: </label>
                     <input type="text" class="form-control" name="nric" id="nric" value="{{ info.nric }}" disabled />
                     <input type="hidden" class="form-control" name="nric" id="nric" value="{{ info.nric }}" />
                   </div>
                   
                   <div>
-                    <input type="date" class="form-control" name="date_slot" id="date_slot" placeholder="" />
+                    <label>Appointment date: </label>
+                    <input type="date" class="form-control" name="date_slot" id="date_slot" />
                   </div>
-                  <!--
+                  
                   <div>
-                    <input type="time" class="form-control" name="appointmenttime" id="appointmenttime" placeholder="appointmenttime" />
+                    <label>Appointment time: </label>
+                    <input type="time" class="form-control" name="app_time" id="app_time" />
                   </div>
-                  -->
+                  
 
                   <div>
-                    <input type="text" class="form-control" name="department" id="department" placeholder="Department" />
+                    <label>Department: </label>
+                    <input type="text" class="form-control" name="department" id="department" />
                   </div>
                   <div>
-                    <input type="text" class="form-control" name="doctor" id="doctor" placeholder="Doctor" />
+                    <label>Attending physician: </label>
+                    <input type="text" class="form-control" name="doctor" id="doctor" />
                   </div>
                   <div>
-                    <input type="text" class="form-control" name="reason" id="reason" placeholder="Reason for Visit" />
+                    <label>Reason for visit: </label>
+                    <input type="text" class="form-control" name="reason" id="reason" />
                   </div>
                   
                   <div class="btn_box">

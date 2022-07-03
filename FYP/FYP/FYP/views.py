@@ -79,35 +79,35 @@ def Admin_Main():
 
 
 """ login manually """
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    error = None
-    msg = ''
-    if request.method == 'POST':        
-        username = request.form['username']
-        password = request.form['password']
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM user WHERE username = % s AND password = % s', (username, password, ))
-        userL = cursor.fetchone()
-        if userL:
-            session['logged_in'] = True
-            session['username'] = userL['username']
-            session['name'] = userL['name']
-            session['nric'] = userL['nric']
-            session['role_type'] = userL['role']
-            msg = 'Logged in successfully !'
+#@app.route('/login', methods=['GET', 'POST'])
+#def login():
+#    error = None
+#    msg = ''
+#    if request.method == 'POST':        
+#        username = request.form['username']
+#        password = request.form['password']
+#        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+#        cursor.execute('SELECT * FROM user WHERE username = % s AND password = % s', (username, password, ))
+#        userL = cursor.fetchone()
+#       if userL:
+#            session['logged_in'] = True
+#            session['username'] = userL['username']
+#            session['name'] = userL['name']
+#            session['nric'] = userL['nric']
+#           session['role_type'] = userL['role']
+#           msg = 'Logged in successfully !'
             #return render_template('index_Main.html', msg = msg)
-            if userL['role'] == 'healthcare staff':
-                return redirect(url_for('HealthcareStaff_Main'))
-            if userL['role'] == 'patient':
-                return redirect(url_for('Patient_Main'))
-            if userL['role'] == 'IT admin':
-                return redirect(url_for('Admin_Main'))    
+#            if userL['role'] == 'healthcare staff':
+#                return redirect(url_for('HealthcareStaff_Main'))
+#            if userL['role'] == 'patient':
+#                return redirect(url_for('Patient_Main'))
+#            if userL['role'] == 'IT admin':
+#                return redirect(url_for('Admin_Main'))    
             #return redirect(url_for('main'))
 
-        else:
-            error = 'Invalid Credentials. Please try again.'
-    return render_template('login.html', error = error)
+#        else:
+#            error = 'Invalid Credentials. Please try again.'
+#    return render_template('login.html', error = error)
 
 @app.route('/logout')
 def logout():
@@ -292,12 +292,13 @@ def StaffCreateAppointmentController():
         'name' : request.form['name'],
         'nric' : request.form['nric'],
         'date_slot' : request.form['date_slot'],
+        'app_time' : request.form['app_time'],
         'department' : request.form['department'],
         'doctor' : request.form['doctor'],
         'reason' : request.form['reason']
     }
-    query = """INSERT INTO appointments (username, name, nric, date_slot, department, attending, reason) 
-               VALUES (%(username)s, %(name)s, %(nric)s, %(date_slot)s, %(department)s, %(doctor)s, %(reason)s)"""
+    query = """INSERT INTO appointments (username, name, nric, date_slot, app_time, department, attending, reason) 
+               VALUES (%(username)s, %(name)s, %(nric)s, %(date_slot)s, %(app_time)s, %(department)s, %(doctor)s, %(reason)s)"""
     cursor.execute(query, params)
     mysql.connection.commit()
 

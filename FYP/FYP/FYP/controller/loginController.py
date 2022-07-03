@@ -15,7 +15,7 @@ def validateLogin():
     error = 'Invalid Credentials. Please try again.'
     username = request.form['username']
     password = request.form['password']
-    User.validateLogin(username, password)
+    error = User.validateLogin(username, password)
 
     return render_template('login.html', error = error)
 
