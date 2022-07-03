@@ -2,6 +2,7 @@
 
 from FYP import app 
 from FYP.entity.User import *
+from FYP.entity.Appointments import *
 from datetime import datetime, date
 from flask import render_template
 from FYP import mysql

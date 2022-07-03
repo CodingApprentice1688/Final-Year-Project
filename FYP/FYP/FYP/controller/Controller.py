@@ -1,6 +1,5 @@
 from FYP import app 
 from FYP.entity.User import *
-from FYP.entity.Appointments import *
 from datetime import datetime, date
 from flask import render_template
 from FYP import mysql
@@ -9,8 +8,9 @@ from flask import Flask,render_template, request, redirect, url_for, Response, s
 from flask_mysqldb import MySQL
 import MySQLdb.cursors 
 
-@app.route('/LoginController', methods=['GET', 'POST'])
-def validateLogin():
+
+class Controller:
+    def validateLogin():
     error = None
     msg = 'Logged in successfully !'   
     error = 'Invalid Credentials. Please try again.'
@@ -28,5 +28,3 @@ def validateLogin():
 
     else:
         return render_template('login.html', error = error)
-
-
