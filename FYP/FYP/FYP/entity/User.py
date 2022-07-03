@@ -33,6 +33,10 @@ class User:
 
         else:
            return False, userL
+    def validateLogout():
+        session.pop('logged_in', None)
+        session.pop('username', None)
+        return render_template('login.html')
 
     def viewAppointment():
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)

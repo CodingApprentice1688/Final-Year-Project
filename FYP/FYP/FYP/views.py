@@ -109,11 +109,11 @@ def Admin_Main():
 #           error = 'Invalid Credentials. Please try again.'
 #    return render_template('login.html', error = error)
 
-@app.route('/logout')
-def logout():
-    session.pop('logged_in', None)
-    session.pop('username', None)
-    return render_template('login.html')
+#@app.route('/logout')
+#def logout():
+#    session.pop('logged_in', None)
+#    session.pop('username', None)
+#    return render_template('login.html')
 
 #@app.route('/PatientViewAppointment')
 #def PatientViewAppointment():
