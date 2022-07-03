@@ -38,21 +38,4 @@ class User:
         session.pop('username', None)
         return render_template('login.html')
 
-    def viewAppointment():
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot >= CURDATE()' ,  (session['nric'], ))
-        userA = cursor.fetchall()
-        cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot < CURDATE()' ,  (session['nric'], ))
-        userB = cursor.fetchall()
-        return (userA, userB)
-
-    def cancelAppointment(appointment_id):
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('DELETE FROM appointments WHERE appointment_id = % s' ,  (appointment_id, ))
-        mysql.connection.commit()
-        cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot >= CURDATE()',  (session['nric'], ))
-        userA = cursor.fetchall()
-        cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot < CURDATE()',  (session['nric'], ))
-        userB = cursor.fetchall()
-        return (userA, userB)
-        
+   
