@@ -29,11 +29,9 @@ class User:
             session['name'] = userL['name']
             session['nric'] = userL['nric']
             session['role_type'] = userL['role']
-            msg = 'Logged in successfully !'
             return True, userL 
 
         else:
-           error = 'Invalid Credentials. Please try again.'
            return False, userL
 
     def viewAppointment():
