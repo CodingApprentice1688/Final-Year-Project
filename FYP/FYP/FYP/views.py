@@ -335,44 +335,44 @@ def capture_10_pics_change():
 
 
 
-@app.route('/StaffCreateMedicalRecord')
-def StaffCreateMedicalRecord():
+#@app.route('/StaffCreateMedicalRecord')
+#def StaffCreateMedicalRecord():
     
-    patientY = session["patientY"]  ##
+#    patientY = session["patientY"]  ##
 
-    return render_template(
-        'StaffCreateMedicalRecord.html',
-        title='Staff Create Record',
-        patientY = patientY)
+#    return render_template(
+#        'StaffCreateMedicalRecord.html',
+#        title='Staff Create Record',
+#        patientY = patientY)
 
 
 
-@app.route('/StaffCreateMedicalRecordController', methods=['GET', 'POST'])
-def StaffCreateMedicalRecordController():
-    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+#@app.route('/StaffCreateMedicalRecordController', methods=['GET', 'POST'])
+#def StaffCreateMedicalRecordController():
+#    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
 
-    params = {
-        'appointment_id' : request.form['appointment_id'],
-        'username' : request.form['username'],
-        'vaccination_status' : request.form['vaccination_status'],
-        'blood_pressure' : request.form['blood_pressure'],
-        'temperature' : request.form['temperature'],
-        'heart_rate' : request.form['heart_rate'],
-        'allergies' : request.form['allergies'],
-        'medicine' : request.form['medicine'],
-        'diagnosis' : request.form['diagnosis']
-    }
-    query = """INSERT INTO medicalrecords (appointment_id, username, vaccination_status, blood_pressure, temperature, heart_rate, allergies, medicine, diagnosis) 
-               VALUES (%(appointment_id)s, %(username)s, %(vaccination_status)s, %(blood_pressure)s, %(temperature)s, %(heart_rate)s, %(allergies)s, %(medicine)s, %(diagnosis)s)"""
-    cursor.execute(query, params)
-    mysql.connection.commit()
+#    params = {
+#        'appointment_id' : request.form['appointment_id'],
+#        'username' : request.form['username'],
+#        'vaccination_status' : request.form['vaccination_status'],
+#        'blood_pressure' : request.form['blood_pressure'],
+#        'temperature' : request.form['temperature'],
+#        'heart_rate' : request.form['heart_rate'],
+#        'allergies' : request.form['allergies'],
+#        'medicine' : request.form['medicine'],
+#        'diagnosis' : request.form['diagnosis']
+#    }
+#    query = """INSERT INTO medicalrecords (appointment_id, username, vaccination_status, blood_pressure, temperature, heart_rate, allergies, medicine, diagnosis) 
+#               VALUES (%(appointment_id)s, %(username)s, %(vaccination_status)s, %(blood_pressure)s, %(temperature)s, %(heart_rate)s, %(allergies)s, %(medicine)s, %(diagnosis)s)"""
+#    cursor.execute(query, params)
+#    mysql.connection.commit()
 
-    param = {'username' : request.form['username']}
-    query = """SELECT * FROM medicalrecords WHERE username = %(username)s"""
-    cursor.execute(query, param)
-    patientY = cursor.fetchall()  ##
+#    param = {'username' : request.form['username']}
+#    query = """SELECT * FROM medicalrecords WHERE username = %(username)s"""
+#    cursor.execute(query, param)
+#    patientY = cursor.fetchall()  ##
     
-    return render_template('StaffCreateMedicalRecord.html', patientY = patientY)
+#    return render_template('StaffCreateMedicalRecord.html', patientY = patientY)
 
 
 
