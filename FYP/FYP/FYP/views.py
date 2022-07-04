@@ -157,18 +157,18 @@ def Admin_Main():
 
 
 #patient get queue number
-@app.route('/PatientQueueNumber', methods=['GET', 'POST'])
-def PatientQueueNumber():
-    return render_template(
-        'PatientQueueNumber.html',
-        title='PatientQueueNumber',
-        year=datetime.now().year
-    )
+#@app.route('/PatientQueueNumber', methods=['GET', 'POST'])
+#def PatientQueueNumber():
+#    return render_template(
+#        'PatientQueueNumber.html',
+#        title='PatientQueueNumber',
+#        year=datetime.now().year
+#    )
 
-@app.route('/QueueNumberController', methods = ['POST'])
-def QueueNumberController():
-    VideoCamera().stop_camera()
-    return redirect(url_for('Patient_Main'))
+#@app.route('/QueueNumberController', methods = ['POST'])
+#def QueueNumberController():
+#    VideoCamera().stop_camera()
+#    return redirect(url_for('Patient_Main'))
 
 #patient update personal details
 #@app.route('/PatientUpdatePersonalDetail', methods=['GET', 'POST'])

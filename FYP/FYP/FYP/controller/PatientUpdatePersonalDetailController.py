@@ -16,7 +16,7 @@ def PatientUpdateSession():
     return render_template('PatientUpdatePersonalDetail.html', userA = userA)
 
 @app.route('/PatientUpdatePersonalDetailController', methods=['GET', 'POST'])
-def PatientUpdatePersonalDetail():
+def updatePersonalDetail():
     name = request.form['name']
     nric = request.form['nric']
     age = request.form['age']
