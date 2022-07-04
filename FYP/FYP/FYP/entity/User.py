@@ -60,3 +60,18 @@ class User:
         cursor.execute('SELECT * FROM user WHERE nric = % s AND role = % s' , (nric, patient, ))
         userA = cursor.fetchall()
         return (userA)
+
+    def StaffSearchPatient(patient):
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        #cursor.execute('SELECT * FROM user where role = % s', patient)
+        param = { 'patient': patient }
+        query = """SELECT * FROM user where role = %(patient)s"""
+        cursor.execute(query, param)
+        patient = cursor.fetchall()
+        return (patient)
+
+    def StaffSearchPatientController(name, pat):
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute ("SELECT * FROM user WHERE name LIKE %s AND role = %s", ('%' + name + '%', pat, ))
+        patient = cursor.fetchall()
+        return (patient)
