@@ -171,30 +171,30 @@ def QueueNumberController():
     return redirect(url_for('Patient_Main'))
 
 #patient update personal details
-@app.route('/PatientUpdatePersonalDetail', methods=['GET', 'POST'])
-def PatientUpdatePersonalDetail():
-    if 'logged_in' in session: 
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM user WHERE nric = % s' , (session['nric'], ))
-        userA = cursor.fetchall()
-    return render_template('PatientUpdatePersonalDetail.html', userA = userA)
+#@app.route('/PatientUpdatePersonalDetail', methods=['GET', 'POST'])
+#def PatientUpdatePersonalDetail():
+#    if 'logged_in' in session: 
+#        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+#        cursor.execute('SELECT * FROM user WHERE nric = % s' , (session['nric'], ))
+#        userA = cursor.fetchall()
+#    return render_template('PatientUpdatePersonalDetail.html', userA = userA)
 
-@app.route('/PatientUpdatePersonalDetailController', methods=['GET', 'POST'])
-def PatientUpdatePersonalDetailController():
-    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    name = request.form['name']
-    nric = request.form['nric']
-    age = request.form['age']
-    gender = request.form['gender']
-    username = request.form['username']
-    password = request.form['password']
+#@app.route('/PatientUpdatePersonalDetailController', methods=['GET', 'POST'])
+#def PatientUpdatePersonalDetailController():
+#    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+#    name = request.form['name']
+#    nric = request.form['nric']
+#    age = request.form['age']
+#    gender = request.form['gender']
+#    username = request.form['username']
+#    password = request.form['password']
 
-    if 'logged_in' in session: 
-        cursor.execute('UPDATE user SET name = % s, nric = % s, age = % s, gender = % s, username = % s, password = % s WHERE nric = % s' , (name, nric, age, gender, username, password, session['nric'], ))
-        mysql.connection.commit()
-        cursor.execute('SELECT * FROM user WHERE nric = % s', (nric,))
-        userA = cursor.fetchall()
-    return render_template('PatientUpdatePersonalDetail.html', userA = userA)
+#    if 'logged_in' in session: 
+#        cursor.execute('UPDATE user SET name = % s, nric = % s, age = % s, gender = % s, username = % s, password = % s WHERE nric = % s' , (name, nric, age, gender, username, password, session['nric'], ))
+#        mysql.connection.commit()
+#        cursor.execute('SELECT * FROM user WHERE nric = % s', (nric,))
+#        userA = cursor.fetchall()
+#    return render_template('PatientUpdatePersonalDetail.html', userA = userA)
 
     
 

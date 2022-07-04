@@ -38,4 +38,11 @@ class User:
         session.pop('username', None)
         return render_template('login.html')
 
-   
+    #patient update personal details
+    def patientUpdatePersonalDetail(name, nric, age, gender, username, password):
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('UPDATE user SET name = % s, nric = % s, age = % s, gender = % s, username = % s, password = % s WHERE nric = % s' , (name, nric, age, gender, username, password, session['nric'], ))
+        mysql.connection.commit()
+        cursor.execute('SELECT * FROM user WHERE nric = % s', (session['nric'], ))
+        userA = cursor.fetchall()
+        return (userA)
