@@ -41,5 +41,27 @@ class Appointments:
         cursor.execute('SELECT * FROM user WHERE username = % s AND nric = % s',  (username, nric, ))
         patientX = cursor.fetchall()
         return (userA, userB, patientX)
+    
 
+    def StaffCreateAppointment(username, name, nric, date_slot, app_time, department, doctor, reason):
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        params = {
+            'username' : username,
+            'name' : name,
+            'nric' : nric,
+            'date_slot' : date_slot,
+            'app_time' : app_time,
+            'department' : department,
+            'doctor' : doctor,
+            'reason' : reason
+        }
+        query = """INSERT INTO appointments (username, name, nric, date_slot, app_time, department, attending, reason) 
+                   VALUES (%(username)s, %(name)s, %(nric)s, %(date_slot)s, %(app_time)s, %(department)s, %(doctor)s, %(reason)s)"""
+        cursor.execute(query, params)
+        mysql.connection.commit()
 
+        params = {'username' : username,'nric' : nric}
+        query = """SELECT * FROM user WHERE username = %(username)s AND nric = %(nric)s"""
+        cursor.execute(query, params)
+        patientX = cursor.fetchall()
+        return (patientX)

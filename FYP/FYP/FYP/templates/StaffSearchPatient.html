@@ -132,7 +132,7 @@
                               </button>
                         </form>
 
-                        <form action="{{ url_for('StaffViewMedicalRecord') }}" method="post">
+                        <form action="{{ url_for('StaffViewMedicalRecordController') }}" method="post">
                         <input type="hidden" name="username" value="{{ pati['username'] }}">
                          <input type="hidden" name="nric" value="{{ pati['nric'] }}">
                           <button class="yellow-button-small" type="submit">

@@ -28,3 +28,6 @@ import FYP.controller.LogoutController
 import FYP.controller.PatientUpdatePersonalDetailController
 import FYP.controller.StaffSearchPatientController
 import FYP.controller.StaffViewPatientAppointmentController
+import FYP.controller.StaffCreateAppointmentController
+import FYP.controller.StaffViewMedicalRecordController
+import FYP.controller.StaffCreateMedicalRecordController
