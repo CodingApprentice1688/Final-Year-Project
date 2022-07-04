@@ -214,6 +214,8 @@ def video_feed():
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
+
+
 @app.route('/capture_10_pics')
 def capture_10_pics():
     VideoCamera().capture_10_pics();

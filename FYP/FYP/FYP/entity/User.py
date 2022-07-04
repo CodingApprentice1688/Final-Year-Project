@@ -60,3 +60,19 @@ class User:
         cursor.execute('SELECT * FROM user WHERE nric = % s AND role = % s' , (nric, patient, ))
         userA = cursor.fetchall()
         return (userA)
+
+
+    def getImageInfo(username):
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM user WHERE username = % s', (username, ))
+        userL = cursor.fetchone()
+        if userL:
+            session['logged_in'] = True
+            session['username'] = userL['username']
+            session['name'] = userL['name']
+            session['nric'] = userL['nric']
+            session['role_type'] = userL['role']
+            return userL 
+
+        else:
+           return userL
