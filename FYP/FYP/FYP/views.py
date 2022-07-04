@@ -271,46 +271,46 @@ def capture_10_pics_change():
 
 
 
-@app.route('/StaffCreateAppointment', methods=["POST", "GET"])
-def StaffCreateAppointment():
+#@app.route('/StaffCreateAppointment', methods=["POST", "GET"])
+#def StaffCreateAppointment():
 
-    patientX = session["patientX"]  ##
+#    patientX = session["patientX"]  ##
 
-    return render_template(
-        'StaffCreateAppointment.html',
-        title='Staff Create Appointment',
-        patientX = patientX)
+#    return render_template(
+#        'StaffCreateAppointment.html',
+#        title='Staff Create Appointment',
+#        patientX = patientX)
 
 
 
-@app.route('/StaffCreateAppointmentController', methods=['GET', 'POST'])
-def StaffCreateAppointmentController():
-    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+#@app.route('/StaffCreateAppointmentController', methods=['GET', 'POST'])
+#def StaffCreateAppointmentController():
+#    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     
-    params = {
-        'username' : request.form['username'],
-        'name' : request.form['name'],
-        'nric' : request.form['nric'],
-        'date_slot' : request.form['date_slot'],
-        'app_time' : request.form['app_time'],
-        'department' : request.form['department'],
-        'doctor' : request.form['doctor'],
-        'reason' : request.form['reason']
-    }
-    query = """INSERT INTO appointments (username, name, nric, date_slot, app_time, department, attending, reason) 
-               VALUES (%(username)s, %(name)s, %(nric)s, %(date_slot)s, %(app_time)s, %(department)s, %(doctor)s, %(reason)s)"""
-    cursor.execute(query, params)
-    mysql.connection.commit()
+#    params = {
+#        'username' : request.form['username'],
+#        'name' : request.form['name'],
+#        'nric' : request.form['nric'],
+#        'date_slot' : request.form['date_slot'],
+#        'app_time' : request.form['app_time'],
+#        'department' : request.form['department'],
+#        'doctor' : request.form['doctor'],
+#        'reason' : request.form['reason']
+#    }
+#    query = """INSERT INTO appointments (username, name, nric, date_slot, app_time, department, attending, reason) 
+#               VALUES (%(username)s, %(name)s, %(nric)s, %(date_slot)s, %(app_time)s, %(department)s, %(doctor)s, %(reason)s)"""
+#    cursor.execute(query, params)
+#    mysql.connection.commit()
 
-    params = {
-        'username' : request.form['username'],
-        'nric' : request.form['nric']
-    }
-    query = """SELECT * FROM user WHERE username = %(username)s AND nric = %(nric)s"""
-    cursor.execute(query, params)
-    patientX = cursor.fetchall() 
+#    params = {
+#        'username' : request.form['username'],
+#        'nric' : request.form['nric']
+#    }
+#    query = """SELECT * FROM user WHERE username = %(username)s AND nric = %(nric)s"""
+#    cursor.execute(query, params)
+#    patientX = cursor.fetchall() 
     
-    return render_template('StaffCreateAppointment.html', patientX = patientX)
+#    return render_template('StaffCreateAppointment.html', patientX = patientX)
 
 
 
