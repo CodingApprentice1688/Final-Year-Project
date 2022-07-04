@@ -46,7 +46,7 @@ class User:
             userA = cursor.fetchall()
         return (userA)
 
-    def PatientUpdatePersonalDetail(name, nric, age, gender, username, password):
+    def updatePersonalDetail(name, nric, age, gender, username, password):
         if 'logged_in' in session:
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
             cursor.execute('UPDATE user SET name = % s, nric = % s, age = % s, gender = % s, username = % s, password = % s WHERE nric = % s' , (name, nric, age, gender, username, password, session['nric'], ))
