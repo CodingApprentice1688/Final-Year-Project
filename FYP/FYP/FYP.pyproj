@@ -43,7 +43,6 @@
     <Compile Include="FYP\controller\PatientCancelAppointmentController.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FYP\controller\PatientUpdatePersonalDetailController.py" />
     <Compile Include="FYP\controller\PatientViewAppointmentController.py">
       <SubType>Code</SubType>
     </Compile>

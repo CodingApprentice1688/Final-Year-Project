@@ -7,10 +7,16 @@ from FYP import mysql
 
 from flask import Flask,render_template, request, redirect, url_for, Response, session
 from flask_mysqldb import MySQL
-import MySQLdb.cursors 
+import MySQLdb.cursors
 
 @app.route('/PatientUpdatePersonalDetailController', methods=['GET', 'POST'])
-def patientUpdatePersonalDetail():
+def PatientUpdateSession():
+    if 'logged_in' in session:
+        userA = User.PatientUpdateSession ()
+    return render_template('PatientUpdatePersonalDetail.html', userA = userA)
+
+@app.route('/PatientUpdatePersonalDetailController', methods=['GET', 'POST'])
+def PatientUpdatePersonalDetail():
     name = request.form['name']
     nric = request.form['nric']
     age = request.form['age']
@@ -19,5 +25,5 @@ def patientUpdatePersonalDetail():
     password = request.form['password']
 
     if 'logged_in' in session:
-        userA = User.patientUpdatePersonalDetail(name, nric, age, gender, username, password)
+        userA = User.PatientUpdatePersonalDetail(name, nric, age, gender, username, password)
     return render_template('PatientUpdatePersonalDetail.html', userA = userA)
