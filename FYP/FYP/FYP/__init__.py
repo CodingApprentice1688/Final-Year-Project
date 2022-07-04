@@ -21,4 +21,4 @@ import FYP.controller.PatientViewAppointmentController
 import FYP.controller.PatientCancelAppointmentController
 import FYP.controller.LoginController
 import FYP.controller.LogoutController
-
+import FYP.controller.PatientUpdatePersonalDetailController
