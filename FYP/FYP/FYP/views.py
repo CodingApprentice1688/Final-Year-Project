@@ -252,22 +252,22 @@ def capture_10_pics_change():
 
 
 
-@app.route('/StaffViewPatientAppointment', methods=['GET', 'POST'])
-def StaffViewPatientAppointment():
-    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    username = request.form['username']
-    nric = request.form['nric']
-    current = datetime.now().date()
-    cursor.execute('SELECT * FROM appointments WHERE username = % s AND nric = % s AND date_slot >= CURDATE()',  (username, nric, ))
-    userA = cursor.fetchall()
-    cursor.execute("SELECT * FROM appointments WHERE username = % s AND nric = % s AND date_slot < CURDATE()" ,  (username, nric, ))
-    userB = cursor.fetchall()
+#@app.route('/StaffViewPatientAppointment', methods=['GET', 'POST'])
+#def StaffViewPatientAppointment():
+#    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+#    username = request.form['username']
+#    nric = request.form['nric']
+#    current = datetime.now().date()
+#    cursor.execute('SELECT * FROM appointments WHERE username = % s AND nric = % s AND date_slot >= CURDATE()',  (username, nric, ))
+#    userA = cursor.fetchall()
+#    cursor.execute("SELECT * FROM appointments WHERE username = % s AND nric = % s AND date_slot < CURDATE()" ,  (username, nric, ))
+#    userB = cursor.fetchall()
     
-    cursor.execute('SELECT * FROM user WHERE username = % s AND nric = % s',  (username, nric, ))
-    patientX = cursor.fetchall()
-    session['patientX'] = patientX  ##
+#    cursor.execute('SELECT * FROM user WHERE username = % s AND nric = % s',  (username, nric, ))
+#    patientX = cursor.fetchall()
+#    session['patientX'] = patientX  ##
 
-    return render_template('StaffViewPatientAppointment.html', userA = userA, userB = userB)
+#    return render_template('StaffViewPatientAppointment.html', userA = userA, userB = userB)
 
 
 

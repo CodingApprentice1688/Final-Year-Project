@@ -30,4 +30,16 @@ class Appointments:
         cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot < CURDATE()',  (session['nric'], ))
         userB = cursor.fetchall()
         return (userA, userB)
-        
+
+    def StaffViewPatientAppointment(username, nric):
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        current = datetime.now().date()
+        cursor.execute('SELECT * FROM appointments WHERE username = % s AND nric = % s AND date_slot >= CURDATE()',  (username, nric, ))
+        userA = cursor.fetchall()
+        cursor.execute("SELECT * FROM appointments WHERE username = % s AND nric = % s AND date_slot < CURDATE()" ,  (username, nric, ))
+        userB = cursor.fetchall()
+        cursor.execute('SELECT * FROM user WHERE username = % s AND nric = % s',  (username, nric, ))
+        patientX = cursor.fetchall()
+        return (userA, userB, patientX)
+
+

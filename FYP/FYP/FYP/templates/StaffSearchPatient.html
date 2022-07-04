@@ -124,7 +124,7 @@
                         </p>
                         <div class="options">
                           
-                         <form action="{{ url_for('StaffViewPatientAppointment') }}" method="post">
+                         <form action="{{ url_for('StaffViewPatientAppointmentController') }}" method="post">
                              <input type="hidden" name="username" value="{{ pati['username'] }}">
                              <input type="hidden" name="nric" value="{{ pati['nric'] }}">
                               <button class="yellow-button-small" type="submit">
