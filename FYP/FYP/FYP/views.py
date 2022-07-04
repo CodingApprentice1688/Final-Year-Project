@@ -314,24 +314,24 @@ def capture_10_pics_change():
 
 
 
-@app.route('/StaffViewMedicalRecord', methods=['GET', 'POST'])
-def StaffViewMedicalRecord():
+#@app.route('/StaffViewMedicalRecord', methods=['GET', 'POST'])
+#def StaffViewMedicalRecord():
 
-    username = request.form['username']
-    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+#    username = request.form['username']
+#    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     
-    params = {'username' : request.form['username']}
-    query = """SELECT * FROM medicalrecords WHERE username = %(username)s"""
-    cursor.execute(query, params)
-    patientX = cursor.fetchall()
+#    params = {'username' : request.form['username']}
+#    query = """SELECT * FROM medicalrecords WHERE username = %(username)s"""
+#    cursor.execute(query, params)
+#    patientX = cursor.fetchall()
 
-    param = {'username' : request.form['username']}
-    query = """SELECT * FROM user WHERE username = %(username)s"""
-    cursor.execute(query, param)
-    patientY = cursor.fetchall()
-    session['patientY'] = patientY
+#    param = {'username' : request.form['username']}
+#    query = """SELECT * FROM user WHERE username = %(username)s"""
+#    cursor.execute(query, param)
+#    patientY = cursor.fetchall()
+#    session['patientY'] = patientY
 
-    return render_template('StaffViewMedicalRecord.html', patientX = patientX)
+#    return render_template('StaffViewMedicalRecord.html', patientX = patientX)
 
 
 
