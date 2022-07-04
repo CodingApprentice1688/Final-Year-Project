@@ -13,4 +13,4 @@ import MySQLdb.cursors
 def viewAppointment():
     if 'logged_in' in session: 
         userA, userB = Appointments.viewAppointment()
-        return render_template('PatientViewAppointment.html', userA = userA, userB = userB)
+    return render_template('PatientViewAppointment.html', userA = userA, userB = userB)
