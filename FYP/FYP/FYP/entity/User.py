@@ -29,32 +29,13 @@ class User:
             session['name'] = userL['name']
             session['nric'] = userL['nric']
             session['role_type'] = userL['role']
-            msg = 'Logged in successfully !'
-            if userL['role'] == 'healthcare staff':
-                return redirect(url_for('HealthcareStaff_Main'))
-            if userL['role'] == 'patient':
-                return redirect(url_for('Patient_Main'))
-            if userL['role'] == 'IT admin':
-                 return redirect(url_for('Admin_Main'))    
+            return True, userL 
 
         else:
-           error = 'Invalid Credentials. Please try again.'
+           return False, userL
+    def validateLogout():
+        session.pop('logged_in', None)
+        session.pop('username', None)
+        return render_template('login.html')
 
-    def viewAppointment():
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot >= CURDATE()' ,  (session['nric'], ))
-        userA = cursor.fetchall()
-        cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot < CURDATE()' ,  (session['nric'], ))
-        userB = cursor.fetchall()
-        return (userA, userB)
-
-    def cancelAppointment(appointment_id):
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('DELETE FROM appointments WHERE appointment_id = % s' ,  (appointment_id, ))
-        mysql.connection.commit()
-        cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot >= CURDATE()',  (session['nric'], ))
-        userA = cursor.fetchall()
-        cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot < CURDATE()',  (session['nric'], ))
-        userB = cursor.fetchall()
-        return (userA, userB)
-        
+   

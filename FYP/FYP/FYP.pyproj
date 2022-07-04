@@ -31,16 +31,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="FYP\camera.py" />
-    <Compile Include="FYP\controller\Admin_SearchPatient.py">
+    <Compile Include="FYP\controller\Controller.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FYP\controller\LoginController.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FYP\controller\LogoutController.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FYP\controller\PatientCancelAppointmentController.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FYP\controller\PatientViewAppointmentController.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FYP\entity\Appointments.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FYP\testing.py">
@@ -56,7 +62,7 @@
   <ItemGroup>
     <Folder Include="FYP\" />
     <Folder Include="FYP\controller\" />
-    <Folder Include="FYP\FaceRecognitionBuiltIn\" />
+    <Folder Include="FYP\entity\" />
     <Folder Include="FYP\Test\" />
     <Folder Include="FYP\static\" />
     <Folder Include="FYP\static\content\" />
@@ -71,6 +77,7 @@
     <Content Include="FYP\templates\admin_RegisterPT.html" />
     <Content Include="FYP\templates\admin_updatePTimg.html" />
     <Content Include="FYP\templates\PatientQueueNumber.html" />
+    <Content Include="FYP\templates\PatientUpdatePersonalDetailController.html" />
     <Content Include="FYP\templates\helloPage.html">
       <SubType>Code</SubType>
     </Content>
@@ -103,6 +110,13 @@
     <Content Include="FYP\templates\StaffCreateMedicalRecord.html" />
     <Content Include="FYP\templates\StaffSearchPatient.html" />
     <Content Include="FYP\templates\StaffUpdateMedicalRecord.html" />
+    <Content Include="FYP\templates\StaffViewAppointment.html" />
+    <Content Include="FYP\templates\testHealthCareStaff.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="FYP\templates\testITAdmin.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="requirements.txt" />
     <Content Include="FYP\static\content\bootstrap.css" />
     <Content Include="FYP\static\content\bootstrap.min.css" />
