@@ -425,11 +425,7 @@ def StaffUpdateMedicalRecordController():
 
 
 
-@app.route('/AdminChangePatientCredentials',  methods=['GET', 'POST'])
-def AdminChangePatientCredentials():
-    """Renders the about page."""
-    return render_template(
-        'AdminChangePatientCredentials.html')
+
 
 @app.route('/AdminSearchPatient', methods=['GET', 'POST'])
 def AdminSearchPatient():
