@@ -62,6 +62,7 @@
   <ItemGroup>
     <Folder Include="FYP\" />
     <Folder Include="FYP\controller\" />
+    <Folder Include="FYP\entity\" />
     <Folder Include="FYP\Test\" />
     <Folder Include="FYP\static\" />
     <Folder Include="FYP\static\content\" />
