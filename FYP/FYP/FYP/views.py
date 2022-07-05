@@ -378,52 +378,52 @@ def capture_10_pics_change():
 
 
 
-@app.route('/StaffUpdateMedicalRecord', methods=['GET', 'POST'])
-def StaffUpdateMedicalRecord():
-    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    param = {'record_id' : request.form['record_id']}
-    query = """SELECT * FROM medicalrecords WHERE record_id = %(record_id)s"""
-    cursor.execute(query, param)
-    recordX = cursor.fetchall()
+#@app.route('/StaffUpdateMedicalRecord', methods=['GET', 'POST'])
+#def StaffUpdateMedicalRecord():
+#    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+#    param = {'record_id' : request.form['record_id']}
+#    query = """SELECT * FROM medicalrecords WHERE record_id = %(record_id)s"""
+#    cursor.execute(query, param)
+#    recordX = cursor.fetchall()
 
-    return render_template('StaffUpdateMedicalRecord.html', title='Staff Update Record', recordX = recordX)
+#    return render_template('StaffUpdateMedicalRecord.html', title='Staff Update Record', recordX = recordX)
 
 
 
-@app.route('/StaffUpdateMedicalRecordController', methods=['GET', 'POST'])
-def StaffUpdateMedicalRecordController():
-    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+#@app.route('/StaffUpdateMedicalRecordController', methods=['GET', 'POST'])
+#def StaffUpdateMedicalRecordController():
+#    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
 
-    params = {
-        'record_id' : request.form['record_id'],
-        'appointment_id' : request.form['appointment_id'],
-        'username' : request.form['username'],
-        'vaccination_status' : request.form['vaccination_status'],
-        'blood_pressure' : request.form['blood_pressure'],
-        'temperature' : request.form['temperature'],
-        'heart_rate' : request.form['heart_rate'],
-        'allergies' : request.form['allergies'],
-        'medicine' : request.form['medicine'],
-        'diagnosis' : request.form['diagnosis']
-    }
-    query = """UPDATE medicalrecords 
-                SET vaccination_status = %(vaccination_status)s, 
-                    blood_pressure = %(blood_pressure)s, 
-                    temperature = %(temperature)s, 
-                    heart_rate = %(heart_rate)s, 
-                    allergies = %(allergies)s, 
-                    medicine = %(medicine)s, 
-                    diagnosis = %(diagnosis)s
-                WHERE record_id = %(record_id)s"""
-    cursor.execute(query, params)
-    mysql.connection.commit()
+#    params = {
+#        'record_id' : request.form['record_id'],
+#        'appointment_id' : request.form['appointment_id'],
+#        'username' : request.form['username'],
+#        'vaccination_status' : request.form['vaccination_status'],
+#        'blood_pressure' : request.form['blood_pressure'],
+#        'temperature' : request.form['temperature'],
+#        'heart_rate' : request.form['heart_rate'],
+#        'allergies' : request.form['allergies'],
+#        'medicine' : request.form['medicine'],
+#        'diagnosis' : request.form['diagnosis']
+#    }
+#    query = """UPDATE medicalrecords 
+#                SET vaccination_status = %(vaccination_status)s, 
+#                    blood_pressure = %(blood_pressure)s, 
+#                    temperature = %(temperature)s, 
+#                    heart_rate = %(heart_rate)s, 
+#                    allergies = %(allergies)s, 
+#                    medicine = %(medicine)s, 
+#                    diagnosis = %(diagnosis)s
+#                WHERE record_id = %(record_id)s"""
+#    cursor.execute(query, params)
+#    mysql.connection.commit()
 
-    param = {'record_id' : request.form['record_id']}
-    query = """SELECT * FROM medicalrecords WHERE record_id = %(record_id)s"""
-    cursor.execute(query, param)
-    recordX = cursor.fetchall()
+#    param = {'record_id' : request.form['record_id']}
+#    query = """SELECT * FROM medicalrecords WHERE record_id = %(record_id)s"""
+#    cursor.execute(query, param)
+#    recordX = cursor.fetchall()
 
-    return render_template('StaffUpdateMedicalRecord.html', recordX = recordX)
+#    return render_template('StaffUpdateMedicalRecord.html', recordX = recordX)
 
 
 
@@ -450,12 +450,12 @@ def AdminSearchPatientController():
     patient = cursor.fetchall()
     return render_template('AdminSearchPatient.html', patient = patient)
 
-@app.route('/AdminRegisterPatient')
-def AdminRegisterPatient():
-    """Renders the about page."""
-    ten = 0
-    return render_template(
-        'AdminRegisterPatient.html', ten = ten)
+#@app.route('/AdminRegisterPatient')
+#def AdminRegisterPatient():
+#    """Renders the about page."""
+#    ten = 0
+#    return render_template(
+#        'AdminRegisterPatient.html', ten = ten)
 
 #@app.route('/AdminRegisterPatientController', methods=['GET', 'POST'])
 #def AdminRegisterPatientController():

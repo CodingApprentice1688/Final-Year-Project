@@ -9,10 +9,10 @@ from flask import Flask,render_template, request, redirect, url_for, Response, s
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 
-@app.route('/PatientUpdatePersonalDetailController', methods=['GET', 'POST'])
+@app.route('/PatientUpdatePersonalDetail', methods=['GET', 'POST'])
 def PatientUpdateSession():
-    if 'logged_in' in session:
-        userA = User.PatientUpdateSession ()
+    #if 'logged_in' in session:
+    userA = User.PatientUpdateSession()
     return render_template('PatientUpdatePersonalDetail.html', userA = userA)
 
 @app.route('/PatientUpdatePersonalDetailController', methods=['GET', 'POST'])
@@ -24,6 +24,6 @@ def updatePersonalDetail():
     username = request.form['username']
     password = request.form['password']
 
-    if 'logged_in' in session:
-        userA = User.updatePersonalDetail(name, nric, age, gender, username, password)
+    #if 'logged_in' in session:
+    userA = User.updatePersonalDetail(name, nric, age, gender, username, password)
     return render_template('PatientUpdatePersonalDetail.html', userA = userA)
