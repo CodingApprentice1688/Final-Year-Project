@@ -1,15 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\FYP",
-    "\\FYP\\FYP",
-    "\\FYP\\FYP\\FYP",
-    "\\FYP\\FYP\\FYP\\controller",
-    "\\FYP\\FYP\\FYP\\entity",
-    "\\FYP\\FYP\\FYP\\static",
-    "\\FYP\\FYP\\FYP\\static\\images",
-    "\\FYP\\FYP\\FYP\\templates"
+    ""
   ],
-  "SelectedNode": "\\FYP\\FYP\\FYP\\controller\\LoginController.py",
+  "SelectedNode": "\\C:\\Users\\morgan\\Source\\Repos\\csci321_fyp",
   "PreviewInSolutionExplorer": false
 }

@@ -40,10 +40,10 @@ class User:
 
     #patient update personal details
     def PatientUpdateSession():
-        if 'logged_in' in session:
-            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor.execute('SELECT * FROM user WHERE nric = % s' , (session['nric'], ))
-            userA = cursor.fetchall()
+        #if 'logged_in' in session:
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM user WHERE nric = % s' , (session['nric'], ))
+        userA = cursor.fetchall()
         return (userA)
 
     def updatePersonalDetail(name, nric, age, gender, username, password):
@@ -76,3 +76,18 @@ class User:
 
         else:
            return userL
+
+    def StaffSearchPatient(patient):
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        #cursor.execute('SELECT * FROM user where role = % s', patient)
+        param = { 'patient': patient }
+        query = """SELECT * FROM user where role = %(patient)s"""
+        cursor.execute(query, param)
+        patient = cursor.fetchall()
+        return (patient)
+
+    def StaffSearchPatientController(name, pat):
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute ("SELECT * FROM user WHERE name LIKE %s AND role = %s", ('%' + name + '%', pat, ))
+        patient = cursor.fetchall()
+        return (patient)
