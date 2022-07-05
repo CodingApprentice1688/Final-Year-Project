@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="4.141" timestamp="2022-07-05T13:24:24.435060" hostname="DESKTOP-UCRF95V"><testcase classname="FYP.Test.test_Patient.test_patient" name="test_Login" file="FYP\Test\test_Patient.py" line="5" time="0.028"><failure message="RuntimeError: Working outside of request context.&#10;&#10;This typically means that you attempted to use functionality that needed&#10;an active HTTP request.  Consult the documentation on testing for&#10;information about how to avoid this problem.">self = &lt;test_Patient.test_patient testMethod=test_Login&gt;
+
+    def test_Login(self):
+&gt;       username = request.form['username']
+
+FYP\Test\test_Patient.py:7: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python39_64\lib\site-packages\werkzeug\local.py:278: in __get__
+    obj = instance._get_current_object()
+C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python39_64\lib\site-packages\werkzeug\local.py:407: in _get_current_object
+    return self.__local()  # type: ignore
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'request'
+
+    def _lookup_req_object(name):
+        top = _request_ctx_stack.top
+        if top is None:
+&gt;           raise RuntimeError(_request_ctx_err_msg)
+E           RuntimeError: Working outside of request context.
+E           
+E           This typically means that you attempted to use functionality that needed
+E           an active HTTP request.  Consult the documentation on testing for
+E           information about how to avoid this problem.
+
+C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python39_64\lib\site-packages\flask\globals.py:33: RuntimeError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>
