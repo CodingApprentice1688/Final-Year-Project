@@ -31,3 +31,4 @@ import FYP.controller.StaffViewPatientAppointmentController
 import FYP.controller.StaffCreateAppointmentController
 import FYP.controller.StaffViewMedicalRecordController
 import FYP.controller.StaffCreateMedicalRecordController
+import FYP.controller.StaffUpdateMedicalRecordController

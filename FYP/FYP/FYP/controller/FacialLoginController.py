@@ -8,7 +8,7 @@ import tensorflow as tf
 from keras.layers import Conv2D, Dense, Flatten, MaxPool2D, Dropout
 from numpy import asarray
 from matplotlib import pyplot
-#from mtcnn import MTCNN
+from mtcnn import MTCNN
 from os import listdir
 from tensorflow.keras.utils import to_categorical
 from keras.models import load_model
