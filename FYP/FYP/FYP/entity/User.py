@@ -40,10 +40,10 @@ class User:
 
     #patient update personal details
     def PatientUpdateSession():
-        if 'logged_in' in session:
-            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor.execute('SELECT * FROM user WHERE nric = % s' , (session['nric'], ))
-            userA = cursor.fetchall()
+        #if 'logged_in' in session:
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM user WHERE nric = % s' , (session['nric'], ))
+        userA = cursor.fetchall()
         return (userA)
 
     def updatePersonalDetail(name, nric, age, gender, username, password):
