@@ -1,19 +1,14 @@
 import unittest
-from FYP import app 
-from FYP.entity.User import *
-from FYP.entity.Appointments import *
-from datetime import datetime, date
-from flask import render_template
-from FYP import mysql
-
-from flask import Flask,render_template, request, redirect, url_for, Response, session
-from flask_mysqldb import MySQL
-import MySQLdb.cursors 
+from unittest import TestCase
 
 
-class testPatient(unittest.TestCase):
-    def testLogin():
-        assert username == 'wenling'
-        assert hashed_password != 'password'
-        assert role == 'patient'
 
+
+class test_patient(unittest.TestCase):
+    def test_Login(self):
+        self.assertTrue(self.username == 'wenling')
+        self.assertTrue(self.password == 'password')
+
+
+if __name__ == '__main__':
+    unittest.main()
