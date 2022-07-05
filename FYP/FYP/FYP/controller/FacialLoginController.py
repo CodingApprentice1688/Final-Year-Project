@@ -8,7 +8,7 @@ import tensorflow as tf
 from keras.layers import Conv2D, Dense, Flatten, MaxPool2D, Dropout
 from numpy import asarray
 from matplotlib import pyplot
-#from mtcnn import MTCNN
+from mtcnn import MTCNN
 from os import listdir
 from tensorflow.keras.utils import to_categorical
 from keras.models import load_model
@@ -57,7 +57,7 @@ def extract_face(filename, required_size=(200, 200)):
 def validateImage():
     VideoCamera().capture_1_pic()
 
-    model = load_model("FYP/FYP/FYP/deeplearning/model/my_model.h5")
+    model = load_model("FYP/FYP/FYP/deeplearning/model/my_modelv2.h5")
     model.summary()
     pixels = extract_face('FYP/FYP/FYP/static/images/loginpic.jpg')
     hello = []
