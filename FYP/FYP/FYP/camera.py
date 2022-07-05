@@ -38,6 +38,12 @@ class VideoCamera(object):
             if ret == True:
                 return jpeg.tobytes()
 
+    def capture_1_pic(self):
+        return_value, image = self.video.read()
+        cv2.imwrite('FYP/FYP/FYP/static/images/loginpic.jpg', image)
+           
+        self.video.release()
+
     def capture_10_pics(self):
         for i in range(10):
             return_value, image = self.video.read()
