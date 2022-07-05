@@ -48,3 +48,45 @@ class MedicalRecords:
         cursor.execute(query, param)
         patientY = cursor.fetchall()  ##
         return (patientY)
+
+
+    def StaffUpdateMedicalRecord(record_id):
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        param = {'record_id' : record_id}
+        query = """SELECT * FROM medicalrecords WHERE record_id = %(record_id)s"""
+        cursor.execute(query, param)
+        recordX = cursor.fetchall()
+        return (recordX)
+
+
+    def StaffUpdateMedicalRecordController(record_id, appointment_id, username, vaccination_status, blood_pressure, temperature, heart_rate, allergies, medicine, diagnosis):
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        params = {
+            'record_id' : record_id,
+            'appointment_id' : appointment_id,
+            'username' : username,
+            'vaccination_status' : vaccination_status,
+            'blood_pressure' : blood_pressure,
+            'temperature' : temperature,
+            'heart_rate' : heart_rate,
+            'allergies' : allergies,
+            'medicine' : medicine,
+            'diagnosis' : diagnosis
+        }
+        query = """UPDATE medicalrecords 
+                SET vaccination_status = %(vaccination_status)s, 
+                    blood_pressure = %(blood_pressure)s, 
+                    temperature = %(temperature)s, 
+                    heart_rate = %(heart_rate)s, 
+                    allergies = %(allergies)s, 
+                    medicine = %(medicine)s, 
+                    diagnosis = %(diagnosis)s
+                WHERE record_id = %(record_id)s"""
+        cursor.execute(query, params)
+        mysql.connection.commit()
+
+        param = {'record_id' : record_id}
+        query = """SELECT * FROM medicalrecords WHERE record_id = %(record_id)s"""
+        cursor.execute(query, param)
+        recordX = cursor.fetchall()
+        return (recordX)

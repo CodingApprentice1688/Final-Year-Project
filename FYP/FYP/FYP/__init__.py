@@ -5,6 +5,7 @@ The flask application package.
 from flask import Flask
 app = Flask(__name__)
 
+#error here
 from flask_mysqldb import MySQL
 app.secret_key = 'facial_recognition'
 app.config['MYSQL_HOST'] = 'localhost'
@@ -31,3 +32,4 @@ import FYP.controller.StaffViewPatientAppointmentController
 import FYP.controller.StaffCreateAppointmentController
 import FYP.controller.StaffViewMedicalRecordController
 import FYP.controller.StaffCreateMedicalRecordController
+import FYP.controller.StaffUpdateMedicalRecordController
