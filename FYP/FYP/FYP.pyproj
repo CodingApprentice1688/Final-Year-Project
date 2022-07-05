@@ -18,7 +18,7 @@
     <Name>FYP</Name>
     <RootNamespace>FYP</RootNamespace>
     <TestFramework>Pytest</TestFramework>
-    <InterpreterId>Global|PythonCore|3.9</InterpreterId>
+    <InterpreterId>MSBuild|env1|$(MSBuildProjectFullPath)</InterpreterId>
     <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -31,9 +31,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="FYP\camera.py" />
-    <Compile Include="FYP\controller\Controller.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="FYP\controller\LoginController.py">
       <SubType>Code</SubType>
     </Compile>
@@ -47,9 +44,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FYP\entity\Appointments.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="FYP\testing.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FYP\Test\Patient_Test.py">
@@ -74,49 +68,15 @@
     <Folder Include="FYP\templates\Patient\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FYP\templates\admin_RegisterPT.html" />
-    <Content Include="FYP\templates\admin_updatePTimg.html" />
     <Content Include="FYP\templates\PatientQueueNumber.html" />
-    <Content Include="FYP\templates\PatientUpdatePersonalDetailController.html" />
-    <Content Include="FYP\templates\helloPage.html">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="FYP\templates\index_HealthCareStaff.html">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="FYP\templates\index_ITAdmin.html">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="FYP\templates\index_Patient.html">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="FYP\templates\layout_HealthCareStaff.html">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="FYP\templates\layout_ITAdmin.html">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="FYP\templates\layout_Patient.html">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="FYP\templates\login.html" />
     <Content Include="FYP\templates\logout.html">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="FYP\templates\Patient_ViewAppointment.html">
       <SubType>Code</SubType>
     </Content>
     <Content Include="FYP\templates\StaffCreateAppointment.html" />
     <Content Include="FYP\templates\StaffCreateMedicalRecord.html" />
     <Content Include="FYP\templates\StaffSearchPatient.html" />
     <Content Include="FYP\templates\StaffUpdateMedicalRecord.html" />
-    <Content Include="FYP\templates\StaffViewAppointment.html" />
-    <Content Include="FYP\templates\testHealthCareStaff.html">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="FYP\templates\testITAdmin.html">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="requirements.txt" />
     <Content Include="FYP\static\content\bootstrap.css" />
     <Content Include="FYP\static\content\bootstrap.min.css" />
@@ -140,10 +100,6 @@
     <Content Include="FYP\static\scripts\respond.js" />
     <Content Include="FYP\static\scripts\respond.min.js" />
     <Content Include="FYP\static\scripts\_references.js" />
-    <Content Include="FYP\templates\about.html" />
-    <Content Include="FYP\templates\contact.html" />
-    <Content Include="FYP\templates\index.html" />
-    <Content Include="FYP\templates\layout.html" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env1\">
