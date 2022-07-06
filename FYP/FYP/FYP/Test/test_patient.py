@@ -1,4 +1,3 @@
-
 import unittest
 from unittest import TestCase
 from flask import Flask,render_template, request, redirect, url_for, Response, session
@@ -10,17 +9,32 @@ class test_patient(unittest.TestCase):
        app.config['SECRET_KEY'] = 'facial_recognition'
        self.client = self.app.test_client()
        self.app = app.test_client()
+    def validateLogin():
+        error = None
+        msg = 'Logged in successfully !'   
+        error = 'Invalid Credentials. Please try again.'
+        username = request.form['username']
+        password = request.form['password']
+        result, userL = User.validateLogin(username, password)
 
-    def test_login(self):
-       with app.test_client() as client:
-           client.post('/LoginController', data=dict(username='s', password='s'))
-           with client.session_transaction() as session:
-               self.assertEquals(session['username'], username)
+        if result:
+            if userL['role'] == 'healthcare staff':
+                return redirect("/HealthcareStaff_Main")
+            if userL['role'] == 'patient':
+                return redirect("/Patient_Main")
+            if userL['role'] == 'IT admin':
+                return redirect("/Admin_Main")   
+
+        else:
+            return render_template('login.html', error = error)
+    def test_login():
+        test = validateLogin()
+        self.assertEqual(test.username, 'wenling')
 
     def test_pass_correct(self):
         tester = app.test_client(self)
         response = tester.post('/LoginController', data=dict(username = 'wenling', password='password'))
-        self.assertFalse(b'password' in response.data)
+        self.assertFalse(b'wenling, password' in response.data)
         #self.assertTrue(b'Field must be at least 8 characters long.' in response.data)
         #self.assertTrue(response)
 
@@ -28,14 +42,10 @@ class test_patient(unittest.TestCase):
     def test_pass_incorrect(self):
         tester = app.test_client(self)
         response = tester.post('/LoginController', data=dict(username = 'wenling', password='password'))
-        self.assertTrue(b'password' in response.data)
+        self.assertTrue(b'wenling, password' in response.data)
         #self.assertEqual(b'password' in response.data)
-    def test_access_session(client):
-        with client:
-            client.post("/LoginController", data={"username": "wenling", "password": "password"})
-            # session is still accessible
-            self.assertTrue(session["username"], "wenling")
-            self.assertTrue(session["password"], "password")
+
+   
 
 #    @app.route('/LoginController', methods=['GET', 'POST'])
 #    def test_Login(self):
