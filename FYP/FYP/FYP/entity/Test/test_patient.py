@@ -1,7 +1,7 @@
-//test_patient.py
 
 import unittest
 from unittest import TestCase
+from entity import User
 #from unittest.mock import patch, MagicMock
 #import mysql.connector
 #from mysql.connector import errorcode

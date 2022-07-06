@@ -46,13 +46,7 @@
     <Compile Include="FYP\entity\Appointments.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FYP\Test\PythonSettings.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="FYP\Test\test_login.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="FYP\Test\test_patient.py">
+    <Compile Include="FYP\entity\Test\test_patient.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="runserver.py" />
@@ -63,7 +57,7 @@
     <Folder Include="FYP\" />
     <Folder Include="FYP\controller\" />
     <Folder Include="FYP\entity\" />
-    <Folder Include="FYP\Test\" />
+    <Folder Include="FYP\entity\Test\" />
     <Folder Include="FYP\static\" />
     <Folder Include="FYP\static\content\" />
     <Folder Include="FYP\static\fonts\" />
@@ -74,6 +68,9 @@
     <Folder Include="FYP\templates\Patient\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FYP\entity\Test\PythonSettings.json">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="FYP\templates\PatientQueueNumber.html" />
     <Content Include="FYP\templates\login.html" />
     <Content Include="FYP\templates\logout.html">
