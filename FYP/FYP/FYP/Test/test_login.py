@@ -1,6 +1,8 @@
-from entity.User import User
+#from entity.User import User
+import unittest
+from unittest import TestCase
 
-def test_new_user():
+def test_new_user(unittest.TestCase):
     """
     GIVEN a User model
     WHEN a new User is created

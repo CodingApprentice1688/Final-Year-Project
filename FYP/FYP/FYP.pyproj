@@ -49,6 +49,9 @@
     <Compile Include="FYP\Test\test_login.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FYP\Test\test_patient.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="runserver.py" />
     <Compile Include="FYP\__init__.py" />
     <Compile Include="FYP\views.py" />
