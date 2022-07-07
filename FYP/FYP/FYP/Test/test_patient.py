@@ -1,12 +1,19 @@
 import unittest
 from unittest import TestCase
+from unittest.mock import patch
 from flask import Flask,render_template, request, redirect, url_for, Response, session
 from flask_mysqldb import MySQL
+
 app = Flask(__name__)
+
 class test_patient(unittest.TestCase):
     def setUp(self):
        self.app = Flask(__name__)
        app.config['SECRET_KEY'] = 'facial_recognition'
+       app.config['MYSQL_HOST'] = 'localhost'
+       app.config['MYSQL_USER'] = 'root'
+       app.config['MYSQL_PASSWORD'] = ''
+       app.config['MYSQL_DB'] = 'healthcare_db'
        self.client = self.app.test_client()
        self.app = app.test_client()
     def validateLogin():
@@ -27,13 +34,32 @@ class test_patient(unittest.TestCase):
 
         else:
             return render_template('login.html', error = error)
-    def test_login():
-        test = validateLogin()
-        self.assertEqual(test.username, 'wenling')
+    def test_login(self):
+       with app.test_client() as client:
+           #client.post('/Patient_Main', data=dict(username='s', password='s'))
+           client.get('/Patient_Main', data=dict(username='s', password='s'))
+           with client.session_transaction() as sess:
+               self.assertTrue(sess['logged_in'] == True)
+
+    def login(self, username, password):
+        return self.app.post('/login', data={'username': username, 'password': password}, follow_redirects=True)
+    
+    def test_listing_all_users(self):
+        self.assertTrue(self.login(username, password).status_code == 200)
+
+    def test_index(self):
+        with patch("validateLogin.session", dict()) as session:
+            client = app.test_client(self)
+            response = client.post("/", data={
+                "username": "wenling", "password": "password"
+            })
+            assert session.get("username") == "test"
+            assert response.data == b"userL"
+
 
     def test_pass_correct(self):
         tester = app.test_client(self)
-        response = tester.post('/LoginController', data=dict(username = 'wenling', password='password'))
+        response = tester.post('/Patient_Main', data=dict(username = 'wenling', password='password'))
         self.assertFalse(b'wenling, password' in response.data)
         #self.assertTrue(b'Field must be at least 8 characters long.' in response.data)
         #self.assertTrue(response)
@@ -41,7 +67,7 @@ class test_patient(unittest.TestCase):
     # Ensure that the password-tester behaves correctly given incorrect credentials
     def test_pass_incorrect(self):
         tester = app.test_client(self)
-        response = tester.post('/LoginController', data=dict(username = 'wenling', password='password'))
+        response = tester.post('/Patient_Main', data=dict(username = 'wenling', password='password'))
         self.assertTrue(b'wenling, password' in response.data)
         #self.assertEqual(b'password' in response.data)
 
