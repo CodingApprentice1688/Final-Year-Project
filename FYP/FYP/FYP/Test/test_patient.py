@@ -14,26 +14,12 @@ class test_patient(unittest.TestCase):
        app.config['MYSQL_USER'] = 'root'
        app.config['MYSQL_PASSWORD'] = ''
        app.config['MYSQL_DB'] = 'healthcare_db'
+       app.app.config['TESTING'] = True
+       app.config['LOGIN_DISABLED'] = False
        self.client = self.app.test_client()
        self.app = app.test_client()
-    def validateLogin():
-        error = None
-        msg = 'Logged in successfully !'   
-        error = 'Invalid Credentials. Please try again.'
-        username = request.form['username']
-        password = request.form['password']
-        result, userL = User.validateLogin(username, password)
 
-        if result:
-            if userL['role'] == 'healthcare staff':
-                return redirect("/HealthcareStaff_Main")
-            if userL['role'] == 'patient':
-                return redirect("/Patient_Main")
-            if userL['role'] == 'IT admin':
-                return redirect("/Admin_Main")   
-
-        else:
-            return render_template('login.html', error = error)
+    
     def test_login(self):
        with app.test_client() as client:
            #client.post('/Patient_Main', data=dict(username='s', password='s'))
@@ -41,12 +27,30 @@ class test_patient(unittest.TestCase):
            with client.session_transaction() as sess:
                self.assertTrue(sess['logged_in'] == True)
 
+    def test_login(self):
+       with app.test_client() as client:
+           client.post('/LoginController', data=dict(username='wenling', password='password'))
+           with client.session_transaction() as session:
+               assert session['logged_in']
+               #self.assertTrue(sess['logged_in'])
     def login(self, username, password):
-        return self.app.post('/login', data={'username': username, 'password': password}, follow_redirects=True)
-    
-    def test_listing_all_users(self):
-        self.assertTrue(self.login(username, password).status_code == 200)
+        test = self.app.post('/LoginController', data={'username': username, 'password': password}, follow_redirects=True)
+        self.assertTrue(test)
 
+   def test_admin_login_with_default_password(self):
+        s = rq.Session()
+        url = 'http://localhost/'
+        data = {'username': 'admin', 'password': ''}
+        r = s.post(url, data=json.dumps(data), headers=self.headers)
+        self.assertEqual(r.status_code, 200)
+
+    def test_index(self):
+        with patch("LoginController.session", dict()) as session:
+            client = app.test_client()
+            response = client.post("/LoginController", data={
+                "username": "wenlng"
+            })
+            self.assertTrue(session.get("username") == "wenling")
     #def test_index(self):
     #    with patch("validateLogin.session", dict()) as session:
     #        client = app.test_client(self)
@@ -57,15 +61,19 @@ class test_patient(unittest.TestCase):
      #       self.assertTrue(response.data == b"userL")
 
     def test_users_login(self):
-        result = self.app.post('/LoginController', data=dict(username='Nicole', password='abc123'), follow_redirects=True)
-
+        result = self.app.post('/LoginController', data=dict(username='wenling', password='password'), follow_redirects=True)
+        #result = self.app.post('/LoginController', data=dict(username='oswaldo', password='password'))
         # I want to check the HTML tag's text value data after logging in
-        self.assertEqual(result.data.getTag("h1", b"Nicole") #What I imagined using <h1>
-        self.assertEqual(result.data.getId("userA", b"Nicole") #What I imagined using id
-
+        #self.assertIn(result.data.getTag("h1", b"Nicole") #What I imagined using <h1>
+        #self.assertin(result.data.getId("userA", b"Nicole") #What I imagined using id
 
         #This returns true which is okay, because 'Nicole' exists in the whole page
-        self.assertIn(b'Nicole', result.data) 
+        #self.assertTrue(result, b'wenling')
+        #self.assertTrue(result)
+        self.assertEqual(result.data, 'wenling')
+        #self.assertIn(b'wenling', result.data)
+        #self.assertIn(b'wenling', result.data) 
+
 
     def test_pass_correct(self):
         tester = app.test_client(self)
@@ -78,7 +86,7 @@ class test_patient(unittest.TestCase):
     def test_pass_incorrect(self):
         tester = app.test_client(self)
         response = tester.post('/Patient_Main', data=dict(username = 'wenling', password='password'))
-        self.assertTrue(b'wenling, password' in response.data)
+        self.assertTrue(b'wenling' in response.data)
         #self.assertEqual(b'password' in response.data)
 
    
