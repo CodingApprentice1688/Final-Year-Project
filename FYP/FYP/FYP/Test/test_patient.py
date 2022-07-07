@@ -47,15 +47,25 @@ class test_patient(unittest.TestCase):
     def test_listing_all_users(self):
         self.assertTrue(self.login(username, password).status_code == 200)
 
-    def test_index(self):
-        with patch("validateLogin.session", dict()) as session:
-            client = app.test_client(self)
-            response = client.post("/", data={
-                "username": "wenling", "password": "password"
-            })
-            assert session.get("username") == "test"
-            assert response.data == b"userL"
+    #def test_index(self):
+    #    with patch("validateLogin.session", dict()) as session:
+    #        client = app.test_client(self)
+    #        response = client.post("/", data={
+    #            "username": "wenling", "password": "password"
+    #        })
+     #       self.assertTrue(session.get("username") == "test")
+     #       self.assertTrue(response.data == b"userL")
 
+    def test_users_login(self):
+        result = self.app.post('/LoginController', data=dict(username='Nicole', password='abc123'), follow_redirects=True)
+
+        # I want to check the HTML tag's text value data after logging in
+        self.assertEqual(result.data.getTag("h1", b"Nicole") #What I imagined using <h1>
+        self.assertEqual(result.data.getId("userA", b"Nicole") #What I imagined using id
+
+
+        #This returns true which is okay, because 'Nicole' exists in the whole page
+        self.assertIn(b'Nicole', result.data) 
 
     def test_pass_correct(self):
         tester = app.test_client(self)
