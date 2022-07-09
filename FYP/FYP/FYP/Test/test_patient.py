@@ -62,7 +62,7 @@ class test_patient(unittest.TestCase):
         #       self.assertTrue(response.data == b"userL")
 
     def test_dummy(self):
-        self.assertEqual(4+2,4)
+        self.assertEqual(2+2,4)
 
     def test_users_login(self):
         result = self.app.post('/LoginController', data=dict(username='wenling', password='password'), follow_redirects=True)
