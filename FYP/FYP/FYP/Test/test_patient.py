@@ -1,6 +1,6 @@
 import unittest
 from unittest import TestCase
-import FYP.controller.LoginController
+#import FYP.controller.LoginController
 from unittest.mock import patch
 from flask import Flask,render_template, request, redirect, url_for, Response, session
 from flask_mysqldb import MySQL
@@ -32,7 +32,7 @@ class test_patient(unittest.TestCase):
        with app.test_client() as client:
            client.post('/LoginController', data=dict(username='wenling', password='password'))
            with client.session_transaction() as session:
-               assert session['logged_in']
+               self.assertTrue(session['logged_in'])
                #self.assertTrue(sess['logged_in'])
     def login(self, username, password):
         test = self.app.post('/LoginController', data={'username': username, 'password': password}, follow_redirects=True)
@@ -118,4 +118,5 @@ class test_patient(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
 
