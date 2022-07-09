@@ -1,7 +1,6 @@
 import unittest
 from unittest import TestCase
 from unittest.mock import patch
-from FYP import app
 from flask import Flask,render_template, request, redirect, url_for, Response, session
 from flask_mysqldb import MySQL
 
@@ -9,14 +8,14 @@ app = Flask(__name__)
 
 class test_patient(unittest.TestCase):
     def setUp(self):
-       #self.app = Flask(__name__)
-       #app.config['SECRET_KEY'] = 'facial_recognition'
-       #app.config['MYSQL_HOST'] = 'localhost'
-       #app.config['MYSQL_USER'] = 'root'
-       #app.config['MYSQL_PASSWORD'] = ''
-       #app.config['MYSQL_DB'] = 'healthcare_db'
-       #app.config['TESTING'] = True
-       #app.config['LOGIN_DISABLED'] = False
+       self.app = Flask(__name__)
+       app.config['SECRET_KEY'] = 'facial_recognition'
+       app.config['MYSQL_HOST'] = 'localhost'
+       app.config['MYSQL_USER'] = 'root'
+       app.config['MYSQL_PASSWORD'] = ''
+       app.config['MYSQL_DB'] = 'healthcare_db'
+       app.config['TESTING'] = True
+       app.config['LOGIN_DISABLED'] = False
        self.client = self.app.test_client()
        self.app = app.test_client()
 
