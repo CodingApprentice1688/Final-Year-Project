@@ -1,5 +1,6 @@
 import unittest
 from unittest import TestCase
+import FYP.controller.LoginController
 from unittest.mock import patch
 from flask import Flask,render_template, request, redirect, url_for, Response, session
 from flask_mysqldb import MySQL
@@ -14,7 +15,7 @@ class test_patient(unittest.TestCase):
        app.config['MYSQL_USER'] = 'root'
        app.config['MYSQL_PASSWORD'] = ''
        app.config['MYSQL_DB'] = 'healthcare_db'
-       app.app.config['TESTING'] = True
+       app.config['TESTING'] = True
        app.config['LOGIN_DISABLED'] = False
        self.client = self.app.test_client()
        self.app = app.test_client()
@@ -57,8 +58,11 @@ class test_patient(unittest.TestCase):
     #        response = client.post("/", data={
     #            "username": "wenling", "password": "password"
     #        })
-     #       self.assertTrue(session.get("username") == "test")
-     #       self.assertTrue(response.data == b"userL")
+        #       self.assertTrue(session.get("username") == "test")
+        #       self.assertTrue(response.data == b"userL")
+
+    def test_dummy(self):
+        self.assertEqual(2+2,4)
 
     def test_users_login(self):
         result = self.app.post('/LoginController', data=dict(username='wenling', password='password'), follow_redirects=True)
@@ -77,7 +81,7 @@ class test_patient(unittest.TestCase):
 
     def test_pass_correct(self):
         tester = app.test_client(self)
-        response = tester.post('/Patient_Main', data=dict(username = 'wenling', password='password'))
+        response = tester.post('/LoginController', data=dict(username = 'wenling', password='password'))
         self.assertFalse(b'wenling, password' in response.data)
         #self.assertTrue(b'Field must be at least 8 characters long.' in response.data)
         #self.assertTrue(response)
@@ -85,7 +89,7 @@ class test_patient(unittest.TestCase):
     # Ensure that the password-tester behaves correctly given incorrect credentials
     def test_pass_incorrect(self):
         tester = app.test_client(self)
-        response = tester.post('/Patient_Main', data=dict(username = 'wenling', password='password'))
+        response = tester.post('/LoginController', data=dict(username = 'wenling', password='password'))
         self.assertTrue(b'wenling' in response.data)
         #self.assertEqual(b'password' in response.data)
 
