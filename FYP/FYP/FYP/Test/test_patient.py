@@ -1,6 +1,5 @@
 import unittest
 from unittest import TestCase
-import FYP.controller.LoginController
 from unittest.mock import patch
 from flask import Flask,render_template, request, redirect, url_for, Response, session
 from flask_mysqldb import MySQL
