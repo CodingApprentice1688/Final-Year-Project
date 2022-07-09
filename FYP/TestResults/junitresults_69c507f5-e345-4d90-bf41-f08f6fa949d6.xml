@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="4" time="0.589" timestamp="2022-07-06T19:27:50.806946" hostname="DESKTOP-UCRF95V"><testcase classname="FYP.Test.test_login.test_patient" name="test_new_user" file="FYP\Test\test_login.py" line="6" time="0.002"><failure message="NameError: name 'User' is not defined">self = &lt;test_login.test_patient testMethod=test_new_user&gt;
+
+    def test_new_user(self):
+        """
+        GIVEN a User model
+        WHEN a new User is created
+        THEN check the email, hashed_password, and role fields are defined correctly
+        """
+&gt;       user = User.validateLogin(username, password)
+E       NameError: name 'User' is not defined
+
+FYP\Test\test_login.py:13: NameError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="FYP.Test.test_patient.test_patient" name="test_access_session" file="FYP\Test\test_patient.py" line="41" time="0.007"><failure message="AttributeError: __enter__">client = &lt;test_patient.test_patient testMethod=test_access_session&gt;
+
+    def test_access_session(client):
+&gt;       with client:
+E       AttributeError: __enter__
+
+FYP\Test\test_patient.py:43: AttributeError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="FYP.Test.test_patient.test_patient" name="test_pass_correct" file="FYP\Test\test_patient.py" line="28" time="0.007"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="FYP.Test.test_patient.test_patient" name="test_pass_incorrect" file="FYP\Test\test_patient.py" line="36" time="0.004"><failure message="AssertionError: False is not true">self = &lt;test_patient.test_patient testMethod=test_pass_incorrect&gt;
+
+    def test_pass_incorrect(self):
+        tester = app.test_client(self)
+        response = tester.post('/LoginController', data=dict(username = 'wenling', password='password'))
+&gt;       self.assertTrue(b'password' in response.data)
+E       AssertionError: False is not true
+
+FYP\Test\test_patient.py:40: AssertionError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>

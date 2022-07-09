@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="1.555" timestamp="2022-07-06T18:09:09.821711" hostname="DESKTOP-UCRF95V"><testcase classname="FYP.Test.test_Patient.test_patient" name="test_pass_correct" file="FYP\Test\test_Patient.py" line="29" time="0.034"><failure message="AssertionError: False is not true">self = &lt;test_Patient.test_patient testMethod=test_pass_correct&gt;
+
+    def test_pass_correct(self):
+        tester = app.test_client(self)
+        response = tester.post('/LoginController', data=dict(username = 'wenling', password='password'))
+&gt;       self.assertTrue(b'Invalid login credentials' in response.data)
+E       AssertionError: False is not true
+
+FYP\Test\test_Patient.py:33: AssertionError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>
