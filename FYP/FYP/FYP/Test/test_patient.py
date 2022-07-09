@@ -37,15 +37,15 @@ class test_patient(unittest.TestCase):
         test = self.app.post('/LoginController', data={'username': username, 'password': password}, follow_redirects=True)
         self.assertTrue(test)
 
-   def test_admin_login_with_default_password(self):
+    def test_admin_login_with_default_password(self):
         s = rq.Session()
         url = 'http://localhost/'
         data = {'username': 'admin', 'password': ''}
         r = s.post(url, data=json.dumps(data), headers=self.headers)
         self.assertEqual(r.status_code, 200)
 
-    def test_index(self):
-        with patch("LoginController.session", dict()) as session:
+    def test_index_login(self):
+        with patch("app.session", dict()) as session:
             client = app.test_client()
             response = client.post("/LoginController", data={
                 "username": "wenlng"
