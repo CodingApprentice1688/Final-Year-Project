@@ -28,8 +28,9 @@
             window.history.back()
         }
 
-        var seq = 0;
+        
         function getQueueNumber() {
+            var seq = parseInt(document.getElementById("displayQueueNumber").value);
             seq = seq + 1;
             document.getElementById("queueNumber").value = seq;
             ++seq;
@@ -97,7 +98,7 @@
                     <div class="form_container">
                         <form method="post" action="/PatientQueueNumberController">
                             <div>
-                                <input type="hidden" class="form-control" name="queueNumber" id="queueNumber" value="" />
+                                <input type="hidden" class="form-control" name="queueNumber" id="queueNumber" value= />
                             </div>
                             <div class="btn_box">
                                 <button class="yellow-button" type="submit" onclick="getQueueNumber()">
