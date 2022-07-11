@@ -23,7 +23,7 @@
     <!-- responsive style -->
     <link href=".../static/content/responsive.css" rel="stylesheet" />
 
-    <script>
+    <script type="text/javascript">
         function Previous() {
             window.history.back()
         }
@@ -32,6 +32,7 @@
         function getQueueNumber() {
             seq = seq + 1;
             document.getElementById("queueNumber").value = seq;
+            ++seq;
         }
     </script>
 
@@ -77,17 +78,26 @@
                                 <img src="{{ url_for('video_feed') }}" />
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </section>
             <div class="row">
                 <div class="col-md-6">
+                    {% for queueNum in userA %}
+                    <div>
+                        <label>Your Queue Number: </label>
+                        <input type="text" name="displayQueueNumber" id="displayQueueNumber" value={{ queueNum.queue_number }} />
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
                     <div class="form_container">
                         <form method="post" action="/PatientQueueNumberController">
                             <div>
-                                <label>Your Queue Number: </label>
-                                <input type="text" class="form-control" name="queueNumber" id="queueNumber" value="" />
+                                <input type="hidden" class="form-control" name="queueNumber" id="queueNumber" value="" />
                             </div>
                             <div class="btn_box">
                                 <button class="yellow-button" type="submit" onclick="getQueueNumber()">
