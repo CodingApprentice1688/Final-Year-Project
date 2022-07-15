@@ -96,9 +96,13 @@
                 <div class="col-md-6">
                     {% for queueNum in userA %}
                     <div>
-                        <label> ( Warning: Once button is clicked, the button would be disabled ! ) </label>
+                        <!--<label> ( Warning: Once button is clicked, the button would be disabled ! ) </label>-->
+                        <label>Appointment Reason: {{ queueNum.reason }}</label>
+                        <br />
                         <label>Your Queue Number: </label>
                         <input type="text" name="displayQueueNumber" id="displayQueueNumber" value={{ queueNum.queue_number }} />
+                        <br />
+                        <br />
                     </div>
                     {% endfor %}
 
