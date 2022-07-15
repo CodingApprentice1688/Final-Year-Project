@@ -1,7 +1,16 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\FYP",
+    "\\FYP\\FYP",
+    "\\FYP\\FYP\\FYP",
+    "\\FYP\\FYP\\FYP\\controller",
+    "\\FYP\\FYP\\FYP\\entity",
+    "\\FYP\\FYP\\FYP\\static",
+    "\\FYP\\FYP\\FYP\\static\\images",
+    "\\FYP\\FYP\\FYP\\templates",
+    "\\FYP\\FYP\\FYP\\Test"
   ],
-  "SelectedNode": "\\FYP.sln",
+  "SelectedNode": "\\FYP\\FYP\\runserver.py",
   "PreviewInSolutionExplorer": false
 }
