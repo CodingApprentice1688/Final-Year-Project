@@ -69,14 +69,18 @@ class Appointments:
 
     def QueueUpdateSession():
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot >= CURDATE()' , (session['nric'], ))
+        cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot = CURDATE()' , (session['nric'], ))
         userA = cursor.fetchall()
-        return (userA)
+        cursor.execute('SELECT MAX(queue_number) AS queue_number FROM appointments')
+        userB = cursor.fetchall()
+        return (userA, userB)
 
     def updateQueueNumber(queueNumber):
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('UPDATE appointments SET queue_number = % s WHERE nric = % s AND date_slot >= CURDATE()' , (queueNumber, session['nric'], ))
+        cursor.execute('UPDATE appointments SET queue_number = % s WHERE nric = % s AND date_slot = CURDATE()' , (queueNumber, session['nric'], ))
         mysql.connection.commit()
-        cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot >= CURDATE()', (session['nric'], ))
+        cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot = CURDATE()', (session['nric'], ))
         userA = cursor.fetchall()
-        return (userA)
+        cursor.execute('SELECT MAX(queue_number) AS queue_number FROM appointments')
+        userB = cursor.fetchall()
+        return (userA, userB)

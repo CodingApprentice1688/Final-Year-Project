@@ -28,9 +28,18 @@
             window.history.back()
         }
 
-        
+        /*
         function getQueueNumber() {
             var seq = parseInt(document.getElementById("displayQueueNumber").value);
+            seq = seq + 1;
+            document.getElementById("queueNumber").value = seq;
+            ++seq;
+            document.getElementById('submitBtn').style.display = "none";
+        }*/
+
+
+        function getAllQueueNumber() {
+            var seq = parseInt(document.getElementById("displayAllQueueNumber").value);
             seq = seq + 1;
             document.getElementById("queueNumber").value = seq;
             ++seq;
@@ -87,8 +96,18 @@
                 <div class="col-md-6">
                     {% for queueNum in userA %}
                     <div>
+                        <label> ( Warning: Once button is clicked, the button would be disabled ! ) </label>
                         <label>Your Queue Number: </label>
                         <input type="text" name="displayQueueNumber" id="displayQueueNumber" value={{ queueNum.queue_number }} />
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    {% for allQueueNum in userB %}
+                    <div>
+                        <input type="text" name="displayAllQueueNumber" id="displayAllQueueNumber" value={{ allQueueNum.queue_number }} />
                     </div>
                     {% endfor %}
                 </div>
@@ -98,10 +117,10 @@
                     <div class="form_container">
                         <form method="post" action="/PatientQueueNumberController">
                             <div>
-                                <input type="hidden" class="form-control" name="queueNumber" id="queueNumber" value= />
+                                <input type="hidden" class="form-control" name="queueNumber" id="queueNumber" value="" />
                             </div>
                             <div class="btn_box">
-                                <button class="yellow-button" type="submit" onclick="getQueueNumber()">
+                                <button class="yellow-button" type="submit" name="submitBtn" id="submitBtn" onclick="getAllQueueNumber()">
                                     Get Queue Number Now
                                 </button>
                             </div>
