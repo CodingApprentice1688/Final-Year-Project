@@ -32,9 +32,10 @@ class test_patient(unittest.TestCase):
        with app.test_client() as client:
            client.post('/LoginController', data=dict(username='wenling', password='password'))
            with client.session_transaction() as session:
-               self.assertTrue(session['logged_in'])
+               self.assertTrue(session.get("username") == "wenling")
+               #self.assertTrue(session['logged_in'])
                #self.assertTrue(sess['logged_in'])
-    def login(self, username, password):
+    def test_test(self, username, password):
         test = self.app.post('/LoginController', data={'username': username, 'password': password}, follow_redirects=True)
         self.assertTrue(test)
 
@@ -46,7 +47,7 @@ class test_patient(unittest.TestCase):
         self.assertEqual(r.status_code, 200)
 
     def test_index_login(self):
-        with patch("app.session", dict()) as session:
+        with patch("session", dict()) as session:
             client = app.test_client()
             response = client.post("/LoginController", data={
                 "username": "wenlng"
