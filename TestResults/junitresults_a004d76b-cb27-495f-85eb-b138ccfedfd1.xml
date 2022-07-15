@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="16" failures="0" skipped="0" tests="16" time="0.122" timestamp="2022-07-09T14:15:45.137725" hostname="LAPTOP-9RU984SS"><testcase classname="" name="FYP.FYP.FYP.Test.test_patient" file="FYP/FYP/FYP/Test/test_patient.py" time="0.000"><error message="collection failure">ImportError while importing test module 'C:\Users\oswal\Desktop\test\csci321_fyp\FYP\FYP\FYP\Test\test_patient.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\anaconda3\lib\importlib\__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+E   ModuleNotFoundError: No module named 'test_patient'</error><error message="collection failure">ImportError while importing test module 'C:\Users\oswal\Desktop\test\csci321_fyp\FYP\FYP\FYP\Test\test_patient.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\anaconda3\lib\importlib\__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+E   ModuleNotFoundError: No module named 'test_patient'</error><error message="collection failure">ImportError while importing test module 'C:\Users\oswal\Desktop\test\csci321_fyp\FYP\FYP\FYP\Test\test_patient.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\anaconda3\lib\importlib\__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+E   ModuleNotFoundError: No module named 'test_patient'</error><error message="collection failure">ImportError while importing test module 'C:\Users\oswal\Desktop\test\csci321_fyp\FYP\FYP\FYP\Test\test_patient.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\anaconda3\lib\importlib\__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+E   ModuleNotFoundError: No module named 'test_patient'</error><error message="collection failure">ImportError while importing test module 'C:\Users\oswal\Desktop\test\csci321_fyp\FYP\FYP\FYP\Test\test_patient.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\anaconda3\lib\importlib\__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+E   ModuleNotFoundError: No module named 'test_patient'</error><error message="collection failure">ImportError while importing test module 'C:\Users\oswal\Desktop\test\csci321_fyp\FYP\FYP\FYP\Test\test_patient.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\anaconda3\lib\importlib\__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+E   ModuleNotFoundError: No module named 'test_patient'</error><error message="collection failure">ImportError while importing test module 'C:\Users\oswal\Desktop\test\csci321_fyp\FYP\FYP\FYP\Test\test_patient.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\anaconda3\lib\importlib\__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+E   ModuleNotFoundError: No module named 'test_patient'</error><error message="collection failure">ImportError while importing test module 'C:\Users\oswal\Desktop\test\csci321_fyp\FYP\FYP\FYP\Test\test_patient.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\anaconda3\lib\importlib\__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+E   ModuleNotFoundError: No module named 'test_patient'</error><error message="collection failure">ImportError while importing test module 'C:\Users\oswal\Desktop\test\csci321_fyp\FYP\FYP\FYP\Test\test_patient.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\anaconda3\lib\importlib\__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+E   ModuleNotFoundError: No module named 'test_patient'</error><error message="collection failure">ImportError while importing test module 'C:\Users\oswal\Desktop\test\csci321_fyp\FYP\FYP\FYP\Test\test_patient.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\anaconda3\lib\importlib\__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+E   ModuleNotFoundError: No module named 'test_patient'</error><error message="collection failure">ImportError while importing test module 'C:\Users\oswal\Desktop\test\csci321_fyp\FYP\FYP\FYP\Test\test_patient.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\anaconda3\lib\importlib\__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+E   ModuleNotFoundError: No module named 'test_patient'</error><error message="collection failure">ImportError while importing test module 'C:\Users\oswal\Desktop\test\csci321_fyp\FYP\FYP\FYP\Test\test_patient.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\anaconda3\lib\importlib\__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+E   ModuleNotFoundError: No module named 'test_patient'</error><error message="collection failure">ImportError while importing test module 'C:\Users\oswal\Desktop\test\csci321_fyp\FYP\FYP\FYP\Test\test_patient.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\anaconda3\lib\importlib\__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+E   ModuleNotFoundError: No module named 'test_patient'</error><error message="collection failure">ImportError while importing test module 'C:\Users\oswal\Desktop\test\csci321_fyp\FYP\FYP\FYP\Test\test_patient.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\anaconda3\lib\importlib\__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+E   ModuleNotFoundError: No module named 'test_patient'</error><error message="collection failure">ImportError while importing test module 'C:\Users\oswal\Desktop\test\csci321_fyp\FYP\FYP\FYP\Test\test_patient.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\anaconda3\lib\importlib\__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+E   ModuleNotFoundError: No module named 'test_patient'</error><error message="collection failure">ImportError while importing test module 'C:\Users\oswal\Desktop\test\csci321_fyp\FYP\FYP\FYP\Test\test_patient.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\anaconda3\lib\importlib\__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+E   ModuleNotFoundError: No module named 'test_patient'</error></testcase></testsuite></testsuites>
