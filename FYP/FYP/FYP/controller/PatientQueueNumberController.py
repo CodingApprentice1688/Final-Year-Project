@@ -12,16 +12,16 @@ import MySQLdb.cursors
 
 @app.route('/PatientQueueNumber', methods=['GET', 'POST'])
 def queueUpdateSession():
-    userA = Appointments.QueueUpdateSession()
-    return render_template('PatientQueueNumber.html', userA = userA)
+    userA, userB = Appointments.QueueUpdateSession()
+    return render_template('PatientQueueNumber.html', userA = userA, userB = userB)
 
 @app.route('/PatientQueueNumberController', methods=['GET', 'POST'])
 def PatientQueueNumber():
     queueNumber = request.form['queueNumber']
-    userA = Appointments.updateQueueNumber(queueNumber)
-    return render_template('PatientQueueNumber.html', userA = userA)
+    userA, userB = Appointments.updateQueueNumber(queueNumber)
+    return render_template('PatientQueueNumber.html', userA = userA, userB = userB)
 
-#@app.route('/PatientQueueNumberController', methods=['POST'])
-#def QueueNumberCapture():
-#    VideoCamera().stop_camera()
-#    return redirect(url_for('Patient_Main'))
+@app.route('/PatientQueueNumberController', methods=['POST'])
+def QueueNumberCapture():
+    VideoCamera().stop_camera()
+    return redirect(url_for('Patient_Main'))
