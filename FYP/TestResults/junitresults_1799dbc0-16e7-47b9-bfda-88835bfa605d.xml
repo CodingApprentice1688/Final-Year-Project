@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="7" failures="10" skipped="0" tests="10" time="1.491" timestamp="2022-07-20T15:53:00.969524" hostname="DESKTOP-UCRF95V"><testcase classname="FYP.Test.test_patient.test_patient" name="test_admin_login_with_default_password" file="FYP\Test\test_patient.py" line="60" time="0.017"><failure message="NameError: name 'rq' is not defined">self = &lt;test_patient.test_patient testMethod=test_admin_login_with_default_password&gt;
+
+    def test_admin_login_with_default_password(self):
+&gt;       s = rq.Session()
+E       NameError: name 'rq' is not defined
+
+FYP\Test\test_patient.py:62: NameError</failure></testcase><testcase classname="FYP.Test.test_patient.test_patient" name="test_admin_login_with_default_password" file="FYP\Test\test_patient.py" line="60" time="0.001"><error message="failed on teardown with &quot;AttributeError: 'test_patient' object has no attribute 'db_fd'&quot;">self = &lt;test_patient.test_patient testMethod=test_admin_login_with_default_password&gt;
+
+    def tearDown(self):
+&gt;       os.close(self.db_fd)
+E       AttributeError: 'test_patient' object has no attribute 'db_fd'
+
+FYP\Test\test_patient.py:38: AttributeError</error><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="FYP.Test.test_patient.test_patient" name="test_database" file="FYP\Test\test_patient.py" line="110" time="0.003"><failure message="AttributeError: 'test_patient' object has no attribute 'db_fd'">self = &lt;test_patient.test_patient testMethod=test_database&gt;
+
+    def tearDown(self):
+&gt;       os.close(self.db_fd)
+E       AttributeError: 'test_patient' object has no attribute 'db_fd'
+
+FYP\Test\test_patient.py:38: AttributeError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="FYP.Test.test_patient.test_patient" name="test_dummy" file="FYP\Test\test_patient.py" line="83" time="0.003"><failure message="AttributeError: 'test_patient' object has no attribute 'db_fd'">self = &lt;test_patient.test_patient testMethod=test_dummy&gt;
+
+    def tearDown(self):
+&gt;       os.close(self.db_fd)
+E       AttributeError: 'test_patient' object has no attribute 'db_fd'
+
+FYP\Test\test_patient.py:38: AttributeError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="FYP.Test.test_patient.test_patient" name="test_index_login" file="FYP\Test\test_patient.py" line="67" time="0.002"><failure message="TypeError: Need a valid target to patch. You supplied: 'session'">target = 'session'
+
+    def _get_target(target):
+        try:
+&gt;           target, attribute = target.rsplit('.', 1)
+E           ValueError: not enough values to unpack (expected 2, got 1)
+
+C:\Program Files\Python39\lib\unittest\mock.py:1559: ValueError
+
+During handling of the above exception, another exception occurred:
+
+self = &lt;test_patient.test_patient testMethod=test_index_login&gt;
+
+    def test_index_login(self):
+&gt;       with patch("session", dict()) as session:
+
+FYP\Test\test_patient.py:69: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Program Files\Python39\lib\unittest\mock.py:1716: in patch
+    getter, attribute = _get_target(target)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+target = 'session'
+
+    def _get_target(target):
+        try:
+            target, attribute = target.rsplit('.', 1)
+        except (TypeError, ValueError, AttributeError):
+&gt;           raise TypeError(
+                f"Need a valid target to patch. You supplied: {target!r}")
+E           TypeError: Need a valid target to patch. You supplied: 'session'
+
+C:\Program Files\Python39\lib\unittest\mock.py:1561: TypeError</failure></testcase><testcase classname="FYP.Test.test_patient.test_patient" name="test_index_login" file="FYP\Test\test_patient.py" line="67" time="0.001"><error message="failed on teardown with &quot;AttributeError: 'test_patient' object has no attribute 'db_fd'&quot;">self = &lt;test_patient.test_patient testMethod=test_index_login&gt;
+
+    def tearDown(self):
+&gt;       os.close(self.db_fd)
+E       AttributeError: 'test_patient' object has no attribute 'db_fd'
+
+FYP\Test\test_patient.py:38: AttributeError</error><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="FYP.Test.test_patient.test_patient" name="test_login" file="FYP\Test\test_patient.py" line="42" time="0.010"><failure message="KeyError: 'logged_in'">self = &lt;test_patient.test_patient testMethod=test_login&gt;
+
+    def test_login(self):
+       with app.test_client() as client:
+           #client.post('/Patient_Main', data=dict(username='s', password='s'))
+           client.get('/Patient_Main', data=dict(username='s', password='s'))
+           with client.session_transaction() as sess:
+&gt;              self.assertTrue(sess['logged_in'] == True)
+
+FYP\Test\test_patient.py:48: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;SecureCookieSession {}&gt;, key = 'logged_in'
+
+    def __getitem__(self, key: str) -&gt; t.Any:
+        self.accessed = True
+&gt;       return super().__getitem__(key)
+E       KeyError: 'logged_in'
+
+C:\Program Files\Python39\lib\site-packages\flask\sessions.py:79: KeyError</failure></testcase><testcase classname="FYP.Test.test_patient.test_patient" name="test_login" file="FYP\Test\test_patient.py" line="42" time="0.000"><error message="failed on teardown with &quot;AttributeError: 'test_patient' object has no attribute 'db_fd'&quot;">self = &lt;test_patient.test_patient testMethod=test_login&gt;
+
+    def tearDown(self):
+&gt;       os.close(self.db_fd)
+E       AttributeError: 'test_patient' object has no attribute 'db_fd'
+
+FYP\Test\test_patient.py:38: AttributeError</error><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="FYP.Test.test_patient.test_patient" name="test_login_v1" file="FYP\Test\test_patient.py" line="49" time="0.006"><failure message="AssertionError: False is not true">self = &lt;test_patient.test_patient testMethod=test_login_v1&gt;
+
+    def test_login_v1(self):
+       with app.test_client() as client:
+           client.post('/LoginController', data=dict(username='wenling', password='password'))
+           with client.session_transaction() as session:
+&gt;              self.assertTrue(session.get("username") == "wenling")
+E              AssertionError: False is not true
+
+FYP\Test\test_patient.py:54: AssertionError</failure></testcase><testcase classname="FYP.Test.test_patient.test_patient" name="test_login_v1" file="FYP\Test\test_patient.py" line="49" time="0.001"><error message="failed on teardown with &quot;AttributeError: 'test_patient' object has no attribute 'db_fd'&quot;">self = &lt;test_patient.test_patient testMethod=test_login_v1&gt;
+
+    def tearDown(self):
+&gt;       os.close(self.db_fd)
+E       AttributeError: 'test_patient' object has no attribute 'db_fd'
+
+FYP\Test\test_patient.py:38: AttributeError</error><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="FYP.Test.test_patient.test_patient" name="test_pass_correct" file="FYP\Test\test_patient.py" line="101" time="0.005"><failure message="AttributeError: 'test_patient' object has no attribute 'db_fd'">self = &lt;test_patient.test_patient testMethod=test_pass_correct&gt;
+
+    def tearDown(self):
+&gt;       os.close(self.db_fd)
+E       AttributeError: 'test_patient' object has no attribute 'db_fd'
+
+FYP\Test\test_patient.py:38: AttributeError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="FYP.Test.test_patient.test_patient" name="test_pass_incorrect" file="FYP\Test\test_patient.py" line="105" time="0.005"><failure message="AssertionError: False is not true">self = &lt;test_patient.test_patient testMethod=test_pass_incorrect&gt;
+
+    def test_pass_incorrect(self):
+            tester = app.test_client(self)
+            response = tester.post('/LoginController', data=dict(username = 'wenling', password='password'))
+&gt;           self.assertTrue(b'wenling' in response.data)
+E           AssertionError: False is not true
+
+FYP\Test\test_patient.py:109: AssertionError</failure></testcase><testcase classname="FYP.Test.test_patient.test_patient" name="test_pass_incorrect" file="FYP\Test\test_patient.py" line="105" time="0.000"><error message="failed on teardown with &quot;AttributeError: 'test_patient' object has no attribute 'db_fd'&quot;">self = &lt;test_patient.test_patient testMethod=test_pass_incorrect&gt;
+
+    def tearDown(self):
+&gt;       os.close(self.db_fd)
+E       AttributeError: 'test_patient' object has no attribute 'db_fd'
+
+FYP\Test\test_patient.py:38: AttributeError</error><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="FYP.Test.test_patient.test_patient" name="test_test" file="FYP\Test\test_patient.py" line="56" time="0.004"><failure message="TypeError: test_test() missing 2 required positional arguments: 'username' and 'password'">self = &lt;unittest.case._Outcome object at 0x000001BCFABBF460&gt;
+test_case = &lt;test_patient.test_patient testMethod=test_test&gt;, isTest = True
+
+    @contextlib.contextmanager
+    def testPartExecutor(self, test_case, isTest=False):
+        old_success = self.success
+        self.success = True
+        try:
+&gt;           yield
+
+C:\Program Files\Python39\lib\unittest\case.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Program Files\Python39\lib\unittest\case.py:592: in run
+    self._callTestMethod(testMethod)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;test_patient.test_patient testMethod=test_test&gt;
+method = &lt;bound method test_patient.test_test of &lt;test_patient.test_patient testMethod=test_test&gt;&gt;
+
+    def _callTestMethod(self, method):
+&gt;       method()
+E       TypeError: test_test() missing 2 required positional arguments: 'username' and 'password'
+
+C:\Program Files\Python39\lib\unittest\case.py:550: TypeError</failure></testcase><testcase classname="FYP.Test.test_patient.test_patient" name="test_test" file="FYP\Test\test_patient.py" line="56" time="0.000"><error message="failed on teardown with &quot;AttributeError: 'test_patient' object has no attribute 'db_fd'&quot;">self = &lt;test_patient.test_patient testMethod=test_test&gt;
+
+    def tearDown(self):
+&gt;       os.close(self.db_fd)
+E       AttributeError: 'test_patient' object has no attribute 'db_fd'
+
+FYP\Test\test_patient.py:38: AttributeError</error><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="FYP.Test.test_patient.test_patient" name="test_users_login" file="FYP\Test\test_patient.py" line="86" time="0.004"><failure message="AssertionError: b'&lt;!doctype html&gt;\n&lt;html lang=en&gt;\n&lt;title[169 chars]p&gt;\n' != 'wenling'">self = &lt;test_patient.test_patient testMethod=test_users_login&gt;
+
+    def test_users_login(self):
+        result = self.app.post('/LoginController', data=dict(username='wenling', password='password'), follow_redirects=True)
+        #result = self.app.post('/LoginController', data=dict(username='oswaldo', password='password'))
+        # I want to check the HTML tag's text value data after logging in
+        #self.assertIn(result.data.getTag("h1", b"Nicole") #What I imagined using &lt;h1&gt;
+        #self.assertin(result.data.getId("userA", b"Nicole") #What I imagined using id
+    
+        #This returns true which is okay, because 'Nicole' exists in the whole page
+        #self.assertTrue(result, b'wenling')
+        #self.assertTrue(result)
+&gt;       self.assertEqual(result.data, 'wenling')
+E       AssertionError: b'&lt;!doctype html&gt;\n&lt;html lang=en&gt;\n&lt;title[169 chars]p&gt;\n' != 'wenling'
+
+FYP\Test\test_patient.py:97: AssertionError</failure></testcase><testcase classname="FYP.Test.test_patient.test_patient" name="test_users_login" file="FYP\Test\test_patient.py" line="86" time="0.001"><error message="failed on teardown with &quot;AttributeError: 'test_patient' object has no attribute 'db_fd'&quot;">self = &lt;test_patient.test_patient testMethod=test_users_login&gt;
+
+    def tearDown(self):
+&gt;       os.close(self.db_fd)
+E       AttributeError: 'test_patient' object has no attribute 'db_fd'
+
+FYP\Test\test_patient.py:38: AttributeError</error><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>
