@@ -7,9 +7,8 @@ from unittest import mock
 from flask import Flask,render_template, request, redirect, url_for, Response, session, jsonify
 from flask_mysqldb import MySQL
 from unittest.mock import create_autospec
-import sqlite3
-from flask_sqlalchemy import SQLAlchemy
-import testing.mysqld
+#from flask_sqlalchemy import SQLAlchemy
+#import testing.mysqld
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:''@127.0.0.1/healthcare_db'
@@ -18,23 +17,23 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:''@127.0.0.1/healthcare_db
 #String url = "jdbc:mysql://<ip_goes_here>:port/dbname";
 #db = SQLAlchemy(app)
 
-def insert_rows(rows, table_name, dbc):
-        field_names = rows[0].keys()
-        field_names_str = ', '.join(field_names)
-        placeholder_str = ','.join('?'*len(field_names))
-        insert_sql = f'INSERT INTO {table_name}({field_names_str}) VALUES ({placeholder_str})'
-        saved_autocommit = dbc.autocommit
-        with dbc.cursor() as cursor:
-            try:
-                dbc.autocommit = False
-                tuples = [ tuple((row[field_name] for field_name in field_names)) for row in rows ]
-                cursor.executemany(insert_sql, tuples)
-                cursor.commit()
-            except Exception as exc:
-                cursor.rollback()
-                raise exc
-            finally:
-                dbc.autocommit = saved_autocommit
+#def insert_rows(rows, table_name, dbc):
+#        field_names = rows[0].keys()
+#        field_names_str = ', '.join(field_names)
+#        placeholder_str = ','.join('?'*len(field_names))
+#        insert_sql = f'INSERT INTO {table_name}({field_names_str}) VALUES ({placeholder_str})'
+#        saved_autocommit = dbc.autocommit
+#        with dbc.cursor() as cursor:
+#            try:
+#                dbc.autocommit = False
+#                tuples = [ tuple((row[field_name] for field_name in field_names)) for row in rows ]
+#                cursor.executemany(insert_sql, tuples)
+#                cursor.commit()
+#            except Exception as exc:
+#                cursor.rollback()
+#                raise exc
+#            finally:
+#                dbc.autocommit = saved_autocommit
 
 class test_patient(unittest.TestCase):
     def setUp(self):
