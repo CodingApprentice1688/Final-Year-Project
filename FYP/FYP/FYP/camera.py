@@ -47,7 +47,7 @@ class VideoCamera(object):
     def capture_10_pics(self):
         for i in range(25):
             return_value, image = self.video.read()
-            cv2.imwrite('FYP/FYP/FYP/static/images/opencv'+str(i)+'.jpg', image)
+            cv2.imwrite('opencv'+str(i)+'.jpg', image)
            
         self.video.release()
 

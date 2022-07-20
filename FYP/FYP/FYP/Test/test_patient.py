@@ -1,11 +1,40 @@
 import unittest
 from unittest import TestCase
+import os
 #import FYP.controller.LoginController
 from unittest.mock import patch
-from flask import Flask,render_template, request, redirect, url_for, Response, session
+from unittest import mock
+from flask import Flask,render_template, request, redirect, url_for, Response, session, jsonify
 from flask_mysqldb import MySQL
+from unittest.mock import create_autospec
+import sqlite3
+from flask_sqlalchemy import SQLAlchemy
+import testing.mysqld
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:''@127.0.0.1/healthcare_db'
+#mysql://root:''@localhost:5555/healthcare_db
+
+#String url = "jdbc:mysql://<ip_goes_here>:port/dbname";
+#db = SQLAlchemy(app)
+
+def insert_rows(rows, table_name, dbc):
+        field_names = rows[0].keys()
+        field_names_str = ', '.join(field_names)
+        placeholder_str = ','.join('?'*len(field_names))
+        insert_sql = f'INSERT INTO {table_name}({field_names_str}) VALUES ({placeholder_str})'
+        saved_autocommit = dbc.autocommit
+        with dbc.cursor() as cursor:
+            try:
+                dbc.autocommit = False
+                tuples = [ tuple((row[field_name] for field_name in field_names)) for row in rows ]
+                cursor.executemany(insert_sql, tuples)
+                cursor.commit()
+            except Exception as exc:
+                cursor.rollback()
+                raise exc
+            finally:
+                dbc.autocommit = saved_autocommit
 
 class test_patient(unittest.TestCase):
     def setUp(self):
@@ -19,6 +48,9 @@ class test_patient(unittest.TestCase):
        app.config['LOGIN_DISABLED'] = False
        self.client = self.app.test_client()
        self.app = app.test_client()
+       #
+   
+
 
     
     def test_login(self):
@@ -84,17 +116,37 @@ class test_patient(unittest.TestCase):
         tester = app.test_client(self)
         response = tester.post('/LoginController', data=dict(username = 'wenling', password='password'))
         self.assertFalse(b'wenling, password' in response.data)
-        #self.assertTrue(b'Field must be at least 8 characters long.' in response.data)
-        #self.assertTrue(response)
-
-    # Ensure that the password-tester behaves correctly given incorrect credentials
     def test_pass_incorrect(self):
-        tester = app.test_client(self)
-        response = tester.post('/LoginController', data=dict(username = 'wenling', password='password'))
-        self.assertTrue(b'wenling' in response.data)
-        #self.assertEqual(b'password' in response.data)
+            tester = app.test_client(self)
+            response = tester.post('/LoginController', data=dict(username = 'wenling', password='password'))
+            self.assertTrue(b'wenling' in response.data)
 
-   
+    def test_database(self):
+        tester = os.path.exists("healthcare_db.sql")
+        self.assertTrue(tester)
+
+    
+
+    def fix_dbc(self):
+        dbc = mock.MagicMock(spec=['cursor'])
+        dbc.autocommit = True
+        return dbc
+
+    def fix_rows(self):
+        rows = [{'id':1, 'name':'John'}, {'id':2, 'name':'Jane'},]
+        return rows
+
+    def test_insert_rows_calls_cursor_method(self):
+        dbc = self.fix_dbc()
+        rows = self.fix_rows()
+        insert_rows(rows, 'users', dbc)
+        self.assertTrue(dbc.cursor.called)
+    
+    def test_username_exist(self):
+        expected = 'SELECT * from users where username="John"'
+        actual = [{'id':1, 'name':'John'},]
+        self.assertTrue(expected, actual)
+
 
 #    @app.route('/LoginController', methods=['GET', 'POST'])
 #    def test_Login(self):
