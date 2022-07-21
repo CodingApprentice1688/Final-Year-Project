@@ -65,3 +65,18 @@ class Appointments:
         cursor.execute(query, params)
         patientX = cursor.fetchall()
         return (patientX)
+
+
+    def QueueUpdateSession():
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot >= CURDATE()' , (session['nric'], ))
+        userA = cursor.fetchall()
+        return (userA)
+
+    def updateQueueNumber(queueNumber):
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('UPDATE appointments SET queue_number = % s WHERE nric = % s AND date_slot >= CURDATE()' , (queueNumber, session['nric'], ))
+        mysql.connection.commit()
+        cursor.execute('SELECT * FROM appointments WHERE nric = % s AND date_slot >= CURDATE()', (session['nric'], ))
+        userA = cursor.fetchall()
+        return (userA)

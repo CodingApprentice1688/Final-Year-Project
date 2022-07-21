@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="9.882" timestamp="2022-07-05T20:49:20.999569" hostname="DESKTOP-UCRF95V"><testcase classname="FYP.Test.test_Patient.test_patient" name="test_Login" file="FYP\Test\test_Patient.py" line="28" time="0.029"><failure message="AttributeError: 'test_patient' object has no attribute 'app'">self = &lt;test_Patient.test_patient testMethod=test_Login&gt;
+
+    def setUp(self):
+&gt;      self.app.secret_key = 'facial_recognition'
+E      AttributeError: 'test_patient' object has no attribute 'app'
+
+FYP\Test\test_Patient.py:17: AttributeError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>

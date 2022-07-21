@@ -31,9 +31,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="FYP\camera.py" />
-    <Compile Include="FYP\controller\LoginController.py">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="FYP\controller\LoginController.py" />
+    <Compile Include="FYP\controller\FacialLoginController.py" />
     <Compile Include="FYP\controller\LogoutController.py">
       <SubType>Code</SubType>
     </Compile>
@@ -44,6 +43,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FYP\entity\Appointments.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FYP\Test\PythonSettings.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FYP\Test\test_patient.py">
@@ -77,9 +79,6 @@
     <Content Include="FYP\templates\StaffCreateMedicalRecord.html" />
     <Content Include="FYP\templates\StaffSearchPatient.html" />
     <Content Include="FYP\templates\StaffUpdateMedicalRecord.html" />
-    <Content Include="FYP\Test\PythonSettings.json">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="requirements.txt" />
     <Content Include="FYP\static\content\bootstrap.css" />
     <Content Include="FYP\static\content\bootstrap.min.css" />

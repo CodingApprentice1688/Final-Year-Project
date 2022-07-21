@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="2.540" timestamp="2022-07-05T20:26:39.656277" hostname="DESKTOP-UCRF95V"><testcase classname="FYP.Test.test_Patient.test_patient" name="test_Login" file="FYP\Test\test_Patient.py" line="21" time="0.015"><failure message="NameError: name 'app' is not defined">self = &lt;test_Patient.test_patient testMethod=test_Login&gt;
+
+    def setUp(self):
+       self.app = Flask(__name__)
+       self.app.secret_key = 'facial_recognition'
+       #app.config['SECRET_KEY'] = 'facial_recognition'
+       self.client = self.app.test_client()
+&gt;      self.app = app.test_client()
+E      NameError: name 'app' is not defined
+
+FYP\Test\test_Patient.py:20: NameError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>

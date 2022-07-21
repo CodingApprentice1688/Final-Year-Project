@@ -57,7 +57,7 @@ def extract_face(filename, required_size=(200, 200)):
 def validateImage():
     VideoCamera().capture_1_pic()
 
-    model = load_model("FYP/FYP/FYP/deeplearning/model/my_modelv1.h5")
+    model = load_model("FYP/FYP/FYP/deeplearning/model/my_modelv3.h5")
     model.summary()
     pixels = extract_face('FYP/FYP/FYP/static/images/loginpic.jpg')
     hello = []
