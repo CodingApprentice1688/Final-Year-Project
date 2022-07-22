@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2022 at 09:50 PM
+-- Generation Time: Jul 22, 2022 at 10:08 AM
 -- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -49,7 +49,7 @@ INSERT INTO `appointments` (`appointment_id`, `queue_number`, `username`, `name`
 (2, 0, 'wenling', 'Leong Wen Ling', 'H32345678', '2022-06-01', '13:00:00', 'A&E', 'Greg Han', 'Middle ear infection'),
 (3, 0, 'morgan', 'Kuo Tzu-Chi', 'P32345678', '2022-07-15', '15:30:00', 'Radiology', 'Shin Tan', 'take lung x-ray'),
 (7, 0, 'morgan', 'Kuo Tzu-Chi', 'P32345678', '2022-07-22', '16:00:00', 'Radiology', 'Shin Tan', 'Follow up on the treatment'),
-(8, 0, 'wenling', 'Leong Wen Ling', 'H32345678', '2022-07-18', '10:00:00', 'ENT', 'Greg Han', 'Follow up on middle ear infection'),
+(8, 3, 'wenling', 'Leong Wen Ling', 'H32345678', '2022-07-18', '10:00:00', 'ENT', 'Greg Han', 'Follow up on middle ear infection'),
 (9, 0, 'davidgenius', 'David Genius', 'T1234567P', '2022-06-29', '11:45:00', 'GP', 'Stephen Strange', 'High fever');
 
 -- --------------------------------------------------------
@@ -121,8 +121,10 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`username`, `password`, `name`, `nric`, `age`, `gender`, `role`) VALUES
 ('davidgenius', 'password', 'David Genius', 'T1234567P', 21, 'Male', 'patient'),
+('dicky', 'password', 'Dicky', 'PPP32323', 20, 'Male', 'patient'),
 ('hugotan', 'password', 'Hugo Tan', 'M12345678', 23, 'Male', 'patient'),
 ('johnbenedict', 'password', 'John Benedict', 'G22345678', 21, 'Male', 'patient'),
+('jonathan', 'password', 'Jonathan Aik', 'YP303032', 21, 'Male', 'patient'),
 ('jonathandoe', 'password', 'Jonathan Doe', 'Q12345678', 30, 'Male', 'patient'),
 ('kings', 'password', 'Seah Kings Lee', 'J32345654', 21, 'Male', 'healthcare staff'),
 ('morgan', 'password', 'Kuo Tzu-Chi', 'P32345678', 20, 'Female', 'patient'),
