@@ -5,12 +5,12 @@
     "\\FYP\\FYP",
     "\\FYP\\FYP\\FYP",
     "\\FYP\\FYP\\FYP\\controller",
-    "\\FYP\\FYP\\FYP\\entity",
-    "\\FYP\\FYP\\FYP\\static",
-    "\\FYP\\FYP\\FYP\\static\\images",
+    "\\FYP\\FYP\\FYP\\deeplearning",
+    "\\FYP\\FYP\\FYP\\deeplearning\\train",
+    "\\FYP\\FYP\\FYP\\deeplearning\\train\\morgan",
     "\\FYP\\FYP\\FYP\\templates",
     "\\FYP\\FYP\\FYP\\Test"
   ],
-  "SelectedNode": "\\FYP\\FYP\\runserver.py",
+  "SelectedNode": "\\FYP\\FYP\\FYP\\deeplearning\\train\\morgan",
   "PreviewInSolutionExplorer": false
 }
