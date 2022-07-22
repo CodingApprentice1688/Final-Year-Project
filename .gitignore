@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/csci321_fyp/config/applicationhost.config
+/.vs/csci321_fyp/FileContentIndex
+/.vs/csci321_fyp/v17/Browse.VC.opendb
