@@ -1,7 +1,7 @@
 import unittest
 from unittest import TestCase
 import os
-import FYP.controller.LoginController
+#import FYP.controller.LoginController
 from unittest.mock import patch
 from unittest import mock
 from flask import Flask,render_template, request, redirect, url_for, Response, session, jsonify
@@ -10,7 +10,7 @@ from unittest.mock import create_autospec
 import json
 #from flask_sqlalchemy import SQLAlchemy
 #import testing.mysqld
-
+from FYP.entity import User
 from FYP import app
 
 class test_Patient1(unittest.TestCase):
@@ -29,8 +29,8 @@ class test_Patient1(unittest.TestCase):
    
 
 
-    def test_dummy(self):
-        self.assertEqual(2+2,4)
+    #def test_dummy(self):
+    #    self.assertEqual(2+2,4)
 
 
         #self.assertIn(b'wenling', result.data) 
@@ -38,19 +38,21 @@ class test_Patient1(unittest.TestCase):
 
     def test_pass_correct(self):
         tester = app.test_client(self)
-        sent = {'username': 'wenling', 'password': 'password'}
-        result = tester.post('/LoginController', data=sent)
-        print(result.data)
-        self.assertEqual(result.data, json.dumps(sent))
-
+        sent = {'username': 'wenling', 'password': 'password',}
+        #r = tester.post('/LoginController/', data={'username': 'wenling', 'password': 'password',},follow_redirects=True)
+        #r = self.post('/signup/', data={'signup-email': 'test1@test.com',},follow_redirects=True)
+        result = tester.post('/LoginController', data=sent, follow_redirects=True)
+       # print(result.data)
+        #self.assertTrue(result)
+        self.assertEqual(result, sent)
+        #self.assertEqual(result.data, json.dumps(sent))
 
     
-        
-
 
 
 
 if __name__ == '__main__':
     unittest.main()
+
 
 
