@@ -31,32 +31,46 @@ class test_Patient1(unittest.TestCase):
    
 
 
-    #def test_dummy(self):
-    #    self.assertEqual(2+2,4)
+    def test_incorrect_username(self):
+        tester = app.test_client(self)
+        sent = {'username': 'wenlingg', 'password': 'password',}
+        sent1 = 'Leong Wen Ling'
+        result = tester.post('/LoginController', data=sent, follow_redirects=True)
+        self.assertIn(b'Leong Wen Ling', result.data)
+    
+    def test_incorrect_password(self):
+        tester = app.test_client(self)
+        sent = {'username': 'wenling', 'password': 'P@$$W0RD',}
+        sent1 = 'Leong Wen Ling'
+        result = tester.post('/LoginController', data=sent, follow_redirects=True)
+        self.assertIn(b'Leong Wen Ling', result.data)
+    
+    def test_no_username(self):
+        tester = app.test_client(self)
+        sent = {'username': '', 'password': 'password',}
+        sent1 = 'Leong Wen Ling'
+        result = tester.post('/LoginController', data=sent, follow_redirects=True)
+        self.assertIn(b'Leong Wen Ling', result.data)
 
-
-        #self.assertIn(b'wenling', result.data) 
-
-
-    def test_pass_correct(self):
+    def test_no_password(self):
         tester = app.test_client(self)
         sent = {'username': 'wenling', 'password': '',}
         sent1 = 'Leong Wen Ling'
         result = tester.post('/LoginController', data=sent, follow_redirects=True)
-       # dataR = request.get_json()
-
-        #print(result.data)
-        ##self.assertTrue(result)
-        #print(myAuthResponse.status_code)
-        #self.assertEqual(result.data, decodeR)
-        #self.assertEqual(result.data, json.dumps(sent))
         self.assertIn(b'Leong Wen Ling', result.data)
-        #self.assertEqual(result.data, sent1)
 
-        #check if request is successful, new page is created
-        #self.assertTrue(result.status_code == 202)
+    def test_pass_correct(self):
+        tester = app.test_client(self)
+        sent = {'username': 'wenling', 'password': 'password',}
+        sent1 = 'Leong Wen Ling'
+        result = tester.post('/LoginController', data=sent, follow_redirects=True)
+
+        self.assertIn(b'Leong Wen Ling', result.data)
+
+
+
     
-
+    
 
 
 if __name__ == '__main__':

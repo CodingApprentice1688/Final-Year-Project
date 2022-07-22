@@ -4,13 +4,9 @@
     "\\FYP",
     "\\FYP\\FYP",
     "\\FYP\\FYP\\FYP",
-    "\\FYP\\FYP\\FYP\\controller",
-    "\\FYP\\FYP\\FYP\\deeplearning",
     "\\FYP\\FYP\\FYP\\deeplearning\\train",
-    "\\FYP\\FYP\\FYP\\deeplearning\\train\\morgan",
-    "\\FYP\\FYP\\FYP\\templates",
     "\\FYP\\FYP\\FYP\\Test"
   ],
-  "SelectedNode": "\\FYP\\FYP\\FYP\\deeplearning\\train\\morgan",
+  "SelectedNode": "\\FYP\\FYP\\test_Patient1.py",
   "PreviewInSolutionExplorer": false
 }
