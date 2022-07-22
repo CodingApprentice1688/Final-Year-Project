@@ -9,8 +9,6 @@ from flask import Flask,render_template, request, redirect, url_for, Response, s
 from flask_mysqldb import MySQL
 import MySQLdb.cursors 
 
-#standard to make it works* 
-#not working yet please notes 
 
 
 
