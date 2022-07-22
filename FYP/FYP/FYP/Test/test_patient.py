@@ -35,6 +35,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:''@127.0.0.1/healthcare_db
 #            finally:
 #                dbc.autocommit = saved_autocommit
 
+
 class test_patient(unittest.TestCase):
     def setUp(self):
        self.app = Flask(__name__)
@@ -145,6 +146,8 @@ class test_patient(unittest.TestCase):
         expected = 'SELECT * from users where username="John"'
         actual = [{'id':1, 'name':'John'},]
         self.assertTrue(expected, actual)
+
+    
 
 
 #    @app.route('/LoginController', methods=['GET', 'POST'])

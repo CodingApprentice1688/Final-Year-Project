@@ -47,6 +47,9 @@
     <Compile Include="FYP\entity\Appointments.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FYP\Test\admin_test_1.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="FYP\Test\PythonSettings.py">
       <SubType>Code</SubType>
     </Compile>
@@ -81,6 +84,8 @@
     <Content Include="FYP\templates\StaffCreateMedicalRecord.html" />
     <Content Include="FYP\templates\StaffSearchPatient.html" />
     <Content Include="FYP\templates\StaffUpdateMedicalRecord.html" />
+    <Content Include="opencv3 - Copy.jpg" />
+    <Content Include="opencv4 - Copy.jpg" />
     <Content Include="requirements.txt" />
     <Content Include="FYP\static\content\bootstrap.css" />
     <Content Include="FYP\static\content\bootstrap.min.css" />
