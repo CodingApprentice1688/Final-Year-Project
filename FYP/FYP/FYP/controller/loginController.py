@@ -5,7 +5,8 @@ from FYP.entity.Appointments import *
 from datetime import datetime, date
 from flask import render_template
 from FYP import mysql
-
+"""if LoginController.py is not detected, 
+you can copy and deleted the original file, then recreate the new file"""
 from flask import Flask,render_template, request, redirect, url_for, Response, session
 from flask_mysqldb import MySQL
 import MySQLdb.cursors 
@@ -29,5 +30,6 @@ def validateLogin():
 
     else:
         return render_template('login.html', error = error)
+
 
 
