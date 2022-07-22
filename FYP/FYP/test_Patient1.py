@@ -8,6 +8,8 @@ from flask import Flask,render_template, request, redirect, url_for, Response, s
 from flask_mysqldb import MySQL
 from unittest.mock import create_autospec
 import json
+import requests
+
 #from flask_sqlalchemy import SQLAlchemy
 #import testing.mysqld
 from FYP.entity import User
@@ -38,15 +40,21 @@ class test_Patient1(unittest.TestCase):
 
     def test_pass_correct(self):
         tester = app.test_client(self)
-        sent = {'username': 'wenling', 'password': 'password',}
-        #r = tester.post('/LoginController/', data={'username': 'wenling', 'password': 'password',},follow_redirects=True)
-        #r = self.post('/signup/', data={'signup-email': 'test1@test.com',},follow_redirects=True)
+        sent = {'username': 'wenling', 'password': '',}
+        sent1 = 'Leong Wen Ling'
         result = tester.post('/LoginController', data=sent, follow_redirects=True)
-       # print(result.data)
-        self.assertTrue(result)
-        #self.assertEqual(result, sent)
-        #self.assertEqual(result.data, json.dumps(sent))
+       # dataR = request.get_json()
 
+        #print(result.data)
+        ##self.assertTrue(result)
+        #print(myAuthResponse.status_code)
+        #self.assertEqual(result.data, decodeR)
+        #self.assertEqual(result.data, json.dumps(sent))
+        self.assertIn(b'Leong Wen Ling', result.data)
+        #self.assertEqual(result.data, sent1)
+
+        #check if request is successful, new page is created
+        #self.assertTrue(result.status_code == 202)
     
 
 
