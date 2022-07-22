@@ -59,6 +59,9 @@
     <Compile Include="runserver.py" />
     <Compile Include="FYP\__init__.py" />
     <Compile Include="FYP\views.py" />
+    <Compile Include="test_Patient1.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="FYP\" />

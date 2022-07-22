@@ -11,7 +11,7 @@ from unittest.mock import create_autospec
 #import testing.mysqld
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:''@127.0.0.1/healthcare_db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:''@127.0.0.1/healthcare_db'
 #mysql://root:''@localhost:5555/healthcare_db
 
 #String url = "jdbc:mysql://<ip_goes_here>:port/dbname";
@@ -110,7 +110,12 @@ class test_patient(unittest.TestCase):
         self.assertEqual(result.data, 'wenling')
         #self.assertIn(b'wenling', result.data)
         #self.assertIn(b'wenling', result.data) 
-
+    def test_pass_correct1(self):
+        tester = app.test_client(self)
+        sent = {'username': 'wenling', 'password': 'password'}
+        result = tester.post('/LoginController', data=sent)
+        print(result.data)
+        self.assertEqual(result.data, json.dumps(sent))
 
     def test_pass_correct(self):
         tester = app.test_client(self)
