@@ -13,6 +13,11 @@ import MySQLdb.cursors
 
 
 
+"""https://towardsdatascience.com/do-you-know-python-has-a-built-in-database-d553989c87bd"""
+#do cicd and unit testing 
+
+#go to admin login, capture and copy paste into the DeepLearning\train and val folder
+# find out the face recognition algorithm with auto adding
 
 @app.route('/AdminRegisterPatientController', methods=['GET', 'POST'])
 def registerPatient():
