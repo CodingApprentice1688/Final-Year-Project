@@ -1,7 +1,7 @@
 import unittest
 from unittest import TestCase
 import os
-import FYP.controller.LoginController
+#import FYP.controller.LoginController
 from unittest.mock import patch
 from unittest import mock
 from flask import Flask,render_template, request, redirect, url_for, Response, session, jsonify
