@@ -4,12 +4,9 @@
     "\\FYP",
     "\\FYP\\FYP",
     "\\FYP\\FYP\\FYP",
-    "\\FYP\\FYP\\FYP\\controller",
     "\\FYP\\FYP\\FYP\\deeplearning",
     "\\FYP\\FYP\\FYP\\deeplearning\\train",
-    "\\FYP\\FYP\\FYP\\entity",
-    "\\FYP\\FYP\\FYP\\static",
-    "\\FYP\\FYP\\FYP\\Test"
+    "\\FYP\\FYP\\FYP\\static"
   ],
   "SelectedNode": "\\FYP\\FYP\\runserver.py",
   "PreviewInSolutionExplorer": false
