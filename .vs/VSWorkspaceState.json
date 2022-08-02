@@ -4,9 +4,12 @@
     "\\FYP",
     "\\FYP\\FYP",
     "\\FYP\\FYP\\FYP",
+    "\\FYP\\FYP\\FYP\\controller",
+    "\\FYP\\FYP\\FYP\\deeplearning",
+    "\\FYP\\FYP\\FYP\\deeplearning\\model",
     "\\FYP\\FYP\\FYP\\deeplearning\\train",
     "\\FYP\\FYP\\FYP\\Test"
   ],
-  "SelectedNode": "\\FYP\\FYP\\test_Patient1.py",
-  "PreviewInSolutionExplorer": false
+  "SelectedNode": "\\FYP\\FYP\\runserver.py",
+  "PreviewInSolutionExplorer": true
 }
