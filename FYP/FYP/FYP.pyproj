@@ -32,9 +32,7 @@
   <ItemGroup>
     <Compile Include="FYP\camera.py" />
     <Compile Include="FYP\controller\FacialLoginController.py" />
-    <Compile Include="FYP\controller\LoginController.py">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="FYP\controller\LoginController.py" />
     <Compile Include="FYP\controller\LogoutController.py">
       <SubType>Code</SubType>
     </Compile>
