@@ -29,8 +29,8 @@ class VideoCamera(object):
         self.mpDraw = mp.solutions.drawing_utils
         self.faceDetection = self.mpFaceDetection.FaceDetection(self.minDetectionCon)
         self.video = cv2.VideoCapture(0)
-        self.video.set(cv2.CAP_PROP_FRAME_WIDTH, 850)
-        self.video.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+        self.video.set(cv2.CAP_PROP_FRAME_WIDTH, 700)
+        self.video.set(cv2.CAP_PROP_FRAME_HEIGHT, 400)
 
  
     def findFaces(self, img, draw=True):
