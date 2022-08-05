@@ -1,4 +1,6 @@
 import cv2
+from mtcnn import MTCNN
+import mediapipe as mp
 
 
 WHITE = [255, 255, 255]
@@ -19,7 +21,40 @@ def draw_box(Image, x, y, w, h):
 
 class VideoCamera(object):
     def __init__(self):
+        
+        minDetectionCon=0.5
+        self.minDetectionCon = minDetectionCon
+ 
+        self.mpFaceDetection = mp.solutions.face_detection
+        self.mpDraw = mp.solutions.drawing_utils
+        self.faceDetection = self.mpFaceDetection.FaceDetection(self.minDetectionCon)
         self.video = cv2.VideoCapture(0)
+        self.video.set(cv2.CAP_PROP_FRAME_WIDTH, 700)
+        self.video.set(cv2.CAP_PROP_FRAME_HEIGHT, 400)
+
+ 
+    def findFaces(self, img, draw=True):
+ 
+        imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        self.results = self.faceDetection.process(imgRGB)
+        # print(self.results)
+        bboxs = []
+        if self.results.detections:
+            for id, detection in enumerate(self.results.detections):
+                bboxC = detection.location_data.relative_bounding_box
+                ih, iw, ic = img.shape
+                bbox = int(bboxC.xmin * iw), int(bboxC.ymin * ih), \
+                       int(bboxC.width * iw), int(bboxC.height * ih)
+                if draw:
+                    img = self.fancyDraw(img,bbox)
+        return img
+ 
+    def fancyDraw(self, img, bbox):
+        x, y, w, h = bbox
+        x1, y1 = x + w, y + h
+ 
+        cv2.rectangle(img, bbox, (0, 255, 0), 3)
+        return img
 
     def __del__(self):
         self.video.release()
@@ -27,14 +62,25 @@ class VideoCamera(object):
 
     def get_frame(self):
         success, image = self.video.read()
-        # We are using Motion JPEG, but OpenCV defaults to capture raw images,
-        # so we must encode it into JPEG in order to correctly display the
-        # video stream.
-
+        
+        #detector = MTCNN()
+        detector = VideoCamera()
+        pTime = 0
+        
        
         #oswaldo's comment
         if success == True:
+
+            image = detector.findFaces(image)
+            #results = detector.detect_faces(image)
+            #if results:
+            #    x1, y1, width, height = results[0]['box']
+            #    # bug fix
+            #    x1, y1 = abs(x1), abs(y1)
+            #    # extract the face
+            #    cv2.rectangle(image, (x1, y1, width, height), (255, 0, 255), 3)
             ret, jpeg = cv2.imencode('.jpg', image)
+            
             if ret == True:
                 return jpeg.tobytes()
 
