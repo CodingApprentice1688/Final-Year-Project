@@ -45,6 +45,9 @@
     <Compile Include="FYP\entity\Appointments.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FYP\ImageDB\firebase_storeImage.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="FYP\Test\admin_test_1.py">
       <SubType>Code</SubType>
     </Compile>
@@ -77,6 +80,7 @@
     <Folder Include="FYP\templates\Patient\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FYP\ImageDB\dummy_text1.txt" />
     <Content Include="FYP\templates\PatientQueueNumber.html" />
     <Content Include="FYP\templates\login.html" />
     <Content Include="FYP\templates\logout.html">
