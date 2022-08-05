@@ -1,16 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\FYP",
-    "\\FYP\\FYP",
-    "\\FYP\\FYP\\FYP",
-    "\\FYP\\FYP\\FYP\\deeplearning",
-    "\\FYP\\FYP\\FYP\\deeplearning\\model",
-    "\\FYP\\FYP\\FYP\\deeplearning\\val",
-    "\\FYP\\FYP\\FYP\\static",
-    "\\FYP\\FYP\\FYP\\static\\images",
-    "\\FYP\\FYP\\FYP\\Test"
+    ""
   ],
-  "SelectedNode": "\\FYP\\FYP\\runserver.py",
+  "SelectedNode": "\\FYP.sln",
   "PreviewInSolutionExplorer": false
 }
