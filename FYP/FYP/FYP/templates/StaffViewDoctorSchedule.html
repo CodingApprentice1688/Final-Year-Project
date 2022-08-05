@@ -13,9 +13,10 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <link rel="shortcut icon" href="../static/images/favicon.png" type="" />
+    <link rel="shortcut icon" href="../images/favicon.png" type="" />
 
     <title>Hospital</title>
+
     <!-- bootstrap core css -->
     <link
       rel="stylesheet"
@@ -34,6 +35,7 @@
       <div class="bg-box">
         <img src="../static/images/hero-bg.jpg" alt="" />
       </div>
+      <!-- header section strats -->
       <header class="header_section">
         <div class="container">
           <nav class="navbar navbar-expand-lg custom_nav-container">
@@ -59,62 +61,70 @@
         </div>
       </header>
     </div>
-    <div class="container" style="margin: auto; width: 60%">
-      <section class="image_section layout_padding">
-        <div class="container">
-          <div class="heading_container heading_center">
-            <h1>Welcome, {{ userA['name'] }}!</h1>
-          </div>
-          <div class="heading_container heading_center">
-            <h3>Please select one of the following to perform a task:</h3>
-          </div>
-          <br />
-          <br />
 
+    <section class="image_section layout_padding">
+      <div class="container">
+        <div class="heading_container heading_center">
+          <h1>Dr. {{dname}}'s Schedule</h1>
+        </div>
+
+        <br />
+
+        <br />
+        <br />
+
+        <div class="filters-content">
           <div class="row grid">
-            <!-- <div class="col-sm-6"></div> -->
-            <a href="{{ url_for('StaffSearchPatientController') }}">
-              <div class="col-sm-6">
-                <div class="box">
+            {% for doc in doctor %}
+            <!-- <form action="{{ url_for('StaffUpdateMedicalRecord') }}" method="post"> -->
+            <div>
+              <div class="menubox">
+                <div class="detail-box">
                   <div>
-                    <div class="img-box">
-                      <img src="../static/images/queue.png" alt="" />
-                    </div>
-                    <div class="detail-box">
-                      <h4 style="padding-top: 0px">Search Patient</h4>
-                    </div>
+                    <h3 style="display: inline-block; width: 30%">
+                      Department: {{ doc.department }}
+                    </h3>
+                    <h3 style="display: inline-block; width: 50%">
+                      Date/Time: {{ doc._date }} / {{ doc.starttime }} ~ {{
+                      doc.endtime }}
+                    </h3>
+                    <h3 style="display: inline-block; width: 15%">
+                      Availability: {{ doc.availability }}
+                    </h3>
                   </div>
-                </div>
-              </div>
-            </a>
 
-            <a href="{{ url_for('StaffSearchDoctorController') }}">
-              <div class="col-sm-6">
-                <div class="box">
-                  <div>
-                    <div class="img-box">
-                      <img src="../static/images/appointment.jpg" alt="" />
-                    </div>
-                    <div class="detail-box">
-                      <h4 style="padding-top: 0px">Search Doctor</h4>
-                    </div>
+                  <div class="options" style="margin: auto; width: 20%">
+                    <input
+                      type="hidden"
+                      name="doctor"
+                      value="{{ doc.doctor }}"
+                    />
+                    <input type="hidden" name="_date" value="{{ doc._date }}" />
+                    <input
+                      type="hidden"
+                      name="starttime"
+                      value="{{ doc.starttime }}"
+                    />
+                    <button class="yellow-button" type="submit">Book</button>
                   </div>
                 </div>
               </div>
-            </a>
+            </div>
+            <!-- </form> -->
+            {% endfor %}
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
     <span id="displayYear"></span>
 
     <!-- jQuery -->
-    <script src="../static/scripts/jquery-3.4.1.min.js"></script>
+    <script src="../js/jquery-3.4.1.min.js"></script>
     <!-- bootstrap js -->
-    <script src="../static/scripts/bootstrap.js"></script>
+    <script src="../js/bootstrap.js"></script>
     <!-- isotope js -->
     <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
     <!-- custom js -->
-    <script src="../static/scripts/custom.js"></script>
+    <script src="../js/custom.js"></script>
   </body>
 </html>

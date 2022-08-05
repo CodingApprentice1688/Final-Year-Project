@@ -4,10 +4,11 @@
     "\\FYP",
     "\\FYP\\FYP",
     "\\FYP\\FYP\\FYP",
-    "\\FYP\\FYP\\FYP\\deeplearning",
+    "\\FYP\\FYP\\FYP\\controller",
     "\\FYP\\FYP\\FYP\\deeplearning\\train",
-    "\\FYP\\FYP\\FYP\\static"
+    "\\FYP\\FYP\\FYP\\entity",
+    "\\FYP\\FYP\\FYP\\templates"
   ],
-  "SelectedNode": "\\FYP\\FYP\\runserver.py",
+  "SelectedNode": "\\FYP\\FYP\\FYP\\controller\\StaffSearchDoctorController.py",
   "PreviewInSolutionExplorer": false
 }
