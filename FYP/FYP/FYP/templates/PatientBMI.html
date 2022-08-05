@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <meta http-equiv="Pragma" content="no-cache">
+  <link rel="shortcut icon" href="/images/favicon.png" type="">
+
+  <title> Hospital </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="../static/content/bootstrap.css" />
+
+
+
+  <!-- Custom styles for this template -->
+  <link href="../static/content/style.css?1422585377" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="../static/content/responsive.css" rel="stylesheet" />
+
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="../static/images/hero-bg.jpg" alt="">
+    </div>
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="/Admin_Main">
+            <span>
+              Hospital
+            </span>
+          </a>
+
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  mx-auto no-bullets" style="padding-left:700px; padding-top:15px;">
+              
+              <li class="nav-item">
+                  <a class="nav-link" onclick="window.location.href='/LogoutController'">Log Out</a>
+                
+              </li>
+            </ul>
+            
+          </div>
+        </nav>
+      </div>
+    </header>
+  </div>
+  <div class="container">
+  <div class-"heading_container heading_center" style="text-align:center; padding-top:50px;">
+    <h1 style="padding-bottom:15px;">
+        Scan Your Face to Get Your Estimated BMI
+    </h1>
+    <h4 style="padding:bottom:15px;">Please note that this is just an estimation based on your facial features, your actual BMI can be much different (e.g. fat faced but skinny body)</h4>
+    <h4 style="padding:bottom:15px;">Average error rate is around 3.7 kg/m2</h4>
+    <div>
+        <img src="{{ url_for('video_feed') }}"/>
+    </div>
+    <form action="/PatientBMIController">
+        <div style="padding-bottom:15px;">
+            <button class="yellow-button" type="submit">Capture</button>
+        </div>
+    </form>
+    
+  </div>
+  <div style="width:100%">
+    {% if showHidden %}
+        <h3></h3>
+    {% else %}
+        <div class-"heading_container heading_center" style="text-align:center; padding-top:50px;">
+            <h3>Your estimated BMI is {{bmifloat}} kg/m2</h3>
+        </div>
+        <br/>
+        <br/>
+        {% if bmifloat < 18.5 %}
+            <div style="left:0%; position:relative;">
+                <img style="height:210px; width:210px;" src="../static/images/arrow.png" alt="">
+            </div>
+        {% elif 18.5 <= bmifloat < 23: %}
+            <div style="left:20%; position:relative;">
+                <img style="height:210px; width:210px;" src="../static/images/arrow.png" alt="">
+            </div>
+        {% elif 23 <= bmifloat < 25: %}
+            <div style="left:40%; position:relative;">
+                <img style="height:210px; width:210px;" src="../static/images/arrow.png" alt="">
+            </div>
+        {% elif 25 <= bmifloat < 30: %}
+            <div style="left:60%; position:relative;">
+                <img style="height:210px; width:210px;" src="../static/images/arrow.png" alt="">
+            </div>
+        {% elif bmifloat >= 30: %}
+            <div style="left:80%; position:relative;">
+                <img style="height:210px; width:210px;" src="../static/images/arrow.png" alt="">
+            </div>
+        {% endif %}
+        <img style="width:100%" src="../static/images/bmimeter.png" alt="">
+    {% endif %}
+    </div>
+  </div>
+      
+  
+
+  
+
+  
+
+  <!-- jQuery -->
+  <!-- <script src="js/jquery-3.4.1.min.js"></script> -->
+  <!-- bootstrap js -->
+  <script src="../static/scripts/js/bootstrap.js"></script>
+  <!-- isotope js -->
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <!-- custom js -->
+  <!-- <script src="js/custom.js"></script> -->
+  
+
+</body>
+
+</html>

@@ -32,9 +32,7 @@
   <ItemGroup>
     <Compile Include="FYP\camera.py" />
     <Compile Include="FYP\controller\FacialLoginController.py" />
-    <Compile Include="FYP\controller\LoginController.py">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="FYP\controller\LoginController.py" />
     <Compile Include="FYP\controller\LogoutController.py">
       <SubType>Code</SubType>
     </Compile>
@@ -67,6 +65,7 @@
     <Folder Include="FYP\" />
     <Folder Include="FYP\controller\" />
     <Folder Include="FYP\entity\" />
+    <Folder Include="FYP\ImageDB\" />
     <Folder Include="FYP\Test\" />
     <Folder Include="FYP\static\" />
     <Folder Include="FYP\static\content\" />
