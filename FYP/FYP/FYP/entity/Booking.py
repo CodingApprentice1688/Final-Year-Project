@@ -20,3 +20,22 @@ class Booking:
         doctor = cursor.fetchall()
 
         return (doctor)
+
+    def StaffCreateAppointment(doctor,date_slot,app_time):
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+
+        params = {'doctor' : doctor,
+                 '_date' : date_slot,
+                 'starttime' : app_time}
+        query = """SELECT * FROM booking WHERE doctor = %(doctor)s AND _date = %(_date)s AND starttime = %(starttime)s """
+        cursor.execute(query, params)
+        appointment = cursor.fetchone()
+        
+        newavailability = appointment['availability'] - 1
+        params = {'doctor' : doctor,
+                 '_date' : date_slot,
+                 'starttime' : app_time,
+                 'newavailability' : newavailability}
+        query = """UPDATE booking SET availability = %(newavailability)s WHERE doctor = %(doctor)s AND _date = %(_date)s AND starttime = %(starttime)s """
+        cursor.execute(query, params)
+        mysql.connection.commit()
