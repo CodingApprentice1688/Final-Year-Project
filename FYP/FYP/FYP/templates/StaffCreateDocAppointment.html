@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title> Hospital </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="../static/content/bootstrap.css" />
+
+
+  <!-- Custom styles for this template -->
+  <link href="../static/content/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href=".../static/content/responsive.css" rel="stylesheet" />
+
+  <script>
+    function feedback() {
+        alert("New appointment is created!");
+    }
+  </script>
+
+</head>
+
+<body class="sub_page">
+
+
+    <div class="hero_area">
+      <div class="bg-box">
+        <img src="../static/images/hero-bg.jpg" alt="">
+      </div>
+      <header class="header_section">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="/HealthcareStaff_Main">
+              <span>
+                 Hospital
+              </span>
+            </a>
+  
+  
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  mx-auto no-bullets" style="padding-left:700px; padding-top:15px;">
+              
+              <li class="nav-item">
+                  <a class="nav-link" onclick="window.location.href='/LogoutController'">Log Out</a>
+                
+              </li>
+            </ul>
+            
+          </div>
+          </nav>
+        </div>
+      </header>
+    </div>
+
+    <section class="form_section layout_padding">
+        <div class="container">
+          <div class="heading_container">
+            <h2>
+              Create Appointment
+            </h2>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+            {% for doc in doctor %}
+            <div class="form_container">
+                <form action="/StaffCreateAppointmentController" method="post" onsubmit="feedback()">
+                  <div>
+                    <label>Username: </label>
+                    <input type="text" class="form-control" name="username" id="username" value="username" disabled />
+                    <input type="hidden" class="form-control" name="username" id="username" value="username" />
+                  </div>
+                
+                  <div>
+                    <label>Patient's Name: </label>
+                    <input type="text" class="form-control" name="name" id="name" value="name" disabled />
+                    <input type="hidden" class="form-control" name="name" id="name" value="name" />
+                  </div>
+                  <div>
+                    <label>NRIC: </label>
+                    <input type="text" class="form-control" name="nric" id="nric" value="nric" disabled />
+                    <input type="hidden" class="form-control" name="nric" id="nric" value="nric" />
+                  </div>
+                  
+                  <div>
+                    <label>Appointment date: </label>
+                    <input type="date" class="form-control" name="date_slot" id="date_slot" value = "{{ doc._date }}" />
+                  </div>
+                  
+                  <div>
+                    <label>Appointment timeslot: </label>
+                    <input type="time" class="form-control" name="app_time" id="app_time" value = "{{ doc.starttime }}" />
+                  </div>
+                  
+
+                  <div>
+                    <label>Department: </label>
+                    <input type="text" class="form-control" name="department" id="department" value = "{{ doc.department }}" />
+                    
+                </div>
+                  <div>
+                    <label>Attending physician: </label>
+                    <input type="text" class="form-control" name="doctor" id="doctor" value = "{{ doc.doctor}}" />
+                    
+                  </div>
+                  <div>
+                    <label>Reason for visit: </label>
+                    <input type="text" class="form-control" name="reason" id="reason" />
+                  </div>
+                  
+                  <div class="btn_box">
+                    <button class="yellow-button" type="submit">
+                      Create Appointment
+                    </button>
+                  </div>
+                </form>
+                
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+    </section>
+
+  
+
+</body>
+
+</html>
