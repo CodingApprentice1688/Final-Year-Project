@@ -76,37 +76,46 @@
         <div class="filters-content">
           <div class="row grid">
             {% for doc in doctor %}
-            <!-- <form action="{{ url_for('StaffUpdateMedicalRecord') }}" method="post"> -->
+            <!-- <form action="{{ url_for('StaffCreateAppointmentController') }}" method="post"> -->
             <div>
               <div class="menubox">
                 <div class="detail-box">
-                  <div>
-                    <h3 style="display: inline-block; width: 30%">
-                      Department: {{ doc.department }}
-                    </h3>
-                    <h3 style="display: inline-block; width: 50%">
-                      Date/Time: {{ doc._date }} / {{ doc.starttime }} ~ {{
-                      doc.endtime }}
-                    </h3>
-                    <h3 style="display: inline-block; width: 15%">
-                      Availability: {{ doc.availability }}
-                    </h3>
-                  </div>
+                    <h2 style="text-align: left;">
+                        Dr. {{ doc.doctor }}
+                      </h2> 
+                    <hr>
+                    <div>
+                        <h3 style="display: inline-block; width: 50%">
+                            Department: {{ doc.department }}
+                        </h3>
+                        <h3 style="display: inline-block;">
+                            Date: {{ doc._date }} {{ doc._dayofweek }} 
+                        </h3>
+                    </div>
+                    <div>
+                        <h3 style="display: inline-block; width: 50%">
+                            Room: {{ doc.room }}
+                        </h3>
+                        <h3 style="display: inline-block;">
+                            Time: {{ doc.starttime }} ~ {{ doc.endtime }}
+                        </h3>
+                    </div>
+                    <div>
+                        <h3 style="display: inline-block; width: 50%">
+                            
+                        </h3>
+                        <h3 style="display: inline-block; ">
+                            Availability: {{ doc.availability }}
+                        </h3>
+                    </div>
+
 
                   <!-- <div class="options" style="margin: auto; width: 20%">
-                    <input
-                      type="hidden"
-                      name="doctor"
-                      value="{{ doc.doctor }}"
-                    />
+                    <input type="hidden" name="doctor" value="{{ doc.doctor }}" />
                     <input type="hidden" name="_date" value="{{ doc._date }}" />
-                    <input
-                      type="hidden"
-                      name="starttime"
-                      value="{{ doc.starttime }}"
-                    />
-                    <button class="yellow-button" type="submit">Book</button>
-                  </div> -->
+                    <input type="hidden" name="starttime" value="{{ doc.starttime }}" />
+                    <button class="yellow-button" type="submit">Book Appointment</button>
+                  </div>-->
                 </div>
               </div>
             </div>
