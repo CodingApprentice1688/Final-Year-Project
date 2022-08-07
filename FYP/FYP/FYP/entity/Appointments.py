@@ -85,7 +85,4 @@ class Appointments:
         userB = cursor.fetchall()
         return (userA, userB)
 
-    def StaffCreateDocAppointment():
-        
-        pass
 

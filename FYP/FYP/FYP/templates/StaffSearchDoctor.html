@@ -122,18 +122,30 @@
                         <p>
                           Qualification: {{ doc['qualification'] }}
                         </p>
+                        
+
+                        <br/>
+                        <br/>
+
                         <div class="options">
-                        
-                        
+
                          <form action="{{ url_for('StaffViewDoctorScheduleController') }}" method="post">
-                         
-                             <input type="hidden" name="dname" value="{{ doc['dname'] }}">
-                              <button class="yellow-button-small" type="submit">
-                                View Schedule
-                              </button>
+                            <input type="hidden" name="dname" value="{{ doc['dname'] }}">
+                            <div>
+                                <label>Select date from: </label>
+                                <input type="date" class="form-control" name="date_from" id="date_from"  />
+                                <br/>
+                                <label>To: </label>
+                                <input type="date" class="form-control" name="date_to" id="date_to" />
+                            </div>
+                            <br/>
+                            <div>
+                                <button class="yellow-button-small" type="submit">
+                                    Check Availability
+                                </button>
+                            </div>
                         </form>
-
-
+                        
                         </div>
                     </div>
                     

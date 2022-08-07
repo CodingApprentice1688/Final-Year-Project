@@ -10,16 +10,20 @@ import MySQLdb.cursors
 
 class Booking:
 
-    def StaffViewDoctorSchedule(dname):
+    def StaffViewDoctorSchedule(dname, date_from, date_to):
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
 
         param = {'doctor' : dname,
-                 'today' : date.today()}
-        query = """SELECT * FROM booking WHERE doctor = %(doctor)s AND _date > %(today)s """
+                #  'today' : date.today(),
+                 'date_from' : date_from,
+                 'date_to' : date_to}
+        # query = """SELECT * FROM booking WHERE doctor = %(doctor)s AND _date > %(today)s """
+        query = """SELECT * FROM booking WHERE doctor = %(doctor)s AND (_date >= %(date_from)s AND _date <= %(date_to)s)"""
         cursor.execute(query, param)
         doctor = cursor.fetchall()
 
         return (doctor)
+
 
     def StaffCreateAppointment(doctor,date_slot,app_time):
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
