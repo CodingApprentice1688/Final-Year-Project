@@ -4,13 +4,13 @@
     "\\FYP",
     "\\FYP\\FYP",
     "\\FYP\\FYP\\FYP",
-    "\\FYP\\FYP\\FYP\\controller",
+    "\\FYP\\FYP\\FYP\\entity",
     "\\FYP\\FYP\\FYP\\static",
     "\\FYP\\FYP\\FYP\\static\\content",
     "\\FYP\\FYP\\FYP\\static\\images",
     "\\FYP\\FYP\\FYP\\templates",
     "\\FYP\\FYP\\FYP\\Test"
   ],
-  "SelectedNode": "\\FYP\\FYP\\FYP\\camera.py",
+  "SelectedNode": "\\FYP\\FYP\\runserver.py",
   "PreviewInSolutionExplorer": false
 }
