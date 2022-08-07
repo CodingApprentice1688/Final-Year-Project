@@ -35,3 +35,4 @@ import FYP.controller.StaffCreateMedicalRecordController
 import FYP.controller.StaffUpdateMedicalRecordController
 import FYP.controller.StaffSearchDoctorController
 import FYP.controller.StaffViewDoctorScheduleController
+import FYP.controller.PatientBMIController
