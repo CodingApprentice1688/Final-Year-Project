@@ -99,17 +99,32 @@
                   
                   <div>
                     <label>Appointment time: </label>
-                    <input type="time" class="form-control" name="app_time" id="app_time" />
+                    <!-- <input type="time" class="form-control" name="app_time" id="app_time" /> -->
+                    <select class="form-control" name="app_time" id="app_time">
+                        <option value="9:00">Morning 9:00 ~ 12:00</option>
+                        <option value="13:00">Afternoon 13:00 ~ 17:00</option>
+                        <option value="18:00">Evening 18:00 ~ 22:00</option>
+                    </select>
                   </div>
                   
 
                   <div>
                     <label>Department: </label>
-                    <input type="text" class="form-control" name="department" id="department" />
-                  </div>
+                    <!-- <input type="text" class="form-control" name="department" id="department" /> -->
+                    <select class="form-control" name="department" id="department">
+                        <option value="ENT">ENT</option>
+                        <option value="Cardiology">Cardiology</option>
+                        <option value="Dermatology">Dermatology</option>
+                    </select>
+                </div>
                   <div>
                     <label>Attending physician: </label>
-                    <input type="text" class="form-control" name="doctor" id="doctor" />
+                    <!-- <input type="text" class="form-control" name="doctor" id="doctor" /> -->
+                    <select class="form-control" name="doctor" id="doctor">
+                        <option value="Greg Han">Greg Han</option>
+                        <option value="Shin Tan">Shin Tan</option>
+                        <option value="Stephen Strange">Stephen Strange</option>
+                    </select>
                   </div>
                   <div>
                     <label>Reason for visit: </label>
