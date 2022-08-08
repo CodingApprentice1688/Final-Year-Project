@@ -53,6 +53,7 @@ def extract_face(filename, required_size=(200, 200)):
     return face_array
 
 
+
 @app.route('/FacialLoginController', methods=['POST', 'GET'])
 def validateImage():
     VideoCamera().capture_1_pic()
