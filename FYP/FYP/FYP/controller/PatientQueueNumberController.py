@@ -20,8 +20,3 @@ def PatientQueueNumber():
     queueNumber = request.form['queueNumber']
     userA, userB = Appointments.updateQueueNumber(queueNumber)
     return render_template('PatientQueueNumber.html', userA = userA, userB = userB)
-
-@app.route('/PatientQueueNumberController', methods=['POST'])
-def QueueNumberCapture():
-    VideoCamera().stop_camera()
-    return redirect(url_for('Patient_Main'))
