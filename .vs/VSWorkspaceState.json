@@ -8,9 +8,10 @@
     "\\FYP\\FYP\\FYP\\deeplearning",
     "\\FYP\\FYP\\FYP\\deeplearning\\train",
     "\\FYP\\FYP\\FYP\\deeplearning\\train\\dicky",
+    "\\FYP\\FYP\\FYP\\entity",
     "\\FYP\\FYP\\FYP\\templates",
     "\\FYP\\FYP\\FYP\\Test"
   ],
-  "SelectedNode": "\\FYP\\FYP\\FYP\\deeplearning\\train\\dicky",
+  "SelectedNode": "\\FYP\\FYP\\FYP\\templates\\validation.html",
   "PreviewInSolutionExplorer": false
 }
