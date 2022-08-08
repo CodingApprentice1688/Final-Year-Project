@@ -33,9 +33,24 @@ class User:
 
         else:
            return False, userL
+
+    def validateNRIC(nric):
+        if session['nric'] == nric:
+            return True, session
+        else:
+            session.pop('logged_in', None)
+            session.pop('username', None)
+            session.pop('name', None)
+            session.pop('nric', None)
+            session.pop('role_type', None)
+            return False, session
+
     def validateLogout():
         session.pop('logged_in', None)
         session.pop('username', None)
+        session.pop('name', None)
+        session.pop('nric', None)
+        session.pop('role_type', None)
         return render_template('login.html')
 
     #patient update personal details
