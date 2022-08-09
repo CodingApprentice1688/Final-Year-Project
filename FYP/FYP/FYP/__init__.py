@@ -25,6 +25,7 @@ import FYP.controller.PatientQueueNumberController
 import FYP.controller.PatientUpdatePersonalDetailController
 import FYP.controller.LoginController
 import FYP.controller.FacialLoginController
+import FYP.controller.FacialValidationController
 import FYP.controller.LogoutController
 import FYP.controller.PatientUpdatePersonalDetailController
 import FYP.controller.StaffSearchPatientController
@@ -35,3 +36,4 @@ import FYP.controller.StaffCreateMedicalRecordController
 import FYP.controller.StaffUpdateMedicalRecordController
 import FYP.controller.StaffSearchDoctorController
 import FYP.controller.StaffViewDoctorScheduleController
+import FYP.controller.PatientBMIController
