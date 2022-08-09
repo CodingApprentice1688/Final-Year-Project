@@ -71,24 +71,27 @@
           <br />
           <br />
 
-          <div class="row grid">
-            <!-- <div class="col-sm-6"></div> -->
-            <a href="{{ url_for('StaffSearchPatientController') }}">
-              <div class="col-sm-6">
-                <div class="box">
-                  <div>
-                    <div class="img-box">
-                      <img src="../static/images/queue.png" alt="" />
-                    </div>
-                    <div class="detail-box">
-                      <h4 style="padding-top: 0px">Search Patient</h4>
-                    </div>
+        <div class="row grid">
+        <div class="col-sm-8 col-lg-4 all">
+        </div>
+          <a href="{{ url_for('StaffSearchPatientController') }}">
+            <div class="col-sm-8 col-lg-4 all">
+              <div class="box">
+                <div>
+                  <div class="img-box">
+                    <img src="../static/images/appointment.jpg" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <h4 style="padding-top:0px;">
+                      Search Patient
+                    </h4>
                   </div>
                 </div>
               </div>
-            </a>
+            </div>
+          </a>
 
-            <a href="{{ url_for('StaffSearchDoctorController') }}">
+            <!-- <a href="{{ url_for('StaffSearchDoctorController') }}">
               <div class="col-sm-6">
                 <div class="box">
                   <div>
@@ -101,7 +104,7 @@
                   </div>
                 </div>
               </div>
-            </a>
+            </a> -->
           </div>
         </div>
       </section>

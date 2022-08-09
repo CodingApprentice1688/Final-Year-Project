@@ -12,11 +12,15 @@ import MySQLdb.cursors
 
 @app.route('/StaffSearchDoctorController', methods=['GET', 'POST'])
 def StaffSearchDoctorController():
+    patientX = session["patientX"]  ##
+    session['patientX'] = patientX  ##
+
     if request.method == "POST":
         name = request.form['name']
         doctor = User.StaffSearchDoctorController(name)
-        return render_template('StaffSearchDoctor.html', doctor = doctor)
+        return render_template('StaffSearchDoctor.html', doctor = doctor, patientX = patientX)
     else:
+        
         doctor = 'doctor'
         doctor = User.StaffSearchDoctor(doctor)
-        return render_template('StaffSearchDoctor.html', doctor = doctor)
+        return render_template('StaffSearchDoctor.html', doctor = doctor, patientX = patientX)
