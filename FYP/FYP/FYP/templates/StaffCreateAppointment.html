@@ -94,37 +94,42 @@
                   
                   <div>
                     <label>Appointment date: </label>
-                    <input type="date" class="form-control" name="date_slot" id="date_slot" />
+                    <!-- <input type="date" class="form-control" name="date_slot" id="date_slot" /> -->
+                    <input type="date" class="form-control" name="_date" id="_date" value="{{ _date }}" disabled />
+                    <input type="hidden" class="form-control" name="_date" id="_date" value="{{ _date }}" />
                   </div>
                   
                   <div>
                     <label>Appointment time: </label>
-                    <!-- <input type="time" class="form-control" name="app_time" id="app_time" /> -->
-                    <select class="form-control" name="app_time" id="app_time">
+                    <!-- <select class="form-control" name="app_time" id="app_time">
                         <option value="9:00">Morning 9:00 ~ 12:00</option>
                         <option value="13:00">Afternoon 13:00 ~ 17:00</option>
                         <option value="18:00">Evening 18:00 ~ 22:00</option>
-                    </select>
+                    </select> -->
+                    <input type="time" class="form-control" name="starttime" id="starttime" value="{{ starttime }}" disabled />
+                    <input type="hidden" class="form-control" name="starttime" id="starttime" value="{{ starttime }}" />
                   </div>
                   
 
                   <div>
                     <label>Department: </label>
-                    <!-- <input type="text" class="form-control" name="department" id="department" /> -->
-                    <select class="form-control" name="department" id="department">
+                    <!-- <select class="form-control" name="department" id="department">
                         <option value="ENT">ENT</option>
                         <option value="Cardiology">Cardiology</option>
                         <option value="Dermatology">Dermatology</option>
-                    </select>
+                    </select> -->
+                    <input type="text" class="form-control" name="department" id="department" value="{{ department }}" disabled />
+                    <input type="hidden" class="form-control" name="department" id="department" value="{{ department }}" />
                 </div>
                   <div>
                     <label>Attending physician: </label>
-                    <!-- <input type="text" class="form-control" name="doctor" id="doctor" /> -->
-                    <select class="form-control" name="doctor" id="doctor">
+                    <!-- <select class="form-control" name="doctor" id="doctor">
                         <option value="Greg Han">Greg Han</option>
                         <option value="Shin Tan">Shin Tan</option>
                         <option value="Stephen Strange">Stephen Strange</option>
-                    </select>
+                    </select> -->
+                    <input type="text" class="form-control" name="doctor" id="doctor" value="{{ doctor }}" disabled />
+                    <input type="hidden" class="form-control" name="doctor" id="doctor" value="{{ doctor }}" />
                   </div>
                   <div>
                     <label>Reason for visit: </label>

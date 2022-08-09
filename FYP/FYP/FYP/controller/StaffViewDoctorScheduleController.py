@@ -12,6 +12,9 @@ import MySQLdb.cursors
 
 @app.route('/StaffViewDoctorScheduleController', methods=['GET', 'POST'])
 def StaffViewDoctorScheduleController():
+    patientX = session["patientX"]  ##
+    session['patientX'] = patientX  ##
+    
     dname = request.form['dname']
     date_from = request.form['date_from']
     date_to = request.form['date_to']

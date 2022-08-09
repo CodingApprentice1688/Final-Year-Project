@@ -76,7 +76,7 @@
         <div class="filters-content">
           <div class="row grid">
             {% for doc in doctor %}
-            <!-- <form action="{{ url_for('StaffCreateAppointmentController') }}" method="post"> -->
+            <form action="{{ url_for('StaffCreateAppointment') }}" method="post">
             <div>
               <div class="menubox">
                 <div class="detail-box">
@@ -110,16 +110,17 @@
                     </div>
 
 
-                  <!-- <div class="options" style="margin: auto; width: 20%">
+                  <div class="options" style="margin: auto; width: 20%">
                     <input type="hidden" name="doctor" value="{{ doc.doctor }}" />
+                    <input type="hidden" name="department" value="{{ doc.department }}" />
                     <input type="hidden" name="_date" value="{{ doc._date }}" />
                     <input type="hidden" name="starttime" value="{{ doc.starttime }}" />
-                    <button class="yellow-button" type="submit">Book Appointment</button>
-                  </div>-->
+                    <button class="yellow-button" type="submit">Create Appointment</button>
+                  </div>
                 </div>
               </div>
             </div>
-            <!-- </form> -->
+            </form>
             {% endfor %}
           </div>
         </div>
