@@ -100,12 +100,12 @@
                         <form action="/LoginController" method="post">
                             <div>
                                 <label>Username: </label>
-                                <input type="text" class="form-control" placeholder="Username" name="username" value="{{request.form.username }}">
+                                <input type="text" class="form-control" placeholder="Username" name="username" value="{{request.form.username }}" required />
                             </div>
                             <br />
                             <div>
                                 <label>Password: </label>
-                                <input type="password" class="form-control" placeholder="Password" name="password" value="{{request.form.password }}">
+                                <input type="password" class="form-control" placeholder="Password" name="password" value="{{request.form.password }}" required />
                             </div>
                             <br />
                             <div>
