@@ -1,6 +1,7 @@
 import cv2
 from mtcnn import MTCNN
 import mediapipe as mp
+import time
 
 
 WHITE = [255, 255, 255]
@@ -91,11 +92,28 @@ class VideoCamera(object):
         self.video.release()
 
     def capture_10_pics(self):
-        for i in range(25):
+        last_recorded_time = time.time()
+        i = 0
+        while True:
+            curr_time = time.time()
             return_value, image = self.video.read()
-            cv2.imwrite('opencv'+str(i)+'.jpg', image)
-           
-        self.video.release()
+            if curr_time - last_recorded_time >= 0.3 and i < 25: 
+                cv2.imwrite('FYP/FYP/FYP/static/images/opencv'+str(i)+'.jpg', image)
+                last_recorded_time = curr_time
+                i = i + 1
+            elif i >= 25:
+                break
+
+        #last_recorded_time = time.time()
+        #for i in range(1000):
+        #    curr_time = time.time()
+        #    if curr_time - last_recorded_time >= 2.0 and i < 25: 
+        #        return_value, image = self.video.read()
+        #        cv2.imwrite('opencv'+str(i)+'.jpg', image)
+        #        last_recorded_time = curr_time
+        #    elif i >= 25:
+        #        break
+        #self.video.release()
 
     def stop_camera(self):
         self.video.release()

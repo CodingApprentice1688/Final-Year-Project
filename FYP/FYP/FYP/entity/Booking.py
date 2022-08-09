@@ -13,12 +13,15 @@ class Booking:
     def StaffViewDoctorSchedule(dname, date_from, date_to):
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
 
+        if datetime.strptime(date_from, "%Y-%m-%d") < datetime.now():
+            date_from = date.today()
+
         param = {'doctor' : dname,
-                #  'today' : date.today(),
+                # 'today' : date.today(),
                  'date_from' : date_from,
                  'date_to' : date_to}
         # query = """SELECT * FROM booking WHERE doctor = %(doctor)s AND _date > %(today)s """
-        query = """SELECT * FROM booking WHERE doctor = %(doctor)s AND (_date >= %(date_from)s AND _date <= %(date_to)s)"""
+        query = """SELECT * FROM booking WHERE doctor = %(doctor)s AND (_date >= %(date_from)s AND _date <= %(date_to)s) AND availability > 0"""
         cursor.execute(query, param)
         doctor = cursor.fetchall()
 

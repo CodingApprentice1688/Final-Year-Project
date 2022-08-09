@@ -6,11 +6,11 @@
     "\\FYP\\FYP\\FYP",
     "\\FYP\\FYP\\FYP\\controller",
     "\\FYP\\FYP\\FYP\\deeplearning",
-    "\\FYP\\FYP\\FYP\\deeplearning\\train",
-    "\\FYP\\FYP\\FYP\\deeplearning\\train\\dicky",
-    "\\FYP\\FYP\\FYP\\templates",
-    "\\FYP\\FYP\\FYP\\Test"
+    "\\FYP\\FYP\\FYP\\deeplearning\\val",
+    "\\FYP\\FYP\\FYP\\entity",
+    "\\FYP\\FYP\\FYP\\static",
+    "\\FYP\\FYP\\FYP\\templates"
   ],
-  "SelectedNode": "\\FYP\\FYP\\FYP\\deeplearning\\train\\dicky",
+  "SelectedNode": "\\FYP\\FYP\\FYP\\controller\\StaffCreateAppointmentController.py",
   "PreviewInSolutionExplorer": false
 }

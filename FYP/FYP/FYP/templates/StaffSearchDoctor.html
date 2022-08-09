@@ -60,12 +60,13 @@
 
   <section class="image_section layout_padding">
     <div class="container">
+      {% for info in patientX[:1] %}
       <div class="heading_container heading_center">
         <h1>
-          Search Doctor
+          Please select a doctor for {{ info.name }}:
         </h1>
       </div>
-
+      {% endfor %}
       
       <br/>
       <div id="menu" class="heading_container heading_center">

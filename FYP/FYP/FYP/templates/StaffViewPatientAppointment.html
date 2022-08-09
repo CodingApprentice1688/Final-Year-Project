@@ -64,9 +64,9 @@
         <div class="heading_container heading_center">
           <h1>Patient's Appointments</h1>
 
-          <form action="{{ url_for('StaffCreateAppointmentController') }}">
-            <input type="hidden" name="username" value="{{ username }}"/>
-            <input type="hidden" name="nric" value="{{ nric }}" />
+          <form action="{{ url_for('StaffSearchDoctorController') }}">
+            <!-- <input type="hidden" name="username" value="{{ username }}"/>
+            <input type="hidden" name="nric" value="{{ nric }}" /> -->
             <button class="yellow-button" type="submit">
               Create Appointment
             </button>
