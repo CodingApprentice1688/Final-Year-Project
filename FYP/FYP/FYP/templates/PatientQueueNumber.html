@@ -44,6 +44,14 @@
             document.getElementById("queueNumber").value = seq;
             ++seq;
         }
+        function enableButton() {
+            if (document.getElementById("displayQueueNumber").value == "") {
+                document.getElementById("submitBtn").disabled = true;
+            }
+            else {
+                document.getElementById("submitBtn").disabled = false;
+            }
+        }
     </script>
 
 </head>
@@ -88,7 +96,7 @@
                         <label>Appointment Reason: {{ queueNum.reason }}</label>
                         <br />
                         <label>Your Queue Number: </label>
-                        <input type="text" name="displayQueueNumber" id="displayQueueNumber" value={{ queueNum.queue_number }} />
+                        <input type="text" name="displayQueueNumber" id="displayQueueNumber" value={{ queueNum.queue_number }} onkeyup="enableButton()" />
                         <br />
                         <br />
                     </div>
@@ -113,7 +121,7 @@
                                 <input type="hidden" class="form-control" name="queueNumber" id="queueNumber" value="" />
                             </div>
                             <div class="btn_box">
-                                <button class="yellow-button" type="submit" name="submitBtn" id="submitBtn" onclick="getAllQueueNumber()">
+                                <button class="yellow-button" type="submit" name="submitBtn" id="submitBtn" onclick="getAllQueueNumber()" disabled>
                                     Get Queue Number Now
                                 </button>
                             </div>
