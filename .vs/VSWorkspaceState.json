@@ -4,13 +4,13 @@
     "\\FYP",
     "\\FYP\\FYP",
     "\\FYP\\FYP\\FYP",
+    "\\FYP\\FYP\\FYP\\controller",
     "\\FYP\\FYP\\FYP\\deeplearning",
-    "\\FYP\\FYP\\FYP\\deeplearning\\train",
     "\\FYP\\FYP\\FYP\\deeplearning\\val",
     "\\FYP\\FYP\\FYP\\entity",
     "\\FYP\\FYP\\FYP\\static",
     "\\FYP\\FYP\\FYP\\templates"
   ],
-  "SelectedNode": "\\FYP\\FYP\\runserver.py",
+  "SelectedNode": "\\FYP\\FYP\\FYP\\controller\\StaffCreateAppointmentController.py",
   "PreviewInSolutionExplorer": false
 }
