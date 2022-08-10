@@ -56,28 +56,34 @@ if password == confirmpass:
 # -------------for storage > create the cloud storage bucket >. 
 # #===========================================they can upload the photos that devs can read 
 
-#asking user what i want to upload 
+#--==================asking user what i want to upload 
 #filename = input("enter the name of the file you want to upload ")
-
+#setting some dir to make it constant
+dir_stores = "C:/FaceRegStore/"
 #asking user what i want to name the filee into the cloud, 
 #cloudFileName = input("enter the name of the file in cloud ")
- 
-#storage.child(cloudFileName).put(filename)
+
+#dir_stores += filename
+
+#-------------------working, just need a local folder to stores stuffs
+#storage.child(cloudFileName).put(dir_stores)
 
 #print(storage.child(cloudfilename).get_url(None))
 
 
 #asking user what to download 
-#filename = input("enter the name of the file you want to download ")
+filename = input("enter the name of the file you want to download as : dont be same as existing :  ")
 
 #asking user what i want to name the filee into the cloud, 
-#cloudFileName = input("enter the name of the file in cloud you want to download")
- 
-
-#need to specify a path > book/tester
-storage.child(cloudFileName).download("", "downloadtxt.txt")
-
 cloudFileName = input("enter the name of the file in cloud you want to download")
+ 
+dir_stores_down = "C:/FaceRegStore_down/"
+dir_stores_down += filename
+#dir_stores_down += filename
+#need to specify a path > book/tester
+storage.child(cloudFileName).download( "",dir_stores_down)
+
+#cloudFileName = input("enter the name of the file in cloud you want to download")
 #url = storage.child(cloudFileName).get_url(None)
 #f = urllib.request.urlopen(url).read()
 #print(f)
@@ -85,7 +91,7 @@ cloudFileName = input("enter the name of the file in cloud you want to download"
 
 #firebase > realtime database > leaf nodes are the data
 #--------------------------create data about 1 person, with data node with unique ID
-data = { 'age':12, 'address': "SG", 'employed': True, 'name': "Jane sma"}
+#data = { 'age':12, 'address': "SG", 'employed': True, 'name': "Jane sma"}
 #db.push(data)
 
 #this pushed data under a node called patient, can keep adding .child to create a new node under, 
@@ -127,11 +133,18 @@ data = { 'age':12, 'address': "SG", 'employed': True, 'name': "Jane sma"}
 #create the "patient" : {.indexOn:["age", "location", "name", "employed"]}
 
 #order by and only print those with Jane
-patient = db.child("patient").order_by_child("name").equal_to("Jane sma").get()
+#patient = db.child("patient").order_by_child("name").equal_to("Jane sma").get()
 
 #to look for patient at age 12 and before 91 .limit_to_first/last
 #patient = db.child("patient").order_by_child("age").start_at(12).end_at(91).get()
 
-for person in patient.each():
-    print(person.val())
-    print(person.val()['address'])
+#for person in patient.each():
+#    print(person.val())
+#    print(person.val()['address'])
+
+
+#--------frind out how to loop through all the directoreise
+
+#when you want to log in then download to directories,
+ # or loop thru the 
+#log in and store into local folder, 

@@ -67,6 +67,14 @@ def validateImage():
     hello = np.array(hello)
 
     yhat=model.predict(hello)
+    #hello is the images, when u captures, the image will be store. 
+
+    #dirs stores in y_test
+    #in val we have all the folders 
+    #y_test is a array that contains the folder names 
+    # directory matches the order. of the list in hello
+
+    #User.py
 
     
     y_test = []
