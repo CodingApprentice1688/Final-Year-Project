@@ -5,12 +5,12 @@
     "\\FYP\\FYP",
     "\\FYP\\FYP\\FYP",
     "\\FYP\\FYP\\FYP\\controller",
-    "\\FYP\\FYP\\FYP\\deeplearning",
-    "\\FYP\\FYP\\FYP\\deeplearning\\val",
-    "\\FYP\\FYP\\FYP\\entity",
+    "\\FYP\\FYP\\FYP\\ImageDB",
     "\\FYP\\FYP\\FYP\\static",
-    "\\FYP\\FYP\\FYP\\templates"
+    "\\FYP\\FYP\\FYP\\static\\images",
+    "\\FYP\\FYP\\FYP\\templates",
+    "\\FYP\\FYP\\FYP\\Test"
   ],
-  "SelectedNode": "\\FYP\\FYP\\runserver.py",
+  "SelectedNode": "\\FYP\\FYP\\FYP\\controller\\StaffSearchPatientController.py",
   "PreviewInSolutionExplorer": false
 }
