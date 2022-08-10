@@ -93,20 +93,20 @@
                             </div>
                             <div>
                                 <label>Age: </label>
-                                <input type="text" class="form-control" name="age" id="age" value={{ personalDetail.age }} />
+                                <input type="number" class="form-control" name="age" id="age" min="1" max="100" value={{ personalDetail.age }} required/>
                             </div>
                             <div>
                                 <label>Gender: </label>
-                                <input type="text" class="form-control" name="gender" id="gender" value={{ personalDetail.gender }} />
+                                <input type="text" class="form-control" name="gender" id="gender" value={{ personalDetail.gender }} disabled/>
                             </div>
                             <div>
                                 <label>Username: </label>
-                                <input type="text" class="form-control" name="username" id="username" value={{ personalDetail.username }} />
+                                <input type="text" class="form-control" name="username" id="username" value={{ personalDetail.username }} required/>
                             
                             </div>
                             <div>
                                 <label>Password: </label>
-                                <input type="password" class="form-control" name="password" id="password" value={{ personalDetail.password }} />
+                                <input type="password" class="form-control" name="password" id="password" value={{ personalDetail.password }} required/>
                             </div>
                             <div>
                                 <label>Upload Image: </label>
