@@ -22,7 +22,8 @@
   <link href="../static/content/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="../static/content/responsive.css" rel="stylesheet" />
-
+    
+    
 </head>
 
 <body class="sub_page">
@@ -73,100 +74,101 @@
         Please enter a patient's name:
         
       </h4>
-      
-        <form action="/StaffSearchPatientController" method="post">
+          <form action="/StaffSearchPatientController" method="post" >
+              <div>
+                  <input type="text" class="form-control" id="name" name="name" pattern="^[A-Za-z ]*$" title="Only alphabets"><br><br>
+                  <!--<input type="text" class="form-control" name="name" id="name" placeholder="Patient Name" pattern="[A-Za-z]" title="Only alphabets"/>-->
+                  <!--<input type="text" class="form-control" name="name" id="name" placeholder="Patient Name" /> -->
+
+              </div>
           <div>
-            <input type="text" class="form-control" name="name" id="name" placeholder="Patient Name" />
-            
+              <button class="yellow-button" type="submit" onclick="allLetter(name)">
+                  Search
+              </button>
           </div>
-          <div>
-            <button class="yellow-button" type="submit">
-              Search
-            </button>
+
+
+      </form>
+           <form action="/StaffSearchPatientController" method="get">
+              <button class="yellow-button" type="submit" >
+                Show All
+              </button>
+           </form>
           </div>
-          
-          
-         </form>
-         <form action="/StaffSearchPatientController" method="get">
-            <button class="yellow-button" type="submit">
-              Show All
-            </button>
-         </form>
-        </div>
-       
-        <br/>
+
           <br/>
-        
-      
+            <br/>
 
-      <div class="filters-content">
-        <div class="row grid">
-            {% for pati in patient %}
-              
-                <div class="col-sm-6 col-lg-4 all <%= menuitem.type %>">
-                  <div class="menubox">
-                      <div class="detail-box">
-                        <h3 style="text-align: center;">
-                          {{ pati['name'] }}
-                        </h3>
-                        <img src ="../static/images/{{ pati['name'] }}.jpg" style="width: 150px; length: 150px; display: block;
-                        margin-left: auto;
-                        margin-right: auto;">
-                        </br>
-                        <p>
-                          NRIC: {{ pati['nric'] }}
-                        </p>
-                        <p>
-                          Gender: {{ pati['gender'] }}
-                        </p>
-                        <p>
-                          Age: {{ pati['age'] }}
-                        </p>
-                        <div class="options">
-                          
-                         <form action="{{ url_for('StaffViewPatientAppointmentController') }}" method="post">
-                             <input type="hidden" name="username" value="{{ pati['username'] }}">
-                             <input type="hidden" name="nric" value="{{ pati['nric'] }}">
-                              <button class="yellow-button-small" type="submit">
-                                Appointment
-                              </button>
-                        </form>
 
-                        <form action="{{ url_for('StaffViewMedicalRecordController') }}" method="post">
-                        <input type="hidden" name="username" value="{{ pati['username'] }}">
-                         <input type="hidden" name="nric" value="{{ pati['nric'] }}">
-                          <button class="yellow-button-small" type="submit">
-                            Med Record
-                          </button>
 
-                        </form>
-                        </div>
+        <div class="filters-content">
+          <div class="row grid">
+              {% for pati in patient %}
+
+                  <div class="col-sm-6 col-lg-4 all <%= menuitem.type %>">
+                    <div class="menubox">
+                        <div class="detail-box">
+                          <h3 style="text-align: center;">
+                            {{ pati['name'] }}
+                          </h3>
+                          <img src ="../static/images/{{ pati['name'] }}.jpg" style="width: 150px; length: 150px; display: block;
+                          margin-left: auto;
+                          margin-right: auto;">
+                          </br>
+                          <p>
+                            NRIC: {{ pati['nric'] }}
+                          </p>
+                          <p>
+                            Gender: {{ pati['gender'] }}
+                          </p>
+                          <p>
+                            Age: {{ pati['age'] }}
+                          </p>
+                          <div class="options">
+
+                           <form action="{{ url_for('StaffViewPatientAppointmentController') }}" method="post">
+                               <input type="hidden" name="username" value="{{ pati['username'] }}">
+                               <input type="hidden" name="nric" value="{{ pati['nric'] }}">
+                                <button class="yellow-button-small" type="submit">
+                                  Appointment
+                                </button>
+                          </form>
+
+                          <form action="{{ url_for('StaffViewMedicalRecordController') }}" method="post">
+                          <input type="hidden" name="username" value="{{ pati['username'] }}">
+                           <input type="hidden" name="nric" value="{{ pati['nric'] }}">
+                            <button class="yellow-button-small" type="submit">
+                              Med Record
+                            </button>
+
+                          </form>
+                          </div>
+                      </div>
+
                     </div>
-                    
                   </div>
-                </div>
-              
-            {% endfor %}
-              
-              
+
+              {% endfor %}
+
+
+          </div>
         </div>
       </div>
-    </div>
-    
-  </section>
-  <span id="displayYear"></span>
 
-  
+    </section>
+    <span id="displayYear"></span>
 
-  <!-- jQuery -->
-  <script src="../js/jquery-3.4.1.min.js"></script>
-  <!-- bootstrap js -->
-  <script src="../js/bootstrap.js"></script>
-  <!-- isotope js -->
-  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
-  <!-- custom js -->
-  <script src="../js/custom.js"></script>
-  
+
+
+    <!-- jQuery -->
+                <script src="../js/jquery-3.4.1.min.js"></script>
+                <!-- bootstrap js -->
+                <script src="../js/bootstrap.js"></script>
+                <!-- isotope js -->
+                <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+                <!-- custom js -->
+                <script src="../js/custom.js"></script>
+
 
 </body>
 
