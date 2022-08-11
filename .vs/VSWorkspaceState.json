@@ -5,12 +5,12 @@
     "\\FYP\\FYP",
     "\\FYP\\FYP\\FYP",
     "\\FYP\\FYP\\FYP\\controller",
-    "\\FYP\\FYP\\FYP\\ImageDB",
+    "\\FYP\\FYP\\FYP\\entity",
     "\\FYP\\FYP\\FYP\\static",
     "\\FYP\\FYP\\FYP\\static\\images",
     "\\FYP\\FYP\\FYP\\templates",
     "\\FYP\\FYP\\FYP\\Test"
   ],
-  "SelectedNode": "\\FYP\\FYP\\FYP\\controller\\FacialLoginController.py",
+  "SelectedNode": "\\FYP\\FYP\\runserver.py",
   "PreviewInSolutionExplorer": false
 }
