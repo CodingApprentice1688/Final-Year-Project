@@ -23,7 +23,7 @@ auth = firebase.auth()
 storage = firebase.storage()
 
 
-path = "data"
+
   
 all_files = storage.child("train/hugotan/").list_files() # get all file
 cnt = 0
