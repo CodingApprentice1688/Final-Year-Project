@@ -60,10 +60,10 @@ def extract_face(filename, required_size=(200, 200)):
 def validateImage():
     VideoCamera().capture_1_pic()
 
-    model = load_model("FYP/FYP/FYP/deeplearning/model/my_modelv5.h5")
+    model = load_model("FYP/deeplearning/model/my_modelv5.h5")
     model.summary()
     try:
-        result, pixels = extract_face('FYP/FYP/FYP/static/images/loginpic.jpg')
+        result, pixels = extract_face('FYP/static/images/loginpic.jpg')
     except:
         result = False
         pass
@@ -81,7 +81,7 @@ def validateImage():
     
         y_test = []
         i = 0
-        for subdir, dirs, files in os.walk("FYP/FYP/FYP/deeplearning/val"):
+        for subdir, dirs, files in os.walk("FYP/deeplearning/val"):
             if i == 0:
                 y_test = dirs
             i = 1

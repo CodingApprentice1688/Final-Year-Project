@@ -87,7 +87,7 @@ class VideoCamera(object):
 
     def capture_1_pic(self):
         return_value, image = self.video.read()
-        cv2.imwrite('FYP/FYP/FYP/static/images/loginpic.jpg', image)
+        cv2.imwrite('FYP/static/images/loginpic.jpg', image)
            
         self.video.release()
 
@@ -98,7 +98,7 @@ class VideoCamera(object):
             curr_time = time.time()
             return_value, image = self.video.read()
             if curr_time - last_recorded_time >= 0.3 and i < 25: 
-                cv2.imwrite('FYP/FYP/FYP/static/images/opencv'+str(i)+'.jpg', image)
+                cv2.imwrite('FYP/static/images/opencv'+str(i)+'.jpg', image)
                 last_recorded_time = curr_time
                 i = i + 1
             elif i >= 25:
