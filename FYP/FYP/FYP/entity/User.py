@@ -13,12 +13,10 @@ import MySQLdb.cursors
 class User:
     def registerPatient(name, nric, age, gender, username, password, role):
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    
-        ten = 0
-
-       # ('SELECT * FROM user where name LIKE %%s% AND role = % s', (name, pat, ))
+        
         cursor.execute ("INSERT INTO user (name, nric, age, gender, username, password, role) VALUES (% s, % s, % s, % s, % s, % s, % s)", (name, nric, age, gender, username, password, role, ))
         mysql.connection.commit()
+
     def validateLogin(username, password):
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM user WHERE username = % s AND password = % s', (username, password, ))
