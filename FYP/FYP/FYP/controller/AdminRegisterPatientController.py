@@ -6,6 +6,7 @@ from FYP.entity.Appointments import *
 from datetime import datetime, date
 from flask import render_template
 from FYP import mysql
+from FYP.camera import VideoCamera
 
 from flask import Flask,render_template, request, redirect, url_for, Response, session
 from flask_mysqldb import MySQL
@@ -35,6 +36,31 @@ def registerPatient():
     return render_template('AdminRegisterPatient.html', ten = ten)
 
 
+@app.route('/capture_25_pics', methods=["POST", "GET"])
+def capture_25_pics():
+    username = request.form['usernameb']
+    password = request.form['passwordb']
+    name = request.form['nameb']
+    nric = request.form['nricb']
+    age = request.form['ageb']
+    gender = request.form['genderb']
+    VideoCamera().capture_10_pics(username);
+    ten = 25
+    return render_template('AdminRegisterPatient.html', ten = ten, dform = "none", dcheck = "inline", dcheck1 = "none", submitb = "block", username = username,
+                               password = password, name = name, nric = nric, age = age, gender = gender)
+
+@app.route('/capture_one_pic', methods=["POST", "GET"])
+def capture_one_pic():
+    username = request.form['usernamea']
+    password = request.form['passworda']
+    name = request.form['namea']
+    nric = request.form['nrica']
+    age = request.form['agea']
+    gender = request.form['gendera']
+    VideoCamera().capture_one_pic(username);
+
+    return render_template('AdminRegisterPatient.html', ten = 0, dform = "none", dcheck = "inline", dcheck1 = "none", submitb = "block", username = username,
+                               password = password, name = name, nric = nric, age = age, gender = gender)
 #class AdminRegisterPatientController:
     
 

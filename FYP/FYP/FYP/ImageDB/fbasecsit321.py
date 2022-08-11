@@ -47,7 +47,7 @@ for file in all_files:
         path = "test"
         os.makedirs("FYP/deeplearning/" + path)
         continue    
-    if "train/" in file.name and ".jpg" not in file.name:
+    if "train/" in file.name and ".jpg" in file.name:
         path = file.name
 
 

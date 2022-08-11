@@ -455,7 +455,7 @@ def AdminRegisterPatient():
     """Renders the about page."""
     ten = 0
     return render_template(
-        'AdminRegisterPatient.html', ten = ten)
+        'AdminRegisterPatient.html', ten = ten, dform = "block", dcheck = "none", dcheck1 = "none", submitb = "none")
 
 #@app.route('/AdminRegisterPatientController', methods=['GET', 'POST'])
 #def AdminRegisterPatientController():
