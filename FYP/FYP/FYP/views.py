@@ -429,26 +429,26 @@ def capture_10_pics_change():
 
 
 
-@app.route('/AdminSearchPatient', methods=['GET', 'POST'])
-def AdminSearchPatient():
-    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    patient = 'patient'
-    cursor.execute('SELECT * FROM user where role = % s', (patient, ))
-    patient = cursor.fetchall()
+#@app.route('/AdminSearchPatient', methods=['GET', 'POST'])
+#def AdminSearchPatient():
+#    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+#    patient = 'patient'
+#    cursor.execute('SELECT * FROM user where role = % s', (patient, ))
+#    patient = cursor.fetchall()
     
-    """Renders the about page."""
-    return render_template(
-        'AdminSearchPatient.html', patient = patient)
+#    """Renders the about page."""
+#    return render_template(
+#        'AdminSearchPatient.html', patient = patient)
 
-@app.route('/AdminSearchPatientController', methods=['GET', 'POST'])
-def AdminSearchPatientController():
-    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    name = request.form['name']
-    pat = 'patient'
-   # ('SELECT * FROM user where name LIKE %%s% AND role = % s', (name, pat, ))
-    cursor.execute ("SELECT * FROM user WHERE name LIKE %s AND role = %s", ('%' + name + '%', pat, ))
-    patient = cursor.fetchall()
-    return render_template('AdminSearchPatient.html', patient = patient)
+#@app.route('/AdminSearchPatientController', methods=['GET', 'POST'])
+#def AdminSearchPatientController():
+#    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+#    name = request.form['name']
+#    pat = 'patient'
+#   # ('SELECT * FROM user where name LIKE %%s% AND role = % s', (name, pat, ))
+#    cursor.execute ("SELECT * FROM user WHERE name LIKE %s AND role = %s", ('%' + name + '%', pat, ))
+#    patient = cursor.fetchall()
+#    return render_template('AdminSearchPatient.html', patient = patient)
 
 @app.route('/AdminRegisterPatient')
 def AdminRegisterPatient():

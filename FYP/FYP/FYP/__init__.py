@@ -40,6 +40,7 @@ storage = firebase.storage()
 
 
 import FYP.views
+import FYP.controller.AdminSearchPatientController
 import FYP.controller.AdminRegisterPatientController
 import FYP.controller.AdminChangePatientCredentialsController
 import FYP.controller.PatientViewAppointmentController

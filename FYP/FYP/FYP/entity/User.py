@@ -121,3 +121,18 @@ class User:
         cursor.execute ("SELECT * FROM doctor WHERE dname LIKE %s", ('%' + name + '%', ) )
         doctor = cursor.fetchall()
         return (doctor)
+
+    def AdminSearchPatient(patient):
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        #cursor.execute('SELECT * FROM user where role = % s', patient)
+        param = { 'patient': patient }
+        query = """SELECT * FROM user where role = %(patient)s"""
+        cursor.execute(query, param)
+        patient = cursor.fetchall()
+        return (patient)
+
+    def AdminSearchPatientController(name, pat):
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute ("SELECT * FROM user WHERE name LIKE %s AND role = %s", ('%' + name + '%', pat, ))
+        patient = cursor.fetchall()
+        return (patient)
