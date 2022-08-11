@@ -14,7 +14,7 @@ import os
 import joblib
 import numpy as np
 import pandas as pd
-# import face_recognition
+import face_recognition
 from sklearn.model_selection import train_test_split
 
 
@@ -39,11 +39,11 @@ def DisplayPatientBMI():
 @app.route('/PatientBMIController', methods=['GET', 'POST'])
 def calculateBMI():
     VideoCamera().capture_1_pic()
-    rf_model = "FYP/FYP/FYP/deeplearning/model/rf_bmi_model_tuned"
+    rf_model = "FYP/deeplearning/model/rf_bmi_model_tuned"
     model = joblib.load(rf_model)
     
     if 'logged_in' in session: 
-        img_location = 'FYP/FYP/FYP/static/images/loginpic.jpg'
+        img_location = 'FYP/static/images/loginpic.jpg'
         preds = predict_bmi(img_location, model)
         bmifloat = round(preds[0], 1)
     return render_template('PatientBMI.html', bmifloat = bmifloat, showHidden = False)
