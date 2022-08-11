@@ -28,10 +28,6 @@ import MySQLdb.cursors
 
 
 
-
-
-
-
 def extract_face(filename, required_size=(200, 200)):
     # load image from file
     image = Image.open(filename)
@@ -40,17 +36,24 @@ def extract_face(filename, required_size=(200, 200)):
     # use MTCNN face detector to detect faces inside the image
     detector = MTCNN()
     results = detector.detect_faces(pixels)
-    x1, y1, width, height = results[0]['box']
-    # bug fix
-    x1, y1 = abs(x1), abs(y1)
-    x2, y2 = x1 + width, y1 + height
-    # extract the face
-    face = pixels[y1:y2, x1:x2]
-    # resize pixels to the model size
-    image = Image.fromarray(face)
-    image = image.resize(required_size)
-    face_array = asarray(image)
-    return face_array
+    if results:
+        x1, y1, width, height = results[0]['box']
+        # bug fix
+        x1, y1 = abs(x1), abs(y1)
+        x2, y2 = x1 + width, y1 + height
+        # extract the face
+        face = pixels[y1:y2, x1:x2]
+        # resize pixels to the model size
+        image = Image.fromarray(face)
+        image = image.resize(required_size)
+        face_array = asarray(image)
+        return True, face_array
+    else:
+        return
+
+
+
+
 
 
 @app.route('/FacialLoginController', methods=['POST', 'GET'])
@@ -59,44 +62,37 @@ def validateImage():
 
     model = load_model("FYP/FYP/FYP/deeplearning/model/my_modelv5.h5")
     model.summary()
-    pixels = extract_face('FYP/FYP/FYP/static/images/loginpic.jpg')
-    hello = []
-    pixels = pixels.astype('float32')
-    pixels = np.array(pixels)
-    hello.append(pixels)
-    hello = np.array(hello)
+    try:
+        result, pixels = extract_face('FYP/FYP/FYP/static/images/loginpic.jpg')
+    except:
+        result = False
+        pass
 
-    yhat=model.predict(hello)
-    #hello is the images, when u captures, the image will be store. 
 
-    #dirs stores in y_test
-    #in val we have all the folders 
-    #y_test is a array that contains the folder names 
-    # directory matches the order. of the list in hello
+    if result:
+        hello = []
+        pixels = pixels.astype('float32')
+        pixels = np.array(pixels)
+        hello.append(pixels)
+        hello = np.array(hello)
 
-    #User.py
+        yhat=model.predict(hello)
 
     
-    y_test = []
-    i = 0
-    for subdir, dirs, files in os.walk("FYP/FYP/FYP/deeplearning/val"):
-        if i == 0:
-            y_test = dirs
-        i = 1
+        y_test = []
+        i = 0
+        for subdir, dirs, files in os.walk("FYP/FYP/FYP/deeplearning/val"):
+            if i == 0:
+                y_test = dirs
+            i = 1
 
-    prediction_index = np.argmax(yhat, axis=None, out=None)
-    prediction = y_test[prediction_index]
+        prediction_index = np.argmax(yhat, axis=None, out=None)
+        prediction = y_test[prediction_index]
 
-    userL = User.getImageInfo(prediction)
-    if userL:
-        if userL['role'] == 'healthcare staff':
-            return redirect("/HealthcareStaff_Main")
-        if userL['role'] == 'patient':
-            return redirect("/Patient_Main")
-        if userL['role'] == 'IT admin':
-            return redirect("/Admin_Main") 
+        userL = User.getImageInfo(prediction)
+        return render_template('validation.html', userL = userL)
     else:
-        return render_template('login.html')
+         return render_template('login.html')
 
 #from keras.models import load_model
 

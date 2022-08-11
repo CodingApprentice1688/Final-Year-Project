@@ -84,3 +84,5 @@ class Appointments:
         cursor.execute('SELECT MAX(queue_number) AS queue_number FROM appointments')
         userB = cursor.fetchall()
         return (userA, userB)
+
+

@@ -84,8 +84,13 @@
                       <input type="hidden" class="form-control" name="username" id="username" value="{{ info.username }}" />
                   </div>
                   <div>
-                      <label>Vaccination Status: </label>
-                      <input type="text" class="form-control" name="vaccination_status" id="vaccination_status"  />
+                      <label>Vaccination Status(COVID-19): </label>
+                      <select name="vaccination_status" id="vaccination_status">
+                          <option value="Vaccinated">Vaccinated</option>
+                          <option value="Not Vaccinated">Not Vaccinated</option>
+
+                      </select>
+                      <!--<input type="text" class="form-control" name="vaccination_status" id="vaccination_status" /> -->
                   </div>
 
                   <div>

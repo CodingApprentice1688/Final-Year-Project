@@ -37,7 +37,7 @@
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="/Admin_Main">
+          <a class="navbar-brand" href="/Patient_Main">
             <span>
               Hospital
             </span>
@@ -88,19 +88,19 @@
             <div style="left:0%; position:relative;">
                 <img style="height:210px; width:210px;" src="../static/images/arrow.png" alt="">
             </div>
-        {% elif 18.5 <= bmifloat < 23: %}
+        {% elif 18.5 <= bmifloat < 25: %}
             <div style="left:20%; position:relative;">
                 <img style="height:210px; width:210px;" src="../static/images/arrow.png" alt="">
             </div>
-        {% elif 23 <= bmifloat < 25: %}
+        {% elif 25 <= bmifloat < 30: %}
             <div style="left:40%; position:relative;">
                 <img style="height:210px; width:210px;" src="../static/images/arrow.png" alt="">
             </div>
-        {% elif 25 <= bmifloat < 30: %}
+        {% elif 30 <= bmifloat < 35: %}
             <div style="left:60%; position:relative;">
                 <img style="height:210px; width:210px;" src="../static/images/arrow.png" alt="">
             </div>
-        {% elif bmifloat >= 30: %}
+        {% elif bmifloat >= 35: %}
             <div style="left:80%; position:relative;">
                 <img style="height:210px; width:210px;" src="../static/images/arrow.png" alt="">
             </div>

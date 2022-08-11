@@ -33,9 +33,24 @@ class User:
 
         else:
            return False, userL
+
+    def validateNRIC(nric):
+        if session['nric'] == nric:
+            return True, session
+        else:
+            session.pop('logged_in', None)
+            session.pop('username', None)
+            session.pop('name', None)
+            session.pop('nric', None)
+            session.pop('role_type', None)
+            return False, session
+
     def validateLogout():
         session.pop('logged_in', None)
         session.pop('username', None)
+        session.pop('name', None)
+        session.pop('nric', None)
+        session.pop('role_type', None)
         return render_template('login.html')
 
     #patient update personal details
@@ -91,3 +106,18 @@ class User:
         cursor.execute ("SELECT * FROM user WHERE name LIKE %s AND role = %s", ('%' + name + '%', pat, ))
         patient = cursor.fetchall()
         return (patient)
+
+    def StaffSearchDoctor(doctor):
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        #cursor.execute('SELECT * FROM user where role = % s', patient)
+        param = { 'doctor': doctor }
+        query = """SELECT * FROM doctor"""
+        cursor.execute(query, param)
+        doctor = cursor.fetchall()
+        return (doctor)
+
+    def StaffSearchDoctorController(name):
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute ("SELECT * FROM doctor WHERE dname LIKE %s", ('%' + name + '%', ) )
+        doctor = cursor.fetchall()
+        return (doctor)

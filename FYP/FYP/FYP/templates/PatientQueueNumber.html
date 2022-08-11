@@ -44,6 +44,14 @@
             document.getElementById("queueNumber").value = seq;
             ++seq;
         }
+        function enableButton() {
+            if (document.getElementById("displayQueueNumber").value == "") {
+                document.getElementById("submitBtn").disabled = true;
+            }
+            else {
+                document.getElementById("submitBtn").disabled = false;
+            }
+        }
     </script>
 
 </head>
@@ -80,18 +88,6 @@
     </div>
     <section class="form_section layout_padding">
         <div class="container">
-            <section class="queueNumber_section layout_padding2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 ">
-                            <div class="img-box">
-                                <img src="{{ url_for('video_feed') }}" />
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
             <div class="row">
                 <div class="col-md-6">
                     {% for queueNum in userA %}
@@ -100,7 +96,7 @@
                         <label>Appointment Reason: {{ queueNum.reason }}</label>
                         <br />
                         <label>Your Queue Number: </label>
-                        <input type="text" name="displayQueueNumber" id="displayQueueNumber" value={{ queueNum.queue_number }} />
+                        <input type="text" name="displayQueueNumber" id="displayQueueNumber" value={{ queueNum.queue_number }} onkeyup="enableButton()" />
                         <br />
                         <br />
                     </div>
@@ -125,7 +121,7 @@
                                 <input type="hidden" class="form-control" name="queueNumber" id="queueNumber" value="" />
                             </div>
                             <div class="btn_box">
-                                <button class="yellow-button" type="submit" name="submitBtn" id="submitBtn" onclick="getAllQueueNumber()">
+                                <button class="yellow-button" type="submit" name="submitBtn" id="submitBtn" onclick="getAllQueueNumber()" disabled>
                                     Get Queue Number Now
                                 </button>
                             </div>

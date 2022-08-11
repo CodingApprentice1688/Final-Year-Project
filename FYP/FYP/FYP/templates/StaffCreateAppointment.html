@@ -26,7 +26,8 @@
   <script>
     function feedback() {
         alert("New appointment is created!");
-    }
+      }
+      
   </script>
 
 </head>
@@ -73,57 +74,77 @@
           <div class="row">
             <div class="col-md-6">
             {% for info in patientX[:1] %}
-            <div class="form_container">
-                <form action="/StaffCreateAppointmentController" method="post" onsubmit="feedback()">
-                  <div>
-                    <label>Username: </label>
-                    <input type="text" class="form-control" name="username" id="username" value="{{ info.username }}" disabled />
-                    <input type="hidden" class="form-control" name="username" id="username" value="{{ info.username }}" />
-                  </div>
-                
-                  <div>
-                    <label>Name: </label>
-                    <input type="text" class="form-control" name="name" id="name" value="{{ info.name }}" disabled />
-                    <input type="hidden" class="form-control" name="name" id="name" value="{{ info.name }}" />
-                  </div>
-                  <div>
-                    <label>NRIC: </label>
-                    <input type="text" class="form-control" name="nric" id="nric" value="{{ info.nric }}" disabled />
-                    <input type="hidden" class="form-control" name="nric" id="nric" value="{{ info.nric }}" />
-                  </div>
-                  
-                  <div>
-                    <label>Appointment date: </label>
-                    <input type="date" class="form-control" name="date_slot" id="date_slot" />
-                  </div>
-                  
-                  <div>
-                    <label>Appointment time: </label>
-                    <input type="time" class="form-control" name="app_time" id="app_time" />
-                  </div>
-                  
+                <div class="form_container">
+                        <form action="/StaffCreateAppointmentController" method="post" onsubmit="feedback()">
+                        <div>
+                            <label>Username: </label>
+                            <input type="text" class="form-control" name="username" id="username" value="{{ info.username }}" disabled />
+                            <input type="hidden" class="form-control" name="username" id="username" value="{{ info.username }}" />
+                        </div>
 
-                  <div>
-                    <label>Department: </label>
-                    <input type="text" class="form-control" name="department" id="department" />
-                  </div>
-                  <div>
-                    <label>Attending physician: </label>
-                    <input type="text" class="form-control" name="doctor" id="doctor" />
-                  </div>
-                  <div>
-                    <label>Reason for visit: </label>
-                    <input type="text" class="form-control" name="reason" id="reason" />
-                  </div>
-                  
-                  <div class="btn_box">
-                    <button class="yellow-button" type="submit">
-                      Create Appointment
-                    </button>
-                  </div>
-                </form>
-                
-              </div>
+                        <div>
+                            <label>Name: </label>
+                            <input type="text" class="form-control" name="name" id="name" value="{{ info.name }}" disabled />
+                            <input type="hidden" class="form-control" name="name" id="name" value="{{ info.name }}" />
+                        </div>
+                        <div>
+                            <label>NRIC: </label>
+                            <input type="text" class="form-control" name="nric" id="nric" value="{{ info.nric }}" disabled />
+                            <input type="hidden" class="form-control" name="nric" id="nric" value="{{ info.nric }}" />
+                        </div>
+
+                        <div>
+                            <label>Appointment date: </label>
+                            <!-- <input type="date" class="form-control" name="date_slot" id="date_slot" /> -->
+                            <input type="date" class="form-control" name="_date" id="_date" value="{{ _date }}" disabled />
+                            <input type="hidden" class="form-control" name="_date" id="_date" value="{{ _date }}" />
+                        </div>
+
+                        <div>
+                            <label>Appointment time: </label>
+                            <!-- <select class="form-control" name="app_time" id="app_time">
+            <option value="9:00">Morning 9:00 ~ 12:00</option>
+            <option value="13:00">Afternoon 13:00 ~ 17:00</option>
+            <option value="18:00">Evening 18:00 ~ 22:00</option>
+        </select> -->
+                            <input type="text" class="form-control" name="starttime" id="starttime" value="{{ starttime }}" disabled />
+                            <input type="hidden" class="form-control" name="starttime" id="starttime" value="{{ starttime }}" />
+                        </div>
+
+
+                        <div>
+                            <label>Department: </label>
+                            <!-- <select class="form-control" name="department" id="department">
+            <option value="ENT">ENT</option>
+            <option value="Cardiology">Cardiology</option>
+            <option value="Dermatology">Dermatology</option>
+        </select> -->
+                            <input type="text" class="form-control" name="department" id="department" value="{{ department }}" disabled />
+                            <input type="hidden" class="form-control" name="department" id="department" value="{{ department }}" />
+                        </div>
+                        <div>
+                            <label>Attending physician: </label>
+                            <!-- <select class="form-control" name="doctor" id="doctor">
+            <option value="Greg Han">Greg Han</option>
+            <option value="Shin Tan">Shin Tan</option>
+            <option value="Stephen Strange">Stephen Strange</option>
+        </select> -->
+                            <input type="text" class="form-control" name="doctor" id="doctor" value="{{ doctor }}" disabled />
+                            <input type="hidden" class="form-control" name="doctor" id="doctor" value="{{ doctor }}" />
+                        </div>
+                        <div>
+                            <label>Reason for visit: </label>
+                            <input type="text" class="form-control" name="reason" id="reason" pattern="^[A-Za-z ]*$" title="Only alphabets" required />
+                        </div>
+
+                        <div class="btn_box">
+                            <button class="yellow-button" type="submit">
+                                Create Appointment
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
               {% endfor %}
             </div>
           </div>
