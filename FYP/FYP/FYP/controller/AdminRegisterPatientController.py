@@ -52,10 +52,10 @@ def registerPatient():
     password = request.form['passwordh']
     role = 'patient'
 
-    hs = open('FYP/deeplearning/model/patientlist.txt', "a")
-    hs.write(username)
-    hs.write("\n")
-    hs.close() 
+    #hs = open('FYP/deeplearning/model/patientlist.txt', "a")
+    #hs.write(username)
+    #hs.write("\n")
+    #hs.close() 
     
     User.registerPatient(name, nric, age, gender, username, password, role)
     return redirect('/Admin_Main')
