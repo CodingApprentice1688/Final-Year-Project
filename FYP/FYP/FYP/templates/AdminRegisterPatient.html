@@ -30,116 +30,188 @@
 
 <body class="sub_page">
 
-  <div class="hero_area">
-    <div class="bg-box">
-      <img src="../static/images/hero-bg.jpg" alt="">
-    </div>
-    <header class="header_section">
-      <div class="container">
-        <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="/Admin_Main">
-            <span>
-              Hospital
-            </span>
-          </a>
-
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav  mx-auto no-bullets" style="padding-left:700px; padding-top:15px;">
-              
-              <li class="nav-item">
-                  <a class="nav-link" onclick="window.location.href='/LogoutController'">Log Out</a>
-                
-              </li>
-            </ul>
-            
-          </div>
-        </nav>
-      </div>
-    </header>
-  </div>
-  <div class="container">
-  <div class-"heading_container heading_center" style="text-align:center; padding-top:50px;">
-    <h1 style="padding-bottom:15px;">
-        Register Patient
-    </h1>
-    <div>
-        <img src="{{ url_for('video_feed') }}"/>
-    </div>
-    <form action="{{ url_for('capture_10_pics') }}">
-        <div style="padding-bottom:15px;">
-            <button class="yellow-button" type="submit">Capture</button>
+    <div class="hero_area">
+        <div class="bg-box">
+            <img src="../static/images/hero-bg.jpg" alt="">
         </div>
-    </form>
-      <div style="padding-bottom:30px">
-        {% for i in range(ten) %}
-            <img src="../static/images/opencv{{i}}.jpg" style="width: 150px; length: 150px;">
-        {%endfor%}
-      </div>
-      <h2 style="padding-bottom:0px">
-        Personal Details
-    </h2>
-  </div>
-  </div>
-      <section class="form_section layout_padding">
+        <header class="header_section">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg custom_nav-container ">
+                    <a class="navbar-brand" href="/Admin_Main">
+                        <span>
+                            Hospital
+                        </span>
+                    </a>
+
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav  mx-auto no-bullets" style="padding-left:700px; padding-top:15px;">
+
+                            <li class="nav-item">
+                                <a class="nav-link" onclick="window.location.href='/LogoutController'">Log Out</a>
+
+                            </li>
+                        </ul>
+
+                    </div>
+                </nav>
+            </div>
+        </header>
+    </div>
+    <section class="form_section layout_padding">
+        <div class-"heading_container heading_center" style="text-align:center;">
+            <h1 style="padding-bottom:15px;">
+                Register Patient
+            </h1>
+        </div>
         <div class="container">
-        <div class="col-md-6">
-        <div class="form_container">
+            <div class="col-md-6">
+                <div class="form_container">
+                    <h2 style="padding-bottom:0px">
+                        Step 1: Enter Personal Details
+                        <img src="../static/images/check.png" id="checkmark" style="display:{{ dcheck }}; width:20px; height:20px;" />
+                    </h2>
+                    <hr />
+                    <div id="formdetail" style="display:{{ dform }};">
+                        <div>
+                            <label>Username: </label>
+                            <input type="text" class="form-control" name="username" id="username" placeholder="Username" />
+                        </div>
+                        <div>
+                            <label>Password: </label>
+                            <input type="text" class="form-control" name="password" id="password" placeholder="Password" />
+                        </div>
+                        <div>
+                            <label>Name: </label>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Name" />
+                        </div>
+                        <div>
+                            <label>NRIC: </label>
+                            <input type="text" class="form-control" name="nric" id="nric" placeholder="NRIC" />
+                        </div>
+                        <div>
+                            <label>Age: </label>
+                            <input type="text" class="form-control" name="age" id="age" placeholder="Age" />
+                        </div>
+                        <div>
+                            <label>Gender: </label>
+                            <input type="text" class="form-control" name="gender" id="gender" placeholder="Gender" />
+                        </div>
+
+                        <div class="btn_box">
+                            <button type="button" class="yellow-button" onclick="hideDiv()">
+                                Save Changes
+                            </button>
+                        </div>
+                        <div class="btn_box">
+                            <button type="button" class="yellow-button" onclick="">
+                                Discard Changes
+                            </button>
+                        </div>
+                    </div>
+                    <h2 style="padding-top:20px; padding-bottom:0px;">
+                        Step 2: Capture Images
+                        <img src="../static/images/check.png" id="checkmark1" style="display:{{ dcheck1 }}; width:20px; height:20px;" />
+                    </h2>
+                    <hr />
+                    <div id="frame" style="display:{{ dcheck }};">
+                        <div>
+                            <img src="{{ url_for('video_feed') }}" />
+                        </div>
+                        <form action="{{ url_for('capture_one_pic') }}" method="post">
+                            <input type="hidden" id="usernamea" name="usernamea" />
+                            <input type="hidden" id="passworda" name="passworda" />
+                            <input type="hidden" id="namea" name="namea" />
+                            <input type="hidden" id="nrica" name="nrica" />
+                            <input type="hidden" id="agea" name="agea" />
+                            <input type="hidden" id="gendera" name="gendera" />
+                            <button type="submit" class="yellow-button">Capture</button>
+                        </form>
+                        <form action="{{ url_for('capture_25_pics') }}" method="post">
+                            <div style="padding-bottom:15px;">
+                                <input type="hidden" id="usernameb" name="usernameb" value="{{username}}" />
+                                <input type="hidden" id="passwordb" name="passwordb" value="{{password}}" />
+                                <input type="hidden" id="nameb" name="nameb" value="{{name}}" />
+                                <input type="hidden" id="nricb" name="nricb" value="{{nric}}" />
+                                <input type="hidden" id="ageb" name="ageb" value="{{age}}" />
+                                <input type="hidden" id="genderb" name="genderb" value="{{gender}}" />
+                                <button class="yellow-button" type="submit">Facial Recognition</button>
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <div class-"heading_container heading_center" style="text-align:left; padding-top:20px;">
+            <div id="imagestw">
+                {% for i in range(ten) %}
+                <img src="../static/temp/{{i}}{{username}}.jpg" style="width: 150px; length: 150px;">
+                {%endfor%}
+            </div>
             <form method="post" action="/AdminRegisterPatientController">
-                <div>
-                    <label>Name: </label>
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Name" />
+                <input type="hidden" id="usernameh" name="usernameh" value="{{username}}" />
+                <input type="hidden" id="passwordh" name="passwordh" value="{{password}}" />
+                <input type="hidden" id="nameh" name="nameh" value="{{name}}" />
+                <input type="hidden" id="nrich" name="nrich" value="{{nric}}" />
+                <input type="hidden" id="ageh" name="ageh" value="{{age}}" />
+                <input type="hidden" id="genderh" name="genderh" value="{{gender}}" />
+                <div style="display:{{submitb}}" id="doneDiv">
+                    <button class="yellow-button" type="button" onclick="showSubmit()">Done</button>
                 </div>
-                <div>
-                    <label>NRIC: </label>
-                    <input type="text" class="form-control" name="nric" id="nric" placeholder="NRIC" />
-                </div>
-                <div>
-                    <label>Age: </label>
-                    <input type="text" class="form-control" name="age" id="age" placeholder="Age" />
-                </div>
-                <div>
-                    <label>Gender: </label>
-                    <input type="text" class="form-control" name="gender" id="gender" placeholder="Gender" />
-                </div>
-                <div>
-                    <label>Username: </label>
-                    <input type="text" class="form-control" name="username" id="username" placeholder="Username" />
-                </div>
-                <div>
-                    <label>Password: </label>
-                    <input type="text" class="form-control" name="password" id="password" placeholder="Password" />
-                </div>
-                <div class="btn_box">
-                    <button class="yellow-button" type="submit">
-                        Save Changes
-                    </button>
-                </div>
-                <div class="btn_box">
-                    <button class="yellow-button" onclick="">
-                        Discard Changes
-                    </button>
+                <div id="submitDiv" style="display:{{dcheck1}};">
+                    <button class="yellow-button" type="submit">Submit Form</button>
                 </div>
             </form>
         </div>
-        </div>
-        </div>
-        </section>
-  
+    </div>
 
-  
 
-  
 
-  <!-- jQuery -->
-  <!-- <script src="js/jquery-3.4.1.min.js"></script> -->
-  <!-- bootstrap js -->
-  <script src="../static/scripts/js/bootstrap.js"></script>
-  <!-- isotope js -->
-  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
-  <!-- custom js -->
-  <!-- <script src="js/custom.js"></script> -->
-  
+
+
+
+
+    <!-- jQuery -->
+    <!-- <script src="js/jquery-3.4.1.min.js"></script> -->
+    <!-- bootstrap js -->
+    <script src="../static/scripts/js/bootstrap.js"></script>
+    <!-- isotope js -->
+    <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+    <script>
+        function hideDiv() {
+            document.getElementById('formdetail').style.display = "none";
+            document.getElementById('checkmark').style.display = "inline";
+            document.getElementById('frame').style.display = "inline";
+
+            document.getElementById('usernamea').value = document.getElementById('username').value;
+            document.getElementById('passworda').value = document.getElementById('password').value;
+            document.getElementById('namea').value = document.getElementById('name').value;
+            document.getElementById('nrica').value = document.getElementById('nric').value;
+            document.getElementById('agea').value = document.getElementById('age').value;
+            document.getElementById('gendera').value = document.getElementById('gender').value;
+
+            document.getElementById('usernameb').value = document.getElementById('username').value;
+            document.getElementById('passwordb').value = document.getElementById('password').value;
+            document.getElementById('nameb').value = document.getElementById('name').value;
+            document.getElementById('nricb').value = document.getElementById('nric').value;
+            document.getElementById('ageb').value = document.getElementById('age').value;
+            document.getElementById('genderb').value = document.getElementById('gender').value;
+        }
+        function showSubmit() {
+            document.getElementById('frame').style.display = "none";
+            document.getElementById('checkmark1').style.display = "inline";
+            document.getElementById('submitDiv').style.display = "block";
+            document.getElementById('doneDiv').style.display = "none";
+            document.getElementById('imagestw').style.display = "none";
+        }
+    </script>
+    <!-- custom js -->
+    <!-- <script src="js/custom.js"></script> -->
+
 
 </body>
 

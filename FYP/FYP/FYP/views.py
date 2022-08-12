@@ -450,12 +450,12 @@ def capture_10_pics_change():
 #    patient = cursor.fetchall()
 #    return render_template('AdminSearchPatient.html', patient = patient)
 
-@app.route('/AdminRegisterPatient')
-def AdminRegisterPatient():
-    """Renders the about page."""
-    ten = 0
-    return render_template(
-        'AdminRegisterPatient.html', ten = ten)
+#@app.route('/AdminRegisterPatient')
+#def AdminRegisterPatient():
+#    """Renders the about page."""
+#    ten = 0
+#    return render_template(
+#        'AdminRegisterPatient.html', ten = ten, dform = "block", dcheck = "none", dcheck1 = "none", submitb = "none")
 
 #@app.route('/AdminRegisterPatientController', methods=['GET', 'POST'])
 #def AdminRegisterPatientController():

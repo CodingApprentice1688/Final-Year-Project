@@ -12,5 +12,20 @@ import MySQLdb.cursors
 @app.route('/LogoutController')
 def validateLogout():
     User.validateLogout();
-    shutil.rmtree("FYP/static/patientimages")
+    try:
+        shutil.rmtree("FYP/static/patientimages")
+    except:
+        pass
+    try:
+        shutil.rmtree("FYP/static/doctorimages")
+    except:
+        pass
+    try:
+        shutil.rmtree("FYP/static/temp")
+    except:
+        pass
+    try:
+        shutil.rmtree("FYP/static/pati")
+    except:
+        pass
     return render_template('login.html')
