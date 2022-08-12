@@ -4,3 +4,5 @@ C:\Users\leong\source\repos\csci321_fyp\FYP\FYP\obj\Any CPU\Debug\FYP.pyproj.Sug
 C:\Users\leong\source\repos\csci321_fyp\FYP\FYP\obj\Any CPU\Debug\FYP.pyproj.CoreCompileInputs.cache
 C:\Users\user\source\repos\csci321_fyp\FYP\FYP\obj\Any CPU\Debug\FYP.pyproj.SuggestedBindingRedirects.cache
 C:\Users\user\source\repos\csci321_fyp\FYP\FYP\obj\Any CPU\Debug\FYP.pyproj.CoreCompileInputs.cache
+C:\Users\morgan\source\repos\csci321_fyp\FYP\FYP\obj\Any CPU\Debug\FYP.pyproj.SuggestedBindingRedirects.cache
+C:\Users\morgan\source\repos\csci321_fyp\FYP\FYP\obj\Any CPU\Debug\FYP.pyproj.CoreCompileInputs.cache
