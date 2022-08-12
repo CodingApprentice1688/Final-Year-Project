@@ -17,14 +17,12 @@ def StaffSearchDoctorController():
     all_files = storage.list_files() # get all file
     cnt = 0
     path = "doctorimages"
+    try:
+        os.makedirs("FYP/static/" + path)
+    except:
+        pass
     for file in all_files:
-        if file.name == "doctor/":
-            try:
-                os.makedirs("FYP/static/" + path)
-            except:
-                pass
-            continue
-        if "doctor/" in file.name:
+        if "doctor/" in file.name and file.name != "doctor/":
             joinedpath = os.path.join("FYP/static/", path)
             file.download_to_filename(joinedpath+"/"+str(file.name[file.name.find('/'):]))
             cnt = cnt + 1

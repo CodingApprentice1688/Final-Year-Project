@@ -1,7 +1,16 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\FYP",
+    "\\FYP\\FYP",
+    "\\FYP\\FYP\\FYP",
+    "\\FYP\\FYP\\FYP\\ImageDB",
+    "\\FYP\\FYP\\FYP\\static",
+    "\\FYP\\FYP\\FYP\\static\\images",
+    "\\FYP\\FYP\\FYP\\templates",
+    "\\FYP\\FYP\\FYP\\Test",
+    "\\FYP\\FYP\\obj"
   ],
-  "SelectedNode": "\\FYP.sln",
+  "SelectedNode": "\\FYP\\UpgradeLog.htm",
   "PreviewInSolutionExplorer": false
 }
