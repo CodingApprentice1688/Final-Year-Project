@@ -70,6 +70,7 @@ def capture_25_pics():
     age = request.form['ageb']
     gender = request.form['genderb']
     VideoCamera().capture_10_pics(username);
+    
     ten = 25
     return render_template('AdminRegisterPatient.html', ten = ten, dform = "none", dcheck = "inline", dcheck1 = "none", submitb = "block", username = username,
                                password = password, name = name, nric = nric, age = age, gender = gender)
@@ -83,7 +84,7 @@ def capture_one_pic():
     age = request.form['agea']
     gender = request.form['gendera']
     VideoCamera().capture_one_pic(username);
-
+    #VideoCamera().get_frame(username, "one");
     return render_template('AdminRegisterPatient.html', ten = 0, dform = "none", dcheck = "inline", dcheck1 = "none", submitb = "block", username = username,
                                password = password, name = name, nric = nric, age = age, gender = gender)
 #class AdminRegisterPatientController:

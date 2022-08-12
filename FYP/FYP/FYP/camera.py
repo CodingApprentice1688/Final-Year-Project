@@ -5,20 +5,20 @@ import time
 import os
 
 
-WHITE = [255, 255, 255]
-face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalcatface.xml')
-eye_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_eye.xml')
+#WHITE = [255, 255, 255]
+#face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalcatface.xml')
+#eye_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_eye.xml')
 
 
-def draw_box(Image, x, y, w, h):
-    cv2.line(Image, (x, y), (x + int(w / 5), y), WHITE, 2)
-    cv2.line(Image, (x + int((w / 5) * 4), y), (x + w, y), WHITE, 2)
-    cv2.line(Image, (x, y), (x, y + int(h / 5)), WHITE, 2)
-    cv2.line(Image, (x + w, y), (x + w, y + int(h / 5)), WHITE, 2)
-    cv2.line(Image, (x, (y + int(h / 5 * 4))), (x, y + h), WHITE, 2)
-    cv2.line(Image, (x, (y + h)), (x + int(w / 5), y + h), WHITE, 2)
-    cv2.line(Image, (x + int((w / 5) * 4), y + h), (x + w, y + h), WHITE, 2)
-    cv2.line(Image, (x + w, (y + int(h / 5 * 4))), (x + w, y + h), WHITE, 2)
+#def draw_box(Image, x, y, w, h):
+#    cv2.line(Image, (x, y), (x + int(w / 5), y), WHITE, 2)
+#    cv2.line(Image, (x + int((w / 5) * 4), y), (x + w, y), WHITE, 2)
+#    cv2.line(Image, (x, y), (x, y + int(h / 5)), WHITE, 2)
+#    cv2.line(Image, (x + w, y), (x + w, y + int(h / 5)), WHITE, 2)
+#    cv2.line(Image, (x, (y + int(h / 5 * 4))), (x, y + h), WHITE, 2)
+#    cv2.line(Image, (x, (y + h)), (x + int(w / 5), y + h), WHITE, 2)
+#    cv2.line(Image, (x + int((w / 5) * 4), y + h), (x + w, y + h), WHITE, 2)
+#    cv2.line(Image, (x + w, (y + int(h / 5 * 4))), (x + w, y + h), WHITE, 2)
 
 
 class VideoCamera(object):
@@ -72,8 +72,10 @@ class VideoCamera(object):
        
         #oswaldo's comment
         if success == True:
-
-            image = detector.findFaces(image)
+            try:
+                image = detector.findFaces(image)
+            except:
+                pass
             #results = detector.detect_faces(image)
             #if results:
             #    x1, y1, width, height = results[0]['box']
@@ -85,12 +87,15 @@ class VideoCamera(object):
             
             if ret == True:
                 return jpeg.tobytes()
+        self.video.release()
+        cv2.destroyAllWindows()
 
     def capture_1_pic(self):
         return_value, image = self.video.read()
         cv2.imwrite('FYP/static/images/loginpic.jpg', image)
            
         self.video.release()
+        cv2.destroyAllWindows()
 
     def capture_one_pic(self, username):
         path = "pati"
@@ -101,6 +106,8 @@ class VideoCamera(object):
 
         return_value, image = self.video.read()
         cv2.imwrite('FYP/static/pati/' + str(username) + '.jpg', image)
+        self.video.release()
+        cv2.destroyAllWindows()
            
 
     def capture_10_pics(self, username):
@@ -121,6 +128,8 @@ class VideoCamera(object):
                 i = i + 1
             elif i >= 25:
                 break
+        self.video.release()
+        cv2.destroyAllWindows()
 
         #last_recorded_time = time.time()
         #for i in range(1000):
