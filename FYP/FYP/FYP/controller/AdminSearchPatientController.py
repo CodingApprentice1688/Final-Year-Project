@@ -17,14 +17,12 @@ def AdminSearchPatient():
     all_files = storage.list_files() # get all file
     cnt = 0
     path = "patientimages"
+    try:
+        os.makedirs("FYP/static/" + path)
+    except:
+        pass
     for file in all_files:
-        if file.name == "patient/":
-            try:
-                os.makedirs("FYP/static/" + path)
-            except:
-                pass
-            continue
-        if "patient/" in file.name:
+        if "patient/" in file.name and file.name != "patient/":
             joinedpath = os.path.join("FYP/static/", path)
             file.download_to_filename(joinedpath+"/"+str(file.name[file.name.find('/'):]))
             cnt = cnt + 1
