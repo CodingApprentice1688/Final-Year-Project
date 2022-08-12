@@ -4,22 +4,13 @@
     "\\FYP",
     "\\FYP\\FYP",
     "\\FYP\\FYP\\FYP",
-<<<<<<< HEAD
     "\\FYP\\FYP\\FYP\\ImageDB",
     "\\FYP\\FYP\\FYP\\static",
     "\\FYP\\FYP\\FYP\\static\\images",
     "\\FYP\\FYP\\FYP\\templates",
     "\\FYP\\FYP\\FYP\\Test",
     "\\FYP\\FYP\\obj"
-=======
-    "\\FYP\\FYP\\FYP\\controller",
-    "\\FYP\\FYP\\FYP\\entity",
-    "\\FYP\\FYP\\FYP\\static",
-    "\\FYP\\FYP\\FYP\\static\\images",
-    "\\FYP\\FYP\\FYP\\templates",
-    "\\FYP\\FYP\\FYP\\Test"
->>>>>>> d29118d8cc89b15a8c90623852484b9c0bec4bcc
   ],
-  "SelectedNode": "\\FYP\\FYP\\FYP\\controller\\FacialLoginController.py",
+  "SelectedNode": "\\FYP\\UpgradeLog.htm",
   "PreviewInSolutionExplorer": false
 }
