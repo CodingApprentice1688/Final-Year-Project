@@ -15,7 +15,6 @@ import MySQLdb.cursors
 @app.route('/StaffSearchDoctorController', methods=['GET', 'POST'])
 def StaffSearchDoctorController():
     all_files = storage.list_files() # get all file
-    cnt = 0
     path = "doctorimages"
     try:
         os.makedirs("FYP/static/" + path)
@@ -25,7 +24,7 @@ def StaffSearchDoctorController():
         if "doctor/" in file.name and file.name != "doctor/":
             joinedpath = os.path.join("FYP/static/", path)
             file.download_to_filename(joinedpath+"/"+str(file.name[file.name.find('/'):]))
-            cnt = cnt + 1
+         
 
     patientX = session["patientX"]  ##
     session['patientX'] = patientX  ##

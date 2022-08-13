@@ -21,7 +21,7 @@ def StaffSearchPatientController():
         return render_template('StaffSearchPatient.html', patient = patient)
     else:
         all_files = storage.list_files() # get all file
-        cnt = 0
+      
         path = "patientimages"
         try:
             os.makedirs("FYP/static/" + path)
@@ -31,7 +31,7 @@ def StaffSearchPatientController():
             if "patient/" in file.name and file.name != "patient/":
                 joinedpath = os.path.join("FYP/static/", path)
                 file.download_to_filename(joinedpath+"/"+str(file.name[file.name.find('/'):]))
-                cnt = cnt + 1
+               
         patient = 'patient'
         patient = User.StaffSearchPatient(patient)
         return render_template('StaffSearchPatient.html', patient = patient)
