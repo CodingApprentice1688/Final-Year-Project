@@ -61,7 +61,6 @@ def validateImage():
     VideoCamera().capture_1_pic()
 
     model = load_model("FYP/deeplearning/model/my_model_final.h5")
-    model.summary()
     try:
         result, pixels = extract_face('FYP/static/images/loginpic.jpg')
     except:
@@ -82,9 +81,6 @@ def validateImage():
   
         # reading the file
         data = my_file.read()
-  
-        # replacing end splitting the text 
-        # when newline ('\n') is seen.
         y_test = data.split("\n")
         y_test.sort()
         my_file.close()

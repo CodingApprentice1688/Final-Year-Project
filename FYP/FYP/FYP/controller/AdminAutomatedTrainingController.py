@@ -113,6 +113,18 @@ def automatedTrain():
     x_train, y_train = obtain_train_test_dataset("FYP/deeplearning/train")
     x_test, y_test = obtain_train_test_dataset("FYP/deeplearning/val")
 
+    hahaa = list(set(y_test.tolist()))
+    hahaa.sort()
+
+    with open('FYP/deeplearning/model/patientlist.txt', 'w+') as f:
+        for items in hahaa:
+            if items == hahaa[-1]:
+                f.write('%s' %items)
+            else:
+                f.write('%s\n' %items)
+ 
+    f.close()
+
     label_encoder = LabelEncoder()
     y_train = label_encoder.fit_transform(y_train)
     y_test = label_encoder.fit_transform(y_test)
@@ -121,10 +133,10 @@ def automatedTrain():
 
     
 
-    model = load_model('FYP/deeplearning/model/my_model_final.h5')
+    model = load_model('FYP/deeplearning/model/my_model_mock.h5')
     model.pop()
     model.layers[0].trainable=False
-    model.add(Dense(len(np.unique(y_train)), activation="softmax"))
+    model.add(Dense(len(hahaa), activation="softmax"))
 
     model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
     callback = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=10)
@@ -132,7 +144,7 @@ def automatedTrain():
     model.fit(x_train, y_train, epochs=30, batch_size=64, validation_data=(x_test, y_test),
                        callbacks=[callback])
 
-    model.save("FYP/deeplearning/model/my_model_final_v1.h5")
+    model.save("FYP/deeplearning/model/my_model_mock.h5")
 
     return render_template('AdminAutomatedTraining.html')
 
