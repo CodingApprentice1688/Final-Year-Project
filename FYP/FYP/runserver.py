@@ -1,5 +1,5 @@
 """
-This script runs the FYP application using a development server.
+This script runs the FYP application using a development server. open as a folder not .sln 
 """
 
 from os import environ
