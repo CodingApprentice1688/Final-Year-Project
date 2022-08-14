@@ -73,41 +73,43 @@
                     </h2>
                     <hr />
                     <div id="formdetail" style="display:{{ dform }};">
-                        <div>
-                            <label>Username: </label>
-                            <input type="text" class="form-control" name="username" id="username" placeholder="Username" />
-                        </div>
-                        <div>
-                            <label>Password: </label>
-                            <input type="text" class="form-control" name="password" id="password" placeholder="Password" />
-                        </div>
-                        <div>
-                            <label>Name: </label>
-                            <input type="text" class="form-control" name="name" id="name" placeholder="Name" />
-                        </div>
-                        <div>
-                            <label>NRIC: </label>
-                            <input type="text" class="form-control" name="nric" id="nric" placeholder="NRIC" />
-                        </div>
-                        <div>
-                            <label>Age: </label>
-                            <input type="text" class="form-control" name="age" id="age" placeholder="Age" />
-                        </div>
-                        <div>
-                            <label>Gender: </label>
-                            <input type="text" class="form-control" name="gender" id="gender" placeholder="Gender" />
-                        </div>
+                        <form>
+                            <div>
+                                <label>Username: </label>
+                                <input type="text" class="form-control" name="username" id="username" placeholder="Username" />
+                            </div>
+                            <div>
+                                <label>Password: </label>
+                                <input type="text" class="form-control" name="password" id="password" placeholder="Password" />
+                            </div>
+                            <div>
+                                <label>Name: </label>
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Name" />
+                            </div>
+                            <div>
+                                <label>NRIC: </label>
+                                <input type="text" class="form-control" name="nric" id="nric" placeholder="NRIC" />
+                            </div>
+                            <div>
+                                <label>Age: </label>
+                                <input type="text" class="form-control" name="age" id="age" placeholder="Age" />
+                            </div>
+                            <div>
+                                <label>Gender: </label>
+                                <input type="text" class="form-control" name="gender" id="gender" placeholder="Gender" />
+                            </div>
 
-                        <div class="btn_box">
-                            <button type="button" class="yellow-button" onclick="hideDiv()">
-                                Save Changes
-                            </button>
-                        </div>
-                        <div class="btn_box">
-                            <button type="button" class="yellow-button" onclick="">
-                                Discard Changes
-                            </button>
-                        </div>
+                            <div class="btn_box">
+                                <button type="button" class="yellow-button" onclick="hideDiv()">
+                                    Save Changes
+                                </button>
+                            </div>
+                            <div class="btn_box">
+                                <button type="button" class="yellow-button" onclick="">
+                                    Discard Changes
+                                </button>
+                            </div>
+                        </form>
                     </div>
                     <h2 style="padding-top:20px; padding-bottom:0px;">
                         Step 2: Capture Images
@@ -119,12 +121,12 @@
                             <img src="{{ url_for('video_feed') }}" />
                         </div>
                         <form action="{{ url_for('capture_one_pic') }}" method="post">
-                            <input type="hidden" id="usernamea" name="usernamea" />
-                            <input type="hidden" id="passworda" name="passworda" />
-                            <input type="hidden" id="namea" name="namea" />
-                            <input type="hidden" id="nrica" name="nrica" />
-                            <input type="hidden" id="agea" name="agea" />
-                            <input type="hidden" id="gendera" name="gendera" />
+                            <input type="hidden" id="usernamea" name="usernamea" value="{{username}}"/>
+                            <input type="hidden" id="passworda" name="passworda" value="{{password}}"/>
+                            <input type="hidden" id="namea" name="namea" value="{{name}}"/>
+                            <input type="hidden" id="nrica" name="nrica" value="{{nric}}"/>
+                            <input type="hidden" id="agea" name="agea" value="{{age}}"/>
+                            <input type="hidden" id="gendera" name="gendera" value="{{gender}}"/>
                             <button type="submit" class="yellow-button">Capture</button>
                         </form>
                         <form action="{{ url_for('capture_25_pics') }}" method="post">

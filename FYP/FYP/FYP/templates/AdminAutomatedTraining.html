@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="../static/images/favicon.png" type="">
+
+    <title> Hospital </title>
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="../static/content/bootstrap.css" />
+
+
+    <!-- Custom styles for this template -->
+    <link href="../static/content/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="../static/content/responsive.css" rel="stylesheet" />
+
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="../static/images/hero-bg.jpg" alt="">
+    </div>
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="/Admin_Main">
+            <span>
+              Hospital
+            </span>
+          </a>
+
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  mx-auto no-bullets" style="padding-left:700px; padding-top:15px;">
+              
+              <li class="nav-item">
+                  <a class="nav-link" onclick="window.location.href='/LogoutController'">Log Out</a>
+                
+              </li>
+            </ul>
+            
+          </div>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <section class="image_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+          <h1>
+              Model Training
+          </h1>
+      </div>
+      <div class="heading_container heading_center">
+          <h3>
+              Please press this button to download all the images from Firebase to local directory:
+          </h3>
+          <form method="post" action="/AdminDownloadImagesController">
+              <div class="btn_box">
+                  <button class="yellow-button" type="submit">
+                      Download
+                  </button>
+              </div>
+          </form>
+          <h3>
+              Please press this button to train the model:
+          </h3>
+          <form method="post" action="/AdminAutomatedTrainingController">
+              <div class="btn_box">
+                  <button class="yellow-button" type="submit">
+                      Train Model
+                  </button>
+              </div>
+          </form>
+
+      </div>
+      <br/>
+      <br/>
+
+      
+    </div>
+  </section>
+  <span id="displayYear"></span>
+
+  
+
+  <!-- jQuery -->
+  <script src="../static/scripts/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="../static/scripts/bootstrap.js"></script>
+  <!-- isotope js -->
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <!-- custom js -->
+  <script src="../static/scripts/custom.js"></script>
+ 
+
+</body>
+
+</html>

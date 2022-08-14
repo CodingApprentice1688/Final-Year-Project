@@ -15,7 +15,7 @@ import MySQLdb.cursors
 @app.route('/AdminSearchPatient', methods=['GET', 'POST'])
 def AdminSearchPatient():
     all_files = storage.list_files() # get all file
-    cnt = 0
+ 
     path = "patientimages"
     try:
         os.makedirs("FYP/static/" + path)
@@ -25,7 +25,7 @@ def AdminSearchPatient():
         if "patient/" in file.name and file.name != "patient/":
             joinedpath = os.path.join("FYP/static/", path)
             file.download_to_filename(joinedpath+"/"+str(file.name[file.name.find('/'):]))
-            cnt = cnt + 1
+         
             
     pat = 'patient'
 
