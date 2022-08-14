@@ -121,7 +121,7 @@ def automatedTrain():
 
     
 
-    model = load_model('FYP/deeplearning/model/my_model.h5')
+    model = load_model('FYP/deeplearning/model/my_model_final.h5')
     model.pop()
     model.layers[0].trainable=False
     model.add(Dense(len(np.unique(y_train)), activation="softmax"))
@@ -132,7 +132,7 @@ def automatedTrain():
     model.fit(x_train, y_train, epochs=30, batch_size=64, validation_data=(x_test, y_test),
                        callbacks=[callback])
 
-    model.save("FYP/deeplearning/model/my_model.h5")
+    model.save("FYP/deeplearning/model/my_model_final_v1.h5")
 
     return render_template('AdminAutomatedTraining.html')
 

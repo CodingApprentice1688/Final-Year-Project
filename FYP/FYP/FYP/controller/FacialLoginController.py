@@ -60,7 +60,7 @@ def extract_face(filename, required_size=(200, 200)):
 def validateImage():
     VideoCamera().capture_1_pic()
 
-    model = load_model("FYP/deeplearning/model/my_modelv5.h5")
+    model = load_model("FYP/deeplearning/model/my_model_final.h5")
     model.summary()
     try:
         result, pixels = extract_face('FYP/static/images/loginpic.jpg')
@@ -78,13 +78,18 @@ def validateImage():
 
         yhat=model.predict(hello)
 
-    
-        y_test = []
-        i = 0
-        for subdir, dirs, files in os.walk("FYP/deeplearning/val"):
-            if i == 0:
-                y_test = dirs
-            i = 1
+        my_file = open("FYP/deeplearning/model/patientlist.txt", "r")
+  
+        # reading the file
+        data = my_file.read()
+  
+        # replacing end splitting the text 
+        # when newline ('\n') is seen.
+        y_test = data.split("\n")
+        y_test.sort()
+        my_file.close()
+
+        app.logger.info(y_test)
 
         prediction_index = np.argmax(yhat, axis=None, out=None)
         prediction = y_test[prediction_index]
