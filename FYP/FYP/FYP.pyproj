@@ -32,6 +32,7 @@
   <ItemGroup>
     <Compile Include="FYP\camera.py" />
     <Compile Include="FYP\controller\FacialLoginController.py" />
+    <Compile Include="FYP\controller\AdminAutomatedTrainingController.py" />
     <Compile Include="FYP\controller\LoginController.py" />
     <Compile Include="FYP\controller\LogoutController.py">
       <SubType>Code</SubType>
@@ -46,6 +47,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FYP\ImageDB\firebase_storeImage.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FYP\ImageDB\try_dlib.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FYP\Test\admin_test_1.py">
@@ -126,6 +130,8 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
+    <InterpreterReference Include="CondaEnv|CondaEnv|Anaconda3" />
+    <InterpreterReference Include="Global|ContinuumAnalytics|Anaconda39-64" />
     <InterpreterReference Include="Global|PythonCore|3.9" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />

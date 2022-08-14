@@ -121,12 +121,12 @@
                             <img src="{{ url_for('video_feed') }}" />
                         </div>
                         <form action="{{ url_for('capture_one_pic') }}" method="post">
-                            <input type="hidden" id="usernamea" name="usernamea" />
-                            <input type="hidden" id="passworda" name="passworda" />
-                            <input type="hidden" id="namea" name="namea" />
-                            <input type="hidden" id="nrica" name="nrica" />
-                            <input type="hidden" id="agea" name="agea" />
-                            <input type="hidden" id="gendera" name="gendera" />
+                            <input type="hidden" id="usernamea" name="usernamea" value="{{username}}"/>
+                            <input type="hidden" id="passworda" name="passworda" value="{{password}}"/>
+                            <input type="hidden" id="namea" name="namea" value="{{name}}"/>
+                            <input type="hidden" id="nrica" name="nrica" value="{{nric}}"/>
+                            <input type="hidden" id="agea" name="agea" value="{{age}}"/>
+                            <input type="hidden" id="gendera" name="gendera" value="{{gender}}"/>
                             <button type="submit" class="yellow-button">Capture</button>
                         </form>
                         <form action="{{ url_for('capture_25_pics') }}" method="post">
