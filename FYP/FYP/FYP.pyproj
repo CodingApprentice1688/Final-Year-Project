@@ -87,9 +87,6 @@
     <Content Include="FYP\ImageDB\dummy_text1.txt" />
     <Content Include="FYP\templates\PatientQueueNumber.html" />
     <Content Include="FYP\templates\login.html" />
-    <Content Include="FYP\templates\logout.html">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="FYP\templates\StaffCreateAppointment.html" />
     <Content Include="FYP\templates\StaffCreateMedicalRecord.html" />
     <Content Include="FYP\templates\StaffSearchPatient.html" />
