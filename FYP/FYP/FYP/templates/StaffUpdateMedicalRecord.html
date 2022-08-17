@@ -92,8 +92,17 @@
                   <div>
                       <label>Vaccination Status: </label>
                       <select class="form-control" name="vaccination_status" id="vaccination_status">
-                          <option value="Vaccinated">Vaccinated</option>
-                          <option value="Not Vaccinated">Not Vaccinated</option>
+                          <option value="{{ info.vaccination_status }}">{{ info.vaccination_status }}</option>
+                          if({{ info.vaccination_status }} = "Not Vaccinated")
+                          {
+                            <option value="Vaccinated">Vaccinated</option>
+                          }
+                          if({{ info.vaccination_status }} = "Vaccinated")
+                          {
+                            <option value="Not Vaccinated">Not Vaccinated</option>
+                          }
+
+                          
 
                       </select>
                      <!-- <input type="text" class="form-control" name="vaccination_status" id="vaccination_status" value="{{ info.vaccination_status }}" />-->
