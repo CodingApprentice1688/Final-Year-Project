@@ -1,6 +1,7 @@
 from FYP import app
 from FYP.entity.User import *
 from FYP.entity.Appointments import *
+from FYP.entity.Doctor import *
 from datetime import datetime, date
 from flask import render_template
 from FYP import mysql
@@ -31,7 +32,7 @@ def StaffSearchDoctorController():
 
     if request.method == "POST":
         name = request.form['name']
-        doctor = User.StaffSearchDoctorController(name)
+        doctor = Doctor.StaffSearchDoctorController(name)
         return render_template('StaffSearchDoctor.html', doctor = doctor, patientX = patientX)
     else:
         
