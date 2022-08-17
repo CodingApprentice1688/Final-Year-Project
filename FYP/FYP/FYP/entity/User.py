@@ -114,11 +114,7 @@ class User:
         doctor = cursor.fetchall()
         return (doctor)
 
-    def StaffSearchDoctorController(name):
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute ("SELECT * FROM doctor WHERE dname LIKE %s", ('%' + name + '%', ) )
-        doctor = cursor.fetchall()
-        return (doctor)
+    
 
     def AdminSearchPatient(patient):
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
