@@ -93,10 +93,10 @@
                     {% for queueNum in userA %}
                     <div>
                         <!--<label> ( Warning: Once button is clicked, the button would be disabled ! ) </label>-->
-                        <label>Appointment Reason: {{ queueNum.reason }}</label>
+                        <h2>Appointment Reason: {{ queueNum.reason }}</h2>
                         <br />
-                        <label>Your Queue Number: </label>
-                        <input type="text" name="displayQueueNumber" id="displayQueueNumber" value={{ queueNum.queue_number }} onkeyup="enableButton()" />
+                        <h1>Your Queue Number: </h1>
+                        <input class="form-control" type="text" name="displayQueueNumber" id="displayQueueNumber" value={{ queueNum.queue_number }} onkeyup="enableButton()" />
                         <br />
                         <br />
                     </div>
@@ -120,19 +120,25 @@
                             <div>
                                 <input type="hidden" class="form-control" name="queueNumber" id="queueNumber" value="" />
                             </div>
+                            {% for quu in userA %}
                             <div class="btn_box">
-                                <button class="yellow-button" type="submit" name="submitBtn" id="submitBtn" onclick="getAllQueueNumber()" disabled>
+                                {% if quu.queue_number == 0 %}
+                                <button class="yellow-button" type="submit" name="submitBtn" id="submitBtn" onclick="getAllQueueNumber();">
                                     Get Queue Number Now
                                 </button>
+                                {% endif %}
                             </div>
+                            {% endfor %}
                         </form>
                     </div>
                 </div>
             </div>
             <div class="btn_box">
-                <button class="yellow-button" onclick="Previous()">
-                    Back
-                </button>
+                <form action="/Patient_Main">
+                    <button class="yellow-button" type="submit">
+                        Back
+                    </button>
+                </form>
             </div>
         </div>
     </section>

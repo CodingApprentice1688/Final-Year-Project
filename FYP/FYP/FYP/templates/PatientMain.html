@@ -56,94 +56,99 @@
   </div>
 
   <section class="image_section layout_padding">
-    <div class="container">
-      <div class="heading_container heading_center">
-          <h1>
-              Welcome, {{ userA['name'] }}!
-          </h1>
-      </div>
-     <div class="row grid">
-        <div class="col-sm-8 col-lg-4 all">
-        </div>
-          <a href="/PatientBMI">
-            <div class="col-sm-8 col-lg-4 all">
-              <div class="box">
-                <div>
-                  <div class="img-box">
-                    <img src="../static/images/bmi.png" alt="">
-                  </div>
-                  <div class="detail-box">
-                    <h4 style="padding-top:0px;">
-                      Calculate Your BMI
-                    </h4>
-                  </div>
-                </div>
-              </div>
+      <div class="container">
+          <div class="heading_container heading_center">
+              <h1>
+                  Welcome, {{ userA['name'] }}!
+              </h1>
+          </div>
+          <div class="heading_container heading_center">
+              <h3>
+                  You can check your BMI here:
+              </h3>
             </div>
-          </a>
-        </div>
-      <div class="heading_container heading_center">
-        <h3>
-          Please select one of the following to perform a task:
-        </h3>
-      </div>
-      <br/>
-      <br/>
-        <div class="row grid">
-          <a href="/PatientViewAppointmentController">
-            <div class="col-sm-6 col-lg-4 all">
-              <div class="box">
-                <div>
-                  <div class="img-box">
-                    <img src="../static/images/appointment.jpg" alt="">
+              <div class="row grid">
+                  <div class="col-sm-8 col-lg-4 all">
                   </div>
-                  <div class="detail-box">
-                    <h4 style="padding-top:0px;">
-                      View Appointments
-                    </h4>
-                  </div>
-                </div>
+                  <a href="/PatientBMI">
+                      <div class="col-sm-8 col-lg-4 all">
+                          <div class="box">
+                              <div>
+                                  <div class="img-box">
+                                      <img src="../static/images/bmi.png" alt="">
+                                  </div>
+                                  <div class="detail-box">
+                                      <h4 style="padding-top:0px;">
+                                          Calculate Your BMI
+                                      </h4>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </a>
               </div>
-            </div>
-          </a>
-          
-          <a href="/PatientQueueNumber">
-            <div class="col-sm-6 col-lg-4 all">
-              <div class="box">
-                <div>
-                  <div class="img-box">
-                    <img src="../static/images/queue.png" alt="">
-                  </div>
-                  <div class="detail-box">
-                    <h4 style="padding-top:0px;">
-                      Take Queue Number
-                    </h4>
-                  </div>
-                </div>
+              <div class="heading_container heading_center">
+                  <h3>
+                      Please select one of the following to perform a task:
+                  </h3>
               </div>
-            </div>
-          </a>
+              <br />
+              <br />
+              <div class="row grid">
+                  <a href="/PatientViewAppointmentController">
+                      <div class="col-sm-6 col-lg-4 all">
+                          <div class="box">
+                              <div>
+                                  <div class="img-box">
+                                      <img src="../static/images/appointment.jpg" alt="">
+                                  </div>
+                                  <div class="detail-box">
+                                      <h4 style="padding-top:0px;">
+                                          View Appointments
+                                      </h4>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </a>
+
+                  <a href="/PatientQueueNumber">
+                      <div class="col-sm-6 col-lg-4 all">
+                          <div class="box">
+                              <div>
+                                  <div class="img-box">
+                                      <img src="../static/images/queue.png" alt="">
+                                  </div>
+                                  <div class="detail-box">
+                                      <h4 style="padding-top:0px;">
+                                          Take Queue Number
+                                      </h4>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </a>
 
 
-          <a href="/PatientUpdatePersonalDetail">
-            <div class="col-sm-6 col-lg-4 all">
-              <div class="box">
-                <div>
-                  <div class="img-box">
-                    <img src="../static/images/edit.png" alt="">
-                  </div>
-                  <div class="detail-box">
-                    <h4 style="padding-top:0px;">
-                      View and Edit Profile
-                    </h4>
-                  </div>
-                </div>
+                  <a href="/PatientUpdatePersonalDetail">
+                      <div class="col-sm-6 col-lg-4 all">
+                          <div class="box">
+                              <div>
+                                  <div class="img-box">
+                                      <img src="../static/images/edit.png" alt="">
+                                  </div>
+                                  <div class="detail-box">
+                                      <h4 style="padding-top:0px;">
+                                          View and Edit Profile
+                                      </h4>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </a>
               </div>
-            </div>
-          </a>
-        </div>
-    </div>
-  </section>
+          </div>
+</section>
   <span id="displayYear"></span>
 
   
