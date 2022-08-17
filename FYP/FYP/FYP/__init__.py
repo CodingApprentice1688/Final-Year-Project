@@ -43,6 +43,7 @@ import FYP.views
 import FYP.controller.AdminSearchPatientController
 import FYP.controller.AdminRegisterPatientController
 import FYP.controller.AdminChangePatientCredentialsController
+import FYP.controller.AdminChangePatientImageController
 import FYP.controller.AdminAutomatedTrainingController
 import FYP.controller.PatientViewAppointmentController
 import FYP.controller.PatientCancelAppointmentController
