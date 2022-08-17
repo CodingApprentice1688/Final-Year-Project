@@ -123,17 +123,17 @@
                         </p>
                         <div class="options">
                           
-                         <form action="{{ url_for('AdminChangePatientCredentials') }}" method="post">
-                             <input type="hidden" name="username" value="{{ pati['username'] }}">
-                             <input type="hidden" name="nric" value="{{ pati['nric'] }}">
+                         <form action="/AdminChangePatientCredentials" method="post">
+                             <input type="hidden" name="username" id="username" value="{{ pati['username'] }}">
+                             <input type="hidden" name="nric" id="nric" value="{{ pati['nric'] }}">
                               <button class="yellow-button-small" type="submit">
                                 Change Credentials
                               </button>
                         </form>
 
-                        <form action="{{ url_for('AdminChangePatientImage') }}" method="post">
-                        <input type="hidden" name="username" value="{{ pati['username'] }}">
-                         <input type="hidden" name="nric" value="{{ pati['nric'] }}">
+                        <form action="/AdminChangePatientImage" method="post">
+                        <input type="hidden" name="usernamea" id="usernamea" value="{{ pati['username'] }}">
+                         <input type="hidden" name="nrica" id="nrica" value="{{ pati['nric'] }}">
                           <button class="yellow-button-small" type="submit">
                             Update Images
                           </button>

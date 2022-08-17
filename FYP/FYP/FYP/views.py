@@ -475,10 +475,10 @@ def capture_10_pics_change():
 #    return render_template('AdminRegisterPatient.html', ten = ten)
 
 
-@app.route('/AdminChangePatientImage',  methods=['GET', 'POST'])
-def AdminChangePatientImage():
-    """Renders the about page."""
-    ten = 0
-    allow = 'none'
-    return render_template(
-        'AdminChangePatientImage.html', ten = ten, allow = allow)
+#@app.route('/AdminChangePatientImage',  methods=['GET', 'POST'])
+#def AdminChangePatientImage():
+#    """Renders the about page."""
+#    ten = 0
+#    allow = 'none'
+#    return render_template(
+#        'AdminChangePatientImage.html', ten = ten, allow = allow)

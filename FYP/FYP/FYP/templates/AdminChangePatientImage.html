@@ -60,42 +60,34 @@
     </header>
   </div>
   <div class="container">
-  <div class-"heading_container heading_center" style="text-align:center; padding-top:50px;">
-    <h1 style="padding-bottom:15px;">
-        Change Patient's Images
-    </h1>
-    <div>
-        <img src="{{ url_for('video_feed') }}"/>
-    </div>
-    <form action="{{ url_for('change_one_pic') }}" method="post">
-        <input type="hidden" id="usernamea" name="usernamea" value="{{username}}" />
-        <input type="hidden" id="passworda" name="passworda" value="{{password}}" />
-        <input type="hidden" id="namea" name="namea" value="{{name}}" />
-        <input type="hidden" id="nrica" name="nrica" value="{{nric}}" />
-        <input type="hidden" id="agea" name="agea" value="{{age}}" />
-        <input type="hidden" id="gendera" name="gendera" value="{{gender}}" />
-        <button type="submit" class="yellow-button">Capture one</button>
-    </form>
-    <form action="{{ url_for('change_25_pics') }}" method="post">
-        <div style="padding-bottom:15px;">
-            <input type="hidden" id="usernameb" name="usernameb" value="{{username}}" />
-            <input type="hidden" id="passwordb" name="passwordb" value="{{password}}" />
-            <input type="hidden" id="nameb" name="nameb" value="{{name}}" />
-            <input type="hidden" id="nricb" name="nricb" value="{{nric}}" />
-            <input type="hidden" id="ageb" name="ageb" value="{{age}}" />
-            <input type="hidden" id="genderb" name="genderb" value="{{gender}}" />
-            <button class="yellow-button" type="submit">Change to New Pictures</button>
-        </div>
-    </form>
-      <div style="padding-bottom:30px">
-        {% for i in range(ten) %}
-            <img src="../static/images/opencv{{i}}.jpg" style="width: 150px; height: 150px;">
-        {%endfor%}
+      <div class-"heading_container heading_center" style="text-align:center; padding-top:50px;">
+          <h1 style="padding-bottom:15px;">
+              Change Patient's Images
+          </h1>
+          <div>
+              <img src="{{ url_for('video_feed') }}" />
+          </div>
+          <form action="/change_one_pic" method="post">
+              <input type="hidden" id="username" name="username" value="{{username}}" />
+              <button type="submit" class="yellow-button">Capture one</button>
+          </form>
+          <form action="/change_25_pics" method="post">
+              <div style="padding-bottom:15px;">
+                  <input type="hidden" id="usernameb" name="usernameb" value="{{username}}" />
+                  <button class="yellow-button" type="submit">Change to New Pictures</button>
+              </div>
+          </form>
+          <div style="padding-bottom:30px">
+              {% for i in range(ten) %}
+              <img src="../static/temp/{{i}}{{username}}.jpg" style="width: 150px; length: 150px;">
+              {%endfor%}
+          </div>
+          <form method="post" action="/AdminChangePatientImageController">
+              <div id="jklm" style="display:{{allow}};">
+                  <button class="yellow-button" type="submit">Submit</button>
+              </div>
+        </form>
       </div>
-      <div id="jklm" style="display:{{allow}};">
-        <button class="yellow-button" href="/AdminChangePatientImage">Submit</button>
-      </div>
-  </div>
   </div>
   
 
