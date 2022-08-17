@@ -42,13 +42,32 @@ def AdminChangePatientCredentials():
 
 
 
-@app.route('/capture_25_pics', methods=["POST", "GET"])
-def AdminChangePatientImages():
+@app.route('/change_25_pics', methods=["POST", "GET"])
+def change_25_pics():
     username = request.form['usernameb']
+    password = request.form['passwordb']
+    name = request.form['nameb']
+    nric = request.form['nricb']
+    age = request.form['ageb']
+    gender = request.form['genderb']
     VideoCamera().capture_10_pics(username);
+    
+    ten = 25
+    return render_template('AdminChangePatientImage.html', ten = ten, dform = "none", dcheck = "inline", dcheck1 = "none", submitb = "block", username = username,
+                               password = password, name = name, nric = nric, age = age, gender = gender)
 
-    return render_template(
-        'AdminChangePatientImage.html', userA = userA)
+@app.route('/change_one_pic', methods=["POST", "GET"])
+def change_one_pic():
+    username = request.form['usernamea']
+    password = request.form['passworda']
+    name = request.form['namea']
+    nric = request.form['nrica']
+    age = request.form['agea']
+    gender = request.form['gendera']
+    VideoCamera().capture_one_pic(username);
+    #VideoCamera().get_frame(username, "one");
+    return render_template('AdminChangePatientImage.html', ten = 0, dform = "none", dcheck = "inline", dcheck1 = "none", submitb = "block", username = username,
+                               password = password, name = name, nric = nric, age = age, gender = gender)
 
 
 
