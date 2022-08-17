@@ -96,7 +96,11 @@
                             </div>
                             <div>
                                 <label>Gender: </label>
-                                <input type="text" class="form-control" name="gender" id="gender" placeholder="Gender" required/>
+                                <select class="form-control" name="gender" id="gender">
+                                    <option value="Male" selected>Male</option>
+                                    <option value="Female">Female</option>
+
+                                </select>
                             </div>
 
                             <div class="btn_box">
@@ -116,16 +120,18 @@
                             <img src="{{ url_for('video_feed') }}" />
                         </div>
                         <form action="{{ url_for('capture_one_pic') }}" method="post">
-                            <input type="hidden" id="usernamea" name="usernamea" value="{{username}}"/>
-                            <input type="hidden" id="passworda" name="passworda" value="{{password}}"/>
-                            <input type="hidden" id="namea" name="namea" value="{{name}}"/>
-                            <input type="hidden" id="nrica" name="nrica" value="{{nric}}"/>
-                            <input type="hidden" id="agea" name="agea" value="{{age}}"/>
-                            <input type="hidden" id="gendera" name="gendera" value="{{gender}}"/>
+                            <h4>Press this button to capture the patient's image</h4>
+                            <input type="hidden" id="usernamea" name="usernamea" value="{{username}}" />
+                            <input type="hidden" id="passworda" name="passworda" value="{{password}}" />
+                            <input type="hidden" id="namea" name="namea" value="{{name}}" />
+                            <input type="hidden" id="nrica" name="nrica" value="{{nric}}" />
+                            <input type="hidden" id="agea" name="agea" value="{{age}}" />
+                            <input type="hidden" id="gendera" name="gendera" value="{{gender}}" />
                             <button type="submit" class="yellow-button">Capture</button>
                         </form>
                         <form action="{{ url_for('capture_25_pics') }}" method="post">
                             <div style="padding-bottom:15px;">
+                                <h4>Press this button if the patient wants to use facial recognition</h4>
                                 <input type="hidden" id="usernameb" name="usernameb" value="{{username}}" />
                                 <input type="hidden" id="passwordb" name="passwordb" value="{{password}}" />
                                 <input type="hidden" id="nameb" name="nameb" value="{{name}}" />

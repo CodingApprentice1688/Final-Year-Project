@@ -75,7 +75,7 @@
                 <form  action="/StaffCreateMedicalRecordController" method="post" onsubmit="feedback()">
                   <div>
                       <label>Appointment ID: </label>
-                      <input type="text" class="form-control" name="appointment_id" id="appointment_id"/>
+                      <input type="number" class="form-control" name="appointment_id" id="appointment_id" required/>
                   </div>
 
                   <div>
@@ -86,7 +86,7 @@
                   <div>
                       <label>COVID Vaccination Status: </label>
                       <select class="form-control" name="vaccination_status" id="vaccination_status">
-                          <option value="Vaccinated">Vaccinated</option>
+                          <option value="Vaccinated" selected>Vaccinated</option>
                           <option value="Not Vaccinated">Not Vaccinated</option>
 
                       </select>
@@ -95,27 +95,27 @@
 
                   <div>
                       <label>Blood Pressure: </label>
-                      <input type="text" class="form-control" name="blood_pressure" id="blood_pressure" />
+                      <input type="text" class="form-control" name="blood_pressure" id="blood_pressure" required/>
                   </div>
                   <div>
                       <label>Temperature: </label>
-                      <input type="text" class="form-control" name="temperature" id="temperature" />
+                      <input type="text" class="form-control" name="temperature" id="temperature" required/>
                   </div>
                   <div>
-                      <label>Heart Rate: : </label>
-                      <input type="text" class="form-control" name="heart_rate" id="heart_rate" />
+                      <label>Heart Rate: </label>
+                      <input type="text" class="form-control" name="heart_rate" id="heart_rate" required/>
                   </div>
                   <div>
                       <label>Allergies: </label>
-                      <input type="text" class="form-control" name="allergies" id="allergies" />
+                      <input type="text" class="form-control" name="allergies" id="allergies" required/>
                   </div>
                   <div>
                     <label>Medicine: </label>
-                    <input type="text" class="form-control" name="medicine" id="medicine" />
+                    <input type="text" class="form-control" name="medicine" id="medicine" required/>
                   </div>
                   <div>
                     <label>Diagnosis: </label>
-                    <input type="textarea" class="form-control" name="diagnosis" id="diagnosis" />
+                    <input type="textarea" class="form-control" name="diagnosis" id="diagnosis" required/>
                   </div>
                   <div class="btn_box">
                       <button class="yellow-button">
