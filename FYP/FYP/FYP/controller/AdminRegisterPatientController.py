@@ -57,6 +57,21 @@ def registerPatient():
     return redirect('/Admin_Main')
 
 
+@app.route('/AdminRetainFormValue', methods=['POST', 'GET'])
+def adminRetainForm():
+    username = request.form['username']
+    password = request.form['password']
+    name = request.form['name']
+    nric = request.form['nric']
+    age = request.form['age']
+    gender = request.form['gender']
+    ten = 0
+    return render_template(
+        'AdminRegisterPatient.html', ten = ten, dform = "none", dcheck = "inline", dcheck1 = "none", submitb = "none", username = username,
+                               password = password, name = name, nric = nric, age = age, gender = gender)
+
+
+
 @app.route('/capture_25_pics', methods=["POST", "GET"])
 def capture_25_pics():
     username = request.form['usernameb']
