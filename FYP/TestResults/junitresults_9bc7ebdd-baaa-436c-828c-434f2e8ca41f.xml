@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="0.392" timestamp="2022-07-05T18:55:59.253211" hostname="DESKTOP-UCRF95V"><testcase classname="FYP.Test.test_Patient.test_patient" name="test_Login" file="FYP\Test\test_Patient.py" line="22" time="0.022"><system-out>--------------------------------- Captured Log ---------------------------------
-
---------------------------------- Captured Out ---------------------------------
-
-</system-out><system-err>--------------------------------- Captured Err ---------------------------------
-
-</system-err></testcase></testsuite></testsuites>

@@ -1,9 +1,6 @@
 dicky
 jonathan
-<<<<<<< HEAD
-=======
 kingslee
 leongwenling
 morgan
 oswaldo
->>>>>>> 82fcd142c23383f55ad8105ceeab95102b98895f

@@ -116,6 +116,9 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form_container">
+                        {% if not userA %}
+                        <h1>You don't have any appointments today!'</h1>
+                        {% endif %}
                         <form method="post" action="/PatientQueueNumberController">
                             <div>
                                 <input type="hidden" class="form-control" name="queueNumber" id="queueNumber" value="" />
