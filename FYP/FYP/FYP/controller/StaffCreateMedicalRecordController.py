@@ -25,7 +25,7 @@ def StaffCreateMedicalRecordController():
         diagnosis = request.form['diagnosis']
         MedicalRecords.StaffCreateMedicalRecord(appointment_id, username, vaccination_status, blood_pressure, temperature, heart_rate, allergies, medicine, diagnosis)
         patientY = session["patientY"]
-        return render_template('StaffCreateMedicalRecord.html', patientY = patientY)
+        return redirect('/HealthcareStaff_Main')
     else:
         patientY = session["patientY"]  ##
         return render_template('StaffCreateMedicalRecord.html', patientY = patientY)

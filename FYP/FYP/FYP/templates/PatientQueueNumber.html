@@ -96,7 +96,7 @@
                         <h2>Appointment Reason: {{ queueNum.reason }}</h2>
                         <br />
                         <h1>Your Queue Number: </h1>
-                        <input class="form-control" type="text" name="displayQueueNumber" id="displayQueueNumber" value={{ queueNum.queue_number }} onkeyup="enableButton()" />
+                        <input class="form-control" type="text" name="displayQueueNumber" id="displayQueueNumber" value={{ queueNum.queue_number }} onkeyup="enableButton()" readonly/>
                         <br />
                         <br />
                     </div>
@@ -117,7 +117,7 @@
                 <div class="col-md-6">
                     <div class="form_container">
                         {% if not userA %}
-                        <h1>You don't have any appointments today!'</h1>
+                        <h1>You don't have any appointments today!</h1>
                         {% endif %}
                         <form method="post" action="/PatientQueueNumberController">
                             <div>

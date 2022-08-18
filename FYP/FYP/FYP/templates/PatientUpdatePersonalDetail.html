@@ -83,12 +83,12 @@
                         <form method="post" action="/PatientUpdatePersonalDetailController">
                             <div>
                                 <label>Name: </label>
-                                <input type="text" class="form-control" name="namedisabled" id="namedisabled" value = "{{ personalDetail.name }}" disabled/>
+                                <input type="text" class="form-control" name="namedisabled" id="namedisabled" value = "{{ personalDetail.name }}" readonly/>
                                 <input type="hidden" class="form-control" name="name" id="name" value="{{ personalDetail.name }}" />
                             </div>
                             <div>
                                 <label>NRIC: </label>
-                                <input type="text" class="form-control" name="nricdisabled" id="nricdisabled" value={{ personalDetail.nric }} disabled/>
+                                <input type="text" class="form-control" name="nricdisabled" id="nricdisabled" value={{ personalDetail.nric }} readonly/>
                                 <input type="hidden" class="form-control" name="nric" id="nric" value={{ personalDetail.nric }} />
                             </div>
                             <div>
@@ -97,7 +97,7 @@
                             </div>
                             <div>
                                 <label>Gender: </label>
-                                <input type="text" class="form-control" name="gender" id="gender" value={{ personalDetail.gender }} disabled/>
+                                <input type="text" class="form-control" name="gender" id="gender" value={{ personalDetail.gender }} readonly/>
                             </div>
                             <div>
                                 <label>Username: </label>

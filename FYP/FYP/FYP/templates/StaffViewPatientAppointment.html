@@ -85,6 +85,7 @@
               {% for appointment in userA %}
               <div class="menubox">
                 <div class="detail-box">
+                  <p>Appointment ID: {{ appointment.appointment_id }}</p>
                   <p>Patient: {{ appointment['name'] }}</p>
                   <p>NRIC: {{ appointment.nric }}</p>
                   <p>Date of visit : {{ appointment.date_slot }}</p>
@@ -101,15 +102,16 @@
               <h2 style="text-align: center">Past Appointments</h2>
               {% for pastAppointment in userB %}
               <div class="menubox">
-                <div class="detail-box">
-                  <p>Patient: {{ pastAppointment['name'] }}</p>
-                  <p>NRIC: {{ pastAppointment.nric }}</p>
-                  <p>Date of visit : {{ pastAppointment.date_slot }}</p>
-                  <p>Time of visit : {{ pastAppointment.app_time }}</p>
-                  <p>Reason of visit : {{ pastAppointment.reason }}</p>
-                  <p>Department: {{ pastAppointment.department }}</p>
-                  <p>Attending Doctor: {{ pastAppointment.attending }}</p>
-                </div>
+                  <div class="detail-box">
+                      <p>Appointment ID: {{ pastAppointment.appointment_id }}</p>
+                      <p>Patient: {{ pastAppointment['name'] }}</p>
+                      <p>NRIC: {{ pastAppointment.nric }}</p>
+                      <p>Date of visit : {{ pastAppointment.date_slot }}</p>
+                      <p>Time of visit : {{ pastAppointment.app_time }}</p>
+                      <p>Reason of visit : {{ pastAppointment.reason }}</p>
+                      <p>Department: {{ pastAppointment.department }}</p>
+                      <p>Attending Doctor: {{ pastAppointment.attending }}</p>
+                  </div>
               </div>
               {% endfor %}
 
