@@ -2,11 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\FYP",
+    "\\FYP\\deeplearning",
+    "\\FYP\\entity",
     "\\FYP\\static",
     "\\FYP\\static\\content",
     "\\FYP\\static\\images",
     "\\FYP\\templates"
   ],
-  "SelectedNode": "\\FYP\\templates\\login.html",
+  "SelectedNode": "\\FYP.pyproj",
   "PreviewInSolutionExplorer": false
 }
