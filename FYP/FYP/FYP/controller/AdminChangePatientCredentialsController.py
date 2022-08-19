@@ -22,7 +22,7 @@ def AdminChangePatientCredentials():
     userA = User.getPatientCreds(nric)
     """Renders the about page."""
     return render_template(
-        'AdminChangePatientCredentials.html', userA = userA, error = '')
+        'AdminChangePatientCredentials.html', userA = userA)
 
 
 @app.route('/AdminChangePatientCredentialsController',  methods=['GET', 'POST'])
@@ -33,11 +33,12 @@ def adminUpdatePersonalDetails():
     gender = request.form['gender']
     username = request.form['username']
     password = request.form['password']
+    currusername = request.form['currusername']
 
-    userA = User.updatePersonalDetail(name, nric, age, gender, username, password, 'admin')
+    userA, error = User.updatePersonalDetail(name, nric, age, gender, username, password, currusername)
     """Renders the about page."""
     return render_template(
-        'AdminChangePatientCredentials.html', userA = userA, error = '')
+        'AdminChangePatientCredentials.html', userA = userA, error = error)
 
 
 

@@ -59,24 +59,24 @@ class User:
         userA = cursor.fetchall()
         return (userA)
 
-    def updatePersonalDetail(name, nric, age, gender, username, password, page):
+    def updatePersonalDetail(name, nric, age, gender, username, password, currusername):
 
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT username FROM user WHERE username = % s', (username, ))
+        cursor.execute('SELECT * FROM user WHERE username = % s', (username, ))
         existingUsername = cursor.fetchall()
 
-        if existingUsername:
+        if not existingUsername or currusername == username:
             cursor.execute('UPDATE user SET name = % s, nric = % s, age = % s, gender = % s, username = % s, password = % s WHERE nric = % s' , (name, nric, age, gender, username, password, nric, ))
             mysql.connection.commit()
+            cursor.execute('SELECT * FROM user WHERE nric = % s', (nric, ))
+            userA = cursor.fetchall()
+            return userA, ''
         else:
             error = 'The username is taken, please enter another one!'
-            if page == 'admin':
-                return render_template('AdminChangePatientCredentials.html', userA = existingUsername, error = error)
-            elif page == 'patient':
-                return render_template('PatientUpdatePersonalDetail.html', userA = existingUsername, error = error)
-        cursor.execute('SELECT * FROM user WHERE nric = % s', (nric, ))
-        userA = cursor.fetchall()
-        return (userA)
+            cursor.execute('SELECT * FROM user WHERE nric = % s', (nric, ))
+            userB = cursor.fetchall()
+            return userB, error
+        
 
     def getPatientCreds(nric):
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
