@@ -20,20 +20,5 @@ def validateLogout():
         shutil.rmtree("FYP/static/doctorimages")
     except:
         pass
-    try:
-        shutil.rmtree("FYP/static/temp")
-    except:
-        pass
-    try:
-        shutil.rmtree("FYP/static/pati")
-    except:
-        pass
-    try:
-        shutil.rmtree("FYP/deeplearning/train")
-    except:
-        pass
-    try:
-        shutil.rmtree("FYP/deeplearning/val")
-    except:
-        pass
+    
     return render_template('login.html')
