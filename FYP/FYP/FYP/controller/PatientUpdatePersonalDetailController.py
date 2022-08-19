@@ -25,5 +25,5 @@ def updatePersonalDetail():
     password = request.form['password']
 
     #if 'logged_in' in session:
-    userA = User.updatePersonalDetail(name, nric, age, gender, username, password)
+    userA = User.updatePersonalDetail(name, nric, age, gender, username, password, 'patient')
     return render_template('PatientUpdatePersonalDetail.html', userA = userA)
