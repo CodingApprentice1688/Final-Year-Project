@@ -7,6 +7,7 @@ from flask import render_template
 from FYP import app
 from FYP import mysql
 from .camera import VideoCamera
+import shutil
 
 from flask import Flask,render_template, request, redirect, url_for, Response, session
 from flask_mysqldb import MySQL
@@ -63,6 +64,22 @@ def HealthcareStaff_Main():
 @app.route('/Admin_Main')
 def Admin_Main():
     """Renders the home page."""
+    try:
+        shutil.rmtree("FYP/static/temp")
+    except:
+        pass
+    try:
+        shutil.rmtree("FYP/static/pati")
+    except:
+        pass
+    try:
+        shutil.rmtree("FYP/deeplearning/train")
+    except:
+        pass
+    try:
+        shutil.rmtree("FYP/deeplearning/val")
+    except:
+        pass
     year = datetime.now().date()
     message = ''
     msg = ''
