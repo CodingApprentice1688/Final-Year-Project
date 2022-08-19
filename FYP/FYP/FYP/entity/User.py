@@ -141,3 +141,14 @@ class User:
         cursor.execute ("SELECT * FROM user WHERE name LIKE %s AND role = %s", ('%' + name + '%', pat, ))
         patient = cursor.fetchall()
         return (patient)
+
+
+    def checkUsername(username):
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM user WHERE username = % s', (username, ))
+        existingUsername = cursor.fetchall()
+
+        if not existingUsername:
+            return True
+        else:
+            return False

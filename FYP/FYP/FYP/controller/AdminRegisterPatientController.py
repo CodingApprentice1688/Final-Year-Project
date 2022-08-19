@@ -66,9 +66,17 @@ def adminRetainForm():
     age = request.form['age']
     gender = request.form['gender']
     ten = 0
-    return render_template(
-        'AdminRegisterPatient.html', ten = ten, dform = "none", dcheck = "inline", dcheck1 = "none", submitb = "none", username = username,
-                               password = password, name = name, nric = nric, age = age, gender = gender)
+
+    res = User.checkUsername(username)
+
+    if res:
+        return render_template(
+            'AdminRegisterPatient.html', ten = ten, dform = "none", dcheck = "inline", dcheck1 = "none", submitb = "none", username = username,
+                                   password = password, name = name, nric = nric, age = age, gender = gender)
+    else:
+        error = 'That username is taken, please enter another one!'
+        return render_template(
+        'AdminRegisterPatient.html', ten = ten, dform = "block", dcheck = "none", dcheck1 = "none", submitb = "none", error = error)
 
 
 
