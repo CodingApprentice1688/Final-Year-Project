@@ -29,21 +29,16 @@ import MySQLdb.cursors
 
 
 def extract_face(filename, required_size=(200, 200)):
-    # load image from file
     image = Image.open(filename)
     image = image.convert('RGB')
     pixels = asarray(image)
-    # use MTCNN face detector to detect faces inside the image
     detector = MTCNN()
     results = detector.detect_faces(pixels)
     if results:
         x1, y1, width, height = results[0]['box']
-        # bug fix
         x1, y1 = abs(x1), abs(y1)
         x2, y2 = x1 + width, y1 + height
-        # extract the face
         face = pixels[y1:y2, x1:x2]
-        # resize pixels to the model size
         image = Image.fromarray(face)
         image = image.resize(required_size)
         face_array = asarray(image)
@@ -60,7 +55,7 @@ def extract_face(filename, required_size=(200, 200)):
 def validateImage():
     VideoCamera().capture_1_pic()
 
-    model = load_model("FYP/deeplearning/model/my_model_final.h5")
+    model = load_model("FYP/deeplearning/model/vggface_model_30.h5")
     try:
         result, pixels = extract_face('FYP/static/images/loginpic.jpg')
     except:
