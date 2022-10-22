@@ -39,8 +39,9 @@ def DisplayPatientBMI():
 @app.route('/PatientBMIController', methods=['GET', 'POST'])
 def calculateBMI():
     VideoCamera().capture_1_pic()
-    rf_model = "FYP/deeplearning/model/rf_bmi_model_tuned"
-    model = joblib.load(rf_model)
+
+    svr_model_stored = 'FYP/deeplearning/model/svr_bmi_model'
+    model = joblib.load(svr_model_stored)
     
     if 'logged_in' in session: 
         img_location = 'FYP/static/images/loginpic.jpg'
