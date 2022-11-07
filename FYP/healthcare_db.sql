@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 19, 2022 at 12:39 PM
+-- Generation Time: Nov 07, 2022 at 11:20 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -20,21 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `healthcare_db`
 --
-
-DELIMITER $$
---
--- Procedures
---
-CREATE DEFINER=`root`@`localhost` PROCEDURE `filldates` (`dateStart` DATE, `dateEnd` DATE)   BEGIN
-	WHILE dateStart <= dateEnd DO
-		INSERT INTO booking (_date, _day, starttime) VALUES (dateStart, DAYOFWEEK(dateStart), '09:00');
-        INSERT INTO booking (_date, _day, starttime) VALUES (dateStart, DAYOFWEEK(dateStart), '13:00');
-        INSERT INTO booking (_date, _day, starttime) VALUES (dateStart, DAYOFWEEK(dateStart), '18:00');
-        SET dateStart = date_add(dateStart, INTERVAL 1 DAY);
-	END WHILE;
-END$$
-
-DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -75,7 +60,16 @@ INSERT INTO `appointments` (`appointment_id`, `queue_number`, `username`, `name`
 (21, 1, 'wenling', 'Leong Wen', 'H32345678', '2022-08-19', '09:00:00', 'ENT', 'Greg Han', 'Sore throat'),
 (22, 0, 'kingslee', 'Seah Kings Lee', 'S32583680', '2022-07-18', '10:00:00', 'ENT', 'Greg Han', 'Runny nose'),
 (24, 0, 'kingslee', 'Seah Kings Lee', 'S32583680', '2022-07-22', '16:00:00', 'Radiology', 'Shin Tan', 'Follow up on the treatment'),
-(25, 2, 'kingslee', 'Seah Kings Lee', 'S32583680', '2022-08-19', '13:00:00', 'ENT', 'Greg Han', 'Follow up on throat infection');
+(25, 2, 'kingslee', 'Seah Kings Lee', 'S32583680', '2022-08-19', '13:00:00', 'ENT', 'Greg Han', 'Follow up on throat infection'),
+(29, 0, 'morgan', 'Kuo Tzu-Chi', 'P32345678', '2022-08-24', '13:00:00', 'ENT', 'Greg Han', 'Runny Nose'),
+(30, 1, 'oswaldo', 'Oswaldo', 'T1235467P', '2022-08-25', '09:00:00', 'ENT', 'Greg Han', 'Sore throat'),
+(31, 0, 'morgan', 'Kuo Tzu-Chi', 'P32345678', '2022-08-25', '09:00:00', 'ENT', 'Greg Han', 'Sore throat'),
+(32, 0, 'morgan', 'Kuo Tzu-Chi', 'P32345678', '2022-08-25', '13:00:00', 'ENT', 'Greg Han', 'Sore neck'),
+(33, 0, 'jonathan', 'Jonathan', 'S38692740', '2022-07-16', '15:30:00', 'Radiology', 'Shin Tan', 'take lung x-ray'),
+(36, 0, 'jonathan', 'Jonathan', 'S38692740', '2022-07-17', '15:30:00', 'Radiology', 'Shin Tan', 'follow up x-ray'),
+(37, 1, 'jonathan', 'Jonathan', 'S38692740', '2022-08-27', '09:00:00', 'Dermatology', 'Stephen Strange', 'itchy skin'),
+(40, 0, 'oswaldo', 'Oswaldo', 'T1235467P', '2022-08-27', '18:00:00', 'Dermatology', 'Stephen Strange', 'follow up itchy skin'),
+(42, 0, 'morgan', 'Kuo Tzu-Chi', 'P32345678', '2022-08-27', '13:00:00', 'Dermatology', 'Stephen Strange', 'skin burn');
 
 -- --------------------------------------------------------
 
@@ -807,17 +801,17 @@ INSERT INTO `booking` (`_date`, `_day`, `_dayofweek`, `starttime`, `endtime`, `d
 ('2022-08-23', 3, 'Tuesday', '13:00:00', '17:00:00', 'ENT', 'A.5.20A', 'Greg Han', 8),
 ('2022-08-23', 3, 'Tuesday', '18:00:00', '22:00:00', 'Cardiology', 'A.5.20B', 'Shin Tan', 8),
 ('2022-08-24', 4, 'Wednesday', '09:00:00', '12:00:00', 'ENT', 'C.3.17', 'Greg Han', 6),
-('2022-08-24', 4, 'Wednesday', '13:00:00', '17:00:00', 'ENT', 'A.5.20A', 'Greg Han', 8),
+('2022-08-24', 4, 'Wednesday', '13:00:00', '17:00:00', 'ENT', 'A.5.20A', 'Greg Han', 7),
 ('2022-08-24', 4, 'Wednesday', '18:00:00', '22:00:00', 'Cardiology', 'A.5.20B', 'Shin Tan', 8),
-('2022-08-25', 5, 'Thursday', '09:00:00', '12:00:00', 'ENT', 'C.3.17', 'Greg Han', 6),
-('2022-08-25', 5, 'Thursday', '13:00:00', '17:00:00', 'ENT', 'A.5.20A', 'Greg Han', 8),
+('2022-08-25', 5, 'Thursday', '09:00:00', '12:00:00', 'ENT', 'C.3.17', 'Greg Han', 4),
+('2022-08-25', 5, 'Thursday', '13:00:00', '17:00:00', 'ENT', 'A.5.20A', 'Greg Han', 7),
 ('2022-08-25', 5, 'Thursday', '18:00:00', '22:00:00', 'Cardiology', 'A.5.20B', 'Shin Tan', 8),
 ('2022-08-26', 6, 'Friday', '09:00:00', '12:00:00', 'ENT', 'C.3.17', 'Greg Han', 6),
 ('2022-08-26', 6, 'Friday', '13:00:00', '17:00:00', 'ENT', 'A.5.20A', 'Greg Han', 8),
 ('2022-08-26', 6, 'Friday', '18:00:00', '22:00:00', 'Cardiology', 'A.5.20B', 'Shin Tan', 8),
-('2022-08-27', 7, 'Saturday', '09:00:00', '12:00:00', 'Dermatology', 'C.3.17', 'Stephen Strange', 6),
-('2022-08-27', 7, 'Saturday', '13:00:00', '17:00:00', 'Dermatology', 'A.5.20A', 'Stephen Strange', 8),
-('2022-08-27', 7, 'Saturday', '18:00:00', '22:00:00', 'Dermatology', 'A.5.20B', 'Stephen Strange', 8),
+('2022-08-27', 7, 'Saturday', '09:00:00', '12:00:00', 'Dermatology', 'C.3.17', 'Stephen Strange', 5),
+('2022-08-27', 7, 'Saturday', '13:00:00', '17:00:00', 'Dermatology', 'A.5.20A', 'Stephen Strange', 6),
+('2022-08-27', 7, 'Saturday', '18:00:00', '22:00:00', 'Dermatology', 'A.5.20B', 'Stephen Strange', 5),
 ('2022-08-28', 1, 'Sunday', '09:00:00', '12:00:00', '', '', '', 0),
 ('2022-08-28', 1, 'Sunday', '13:00:00', '17:00:00', '', '', '', 0),
 ('2022-08-28', 1, 'Sunday', '18:00:00', '22:00:00', '', '', '', 0),
@@ -2341,12 +2335,17 @@ CREATE TABLE `medicalrecords` (
 --
 
 INSERT INTO `medicalrecords` (`record_id`, `appointment_id`, `username`, `vaccination_status`, `blood_pressure`, `temperature`, `heart_rate`, `allergies`, `medicine`, `diagnosis`) VALUES
-(1, 3, 'morgan', 'Vaccinated', '120/80 mmHg', '37.6 degrees Celsius', '70 bpm', 'Pet allergies', 'Telfast D. Qty: 20 tab/s', 'Flu symptoms, nasal congestion.'),
+(1, 3, 'morgan', 'Vaccinated', '120/80 mmHg', '37.6 degrees Celsius', '71 bpm', 'Pet allergies', 'Telfast D. Qty: 20 tab/s', 'Flu symptoms, nasal congestion.'),
 (2, 24, 'kingslee', 'Vaccinated', '100/50 mmHg', '37.6 degrees Celsius', '70 bpm', 'Pet allergies', 'Some lung medicine, etc.', 'Noisy breathing and wheezing.'),
 (3, 9, 'davidgenius', 'Vaccinated', '200/98 mmHg', '37.0 degrees Celsius', '170 bpm', 'Pollens, Peanuts', 'Insulin', 'Elevated blood sugar levels and dehydration. Diagnosed with type II diabetes.'),
 (4, 2, 'wenling', 'Vaccinated', '120/80 mmHg', '37.6 degrees Celsius', '70 bpm', 'N/A', 'Amoxil (amoxicillin) for ear infection. Ibuprofen (Advil, Motrin) to reduce pain or a fever.', 'Left ear bacterial infections.'),
 (5, 8, 'wenling', 'Vaccinated', '90/50 mmHg', '36 degrees Celsius', '70 bpm', 'N/A', 'Amoxil (amoxicillin) for ear infection. Ibuprofen (Advil, Motrin) to reduce pain or a fever.', 'Continue treatment on ear infection.'),
-(7, 22, 'kingslee', 'Vaccinated', '120/80 mmHg', '36.5 degrees Celsius', '70 bpm', 'None', 'Amoxil (amoxicillin) for ear infection. Ibuprofen ', 'Continue treatment on ear infection.');
+(7, 22, 'kingslee', 'Vaccinated', '120/80 mmHg', '36.5 degrees Celsius', '70 bpm', 'None', 'Amoxil (amoxicillin) for ear infection. Ibuprofen ', 'Continue treatment on ear infection.'),
+(12, 29, 'morgan', 'Vaccinated', '120/80', '36.6', '80', 'NIL', 'PANADOL', 'URTI'),
+(14, 31, 'morgan', 'Vaccinated', '60/30 mmHg', '30 Celcius', '40 bpm', 'None', 'None', 'None'),
+(15, 32, 'morgan', 'Vaccinated', '90/60 mmHg', '30 Celcius', '41 bpm', 'None', 'None', 'None'),
+(16, 40, 'oswaldo', 'Vaccinated', '90/60 mmHg', '32 Degree Celcius', '30 bpm', 'Milk', 'None', 'None'),
+(17, 42, 'morgan', 'Vaccinated', '90/60 mmHg', '39 Degree Celcius', '91 bpm', 'None', 'None', 'None');
 
 -- --------------------------------------------------------
 
@@ -2373,7 +2372,7 @@ INSERT INTO `user` (`username`, `password`, `name`, `nric`, `age`, `gender`, `ro
 ('dicky', 'Password123', 'Dicky', 'S8390361', 26, 'Male', 'patient'),
 ('hugotan', 'Password123', 'Hugo Tan', 'M12345678', 23, 'Male', 'patient'),
 ('johnbenedict', 'Password123', 'John Benedict', 'G22345678', 21, 'Male', 'patient'),
-('jonathan', 'Password123', 'Jonathan', 'S38692740', 28, 'Male', 'patient'),
+('jonathan', 'Password123', 'Jonathan', 'S38692740', 27, 'Male', 'patient'),
 ('jonathandoe', 'Password123', 'Jonathan Doe', 'Q12345678', 30, 'Male', 'patient'),
 ('kings', 'Password123', 'Seah Lee', 'J32345654', 21, 'Male', 'healthcare staff'),
 ('kingslee', 'Password123', 'Seah Kings Lee', 'S32583680', 30, 'Male', 'patient'),
@@ -2381,6 +2380,7 @@ INSERT INTO `user` (`username`, `password`, `name`, `nric`, `age`, `gender`, `ro
 ('morgan', 'Password123', 'Kuo Tzu-Chi', 'P32345678', 20, 'Female', 'patient'),
 ('oswal', 'Password123', 'Oswal', 'F34542343', 30, 'Male', 'IT admin'),
 ('oswaldo', 'Password123', 'Oswaldo', 'T1235467P', 23, 'Male', 'patient'),
+('pennyyy', 'Password123', 'Penny Penny', 'G12312312', 32, 'Male', 'patient'),
 ('rebeccabetty', 'Password123', 'Rebecca Betty', 'P12345678', 25, 'Female', 'patient'),
 ('robertwilson', 'Password123', 'Robert Wilson', 'Y12345678', 33, 'Male', 'patient'),
 ('username0', 'Password123', 'User0', 'GGG23230', 30, 'Male', 'patient'),
@@ -2529,13 +2529,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `appointment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `appointment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `medicalrecords`
 --
 ALTER TABLE `medicalrecords`
-  MODIFY `record_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `record_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables
