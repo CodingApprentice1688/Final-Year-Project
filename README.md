@@ -6,6 +6,9 @@ This project is about using facial recognition with a deep learning approach for
 - MySQL
 - Bootstrap
 
+## Demo Video
+https://user-images.githubusercontent.com/103481357/211220123-db5ba5a0-8926-4dd7-a187-b21ab6dd9aca.mp4
+
 
 ## Package Installations
 -     pip install flask
