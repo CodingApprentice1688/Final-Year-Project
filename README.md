@@ -23,7 +23,7 @@ https://user-images.githubusercontent.com/103481357/211220123-db5ba5a0-8926-4dd7
 - Press the Start button for Apache and MySQL Module
 - Press the Admin button for MySQL or go to "http<nolink>://localhost/phpmyadmin/"
 - Create a new database called "healthcare_db"
-- Import the restaurantapp.sql file, which is located inside the database folder (ClinicFace/FYP/healthcare_db.sql) to the database "healthcare_db"
+- Import the healthcare_db.sql file, which is located inside the database folder (ClinicFace/FYP/healthcare_db.sql) to the database "healthcare_db"
 
 ### Running the Application (Visual Studio 2022)
 - Recommended to run the app using the Visual Studio 2022
